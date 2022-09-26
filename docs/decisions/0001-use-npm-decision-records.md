@@ -1,4 +1,4 @@
-# [Use NPM over Yarn Architectural Decision Records]
+# Use NPM over Yarn Architectural Decision Records
 
 * Deciders: [aligg, sawyerh, lorenyu]
 * Date: [2022-09]
