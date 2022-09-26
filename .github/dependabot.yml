@@ -5,7 +5,7 @@
 
 version: 2
 updates:
-  # Maintain dependencies for yarn (uses `npm`)
+  # Maintain dependencies
   - package-ecosystem: "npm"
     directory: "/app"
     schedule:

@@ -2,16 +2,16 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
-First, install dependencies:
+First, install dependencies from the app directory:
 
 ```bash
-yarn
+npm install
 ```
 
 Second, run the development server:
 
 ```bash
-yarn dev
+npm run dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
@@ -103,7 +103,7 @@ We did not follow their [install directions](https://designsystem.digital.gov/do
 
 Compiling the USWDS sass is slow, so the initial build step and subsequent sass re-compiles are slow, but after the design system is set up, we shouldn't need to be regularly re-compiling sass.
 
-Copying the USWDS static assets into the project is handled by a [yarn postinstall](https://classic.yarnpkg.com/lang/en/docs/package-json/#toc-scripts) script in `package.json`.
+Copying the USWDS static assets into the project is handled by a [npm run postinstall](https://docs.npmjs.com/cli/v8/using-npm/scripts) script in `package.json`.
 
 ## Internationalization (i18n)
 
