@@ -6,7 +6,7 @@ services:
   # Define a service for the Next.js application.
   nextjs:
     build: ./app
-    command: ["yarn", "dev"]
+    command: ["npm", "run", "dev"]
     ports:
       # Expose a port to access the application.
       - 3000:3000

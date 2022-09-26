@@ -1,3 +1,9 @@
+/**
+ * @file Storybook's main configuration file that controls the generation of Storybook.
+ * Handles things like config for location of story files and managing presets (which configure webpack and babel).
+ * @see https://storybook.js.org/docs/configurations/default-config/
+ */
+
 const nextConfig = require('../next.config')
 
 module.exports = {
@@ -18,7 +24,7 @@ module.exports = {
       test: /\.scss$/,
       use: [
         'style-loader',
-        'css-loader',
+        { loader: 'css-loader', options: { url: false } }, // this mirrors next.js behavior
         {
           /**
            * Next.js sets this automatically for us, but we need to manually set it here for Storybook.

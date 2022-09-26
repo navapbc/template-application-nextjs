@@ -20,10 +20,9 @@ jobs:
     - uses: actions/setup-node@v1
       with:
         node-version: 16
-    - run: npm install --location=global yarn
-    - run: yarn install --frozen-lockfile
-    - run: yarn build
-    - run: yarn lint
-    - run: yarn format-check
-    - run: yarn test
+    - run: npm ci
+    - run: npm run build
+    - run: npm run lint
+    - run: npm run format-check
+    - run: npm run test
     
