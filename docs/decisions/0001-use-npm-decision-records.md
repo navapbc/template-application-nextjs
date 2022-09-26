@@ -18,4 +18,4 @@ We considered the merits of yarn and npm only when making this decision.
 Chose npm to reduce installations and bureaucratic hurdles for folks using this template out of the box. 
 
 ## Links
-* [Original github issue for reference] [https://github.com/navapbc/template-application-nextjs/issues/11]
+* [Original github issue for reference](https://github.com/navapbc/template-application-nextjs/issues/11)
