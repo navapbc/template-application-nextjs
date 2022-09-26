@@ -17,7 +17,7 @@ This template includes setup for:
 
 You can run the Next.js app without docker as follows:
 
-1. `npm run install`
+1. `npm install`
 2. `npm run dev`
 3. Navigate to `localhost:3000` in your browser to view the application
 
