@@ -1,7 +1,7 @@
 # Use NPM over Yarn Architectural Decision Records
 
 * Deciders: @aligg, @sawyerh, @lorenyu
-* Date: [2022-09]
+* Date: 2022-09
 
 
 ## Context and Problem Statement
