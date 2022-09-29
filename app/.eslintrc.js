@@ -1,24 +1,49 @@
 module.exports = {
-  env: {
-    'jest/globals': true,
-  },
-  extends: [
-    'plugin:@typescript-eslint/recommended',
-    'plugin:@typescript-eslint/recommended-requiring-type-checking',
-    'next',
-    'nava',
-    'prettier',
-  ],
-  parser: '@typescript-eslint/parser',
-  parserOptions: {
-    tsconfigRootDir: __dirname,
-    project: ['./tsconfig.json'],
-  },
-  plugins: ['@typescript-eslint', 'jest'],
   root: true,
-  rules: {
-    'react/react-in-jsx-scope': 'off',
-    '@typescript-eslint/no-unused-vars': 'error',
-    '@typescript-eslint/no-explicit-any': 'error',
+  extends: [
+    'nava',
+    // Disable ESLint code formatting rules which conflict with Prettier
+    'prettier',
+    // `next` should be extended last according to their docs
+    // https://nextjs.org/docs/basic-features/eslint
+    'next/core-web-vitals',
+  ],
+  // Additional lint rules. These get layered onto the top-level rules.
+  overrides: [
+    // Lint config specific to Test files
+    {
+      files: ['tests/**'],
+      plugins: ['jest'],
+      extends: ['plugin:jest/recommended'],
+    },
+    // Lint config specific to TypeScript files
+    {
+      files: '**/*.+(ts|tsx)',
+      parserOptions: {
+        // These paths need defined to support rules that require type information
+        tsconfigRootDir: __dirname,
+        project: ['./tsconfig.json'],
+      },
+      extends: [
+        'plugin:@typescript-eslint/recommended',
+        // Disable vanilla ESLint rules that conflict with those in @typescript-eslint
+        'plugin:@typescript-eslint/eslint-recommended',
+        // Rules that specifically require type information
+        'plugin:@typescript-eslint/recommended-requiring-type-checking',
+      ],
+      plugins: ['@typescript-eslint'],
+      rules: {
+        // Prevent dead code accumulation
+        '@typescript-eslint/no-unused-vars': 'error',
+        // The usage of `any` defeats the purpose of typescript. Consider using `unknown` type instead instead.
+        '@typescript-eslint/no-explicit-any': 'error',
+      },
+    },
+  ],
+  settings: {
+    // Support projects where Next.js isn't installed in the root directory (such as a monorepo)
+    next: {
+      rootDir: __dirname,
+    },
   },
 }
