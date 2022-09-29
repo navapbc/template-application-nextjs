@@ -30,13 +30,14 @@ For linting, this application is leveraging `eslint`, `prettier` and Nava's [esl
 
 In VSCode, do so by creating a `.vscode/settings.json` file with:
 
-```
+```json
 {
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
   },
   "editor.formatOnSave": true,
-  "editor.defaultFormatter": "esbenp.prettier-vscode"
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "eslint.workingDirectories": ["./app"]
 }
 ```
 
@@ -47,15 +48,6 @@ For typechecking, this application is leveraging Next.js' [incremental typecheck
 ```
 
 Note: make sure TypeScript and Javascript Language Features are enabled in VS Code Extensions.
-
-### Eslint rules explained
-
-- "@typescript-eslint/no-unused-vars": "error"
-  - Disallows unused variables-- prevents dead code accumulation.
-- "@typescript-eslint/no-explicit-any": "error"
-  - Disallows usage of `any` type. The usage of `any` defeats the purpose of typescript. Consider using `unknown` type instead instead.
-- "react/resct-in-jsx-scope": "off"
-  - suppress errors for missing 'import React' in files because NextJS does this for us.
 
 ### Tsconfig additions to auto-generated file
 
