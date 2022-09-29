@@ -1,7 +1,5 @@
 {
   "importOrder": ["^components/(.*)$", "^[./]"],
   "importOrderSeparation": true,
-  "importOrderSortSpecifiers": true,
-  "semi": false,
-  "singleQuote": true
+  "importOrderSortSpecifiers": true
 }
