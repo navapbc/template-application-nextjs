@@ -51,7 +51,7 @@
     "i18next-http-backend": "^1.4.1",
     "jest": "^28.1.0",
     "jest-axe": "^6.0.0",
-    "jest-cli": "^28.1.0",
+    "jest-cli": "^29.1.2",
     "jest-environment-jsdom": "^28.1.0",
     "postcss": "^8.4.14",
     "postcss-loader": "^7.0.0",
