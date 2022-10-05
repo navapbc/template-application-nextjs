@@ -12,6 +12,7 @@
   "npm": {
     "stabilityDays": 3
   },
+  "enabledManagers": ["npm"],
   "packageRules": [{
     "matchPackagePatterns": [
       "*"
@@ -33,5 +34,4 @@
     "matchPackagePatterns": ["jest"],
     "groupName": "jest"
   }]
-  
 }
