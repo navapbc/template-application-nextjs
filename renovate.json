@@ -8,6 +8,10 @@
   "schedule": [
     "before 3am on Monday"
   ],
+  "rangeStrategy": "replace",
+  "npm": {
+    "stabilityDays": 3
+  },
   "packageRules": [{
     "matchPackagePatterns": [
       "*"
@@ -18,12 +22,6 @@
     ],
     "groupName": "all non-major dependencies",
     "groupSlug": "all-minor-patch",
-    "extends": ["schedule:weekly"]
-  }, {
-    "matchPackagePatterns": [
-      "*"
-    ],
-    "rangeStrategy": "replace"
   },
   {
     "packageNames": ["node"],
@@ -34,8 +32,6 @@
   }, {
     "matchPackagePatterns": ["jest"],
     "groupName": "jest"
-  }], 
-  "npm": {
-    "stabilityDays": 3
-  }
+  }]
+  
 }
