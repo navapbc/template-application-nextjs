@@ -4,6 +4,7 @@
     "config:base"
   ],
   "ignoreUnstable": true,
+  "timezone": "America/Los_Angeles",
   "packageRules": [{
     "matchPackagePatterns": [
       "*"
