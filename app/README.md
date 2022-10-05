@@ -8,13 +8,7 @@ First, install dependencies from the app directory:
 npm install
 ```
 
-If desired, run the tests:
-
-```bash
-npm test
-```
-
-Then, run the development server:
+Second, run the development server:
 
 ```bash
 npm run dev
@@ -67,6 +61,8 @@ Note: make sure TypeScript and Javascript Language Features are enabled in VS Co
 ### Package.json
 
 #### Scripts
+
+These can be run with `npm run [name of script]`.
 
 - `format`: instructs prettier to rewrite files with fixes for formatting violations.
 - `format-check`: instructs prettier to only check files for violations without fixing them.
