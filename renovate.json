@@ -6,44 +6,32 @@
   "ignoreUnstable":true,
   "timezone":"America/Los_Angeles",
   "schedule":[
-     "before 3am on Monday"
+     "after 3am on the 1st and 3rd day instance on Monday",
+     "before 5pm on the 1st and 3rd day instance on Monday"
   ],
+  "enabledManagers":[
+    "npm"
+ ],
+ "vulnerabilityAlerts": {
+   "labels": ["security"],
+   "schedule": ["at any time"]
+ },
   "rangeStrategy":"replace",
   "npm":{
      "stabilityDays":3
   },
-  "enabledManagers":[
-     "npm"
-  ],
+  
+  "reviewers": ["aligg"],
   "packageRules":[
      {
-        "matchPackagePatterns":[
-           "*"
-        ],
+        "matchPaths": ["app/**"],
         "matchUpdateTypes":[
            "minor",
            "patch"
         ],
         "groupName":"all non-major dependencies",
         "groupSlug":"all-minor-patch"
-     },
-     {
-        "packageNames":[
-           "node"
-        ],
-        "enabled":false
-     },
-     {
-        "matchPackagePatterns":[
-           "eslint"
-        ],
-        "groupName":"eslint"
-     },
-     {
-        "matchPackagePatterns":[
-           "jest"
-        ],
-        "groupName":"jest"
      }
-  ]
+  ], 
+  "ignoreDeps": []
 }
