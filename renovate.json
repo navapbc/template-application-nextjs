@@ -1,37 +1,49 @@
 {
-  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": [
-    "config:base"
+  "$schema":"https://docs.renovatebot.com/renovate-schema.json",
+  "extends":[
+     "config:base"
   ],
-  "ignoreUnstable": true,
-  "timezone": "America/Los_Angeles",
-  "schedule": [
-    "before 3am on Monday"
+  "ignoreUnstable":true,
+  "timezone":"America/Los_Angeles",
+  "schedule":[
+     "before 3am on Monday"
   ],
-  "rangeStrategy": "replace",
-  "npm": {
-    "stabilityDays": 3
+  "rangeStrategy":"replace",
+  "npm":{
+     "stabilityDays":3
   },
-  "enabledManagers": ["npm"],
-  "packageRules": [{
-    "matchPackagePatterns": [
-      "*"
-    ],
-    "matchUpdateTypes": [
-      "minor",
-      "patch"
-    ],
-    "groupName": "all non-major dependencies",
-    "groupSlug": "all-minor-patch",
-  },
-  {
-    "packageNames": ["node"],
-      "enabled": false
-  }, {
-    "matchPackagePatterns": ["eslint"],
-    "groupName": "eslint"
-  }, {
-    "matchPackagePatterns": ["jest"],
-    "groupName": "jest"
-  }]
+  "enabledManagers":[
+     "npm"
+  ],
+  "packageRules":[
+     {
+        "matchPackagePatterns":[
+           "*"
+        ],
+        "matchUpdateTypes":[
+           "minor",
+           "patch"
+        ],
+        "groupName":"all non-major dependencies",
+        "groupSlug":"all-minor-patch"
+     },
+     {
+        "packageNames":[
+           "node"
+        ],
+        "enabled":false
+     },
+     {
+        "matchPackagePatterns":[
+           "eslint"
+        ],
+        "groupName":"eslint"
+     },
+     {
+        "matchPackagePatterns":[
+           "jest"
+        ],
+        "groupName":"jest"
+     }
+  ]
 }
