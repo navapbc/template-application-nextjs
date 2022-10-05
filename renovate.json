@@ -31,10 +31,16 @@
         "groupName":"all non-major dependencies",
         "groupSlug":"all-minor-patch"
      },
-   {
-      "matchPackageNames": ["react", "react-dom", "@types/react", "@types/react-dom"],
-      "groupName": "react"
-   }
+     {
+      "matchDepTypes": [
+        "peerDependencies"
+      ],
+      "enabled": false
+    },
+      {
+         "matchPackageNames": ["react", "react-dom", "@types/react", "@types/react-dom"],
+         "groupName": "react"
+      }
   ], 
   "ignoreDeps": [],
   "assignees": [],
