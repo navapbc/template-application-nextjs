@@ -10,11 +10,15 @@ const Layout = ({ children }: Props): ReactElement => {
 
   return (
     <div className="container">
-      <header className="header">
+      <header /*add your agency's header class here*/>
         <em>{t("Layout.header")}</em>
       </header>
-      <main className="main">{children}</main>
-      <footer className="footer">
+      <main className="grid-container">
+        <div className="grid-row">
+          <div className="grid-col">{children}</div>
+        </div>
+      </main>
+      <footer /*add your agency's footer class here*/>
         <em>{t("Layout.footer")}</em>
       </footer>
     </div>

@@ -8,7 +8,13 @@ First, install dependencies from the app directory:
 npm install
 ```
 
-Second, run the development server:
+If desired, run the tests:
+
+```bash
+npm test
+```
+
+Then, run the development server:
 
 ```bash
 npm run dev
