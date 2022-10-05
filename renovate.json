@@ -3,11 +3,9 @@
   "extends":[
      "config:base"
   ],
-  "ignoreUnstable":true,
   "timezone":"America/Los_Angeles",
   "schedule":[
-     "after 3am on the 1st and 3rd day instance on Monday",
-     "before 5pm on the 1st and 3rd day instance on Monday"
+     "after 3am on the 1st and 3rd day instance on Monday"
   ],
   "enabledManagers":[
     "npm"
@@ -18,10 +16,11 @@
  },
   "rangeStrategy":"replace",
   "npm":{
-     "stabilityDays":3
+     "stabilityDays": 2
   },
-  
-  "reviewers": ["aligg"],
+  "ignoreUnstable":true,
+  "labels": ["dependency-upgrade"],
+  "prHourlyLimit": 5,
   "packageRules":[
      {
         "matchPaths": ["app/**"],
@@ -31,7 +30,13 @@
         ],
         "groupName":"all non-major dependencies",
         "groupSlug":"all-minor-patch"
-     }
+     },
+   {
+      "matchPackageNames": ["react", "react-dom", "@types/react", "@types/react-dom"],
+      "groupName": "react"
+   }
   ], 
-  "ignoreDeps": []
+  "ignoreDeps": [],
+  "assignees": [],
+  "reviewers": []
 }
