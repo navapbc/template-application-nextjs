@@ -5,6 +5,9 @@
   ],
   "ignoreUnstable": true,
   "timezone": "America/Los_Angeles",
+  "schedule": [
+    "before 3am on Monday"
+  ],
   "packageRules": [{
     "matchPackagePatterns": [
       "*"
