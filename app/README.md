@@ -62,6 +62,8 @@ Note: make sure TypeScript and Javascript Language Features are enabled in VS Co
 
 #### Scripts
 
+These can be run with `npm run [name of script]`.
+
 - `format`: instructs prettier to rewrite files with fixes for formatting violations.
 - `format-check`: instructs prettier to only check files for violations without fixing them.
 - `test`: runs `jest --ci --coverage`. [--ci option](https://jestjs.io/docs/cli#--ci) is provided to prevent automatic creation of snapshots. This requires Jest to be run with `--updateSnapshot`. [--coverage option](https://jestjs.io/docs/cli#--coverageboolean) is provided to instruct jest to collect and report test coverage in output.
