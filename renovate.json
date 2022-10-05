@@ -28,5 +28,11 @@
   {
     "packageNames": ["node"],
       "enabled": false
-    }]
+  }, {
+    "matchPackagePatterns": ["eslint"],
+    "groupName": "eslint"
+  }, {
+    "matchPackagePatterns": ["jest"],
+    "groupName": "jest"
+  }]
 }
