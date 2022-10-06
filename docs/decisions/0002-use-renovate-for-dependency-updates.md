@@ -38,3 +38,6 @@ Since it is low risk to try out (straight-forward to implement, easy to reverse)
 - Renovate favors pinning dependencies [reference](https://docs.renovatebot.com/dependency-pinning/). We can disable pinning with `"rangeStrategy":"replace"`
 - We can pull in upgrades only after they've been in the wild for a few days using: `"npm": {"stabilityDays": 2}`
 - Renovate offers quite a few presets (we're pulling in their base config to start). You can read through presets [here](https://docs.renovatebot.com/presets-config/)
+
+## Renovate <> Dependabot Configuration 
+Note that for renovate to read vulnerability alerts, it needs access to dependency graph and dependabot alerts. More details [here](https://docs.renovatebot.com/configuration-options/#vulnerabilityalerts). 
