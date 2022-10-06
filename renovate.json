@@ -15,11 +15,8 @@
    "schedule": ["at any time"]
  },
   "rangeStrategy":"replace",
-  "npm":{
-     "stabilityDays": 2
-  },
   "ignoreUnstable":true,
-  "labels": ["dependency-upgrade"],
+  "labels": ["dependencies"],
   "prHourlyLimit": 5,
   "packageRules":[
      {

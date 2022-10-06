@@ -19,7 +19,7 @@ Some Renovate drawbacks:
 * Supports (I think) fewer languages than dependabot. Renovate currently supports Java, JavaScript, Python, Ruby, PHP, GoLang and a few addl languages [See language support section](https://docs.renovatebot.com/)
 
 ## Considered Options
-We mostly considered the merits of renovate and dependabot when making this decision. Other players in this space include snyk, which as I understand covers more than our specific usecase. 
+We mostly considered the merits of renovate and dependabot when making this decision. Other players in this space include snyk, which as I understand covers more than our specific use-case. 
 
 ## Decision Outcome
 Since it is low risk to try out (straight-forward to implement, easy to reverse) renovate we decided to go for it.
@@ -28,7 +28,7 @@ Since it is low risk to try out (straight-forward to implement, easy to reverse)
 * [Renovate Docs](https://docs.renovatebot.com/)
 * [Renovate Tutorial](https://github.com/renovatebot/tutorial)
 
-## Links - Renovate Config File Examples
+## Links - Some Renovate Config File Examples
 * [Storybook](https://github.com/storybookjs/storybook/blob/next/.github/renovate.json5)
 * [freeCodeCamp](https://github.com/freeCodeCamp/freeCodeCamp/blob/22bb60196ab63160a5e4242da6eca31536d380e1/renovate.json)
 * [Prisma](https://github.com/prisma/prisma/blob/6ec631c27446baed0a65d8ddc01cb26fab776572/.github/renovate.json)
@@ -37,4 +37,4 @@ Since it is low risk to try out (straight-forward to implement, easy to reverse)
 - Only target npm packages: `"enabledManagers":["npm"]`
 - Renovate favors pinning dependencies [reference](https://docs.renovatebot.com/dependency-pinning/). We can disable pinning with `"rangeStrategy":"replace"`
 - We can pull in upgrades only after they've been in the wild for a few days using: `"npm": {"stabilityDays": 2}`
-- Renovate offers quite a few presets (we're pulling in their base config to start). YOu can read through presets [here](https://docs.renovatebot.com/presets-config/)
+- Renovate offers quite a few presets (we're pulling in their base config to start). You can read through presets [here](https://docs.renovatebot.com/presets-config/)
