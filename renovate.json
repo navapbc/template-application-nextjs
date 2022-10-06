@@ -18,6 +18,7 @@
   "ignoreUnstable":true,
   "labels": ["dependencies"],
   "prHourlyLimit": 5,
+  "stabilityDays": 3,
   "packageRules":[
      {
         "matchPaths": ["app/**"],
