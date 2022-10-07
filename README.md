@@ -2,6 +2,8 @@
 
 This is a template repository for a Next.js-based application. While this template should be opinionated in some ways in order to reduce setup overhead where possible, it should be application-agnostic, meaning that any type of Next.js application should be able to be created from this template.
 
+A template repository for common project infrastructure can be found [here](https://github.com/navapbc/template-infra).
+
 ## Contents
 
 This template includes setup for:
@@ -9,7 +11,6 @@ This template includes setup for:
 - `.github`: common GitHub configuration such as an empty PR template and a directory for GitHub workflows
 - `app`: setup for the Next.js application should go here
 - `docs`: a directory for project documentation
-- `infra`: a directory for common infrastructure
 
 ## How to Run
 
@@ -36,15 +37,15 @@ A `docker-compose.yml` has been included to support local development and deploy
 2. Make sure you have [Docker Desktop](https://www.docker.com/products/docker-desktop/) installed & running.
 3. Run `docker-compose up -d --build` to build the image and start the container.
 4. Navigate to `localhost:3000` in your browser to view the application. Note that it takes a few minutes for the initial sass compiling to complete and load.
-5. Run `docker-compose exec nextjs npm run storybook` to build and run storybook. Note that the initial sass compiling for storybook also takes a few  minutes to complete and load
-5. Navigate to `localhost:6006` in your browser to view storybook.
-6. Run `docker-compose down` when you are done to delete the container.
+5. Run `docker-compose exec nextjs npm run storybook` to build and run storybook. Note that the initial sass compiling for storybook also takes a few minutes to complete and load
+6. Navigate to `localhost:6006` in your browser to view storybook.
+7. Run `docker-compose down` when you are done to delete the container.
 
 To support local development, the `docker-compose.yml` runs the `nextjs` container in development mode (i.e. `npm run dev`) instead of production mode (i.e. `npm run start`). This allows Next.js to do things like hot reload.
 
 The docker-compose file bind mounts `app` on the host machine to `/srv` in the guest machine. However, to ensure that the container uses the correct packages in `node_modules`, we use a named docker volume for the `node_modules` dir. The named volume will take precedence over the bind mount, so that the `node_modules` dir in the guest machine will not be overwritten with the host machine's `node_modules` dir. This also means that if you run `npm install <package>` on the host machine in development (which will update `package-lock.lock`), you'll also need to run `docker-compose exec nextjs npm ci` to update `node_modules` in the guest machine.
 
-## Getting started 
+## Getting started
 
 ### Create a new repository from this template
 
@@ -71,28 +72,29 @@ Once the repository has been created, the CI stored in this template (`.github/w
 <img src="./docs/imgs/verify_ci.svg" width="50%"/>
 
 - In Settings > Branches:
-    - Click "Add branch protection rule"
-    - Enter "main" for the Branch name pattern
-    - Check the following:
-        - Require a pull request before merging
-        - Require approvals
-            - Minimum of 1
-        - Dismiss stale pull request approvals when new commits are pushed
-    - Require status checks to pass before merging
-    - Require branches to be up to date before merging
-    - In the search box add the following:
-        - pass/fail checks
-        - Analyze (javascript)
+  - Click "Add branch protection rule"
+  - Enter "main" for the Branch name pattern
+  - Check the following:
+    - Require a pull request before merging
+    - Require approvals
+      - Minimum of 1
+    - Dismiss stale pull request approvals when new commits are pushed
+  - Require status checks to pass before merging
+  - Require branches to be up to date before merging
+  - In the search box add the following:
+    - pass/fail checks
+    - Analyze (javascript)
 
 <img src="./docs/imgs/add_branch_protection_rule.svg" width="50%"/>
 
 <img src="./docs/imgs/the_rules.svg" width="50%"/>
 
 ### Setup other Github settings
+
 - In Settings > General:
-  - Under "Features": 
+  - Under "Features":
     - Enable/disable features that you want for your project. For example, turn off the Wiki if your project won't be using it
-  - Under "Pull Requests": 
+  - Under "Pull Requests":
     - Enable only the merge options your project should support
     - Check "Always suggest updating pull request branches" to encourage pull requests to be updated when they deviate from `main`
     - Check "Automatically delete head branches" to keep set Github to automatically delete branches once they are merged into `main` in a PR
@@ -100,8 +102,8 @@ Once the repository has been created, the CI stored in this template (`.github/w
 <img src="./docs/imgs/pull_request_settings.svg" width="50%"/>
 
 - In Settings > Collaborators:
-  -  Add all collaborators that should have access to the git repo
 
+  - Add all collaborators that should have access to the git repo
 
 - In Settings > Code security and analysis:
   - Click "Enable" for "Dependabot alerts"
@@ -115,4 +117,4 @@ Once the repository has been created, the CI stored in this template (`.github/w
 
 ### Clone the repo to your local development environment
 
-Deploy the infrastructure from the infra folder by following the README.md instructions... I need to create the CD from [WMDP-96 Setup github actions for CD](https://wicmtdp.atlassian.net/browse/WMDP-96) then redo the steps above to verify if cd.yml will run, should also consider renaming ci.yml
+Once you have set your repo up, you can clone it to your local development environment using `git clone [repo address]` or a UI/IDE tool, if preferred.
