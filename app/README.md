@@ -62,19 +62,19 @@ Note: make sure TypeScript and Javascript Language Features are enabled in VS Co
 
 ### Scripts
 
-These can be run with `npm run [name of script]`.
+These can be run with `npm run [name of script]`. For more about npm scripts, see [here](https://docs.npmjs.com/cli/v8/using-npm/scripts).
 
-- `build`: builds the app
-- `dev`: runs the app in development mode
-- `format`: instructs prettier to rewrite files with fixes for formatting violations.
-- `format-check`: instructs prettier to only check files for violations without fixing them.
-- `lint`: runs ESLint and reports warnings and errors
-- `postinstall`: copies the USWDS static assets into the project
-- `start`: runs the app in production mode
-- `storybook`: starts storybook
-- `storybook-build`: builds the static content for storybook
-- `test`: runs `jest --ci --coverage`. [--ci option](https://jestjs.io/docs/cli#--ci) is provided to prevent automatic creation of snapshots. This requires Jest to be run with `--updateSnapshot`. [--coverage option](https://jestjs.io/docs/cli#--coverageboolean) is provided to instruct jest to collect and report test coverage in output.
-- `ts:check`: runs `tsc --noEmit`. [--noEmit option](https://www.typescriptlang.org/tsconfig#noEmit) is provided to prevent type checker compiler from outputting files.
+- `build`: Builds the app.
+- `dev`: Runs the app in development mode.
+- `format`: Instructs prettier to rewrite files with fixes for formatting violations.
+- `format-check`: Instructs prettier to only check files for violations without fixing them.
+- `lint`: Runs ESLint and reports warnings and errors.
+- `postinstall`: Copies the USWDS static assets into the project. `postinstall` runs automatically after `install`.
+- `start`: Runs the app in production mode.
+- `storybook`: Starts storybook.
+- `storybook-build`: Builds the static content for storybook.
+- `test`: Runs `jest --ci --coverage`. [--ci option](https://jestjs.io/docs/cli#--ci) is provided to prevent automatic creation of snapshots. This requires Jest to be run with `--updateSnapshot`. [--coverage option](https://jestjs.io/docs/cli#--coverageboolean) is provided to instruct jest to collect and report test coverage in output.
+- `ts:check`: Runs `tsc --noEmit`. [--noEmit option](https://www.typescriptlang.org/tsconfig#noEmit) is provided to prevent type checker compiler from outputting files.
 
 ### Dependencies
 
