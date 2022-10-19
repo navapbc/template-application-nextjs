@@ -58,32 +58,73 @@ Note: make sure TypeScript and Javascript Language Features are enabled in VS Co
 - `incremental: true` -- enables incremental typechecking. Incremental typechecking creates a series of `.tsbuildinfo` files to dave information from last compilation. This expedites type checking during build.
 - `baseUrl: "."` & `paths: { @pages/*: [pages/*] }` -- These two, in tandem, setup module path aliases for cleaner imports. To utilize this, import files like: `import Home from "@pages/index";`
 
-### Package.json
+## Package.json
 
-#### Scripts
+### Scripts
 
-- `format`: instructs prettier to rewrite files with fixes for formatting violations.
-- `format-check`: instructs prettier to only check files for violations without fixing them.
-- `test`: runs `jest --ci --coverage`. [--ci option](https://jestjs.io/docs/cli#--ci) is provided to prevent automatic creation of snapshots. This requires Jest to be run with `--updateSnapshot`. [--coverage option](https://jestjs.io/docs/cli#--coverageboolean) is provided to instruct jest to collect and report test coverage in output.
-- `ts:check`: runs `tsc --noEmit`. [--noEmit option](https://www.typescriptlang.org/tsconfig#noEmit) is provided to prevent type checker compiler from outputting files.
+These can be run with `npm run [name of script]`. For more about npm scripts, see [here](https://docs.npmjs.com/cli/v8/using-npm/scripts).
 
-#### Dependencies
+- `build`: Builds the app.
+- `dev`: Runs the app in development mode.
+- `format`: Instructs prettier to rewrite files with fixes for formatting violations.
+- `format-check`: Instructs prettier to only check files for violations without fixing them.
+- `lint`: Runs ESLint and reports warnings and errors.
+- `postinstall`: Copies the USWDS static assets into the project. `postinstall` runs automatically after `install`.
+- `start`: Runs the app in production mode.
+- `storybook`: Starts storybook.
+- `storybook-build`: Builds the static content for storybook.
+- `test`: Runs `jest --ci --coverage`. [--ci option](https://jestjs.io/docs/cli#--ci) is provided to prevent automatic creation of snapshots. This requires Jest to be run with `--updateSnapshot`. [--coverage option](https://jestjs.io/docs/cli#--coverageboolean) is provided to instruct jest to collect and report test coverage in output.
+- `ts:check`: Runs `tsc --noEmit`. [--noEmit option](https://www.typescriptlang.org/tsconfig#noEmit) is provided to prevent type checker compiler from outputting files.
 
-- `@typescript-eslint/parser`: implemented in .eslint.json via `"parser": "@typescript-eslint/parser"`. This [plugin](https://www.npmjs.com/package/@typescript-eslint/parser) works in tandem with other plugins to help facilitate the usage of ESlint with TypeScript.
-- `@types/jest-axe`: This package contains type definitions for [jest-axe](https://www.npmjs.com/package/jest-axe).
+### Dependencies
 
-#### Dev Dependencies
+- `@uswds/uswds`: This [module](https://www.npmjs.com/package/@uswds/uswds) is a library of UI components and a visual style guide for websites for the US federal government.
+- `i18next`: This [module](https://www.npmjs.com/package/i18next) provides an internationalization framework for JavaScript environments.
+- `next`: This [module](https://www.npmjs.com/package/next) provides the Next.js React framework.
+- `next-i18next`: This [module](https://www.npmjs.com/package/next-i18next) provides translation tooling for Next.js apps.
+- `react`: This [module](https://www.npmjs.com/package/react) provides the React library for creating JavaScript user interfaces.
+- `react-dom`: This [module](https://www.npmjs.com/package/react-dom) provides an entry point to the DOM and server renderers for React.
+- `react-i18next`: This [module](https://react.i18next.com/) provides an internationalization framework for React based on i18next.
 
+### Dev Dependencies
+
+- `@babel/core`: This [module](https://babeljs.io/docs/en/babel-core) has the core functionality of babel used for transpiling.
 - `@babel/preset-typescript`: This [module](https://babeljs.io/docs/en/babel-preset-typescript) allows us to use babel to transpile TypeScript into Javascript, specifically for [jest testing](https://jestjs.io/docs/getting-started#using-typescript) in our case. Implemented in .babelrc > presets.
-- `@testing-library/dom`: This [module](https://github.com/testing-library/dom-testing-library) provides querying fo.
+- `@storybook/addon-essentials`: This [module](https://github.com/storybookjs/storybook/tree/main/addons/essentials) is a collection of addons for Storybook.
+- `@storybook/builder-webpack5`: This [module](https://www.npmjs.com/package/@storybook/builder-webpack5) is a builder for `webpack5` to build the preview iframe.
+- `@storybook/manager-webpack5`: This [module](https://www.npmjs.com/package/@storybook/manager-webpack5) is a builder for `webpack5` to build the manager UI.
+- `@storybook/react`: This [module](https://www.npmjs.com/package/@storybook/react), Storybook for React, provides a development environment for React components.
+- `@testing-library/dom`: This [module](https://github.com/testing-library/dom-testing-library) provides a way to query the DOM for nodes.
 - `@testing-library/jest-dom`: This [module](https://testing-library.com/docs/ecosystem-jest-dom/) is a companion for testing-library/dom-- it provides DOM element matchers for jest.
 - `@testing-library/react`: This [module](https://testing-library.com/docs/react-testing-library/intro/) works in tandem with testing-library/dom to add APIs for testing React components.
+- `@trivago/prettier-plugin-sort-imports`: This [module](https://www.npmjs.com/package/@trivago/prettier-plugin-sort-imports) provides a plugin to specify how prettier should sort imports.
+- `@types/jest-axe`: This package contains type definitions for [jest-axe](https://www.npmjs.com/package/jest-axe).
+- `@types/node`: This [module](https://www.npmjs.com/package/@types/node) contains type defintions for Node.js.
+- `@types/react`: This [module](https://www.npmjs.com/package/@types/react) contains type defintions for React.
+- `@types/react-dom`: This [module](https://www.npmjs.com/package/@types/react-dom) contains type defintions for react-dom.
+- `@typescript-eslint/eslint-plugin`: This [module](https://www.npmjs.com/package/@typescript-eslint/eslint-plugin) provides lint rules for TypeScript.
+- `@typescript-eslint/parser`: Implemented in .eslint.json via `"parser": "@typescript-eslint/parser"`. This [plugin](https://www.npmjs.com/package/@typescript-eslint/parser) works in tandem with other plugins to help facilitate the usage of ESlint with TypeScript.
 - `eslint`: This [module](https://www.npmjs.com/package/eslint) provides linting. Configuration implemented in .eslintrc.
 - `eslint-config-nava`: This [module](https://github.com/navapbc/eslint-config-nava) contains nava's preferred configurations for eslint. It is implemented in .eslintrc > extensions > nava.
 - `eslint-config-next`: This [module](https://nextjs.org/docs/basic-features/eslint) is automatically installed by nextJS, it includes out of the eslint configuration. Implemented in .eslintrc.json > extends > next.
 - `eslint-config-prettier`: This [module](https://github.com/prettier/eslint-config-prettier) turns off eslint rules that may conflict with prettier. Implemented in .eslintrc > extends > prettier. This module requires that we list `prettier` as the last element of the `extends` object in `eslintrc.json`.
+- `eslint-plugin-jest`: This [module](https://www.npmjs.com/package/eslint-plugin-jest) is an ESLint plugin for Jest.
+- `eslint-plugin-storybook`: This [module](https://www.npmjs.com/package/eslint-plugin-storybook) is an ESLint for Storybook.
+- `i18next-browser-languagedetector`: This [module](https://www.npmjs.com/package/i18next-browser-languagedetector) provides language detection in the browser.
+- `i18next-http-backend`: This [module](https://www.npmjs.com/package/i18next-http-backend) is a i18next backend to be used in Node.js.
+- `jest`: This [module](https://www.npmjs.com/package/jest) provides a framework for JavaScript testing.
+- `jest-axe`: This [module](https://www.npmjs.com/package/jest-axe) aids in testing accessibility through Jest.
+- `jest-cli`: This [module](https://www.npmjs.com/package/jest-cli) provides cli tools for Jest.
 - `jest-environment-jsdom`: This [module](https://www.npmjs.com/package/jest-environment-jsdom) simulates the DOM for testing. Implemented in jest.config.js > testEnvironment.
+- `postcss`: This [module](https://www.npmjs.com/package/postcss) provides JavaScript plugins that help manage and maintain style elements.
+- `postcss-loader`: This [module](https://www.npmjs.com/package/postcss-loader) provides a loader to process CSS.
+- `postcss-preset-env`: This [module](https://www.npmjs.com/package/postcss-preset-env) helps with compatibility of CSS across different browsers and runtime environments.
 - `prettier`: This [module](https://prettier.io/) is used for code formatting. Implemented in .prettierrc.json.
+- `sass`: This [module](https://www.npmjs.com/package/sass) provides a JavaScript implemntation of Sass, a CSS extension language.
+- `sass-loader`: This [module](https://www.npmjs.com/package/sass-loader) compiles Sass/SCSS files into CSS.
+- `storybook-react-i18next`: This [module](https://www.npmjs.com/package/storybook-react-i18next) provides react-i18next Storybook integration.
+- `style-loader`: This [module](https://www.npmjs.com/package/style-loader) can inject CSS into the DOM.
+- `typescript`: This [module](https://www.npmjs.com/package/typescript) contains TypeScript, a language for typed JavaScript.
 
 ## Design System
 
