@@ -26,9 +26,9 @@ i18n
   .use(LanguageDetector)
   .use(Backend)
   .init({
+    ...i18nextOptions,
     ns,
     resources,
-    ...i18nextOptions,
   });
 
 export default i18n;
