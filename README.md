@@ -108,8 +108,8 @@ Once the repository has been created, the CI stored in this template (`.github/w
 - In Settings > Code security and analysis:
   - Click "Enable" for "Dependabot alerts"
   - Click "Enable" for "Dependabot security updates"
+  - For additional information about dependency management, see the section below about dependency management
   - The other security features should already be enabled:
-    - "Dependabot version updates" is controlled by `.github/dependabot.yml`
     - "Code scanning" is controlled by `.github/codeql-analysis.yml`
     - "Secret scanning" is enabled by default
 
@@ -118,3 +118,10 @@ Once the repository has been created, the CI stored in this template (`.github/w
 ### Clone the repo to your local development environment
 
 Once you have set your repo up, you can clone it to your local development environment using `git clone [repo address]` or a UI/IDE tool, if preferred.
+
+### Dependency Management with Renovate
+
+Out of the box this repo uses [Renovate](https://docs.renovatebot.com/) for dependency management. More information on the decision to try renovate can be found [here](https://github.com/navapbc/template-application-nextjs/blob/main/docs/decisions/0002-use-renovate-for-dependency-updates.md).
+
+To get started with renovate for your project:
+1. Install Renovate's GitHub App for your repo ([Docs](https://docs.renovatebot.com/getting-started/installing-onboarding/#hosted-githubcom-app))
