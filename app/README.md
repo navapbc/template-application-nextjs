@@ -148,7 +148,7 @@ Configuration is located in [`next-i18next.config.js`](./next-i18next.config.js)
 1. Edit `next-i18next.config.js` and add the language to `locales`
 1. Add a language folder: `mkdir -p public/locales/<lang>`
 1. Add a language file: `touch public/locales/<lang>/common.json` and add the translated content
-1. Add a label for the language to the `locales` field in [`.storybook/preview.js`](./.storybook/preview.js)
+1. Optionally, add a label for the language to the `locales` object in [`.storybook/preview.js`](./.storybook/preview.js)
 
 The JSON structure should be the same across languages. However, non-default languages can omit keys, in which case the translation content for the default language will be used.
 
