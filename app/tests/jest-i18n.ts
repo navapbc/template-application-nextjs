@@ -6,12 +6,9 @@ import i18nConfig from "../next-i18next.config";
 import enCommon from "../public/locales/en/common.json";
 import esCommon from "../public/locales/es/common.json";
 
-const ns = ["common"];
-
 // Setup internationalization for tests so snapshots and queries reference the correct translations
 i18n.use(initReactI18next).init({
   ...i18nConfig,
-  ns,
   resources: {
     en: {
       common: enCommon,

@@ -27,7 +27,6 @@ i18n
   .use(Backend)
   .init({
     ...i18nextOptions,
-    ns,
     resources,
   });
 
