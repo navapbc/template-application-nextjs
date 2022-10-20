@@ -2,7 +2,7 @@ import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
 
 // @ts-expect-error - Config file has to be .js
-import i18nConfig from "../i18n.config";
+import i18nConfig from "../next-i18next.config";
 import enCommon from "../public/locales/en/common.json";
 import esCommon from "../public/locales/es/common.json";
 
