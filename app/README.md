@@ -146,8 +146,9 @@ Configuration is located in [`i18n.config.js`](./i18n.config.js).
 ### Adding a language
 
 1. Edit `i18n.config.js` and add the language to `locales`
-2. Add a language folder: `mkdir -p public/locales/<lang>`
-3. Add a language file: `touch public/locales/<lang>/common.json` and add the translated content
+1. Add a language folder: `mkdir -p public/locales/<lang>`
+1. Add a language file: `touch public/locales/<lang>/common.json` and add the translated content
+1. Add a label for the language to the `locales` field in [`.storybook/preview.js`](./.storybook/preview.js)
 
 The JSON structure should be the same across languages. However, non-default languages can omit keys, in which case the translation content for the default language will be used.
 
