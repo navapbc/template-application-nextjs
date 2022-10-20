@@ -5,12 +5,13 @@ import LanguageDetector from "i18next-browser-languagedetector";
 import Backend from "i18next-http-backend";
 import { initReactI18next } from "react-i18next";
 
-import i18nConfig from "../i18n.config";
+import i18nConfig from "../next-i18next.config";
 
+const { i18n: i18nOptions, ...i18nextOptions } = i18nConfig;
 const ns = ["common"];
-const locales = i18nConfig.i18n.locales;
+
 const resources = ns.reduce((acc, n) => {
-  locales.forEach((lng) => {
+  i18nOptions.locales.forEach((lng) => {
     if (!acc[lng]) acc[lng] = {};
     acc[lng] = {
       ...acc[lng],
@@ -20,13 +21,14 @@ const resources = ns.reduce((acc, n) => {
   return acc;
 }, {});
 
-i18n.use(initReactI18next).use(LanguageDetector).use(Backend).init({
-  lng: i18nConfig.i18n.defaultLocale,
-  fallbackLng: i18nConfig.fallbackLng,
-  defaultNS: i18nConfig.defaultNS,
-  ns,
-  supportedLngs: locales,
-  resources,
-});
+i18n
+  .use(initReactI18next)
+  .use(LanguageDetector)
+  .use(Backend)
+  .init({
+    ns,
+    resources,
+    ...i18nextOptions,
+  });
 
 export default i18n;
