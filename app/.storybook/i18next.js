@@ -1,14 +1,15 @@
+import Backend from "i18next-http-backend";
+import LanguageDetector from "i18next-browser-languagedetector";
 // Configure i18next for storybook addon storybook-react-i18next
 // See https://storybook.js.org/addons/storybook-react-i18next
 import i18n from "i18next";
-import LanguageDetector from "i18next-browser-languagedetector";
-import Backend from "i18next-http-backend";
+import i18nConfig from "../next-i18next.config";
 import { initReactI18next } from "react-i18next";
 
 const ns = ["common"];
-const supportedLngs = ["en", "es"];
+const locales = i18nConfig.i18n.locales;
 const resources = ns.reduce((acc, n) => {
-  supportedLngs.forEach((lng) => {
+  locales.forEach((lng) => {
     if (!acc[lng]) acc[lng] = {};
     acc[lng] = {
       ...acc[lng],
@@ -19,11 +20,11 @@ const resources = ns.reduce((acc, n) => {
 }, {});
 
 i18n.use(initReactI18next).use(LanguageDetector).use(Backend).init({
-  lng: "en",
-  fallbackLng: "en",
-  defaultNS: "common",
+  lng: i18nConfig.i18n.defaultLocale,
+  fallbackLng: i18nConfig.fallbackLng,
+  defaultNS: i18nConfig.defaultNS,
   ns,
-  supportedLngs,
+  supportedLngs: locales,
   resources,
 });
 
