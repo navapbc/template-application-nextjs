@@ -138,14 +138,14 @@ Copying the USWDS static assets into the project is handled by a [`postinstall`]
 
 ## Internationalization (i18n)
 
-Configuration is located in [`next-i18next.config.js`](./next-i18next.config.js).
+Configuration is located in [`i18n.config.js`](./i18n.config.js).
 
 - Next.js's [internationalized routing](https://nextjs.org/docs/advanced-features/i18n-routing) feature is enabled.
 - [`next-i18next`](https://github.com/i18next/next-i18next) provides a method for loading translations and a hook for rendering localized strings using [`react-i18next`](https://github.com/i18next/react-i18next).
 
 ### Adding a language
 
-1. Edit `next-i18next.config.js` and add the language to `locales`
+1. Edit `i18n.config.js` and add the language to `locales`
 2. Add a language folder: `mkdir -p public/locales/<lang>`
 3. Add a language file: `touch public/locales/<lang>/common.json` and add the translated content
 

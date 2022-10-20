@@ -2,7 +2,7 @@ import enCommon from "../public/locales/en/common.json";
 import esCommon from "../public/locales/es/common.json";
 import i18n from "i18next";
 // @ts-expect-error - Config file has to be .js
-import i18nConfig from "../next-i18next.config";
+import i18nConfig from "../i18n.config";
 import { initReactI18next } from "react-i18next";
 
 // Setup internationalization for tests so snapshots and queries reference the correct translations
