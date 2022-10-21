@@ -108,13 +108,9 @@ Once the repository has been created, the CI stored in this template (`.github/w
 - In Settings > Code security and analysis:
   - Click "Enable" for "Dependabot alerts"
   - Click "Enable" for "Dependabot security updates"
-  - For additional information about dependency management, see the section below about dependency management
-  - The other security features should already be enabled:
-    - "Code scanning" is controlled by `.github/codeql-analysis.yml`
     - "Secret scanning" is enabled by default
 
 <img src="./docs/imgs/code_sec_analysis.svg" width="50%"/>
-
 ### Clone the repo to your local development environment
 
 Once you have set your repo up, you can clone it to your local development environment using `git clone [repo address]` or a UI/IDE tool, if preferred.
@@ -122,6 +118,10 @@ Once you have set your repo up, you can clone it to your local development envir
 ### Dependency Management with Renovate
 
 Out of the box this repo uses [Renovate](https://docs.renovatebot.com/) for dependency management. More information on the decision to try renovate can be found [here](https://github.com/navapbc/template-application-nextjs/blob/main/docs/decisions/0002-use-renovate-for-dependency-updates.md). Renovate is free and open-source and allows us to bundle dependency updates together and customize their scheduling.
+
+**Opting out of renovate**:
+
+If you decide you don't want to use renovate, you can delete the `renovate.json` file from the template code. If you plan to rely on dependabot, you'll likely want to add a `.github/dependabot.yml` file ([example here](https://github.com/navapbc/template-application-nextjs/blob/7ddb06b23524536db2e24bd43ec3ff7ec19d52bf/.github/dependabot.yml))
 
 **Getting started with renovate**:
 1. Install Renovate's GitHub App for your repo ([Docs](https://docs.renovatebot.com/getting-started/installing-onboarding/#hosted-githubcom-app)). For most projects, you most likely only want to do this for your select repository.
@@ -132,6 +132,3 @@ Out of the box this repo uses [Renovate](https://docs.renovatebot.com/) for depe
 
 After following the above steps your repository should be good to go with Renovate in terms of the basics. Future optimizations you may wish to look into include the [Renovate Dashboard](https://docs.renovatebot.com/key-concepts/dashboard/) and adding the renovate-config-validator program to validate any future renovate config changes prior to merge ([documentation here](https://docs.renovatebot.com/getting-started/installing-onboarding/#reconfigure-via-pr)).
 
-**Opting out of renovate**:
-
-If you decide you don't want to use renovate, you can delete the `renovate.json` file from the template code. If you plan to rely on dependabot, you'll likely want to add a `.github/dependabot.yml` file ([example here](https://github.com/navapbc/template-application-nextjs/blob/7ddb06b23524536db2e24bd43ec3ff7ec19d52bf/.github/dependabot.yml))
