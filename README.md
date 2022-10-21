@@ -111,6 +111,7 @@ Once the repository has been created, the CI stored in this template (`.github/w
     - "Secret scanning" is enabled by default
 
 <img src="./docs/imgs/code_sec_analysis.svg" width="50%"/>
+
 ### Clone the repo to your local development environment
 
 Once you have set your repo up, you can clone it to your local development environment using `git clone [repo address]` or a UI/IDE tool, if preferred.
