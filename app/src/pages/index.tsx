@@ -15,12 +15,10 @@ const Home: NextPage = () => {
   );
 };
 
+// Change this to getStaticProps if you're not using server-side rendering
 export const getServerSideProps: GetServerSideProps = async ({ locale }) => {
-  return {
-    props: {
-      ...(await serverSideTranslations(locale || "en", ["common"])),
-    },
-  };
+  const translations = await serverSideTranslations(locale ?? "en");
+  return { props: { ...translations } };
 };
 
 export default Home;
