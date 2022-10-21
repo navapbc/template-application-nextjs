@@ -136,22 +136,6 @@ Compiling the USWDS sass is slow, so the initial build step and subsequent sass 
 
 Copying the USWDS static assets into the project is handled by a [`postinstall`](https://docs.npmjs.com/cli/v8/using-npm/scripts) script in `package.json`.
 
-## Internationalization (i18n)
+## Other topics
 
-Configuration is located in [`next-i18next.config.js`](./next-i18next.config.js).
-
-- Next.js's [internationalized routing](https://nextjs.org/docs/advanced-features/i18n-routing) feature is enabled.
-- [`next-i18next`](https://github.com/i18next/next-i18next) provides a method for loading translations and a hook for rendering localized strings using [`react-i18next`](https://github.com/i18next/react-i18next).
-
-### Adding a language
-
-1. Edit `next-i18next.config.js` and add the language to `locales`
-1. Add a language folder: `mkdir -p public/locales/<lang>`
-1. Add a language file: `touch public/locales/<lang>/common.json` and add the translated content
-1. Optionally, add a label for the language to the `locales` object in [`.storybook/preview.js`](./.storybook/preview.js)
-
-The JSON structure should be the same across languages. However, non-default languages can omit keys, in which case the translation content for the default language will be used.
-
-### Storybook i18n
-
-[storybook-react-i18next](https://storybook.js.org/addons/storybook-react-i18next) adds a globe icon to the addons bar for selecting the desired language.
+- [Internationalization](../docs/internationalization.md)
