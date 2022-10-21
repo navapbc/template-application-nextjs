@@ -122,7 +122,7 @@ Out of the box this repo uses [Renovate](https://docs.renovatebot.com/) for depe
 
 **Opting out of renovate**:
 
-If you decide you don't want to use renovate, you can delete the `renovate.json` file from the template code. If you plan to rely on dependabot, you'll likely want to add a `.github/dependabot.yml` file ([example here](https://github.com/navapbc/template-application-nextjs/blob/7ddb06b23524536db2e24bd43ec3ff7ec19d52bf/.github/dependabot.yml))
+If you decide you don't want to use renovate, you can delete the `renovate.json` file from the template code. If you plan to rely on [Dependabot](https://docs.github.com/en/code-security/dependabot), you'll likely want to add a `.github/dependabot.yml` file ([example here](https://github.com/navapbc/template-application-nextjs/blob/7ddb06b23524536db2e24bd43ec3ff7ec19d52bf/.github/dependabot.yml))
 
 **Getting started with renovate**:
 1. Install Renovate's GitHub App for your repo ([Docs](https://docs.renovatebot.com/getting-started/installing-onboarding/#hosted-githubcom-app)). For most projects, you most likely only want to do this for your select repository. Note that if you prefer not to use the GitHub App, renovate does offer some alternatives including self-hosting. 
