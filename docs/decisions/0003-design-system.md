@@ -1,7 +1,7 @@
 # Use U.S. Web Design System for components and utility classes
 
 - Status: Accepted
-- Deciders: Loren Yu, Rocket, Sawyer
+- Deciders: Loren Yu, Rocket Lee, Sawyer Hollenshead
 
 ## Context and Problem Statement
 
