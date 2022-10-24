@@ -8,7 +8,7 @@ A template repository for common project infrastructure can be found [here](http
 
 This template includes setup for:
 
-- `.github`: common GitHub configuration such as an empty PR template and a directory for GitHub workflows
+- `.github`: GitHub workflows
 - `app`: setup for the Next.js application should go here
 - `docs`: a directory for project documentation
 
@@ -49,72 +49,7 @@ The docker-compose file bind mounts `app` on the host machine to `/srv` in the g
 
 ### Create a new repository from this template
 
-The template repository can be used to create a project repository using two different methods.
-
-1. From [Github](https://github.com/): Click [New](https://github.com/new) and select the desired template.
-2. From the template repo itself: Click "Use this template".
-
-### These steps are the same for both methods
-
-- Select the repository owner
-- Type in the desired repository name
-- Type a description for this project
-- Select whether this new repository will be Public or Private.
-- Leave "Include all branches" unchecked
-- Click "Create repository from template"
-
-<img src="./docs/imgs/create_from_template.svg" width="50%"/>
-
-### Setup branch protections
-
-Once the repository has been created, the CI stored in this template (`.github/workflows`) will run. Ensure initial CI completes successfully before proceeding.
-
-<img src="./docs/imgs/verify_ci.svg" width="50%"/>
-
-- In Settings > Branches:
-  - Click "Add branch protection rule"
-  - Enter "main" for the Branch name pattern
-  - Check the following:
-    - Require a pull request before merging
-    - Require approvals
-      - Minimum of 1
-    - Dismiss stale pull request approvals when new commits are pushed
-  - Require status checks to pass before merging
-  - Require branches to be up to date before merging
-  - In the search box add the following:
-    - pass/fail checks
-    - Analyze (javascript)
-
-<img src="./docs/imgs/add_branch_protection_rule.svg" width="50%"/>
-
-<img src="./docs/imgs/the_rules.svg" width="50%"/>
-
-### Setup other Github settings
-
-- In Settings > General:
-  - Under "Features":
-    - Enable/disable features that you want for your project. For example, turn off the Wiki if your project won't be using it
-  - Under "Pull Requests":
-    - Enable only the merge options your project should support
-    - Check "Always suggest updating pull request branches" to encourage pull requests to be updated when they deviate from `main`
-    - Check "Automatically delete head branches" to keep set Github to automatically delete branches once they are merged into `main` in a PR
-
-<img src="./docs/imgs/pull_request_settings.svg" width="50%"/>
-
-- In Settings > Collaborators:
-
-  - Add all collaborators that should have access to the git repo
-
-- In Settings > Code security and analysis:
-  - Click "Enable" for "Dependabot alerts"
-  - Click "Enable" for "Dependabot security updates"
-    - "Secret scanning" is enabled by default
-
-<img src="./docs/imgs/code_sec_analysis.svg" width="50%"/>
-
-### Clone the repo to your local development environment
-
-Once you have set your repo up, you can clone it to your local development environment using `git clone [repo address]` or a UI/IDE tool, if preferred.
+[Follow the "Getting started" instructions in the Platform repo's README](https://github.com/navapbc/platform#getting-started).
 
 ### Dependency Management with Renovate
 
@@ -125,11 +60,11 @@ Out of the box this repo uses [Renovate](https://docs.renovatebot.com/) for depe
 If you decide you don't want to use renovate, you can delete the `renovate.json` file from the template code. If you plan to rely on [Dependabot](https://docs.github.com/en/code-security/dependabot), you'll likely want to add a `.github/dependabot.yml` file ([example here](https://github.com/navapbc/template-application-nextjs/blob/7ddb06b23524536db2e24bd43ec3ff7ec19d52bf/.github/dependabot.yml))
 
 **Getting started with renovate**:
-1. Install Renovate's GitHub App for your repo ([Docs](https://docs.renovatebot.com/getting-started/installing-onboarding/#hosted-githubcom-app)). For most projects, you most likely only want to do this for your select repository. Note that if you prefer not to use the GitHub App, renovate does offer some alternatives including self-hosting. 
+
+1. Install Renovate's GitHub App for your repo ([Docs](https://docs.renovatebot.com/getting-started/installing-onboarding/#hosted-githubcom-app)). For most projects, you most likely only want to do this for your select repository. Note that if you prefer not to use the GitHub App, renovate does offer some alternatives including self-hosting.
 2. After installation, Renovate should open a "Configure Renovate" pull request in your repository. Once you merge this PR, you will be all set. For more detail on this onboarding PR (what it contains, what to look for, what you can customize etc), check out [renovate's onboarding tutorial README for useful examples](https://github.com/renovatebot/tutorial). Note that this codebase comes with a `renovate.json` file out of the box with configuration options you can keep dependending on your preferences.
 3. Note that Renovate can read GitHub's Vulnerability Alerts to customize pull requests. For this to work, you must enable Dependency graph and Dependabot alerts (This is covered in the 'other Github settings' section above, but mentioning here explicitly). For more detail on vulnerability management with renovate, [see here](https://github.com/renovatebot/renovate/blob/main/docs/usage/configuration-options.md#vulnerabilityalerts).
 
 **Beyond the basics**:
 
 After following the above steps your repository should be good to go with Renovate in terms of the basics. Future optimizations you may wish to look into include the [Renovate Dashboard](https://docs.renovatebot.com/key-concepts/dashboard/) and adding the renovate-config-validator program to validate any future renovate config changes prior to merge ([documentation here](https://docs.renovatebot.com/getting-started/installing-onboarding/#reconfigure-via-pr)).
-
