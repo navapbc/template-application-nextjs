@@ -2,6 +2,8 @@ This is a [Next.js](https://nextjs.org/) web application template. [Storybook](h
 
 ## Local development
 
+From the `app/` directory:
+
 1. Install dependencies
    ```bash
    npm install
@@ -12,11 +14,26 @@ This is a [Next.js](https://nextjs.org/) web application template. [Storybook](h
    ```
 1. Navigate to [localhost:3000](http://localhost:3000) to view the application
 
+Alternatively, you can run the application in a Docker container:
+
+1. From the root directory run `docker-compose up -d --build`
+
 You can start editing pages in the `pages/` directory. Pages auto-update as you edit files.
 
 The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages. A starter [API route](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello).
 
 [Learn more about Next.js](https://nextjs.org/docs).
+
+### Storybook
+
+From the `app/` directory:
+
+1. `npm run storybook`
+2. Navigate to [localhost:6006](http://localhost:6006) to view
+
+Alternatively, you can run Storybook in a Docker container:
+
+1. From the root directory run `docker-compose exec nextjs npm run storybook`
 
 ## Local Linter and Typechecker Setup
 
