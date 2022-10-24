@@ -3,16 +3,25 @@
  * Handles things like config for location of story files and managing presets (which configure webpack and babel).
  * @see https://storybook.js.org/docs/configurations/default-config/
  */
+import type { StorybookConfig } from "@storybook/core-common";
 
-const nextConfig = require("../next.config");
+import nextConfig from "../next.config";
 
-module.exports = {
+const config: StorybookConfig = {
   stories: ["../stories/**/*.stories.@(mdx|js|jsx|ts|tsx)"],
   addons: ["@storybook/addon-essentials", "storybook-react-i18next"],
   framework: "@storybook/react",
   core: {
-    // Use webpack5 instead of webpack4.
-    builder: "webpack5",
+    builder: {
+      name: "webpack5",
+      options: {
+        // Cache build output between runs, to speed up subsequent startup times
+        fsCache: true,
+        // Applies in development mode. Storybook will start up faster, at the cost
+        // of slightly slower browsing time when you navigate to another story.
+        lazyCompilation: true,
+      },
+    },
     disableTelemetry: true,
   },
   // Tell storybook where to find USWDS static assets
@@ -48,6 +57,7 @@ module.exports = {
     });
 
     // Required for i18next.
+    config.resolve = config.resolve ?? {};
     config.resolve.fallback = {
       fs: false,
       path: false,
@@ -57,3 +67,5 @@ module.exports = {
     return config;
   },
 };
+
+module.exports = config;
