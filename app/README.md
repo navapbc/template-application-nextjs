@@ -1,26 +1,22 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app). This README has been modified from the auto-generated one.
+This is a [Next.js](https://nextjs.org/) web application template. [Storybook](https://storybook.js.org/) is included as a frontend workshop.
 
-## Getting Started
+## Local development
 
-First, install dependencies from the app directory:
+1. Install dependencies
+   ```bash
+   npm install
+   ```
+1. Run the local development server
+   ```bash
+   npm run dev
+   ```
+1. Navigate to [localhost:3000](http://localhost:3000) to view the application
 
-```bash
-npm install
-```
+You can start editing pages in the `pages/` directory. Pages auto-update as you edit files.
 
-Second, run the development server:
+The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages. A starter [API route](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello).
 
-```bash
-npm run dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
-
-A starter [API route](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+[Learn more about Next.js](https://nextjs.org/docs).
 
 ## Local Linter and Typechecker Setup
 
