@@ -19,6 +19,8 @@ This is a [Next.js](https://nextjs.org/) web application using the [U.S. Web Des
 
 ## Local development
 
+### Getting started
+
 From the `app/` directory:
 
 1. Install dependencies
@@ -35,13 +37,15 @@ Alternatively, you can run the application in a Docker container:
 
 1. From the root directory run `docker-compose up -d --build`
 
-You can start editing pages in the `pages/` directory. Pages auto-update as you edit files.
+### Contributing
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages. A starter [API route](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello).
-
-[Learn more about Next.js](https://nextjs.org/docs).
+- Each file in the `pages/` directory maps to a route.
+- Each file in the `pages/api` is treated as an [API route](https://nextjs.org/docs/api-routes/introduction) instead of a page. An example can be accessed at [http://localhost:3000/api/hello](http://localhost:3000/api/hello).
+- [Learn more about developing Next.js applications](https://nextjs.org/docs).
 
 ### Storybook
+
+Storybook is a [frontend workshop](https://bradfrost.com/blog/post/a-frontend-workshop-environment/) for developing and documenting pages and components in isolation.
 
 From the `app/` directory:
 
