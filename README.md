@@ -12,7 +12,7 @@ See [`navapbc/platform`](https://github.com/navapbc/platform) for other template
 - Type checking, linting, and code formatting tools
 - Storybook for a frontend workshop environment
 
-[**See `app/README.md` for additional details** ↗️](./app/)
+[**See `app/README.md` for additional details** ↗️](./app#readme)
 
 ## Repo structure
 
