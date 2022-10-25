@@ -1,22 +1,34 @@
-# Template repository for a Next.js application
+# Template Next.js React application
 
-This is a template repository for a Next.js-based application. While this template should be opinionated in some ways in order to reduce setup overhead where possible, it should be application-agnostic, meaning that any type of Next.js application should be able to be created from this template.
+This is a template repository for a React web application using the Next.js framework.
 
-A template repository for common project infrastructure can be found [here](https://github.com/navapbc/template-infra).
+See [`navapbc/platform`](https://github.com/navapbc/platform) for other template repos.
 
-## Contents
+## Features
 
-This template includes setup for:
+- Framework for server-side rendered, static, or hybrid React applications
+- TypeScript and React testing tools
+- U.S. Web Design System for themeable styling and a set of common components
+- Type checking, linting, and code formatting tools
+- Storybook for a frontend workshop environment
 
-- `.github`: GitHub workflows
-- `app`: setup for the Next.js application should go here
-- `docs`: a directory for project documentation
+[**See `app/README.md` for additional details** ↗️](./app/README.md)
 
-## Getting started
+## Repo structure
+
+```
+.
+├── app                 # Web application
+├── .github             # GitHub workflows and repo templates
+├── docs                # Project docs and decision records
+
+## Using this template
 
 ### Create a new repository from this template
 
-[Follow the "Getting started" instructions in the Platform repo's README](https://github.com/navapbc/platform#getting-started).
+1. [Follow the "Getting started" instructions in the Platform repo's README](https://github.com/navapbc/platform#getting-started).
+1. Read the dependency management instructions below.
+1. Delete or update this README to make sense for your project.
 
 ### Dependency Management with Renovate
 
@@ -35,3 +47,4 @@ If you decide you don't want to use renovate, you can delete the `renovate.json`
 **Beyond the basics**:
 
 After following the above steps your repository should be good to go with Renovate in terms of the basics. Future optimizations you may wish to look into include the [Renovate Dashboard](https://docs.renovatebot.com/key-concepts/dashboard/) and adding the renovate-config-validator program to validate any future renovate config changes prior to merge ([documentation here](https://docs.renovatebot.com/getting-started/installing-onboarding/#reconfigure-via-pr)).
+```
