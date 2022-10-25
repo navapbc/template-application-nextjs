@@ -17,8 +17,8 @@ See [`navapbc/platform`](https://github.com/navapbc/platform) for other template
 ## Repo structure
 
 ```
-├── app                 # Web application
 ├── .github             # GitHub workflows and repo templates
+├── app                 # Web application
 ├── docs                # Project docs and decision records
 ```
 
