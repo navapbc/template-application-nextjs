@@ -100,19 +100,24 @@ npm run test-watch -- pages
 It's recommended that developers configure their code editor to auto run these tools on file save. Most code editors have plugins for these tools or provide native support.
 
 <details>
-  <summary>View a recommended <code>.vscode/settings.json</code> config.</summary>
-  <code><pre>
-    {
-      "editor.codeActionsOnSave": {
-        "source.fixAll.eslint": true
-      },
-      "editor.formatOnSave": true,
-      "editor.defaultFormatter": "esbenp.prettier-vscode",
-      "eslint.workingDirectories": ["./app"],
-      "typescript.validate.enable": true
-    }
-  </pre></code>
-</details>
+  <summary>VSCode instructions</summary>
+
+1. Install the [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) and [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) extensions.
+2. Add the following to a `.vscode/settings.json` file:
+
+   ```json
+   {
+     "editor.codeActionsOnSave": {
+       "source.fixAll.eslint": true
+     },
+     "editor.formatOnSave": true,
+     "editor.defaultFormatter": "esbenp.prettier-vscode",
+     "eslint.workingDirectories": ["./app"],
+     "typescript.validate.enable": true
+   }
+   ```
+
+   </details>
 
 ## Other topics
 
