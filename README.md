@@ -17,10 +17,10 @@ See [`navapbc/platform`](https://github.com/navapbc/platform) for other template
 ## Repo structure
 
 ```
-.
 ├── app                 # Web application
 ├── .github             # GitHub workflows and repo templates
 ├── docs                # Project docs and decision records
+```
 
 ## Using this template
 
@@ -47,4 +47,3 @@ If you decide you don't want to use renovate, you can delete the `renovate.json`
 **Beyond the basics**:
 
 After following the above steps your repository should be good to go with Renovate in terms of the basics. Future optimizations you may wish to look into include the [Renovate Dashboard](https://docs.renovatebot.com/key-concepts/dashboard/) and adding the renovate-config-validator program to validate any future renovate config changes prior to merge ([documentation here](https://docs.renovatebot.com/getting-started/installing-onboarding/#reconfigure-via-pr)).
-```
