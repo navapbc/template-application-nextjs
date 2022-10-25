@@ -1,5 +1,22 @@
 This is a [Next.js](https://nextjs.org/) web application using the [U.S. Web Design System](https://designsystem.digital.gov). [Storybook](https://storybook.js.org/) is included as a frontend workshop.
 
+## Directory structure
+
+```
+├── .storybook        # Storybook configuration
+├── public            # Static assets
+│   └── locales       # Internationalized content
+├── src               # JS source code
+│   ├── components    # Reusable UI components
+│   └── pages         # Page routes and data fetching
+│       ├── api       # API routes (optional)
+│       ├── _app.tsx  # Global entry point
+│       └── index.tsx # Home page
+├── stories           # Storybook pages
+├── styles            # Sass & design system settings
+└── tests
+```
+
 ## Local development
 
 From the `app/` directory:
