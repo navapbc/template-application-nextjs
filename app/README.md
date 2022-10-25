@@ -1,4 +1,4 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app). This README has been modified from the auto-generated one.
+This is a [Next.js](https://nextjs.org/) web application using the [U.S. Web Design System](https://designsystem.digital.gov). [Storybook](https://storybook.js.org/) is included as a frontend workshop.
 
 ## Getting Started
 
@@ -76,16 +76,7 @@ These can be run with `npm run [name of script]`. For more about npm scripts, se
 - `test`: Runs `jest --ci --coverage`. [--ci option](https://jestjs.io/docs/cli#--ci) is provided to prevent automatic creation of snapshots. This requires Jest to be run with `--updateSnapshot`. [--coverage option](https://jestjs.io/docs/cli#--coverageboolean) is provided to instruct jest to collect and report test coverage in output.
 - `ts:check`: Runs `tsc --noEmit`. [--noEmit option](https://www.typescriptlang.org/tsconfig#noEmit) is provided to prevent type checker compiler from outputting files.
 
-## Design System
-
-We are using the [USWDS 3.0](https://designsystem.digital.gov) design system.
-
-We did not follow their [install directions](https://designsystem.digital.gov/documentation/getting-started/developers), which require using gulp as a task runner. Instead, we configured `next.config.js` such that we could leverage Next.js's built-in sass compiling and we configured `.storybook/main.js` such that we could leverage Storybook's built-in sass compiling and re-use the same Next.js configuration.
-
-Compiling the USWDS sass is slow, so the initial build step and subsequent sass re-compiles are slow, but after the design system is set up, we shouldn't need to be regularly re-compiling sass.
-
-Copying the USWDS static assets into the project is handled by a [`postinstall`](https://docs.npmjs.com/cli/v8/using-npm/scripts) script in `package.json`.
-
 ## Other topics
 
 - [Internationalization](../docs/internationalization.md)
+- Refer to the [architecture decision records](../docs/decisions) for more context on technical decisions.
