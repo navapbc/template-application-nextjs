@@ -28,7 +28,7 @@ See [`navapbc/platform`](https://github.com/navapbc/platform) for other template
 
 1. [Follow the "Getting started" instructions in the Platform repo's README](https://github.com/navapbc/platform#getting-started).
 1. Read the dependency management instructions below.
-1. Delete or update this README to make sense for your project.
+1. Delete or update this `README.md` and `LICENSE.md` to make sense for your project.
 
 ### Dependency Management with Renovate
 
