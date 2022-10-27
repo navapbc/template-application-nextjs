@@ -2,8 +2,7 @@
  * @file Setup internationalization for tests so snapshots and queries reference the correct translations
  */
 import fs from "fs";
-import type { InitOptions } from "i18next";
-import i18n from "i18next";
+import i18n, { InitOptions } from "i18next";
 import path from "path";
 import { initReactI18next } from "react-i18next";
 
