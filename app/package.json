@@ -14,7 +14,7 @@
     "storybook": "start-storybook -p 6006",
     "storybook-build": "build-storybook",
     "test": "jest --ci --coverage",
-    "test-update": "jest --update-snapshots",
+    "test-update": "jest --update-snapshot",
     "test-watch": "jest --watch",
     "ts:check": "tsc --noEmit"
   },
