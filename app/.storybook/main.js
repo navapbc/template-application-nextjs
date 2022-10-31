@@ -1,13 +1,16 @@
+// @ts-check
+
 /**
  * @file Storybook's main configuration file that controls the generation of Storybook.
  * Handles things like config for location of story files and managing presets (which configure webpack and babel).
  * @see https://storybook.js.org/docs/configurations/default-config/
  */
-import type { StorybookConfig } from "@storybook/core-common";
+const nextConfig = require("../next.config");
 
-import nextConfig from "../next.config";
-
-const config: StorybookConfig = {
+/**
+ * @type {import("@storybook/core-common").StorybookConfig}
+ */
+const config = {
   stories: ["../stories/**/*.stories.@(mdx|js|jsx|ts|tsx)"],
   addons: ["@storybook/addon-essentials", "storybook-react-i18next"],
   framework: "@storybook/react",
@@ -68,4 +71,4 @@ const config: StorybookConfig = {
   },
 };
 
-export default config;
+module.exports = config;
