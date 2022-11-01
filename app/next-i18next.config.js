@@ -17,6 +17,9 @@ const i18n = {
 const i18next = {
   defaultNS: "common",
   fallbackLng: i18n.defaultLocale,
+  interpolation: {
+    escapeValue: false, // React already does escaping
+  },
 };
 
 /**
