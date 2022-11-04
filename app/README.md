@@ -36,6 +36,10 @@ From the `app/` directory:
    ```bash
    npm install
    ```
+1. Optionally, disable [telemetry data collection](https://nextjs.org/telemetry)
+   ```bash
+   npx next telemetry disable
+   ```
 1. Run the local development server
    ```bash
    npm run dev
