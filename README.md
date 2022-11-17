@@ -1,15 +1,26 @@
-# Template repository for a Next.js application
+# Template Next.js React application
 
-This is a template repository for a Next.js-based application. While this template should be opinionated in some ways in order to reduce setup overhead where possible, it should be application-agnostic, meaning that any type of Next.js application should be able to be created from this template.
+This is a template repository for a React web application using the Next.js framework.
 
-## Contents
+See [`navapbc/platform`](https://github.com/navapbc/platform) for other template repos.
 
-This template includes setup for:
+## Features
 
-- `.github`: common GitHub configuration such as an empty PR template and a directory for GitHub workflows
-- `app`: setup for the Next.js application should go here
-- `docs`: a directory for project documentation
-- `infra`: a directory for common infrastructure
+- Framework for server-side rendered, static, or hybrid React applications
+- TypeScript and React testing tools
+- U.S. Web Design System for themeable styling and a set of common components
+- Type checking, linting, and code formatting tools
+- Storybook for a frontend workshop environment
+
+[**See `app/README.md` for additional details** ↗️](./app#readme)
+
+## Repo structure
+
+```text
+├── .github             # GitHub workflows and repo templates
+├── app                 # Web application
+├── docs                # Project docs and decision records
+```
 
 ## Installation
 
@@ -19,4 +30,12 @@ To get started using the template application on your project, run the following
 curl https://raw.githubusercontent.com/navapbc/template-application-nextjs/main/template-only-bin/install-template.sh | bash -s
 ```
 
-Now you're ready to [get started](./docs/app/getting-started.md).
+Now you're ready to set up the various pieces of your infrastructure.
+
+## Setup
+
+1. [Dependency management](./template-only-docs/set-up-dependency-management.md)
+
+## Getting started
+
+Now that you're all set up, you're now ready to [get started](./docs/app/getting-started.md).
