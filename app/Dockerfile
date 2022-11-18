@@ -12,11 +12,7 @@ WORKDIR /srv
 COPY . /srv
 # Install application dependencies.
 RUN npm ci
-
-ENV PORT=${PORT:-3000}
-EXPOSE $PORT
-
 # Build the application.
 RUN npm run build
 # Run the application.
-CMD npm run start -- -p $PORT
+CMD npm run start
