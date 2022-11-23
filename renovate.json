@@ -1,7 +1,7 @@
 {
   "$schema":"https://docs.renovatebot.com/renovate-schema.json",
   "extends":[
-     "config:base"
+     "config:base", ":disableDependencyDashboard"
   ],
   "timezone":"America/Los_Angeles",
   "schedule":[
@@ -12,36 +12,30 @@
  ],
  "vulnerabilityAlerts": {
    "labels": ["security"],
-   "schedule": ["at any time"]
+   "schedule": ["at any time"],
+   "enabled": true
  },
   "rangeStrategy":"replace",
   "ignoreUnstable":true,
   "labels": ["dependencies"],
   "prHourlyLimit": 5,
+  "onlyNpm": true,
   "packageRules":[
      {
-        "matchPaths": ["app/**"],
+         "description": "Group all non-major updates into a single PR",
+         "groupName":"all non-major dependencies",
+         "groupSlug":"all-minor-patch",
+         "matchPackagePatterns": ["*"],
         "matchUpdateTypes":[
            "minor",
-           "patch"
-        ],
-        "groupName":"all non-major dependencies",
-        "groupSlug":"all-minor-patch"
-     },
-     {
-      "matchDepTypes": [
-        "peerDependencies"
-      ],
-      "enabled": false
-    },
-      {
-         "matchPackageNames": ["react", "react-dom", "@types/react", "@types/react-dom"],
-         "groupName": "react"
-      },
-      {
-         "matchDatasources": ["npm"],
-         "stabilityDays": 3
-       }
+           "patch",
+           "pin",
+            "pinDigest",
+            "digest",
+            "rollback",
+            "bump"
+        ]
+     }
   ], 
   "ignoreDeps": [],
   "assignees": [],
