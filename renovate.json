@@ -4,9 +4,6 @@
      "config:base", ":disableDependencyDashboard"
   ],
   "timezone":"America/Los_Angeles",
-  "schedule":[
-     "after 3am on the 1st and 3rd day instance on Monday"
-  ],
   "enabledManagers":[
     "npm"
  ],
@@ -26,15 +23,16 @@
          "groupName":"all non-major dependencies",
          "groupSlug":"all-minor-patch",
          "matchPackagePatterns": ["*"],
-        "matchUpdateTypes":[
-           "minor",
-           "patch",
-           "pin",
-            "pinDigest",
-            "digest",
-            "rollback",
-            "bump"
-        ]
+         "matchUpdateTypes":[
+            "minor",
+            "patch",
+            "pin",
+               "pinDigest",
+               "digest",
+               "rollback",
+               "bump"
+         ],
+         "schedule": ["before 3am on the first day of the month"]
      }
   ], 
   "ignoreDeps": [],
