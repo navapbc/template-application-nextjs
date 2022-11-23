@@ -121,9 +121,10 @@ It's recommended that developers configure their code editor to auto run these t
    }
    ```
 
-   </details>
+</details>
 
 ## Other topics
 
+- [Deployment](../docs/deployment.md)
 - [Internationalization](../docs/internationalization.md)
 - Refer to the [architecture decision records](../docs/decisions) for more context on technical decisions.

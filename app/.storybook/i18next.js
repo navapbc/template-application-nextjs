@@ -11,6 +11,11 @@ i18next
   .use(initReactI18next)
   .use(LanguageDetector)
   .use(Backend)
-  .init(i18nConfig);
+  .init({
+    ...i18nConfig,
+    backend: {
+      loadPath: `${process.env.BASE_PATH ?? ""}/locales/{{lng}}/{{ns}}.json`,
+    },
+  });
 
 export default i18next;

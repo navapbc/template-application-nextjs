@@ -1,11 +1,12 @@
-// @ts-check
-
 /**
  * @file Storybook's main configuration file that controls the generation of Storybook.
  * Handles things like config for location of story files and managing presets (which configure webpack and babel).
  * @see https://storybook.js.org/docs/configurations/default-config/
  */
+// @ts-check
 const nextConfig = require("../next.config");
+
+const BASE_PATH = process.env.BASE_PATH ?? "";
 
 /**
  * @type {import("@storybook/core-common").StorybookConfig}
@@ -29,7 +30,13 @@ const config = {
   },
   // Tell storybook where to find USWDS static assets
   staticDirs: ["../public"],
-
+  // Support deploying Storybook to a subdirectory (like GitHub Pages).
+  // This makes `process.env.BASE_PATH` available to our source code.
+  // @ts-expect-error - https://github.com/storybookjs/storybook/issues/19294
+  env: (config) => ({
+    ...config,
+    BASE_PATH,
+  }),
   // Configure Storybook's final Webpack configuration in order to re-use the Next.js config/dependencies.
   webpackFinal: (config) => {
     config.module?.rules?.push({
@@ -37,6 +44,15 @@ const config = {
       use: [
         "style-loader",
         { loader: "css-loader", options: { url: false } }, // this mirrors next.js behavior
+        {
+          loader: "string-replace-loader",
+          options: {
+            // Support deploying Storybook to a subdirectory (like GitHub Pages).
+            // This adds the BASE_PATH to the beginning of all relative URLs in the CSS.
+            search: /url\(\//g,
+            replace: `url(${BASE_PATH}/`,
+          },
+        },
         {
           /**
            * Next.js sets this automatically for us, but we need to manually set it here for Storybook.
@@ -66,6 +82,13 @@ const config = {
       path: false,
       os: false,
     };
+
+    // Support deploying Storybook to a subdirectory (like GitHub Pages).
+    // This makes the Storybook JS bundles load correctly.
+    if (BASE_PATH) {
+      config.output = config.output ?? {};
+      config.output.publicPath = `${BASE_PATH}/`;
+    }
 
     return config;
   },
