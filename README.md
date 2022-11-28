@@ -38,4 +38,4 @@ Now you're ready to set up the various pieces of your infrastructure.
 
 ## Getting started
 
-Now that you're all set up, you're now ready to [get started](./docs/app/getting-started.md).
+Now that you're all set up, you're now ready to [get started](./app/README.md).
