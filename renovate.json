@@ -1,47 +1,26 @@
 {
   "$schema":"https://docs.renovatebot.com/renovate-schema.json",
   "extends":[
-     "config:base"
+     "config:base", "group:allNonMajor", "schedule:monthly"
   ],
   "timezone":"America/Los_Angeles",
-  "schedule":[
-     "after 3am on the 1st and 3rd day instance on Monday"
-  ],
   "enabledManagers":[
     "npm"
  ],
- "vulnerabilityAlerts": {
-   "labels": ["security"],
-   "schedule": ["at any time"]
- },
   "rangeStrategy":"replace",
   "ignoreUnstable":true,
   "labels": ["dependencies"],
-  "prHourlyLimit": 5,
   "packageRules":[
      {
-        "matchPaths": ["app/**"],
-        "matchUpdateTypes":[
-           "minor",
-           "patch"
-        ],
-        "groupName":"all non-major dependencies",
-        "groupSlug":"all-minor-patch"
-     },
-     {
-      "matchDepTypes": [
-        "peerDependencies"
-      ],
-      "enabled": false
+      "description": "Group React packages together",
+      "packageNames": ["react", "@types/react", "react-dom", "@types/react-dom"],
+      "groupName": "react"
     },
-      {
-         "matchPackageNames": ["react", "react-dom", "@types/react", "@types/react-dom"],
-         "groupName": "react"
-      },
-      {
-         "matchDatasources": ["npm"],
-         "stabilityDays": 3
-       }
+    {
+      "description": "Leave peer dependencies alone",
+      "depTypeList": ["peerDependencies"],
+      "enabled": false
+    }
   ], 
   "ignoreDeps": [],
   "assignees": [],
