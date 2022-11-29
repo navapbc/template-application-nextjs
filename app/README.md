@@ -121,7 +121,7 @@ It's recommended that developers configure their code editor to auto run these t
    }
    ```
 
-   </details>
+</details>
 
 ## Other topics
 
