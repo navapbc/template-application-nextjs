@@ -35,6 +35,7 @@ Now you're ready to set up the various pieces of your infrastructure.
 ## Setup
 
 1. [Dependency management](./template-only-docs/set-up-dependency-management.md)
+1. [Deployment](./template-only-docs/set-up-cd.md)
 
 ## Getting started
 
