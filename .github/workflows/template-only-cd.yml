@@ -18,6 +18,7 @@ jobs:
         uses: actions/checkout@v3
         with:
           path: template-application-nextjs
+          ref: lorenyu/templatecd
       - name: Checkout project repo
         uses: actions/checkout@v3
         with:
