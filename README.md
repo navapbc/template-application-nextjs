@@ -27,7 +27,7 @@ See [`navapbc/platform`](https://github.com/navapbc/platform) for other template
 To get started using the template application on your project, run the following command to execute the [install script](https://github.com/navapbc/template-application-nextjs/tree/main/template-only-bin/install-template.sh), which clones the template repository, copies the template files to your repository, and then cleans up the template repository:
 
 ```bash
-curl https://raw.githubusercontent.com/navapbc/template-application-nextjs/main/template-only-bin/install-template.sh | bash -s
+curl https://raw.githubusercontent.com/navapbc/template-application-nextjs/main/template-only-bin/download-and-install-template.sh | bash -s
 ```
 
 Now you're ready to set up the various pieces of your infrastructure.

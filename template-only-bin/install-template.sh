@@ -1,19 +1,23 @@
 #!/bin/bash
+#
+# This script installs template-application-nextjs to your project. Run
+# This script from your project's root directory.
 set -euo pipefail
 
-echo "Fetch latest version of template-application-nextjs"
-git clone --single-branch --branch main --depth 1 git@github.com:navapbc/template-application-nextjs.git
+CUR_DIR=$(pwd)
+SCRIPT_DIR=$(dirname $0)
+TEMPLATE_DIR="$SCRIPT_DIR/.."
 
 echo "Copy files from template-application-nextjs"
-cd template-application-nextjs
+cd $TEMPLATE_DIR
 cp -r \
   .github \
   docs \
   app \
   docker-compose.yml \
   renovate.json \
-  ..
-cd ..
+  $CUR_DIR
+cd -
 
-echo "Clean up template-application-nextjs folder"
-rm -fr template-application-nextjs
+echo "Remove files relevant only to template development"
+rm .github/workflows/template-only-*
