@@ -15,5 +15,5 @@ $SCRIPT_DIR/install-template.sh
 # and cd.yml workflow
 # Updates in any of these files need to be manually applied to the projects
 echo "Restore modified project files"
-# git checkout HEAD -- \
-#   .github/workflows/cd-storybook.yml
+git checkout HEAD -- \
+  .github/workflows/cd-storybook.yml
