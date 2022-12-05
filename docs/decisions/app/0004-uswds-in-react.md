@@ -20,7 +20,7 @@ Technical Story: #19
 
 ## Decision Outcome
 
-Use the existing open source [`react-uswds` library](https://github.com/trussworks/react-uswds), to avoid reinventing the wheel and because it's overall a well-built and maintained library.
+Add [`react-uswds`](https://github.com/trussworks/react-uswds) as a template dependency, making it available to all teams who use the template. The primary reasons are to avoid reinventing the wheel and because it's overall a well-built and maintained library.
 
 ## Pros and Cons of the Options <!-- optional -->
 
