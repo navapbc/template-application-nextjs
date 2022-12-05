@@ -9,7 +9,7 @@ Technical Story: #19
 ## Context and Problem Statement
 
 - The U.S. Web Design System (USWDS) only provides HTML and CSS for its components. It includes a small bit of vanilla JS to add interactivity to some components like the date picker.
-- It's common for projects to write their own React components to out the HTML provided by the U.S. Web Design System, to reduce the amount of boilerplate needed to use the USWDS components.
+- It's common for projects to write their own React components to output the USWDS HTML, to reduce the amount of boilerplate needed to use the USWDS components.
 - [Previous research by Kalvin and Shannon](https://docs.google.com/document/d/1KRWzH_wJUPKkFmBlxj6SM2yN3W7Or89Wa4TBVM3Ksog/edit) discovered that Nava engineers and designers universally agreed that being able to use a React USWDS component library when starting new projects would be valuable.
 
 ## Considered Options
