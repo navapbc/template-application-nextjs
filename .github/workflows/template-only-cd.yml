@@ -1,0 +1,40 @@
+name: Template Deploy
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+# Only allow one workflow at a time to prevent race conditions when pushing changes to the project repo
+concurrency: template-only-cd
+
+jobs:
+  deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout template repo
+        uses: actions/checkout@v3
+        with:
+          path: template-application-nextjs
+      - name: Checkout project repo
+        uses: actions/checkout@v3
+        with:
+          path: project-repo
+          repository: navapbc/platform-test-nextjs
+          token: ${{ secrets.PLATFORM_BOT_GITHUB_TOKEN }}
+
+      - name: Update application template
+        working-directory: project-repo
+        run: ../template-application-nextjs/template-only-bin/update-template.sh
+
+      - name: Push changes to project repo
+        working-directory: project-repo
+        run: |
+          git config user.name nava-platform-bot
+          git config user.email platform-admins@navapbc.com
+          git add --all
+          # Commit changes (if no changes then no-op)
+          git diff-index --quiet HEAD || git commit -m "Template application deploy #${{ github.run_id }}"
+          git push
