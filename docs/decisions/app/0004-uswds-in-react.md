@@ -1,7 +1,7 @@
 # U.S. Web Design System in React
 
 - Status: proposed
-- Deciders: [list everyone involved in the decision] <!-- optional -->
+- Deciders: [list everyone involved in the decision]
 - Date: 2022-12-05
 
 Technical Story: #19
@@ -22,7 +22,7 @@ Technical Story: #19
 
 Add [`react-uswds`](https://github.com/trussworks/react-uswds) as a template dependency, making it available to all teams who use the template. The primary reasons are to avoid reinventing the wheel and because it's overall a well-built and maintained library.
 
-## Pros and Cons of the Options <!-- optional -->
+## Pros and Cons of the Options
 
 ### Use the existing open source [`react-uswds` library](https://github.com/trussworks/react-uswds)
 
@@ -66,7 +66,7 @@ This is the current approach. Each project team is responsible for creating thei
 
 - Each project team has to spend time and effort building the components or making technical decisions related to how they'll integrate USWDS. Teams then have to write their own tests and fix their own bugs for these components. Overall a potential poor use of time and effort.
 
-## Links <!-- optional -->
+## Links
 
 - [Decision to use the USWDS](./0003-design-system.md)
 - [Kalvin and Shannon's research](https://docs.google.com/document/d/1KRWzH_wJUPKkFmBlxj6SM2yN3W7Or89Wa4TBVM3Ksog/edit)
