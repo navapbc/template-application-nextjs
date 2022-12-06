@@ -34,10 +34,12 @@ Add [`react-uswds`](https://github.com/trussworks/react-uswds) as a template dep
 - Fairly well maintained.
 - Intentionally does not include any non-USWDS components.
 - Supports USWDS v3 (latest version)
+- This was the recommended approach coming out of [Kalvin and Shannon's research](https://docs.google.com/document/d/1KRWzH_wJUPKkFmBlxj6SM2yN3W7Or89Wa4TBVM3Ksog/edit).
 
 #### Cons
 
 - They [pin the `@uswds/uswds` dependency version](https://github.com/trussworks/react-uswds/blob/a0558b69ec5b99903cfa8edddf2d8b058f5e296c/package.json#L52) to a specific version, which means that a project cannot use a newer version of USWDS until `react-uswds` updates it on their end. In practice, this could mean that a project may have delayed access to new component styles or CSS bug fixes that USWDS releases.
+- Not necessarily a con, but just to call it out: We've only done a lightweight review of their technical implementation and hygiene — (there's testing and linting, no reported a11y issues are open in GitHub or reported in Storybook), but we haven't done a comprehensive review of their code or a full accessibility audit. We're operating on trust in Truss's technical expertise, and an assumption that the outputted HTML markup is close to identical to what USWDS provides, so any a11y issues would likely be on USWDS's end.
 
 ### Create our own React USWDS component library
 
@@ -68,3 +70,4 @@ This is the current approach. Each project team is responsible for creating thei
 
 - [Decision to use the USWDS](./0003-design-system.md)
 - [Kalvin and Shannon's research](https://docs.google.com/document/d/1KRWzH_wJUPKkFmBlxj6SM2yN3W7Or89Wa4TBVM3Ksog/edit)
+  - [Evaluation of `react-uswds`](https://docs.google.com/document/d/1T3eG4oRofDE_NkfL7-xEqS39ORlrXlI8bFYcjGaYoWs/edit)
