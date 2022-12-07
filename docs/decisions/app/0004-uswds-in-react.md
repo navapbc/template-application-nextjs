@@ -1,7 +1,7 @@
 # U.S. Web Design System in React
 
-- Status: proposed
-- Deciders: [list everyone involved in the decision]
+- Status: Accepted
+- Deciders: @sawyerh, @aligg, @lorenyu, @rocketnova
 - Date: 2022-12-05
 
 Technical Story: #19
