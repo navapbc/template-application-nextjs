@@ -1,5 +1,10 @@
-import { Alert, Button, Grid, GridContainer, Icon } from "@trussworks/react-uswds";
-
+import {
+  Alert,
+  Button,
+  Grid,
+  GridContainer,
+  Icon,
+} from "@trussworks/react-uswds";
 import Link from "next/link";
 import React from "react";
 
@@ -13,7 +18,9 @@ const HelloWorld = () => {
         </Alert>
       </Grid>
       <Grid row>
-        <Grid col="auto"><Icon.Build size={9}/></Grid>
+        <Grid col="auto">
+          <Icon.Build size={9} />
+        </Grid>
         <Grid col="auto">
           <p>
             Here is some example text. You can learn more{" "}
@@ -25,7 +32,14 @@ const HelloWorld = () => {
         </Grid>
       </Grid>
       <Grid row gap={5}>
-        <Button type="button" onClick={() => {console.log("hello yay")}}>Click me</Button>
+        <Button
+          type="button"
+          onClick={() => {
+            console.log("hello yay");
+          }}
+        >
+          Click me
+        </Button>
       </Grid>
     </GridContainer>
   );

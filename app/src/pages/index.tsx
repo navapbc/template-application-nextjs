@@ -6,14 +6,12 @@ const Home: NextPage = () => {
   const { t } = useTranslation("common");
 
   return (
-    <div>
-      <h1>
-        {t("Index.title")}
-        <a href="https://github.com/navapbc/template-application-nextjs">
-          {t("Index.titleLink")}
-        </a>
-      </h1>
-    </div>
+    <h1>
+      {t("Index.title")}
+      <a href="https://github.com/navapbc/template-application-nextjs">
+        {t("Index.titleLink")}
+      </a>
+    </h1>
   );
 };
 
