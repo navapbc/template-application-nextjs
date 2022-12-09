@@ -12,34 +12,41 @@ import React from "react";
 const HelloWorld = () => {
   return (
     <GridContainer>
-      <Grid row gap={5}>
-        <Alert type="success" headingLevel="h1" heading="Hello world">
-          This is an alert
-        </Alert>
+      <Grid row className="margin-bottom-3">
+        <Grid col="fill">
+          <Alert type="success" headingLevel="h1" heading="Hello world">
+            This is an alert
+          </Alert>
+        </Grid>
       </Grid>
-      <Grid row>
+      <Grid row className="margin-bottom-3">
         <Grid col="auto">
           <Icon.Build size={9} />
         </Grid>
         <Grid col="auto">
           <p>
             Here is some example text. You can learn more{" "}
-            <Link href="https://trussworks.github.io/react-uswds/">
+            <Link
+              className="usa-link usa-link--external"
+              href="https://trussworks.github.io/react-uswds/"
+            >
               in the docs
             </Link>
             .
           </p>
         </Grid>
       </Grid>
-      <Grid row gap={5}>
-        <Button
-          type="button"
-          onClick={() => {
-            console.log("hello yay");
-          }}
-        >
-          Click me
-        </Button>
+      <Grid row>
+        <Grid col="fill">
+          <Button
+            type="button"
+            onClick={() => {
+              console.log("hello yay");
+            }}
+          >
+            Click me
+          </Button>
+        </Grid>
       </Grid>
     </GridContainer>
   );

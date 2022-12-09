@@ -3,7 +3,7 @@ import { ComponentMeta, ComponentStory } from "@storybook/react";
 import ReactUSWDSHello from "../../src/pages/react-uswds-hello";
 
 export default {
-  title: "Pages",
+  title: "Pages/React USWDS",
   component: ReactUSWDSHello,
 } as ComponentMeta<typeof ReactUSWDSHello>;
 
