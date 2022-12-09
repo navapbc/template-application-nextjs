@@ -5,7 +5,6 @@
 - [React-USWDS](https://github.com/trussworks/react-uswds) provides React components already with USWDS theming out of the box. For a reference point starting out, see `react-uswds-hello.tsx` which includes examples of react-uswds component usage.
 - [Storybook](https://storybook.js.org/) is included as a frontend workshop.
 
-
 ### Directory structure
 
 ```

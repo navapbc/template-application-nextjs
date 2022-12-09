@@ -9,7 +9,6 @@ import {
   Label,
   TextInput,
 } from "@trussworks/react-uswds";
-
 import Link from "next/link";
 import React from "react";
 
@@ -70,7 +69,7 @@ const HelloWorld = () => {
       </Grid>
       <Grid row>
         <Grid col="fill">
-          <ExampleForm/>
+          <ExampleForm />
         </Grid>
       </Grid>
     </GridContainer>
