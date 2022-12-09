@@ -1,12 +1,43 @@
 import {
   Alert,
   Button,
+  Fieldset,
+  Form,
   Grid,
   GridContainer,
   Icon,
+  Label,
+  TextInput,
 } from "@trussworks/react-uswds";
 import Link from "next/link";
 import React from "react";
+
+export const ExampleForm = () => {
+  return (
+    <Form
+      onSubmit={() => {
+        console.log("submit");
+      }}
+      large
+    >
+      <Fieldset legend="Example Form" legendStyle="large">
+        <Label htmlFor="first-name-input">First Name</Label>
+        <TextInput
+          id="first-name-input"
+          name="first-name-input"
+          type="text"
+        ></TextInput>
+        <Label htmlFor="last-name-input">Last Name</Label>
+        <TextInput
+          id="last-name-input"
+          name="last-name-input"
+          type="text"
+        ></TextInput>
+        <Button type="submit">Submit</Button>
+      </Fieldset>
+    </Form>
+  );
+};
 
 /** Example page showing use of react-uswds components. Can be deleted once you're on a roll. */
 const HelloWorld = () => {
@@ -38,14 +69,7 @@ const HelloWorld = () => {
       </Grid>
       <Grid row>
         <Grid col="fill">
-          <Button
-            type="button"
-            onClick={() => {
-              console.log("hello yay");
-            }}
-          >
-            Click me
-          </Button>
+          <ExampleForm></ExampleForm>
         </Grid>
       </Grid>
     </GridContainer>
