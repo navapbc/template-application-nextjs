@@ -33,8 +33,8 @@ export const ExampleForm = () => {
           name="last-name-input"
           type="text"
         ></TextInput>
-        <Button type="submit">Submit</Button>
       </Fieldset>
+      <Button type="submit">Submit</Button>
     </Form>
   );
 };
