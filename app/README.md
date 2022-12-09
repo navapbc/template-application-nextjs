@@ -3,6 +3,7 @@
 - This is a [Next.js](https://nextjs.org/) React web application, written in [TypeScript](https://www.typescriptlang.org/).
 - [U.S. Web Design System](https://designsystem.digital.gov) provides themeable styling and a set of common components.
 - [Storybook](https://storybook.js.org/) is included as a frontend workshop.
+- [React-USWDS](https://github.com/trussworks/react-uswds) is included providing React components already with USWDS theming out of the box. For a reference point starting out, see `react-uswds-hello.tsx` which includes examples of react-uswds component usage.
 
 ### Directory structure
 
