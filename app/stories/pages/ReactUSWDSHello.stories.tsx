@@ -11,4 +11,4 @@ const Template: ComponentStory<typeof ReactUSWDSHello> = () => (
   <ReactUSWDSHello />
 );
 
-export const Home = Template.bind({});
+export const Example = Template.bind({});
