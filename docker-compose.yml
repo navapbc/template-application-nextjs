@@ -20,7 +20,7 @@ services:
       # Use a named volume for the node_modules so that the container uses
       # the guest machine's node_modules dir instead of the host machine's node_modules directory, which might be divergent.
       # This also means that if you run `npm install <package>` on the host machine in development
-      # (which will update `package-lock.lock`), you'll also need to run `docker-compose exec nextjs npm ci` to update
+      # (which will update `package-lock.lock`), you'll also need to run `docker compose exec nextjs npm ci` to update
       # `node_modules` in the guest machine.
       - nextjs_nodemodules:/srv/node_modules
 
