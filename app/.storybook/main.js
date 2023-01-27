@@ -52,7 +52,7 @@ const config = {
             // It handles relative urls, whether they are quoted or not.
             search: /url\(("?)\//g,
             replace(match, p1, offset, string) {
-              return `url(${p1}${BASE_PATH}/`
+              return `url(${p1}${BASE_PATH}/`;
             },
           },
         },
