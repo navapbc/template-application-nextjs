@@ -49,8 +49,11 @@ const config = {
           options: {
             // Support deploying Storybook to a subdirectory (like GitHub Pages).
             // This adds the BASE_PATH to the beginning of all relative URLs in the CSS.
-            search: /url\(\//g,
-            replace: `url(${BASE_PATH}/`,
+            // It handles relative urls, whether they are quoted or not.
+            search: /url\(("?)\//g,
+            replace(match, p1, offset, string) {
+              return `url(${p1}${BASE_PATH}/`;
+            },
           },
         },
         {
