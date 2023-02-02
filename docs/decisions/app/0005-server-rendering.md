@@ -44,7 +44,7 @@ Cons
 
 Pros
 
-- Great for non-authenticated sites since the markup can be generated ahead of time.
+- Great for mostly static sites, when the markup can be generated ahead of time.
 - Minimal infrastructure is required. The prerendered HTML files can be served from a CDN, such as AWS CloudFront connected to an S3 bucket. Assuming other best practices are followed, like optimizing images and not loading MB's of client-side JS, this can translate to fast page loads and low costs.
 
 Cons
@@ -58,8 +58,12 @@ Cons
 
 - https://18f.gsa.gov/2021/04/05/why_simplicity_choosing_a_web_architecture
 - https://www.gov.uk/service-manual/technology/using-progressive-enhancement
-- https://philcalcado.com/2015/09/18/the_back_end_for_front_end_pattern_bff.html
 - 🔒 [PFML comparison of current static approach vs a possible server rendering approach](https://drive.google.com/file/d/1Wgpl4q3ceJGKE5uLFH3iXUhefPxJdHcw/view)
+
+Backends for Frontends:
+
+- https://learn.microsoft.com/en-us/azure/architecture/patterns/backends-for-frontends
+- https://philcalcado.com/2015/09/18/the_back_end_for_front_end_pattern_bff.html
 
 Web rendering:
 
