@@ -33,7 +33,7 @@ Pros
 - Running page logic and rendering on the server makes it possible to send lighter payloads to the client. This approach can work well for a large spectrum of device and network conditions. [You can make your server fast, but you can't control the user's device or network](https://remix.run/docs/en/v1/pages/philosophy%23serverclient-model&sa=D&source=editors&ust=1675374865788271&usg=AOvVaw3bPMcx9gLfFygQu_qL2R-9).
 - Low effort to implement pretty [dynamic routes](https://nextjs.org/docs/routing/dynamic-routes&sa=D&source=editors&ust=1675374865788677&usg=AOvVaw070KKTAMkbV2YkqYVRpep-) (e.g `/claim/:claim_id`)
 - [API routes](https://nextjs.org/docs/api-routes/introduction) can be created to handle other types of HTTP requests (POST, PUT, etc).
-- Nice side benefit: Server rendering is the only option for Remix, so it would be easier to migrate to Remix if the Next.js apps we're building were server rendered.
+- Nice side benefit: Server rendering is the only option for [Remix](https://remix.run/), so it would be easier to migrate to Remix if the Next.js apps we're building were server rendered.
 
 Cons
 
