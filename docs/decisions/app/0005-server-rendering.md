@@ -34,7 +34,7 @@ Pros
 - Data fetching on the server enables accessing authenticated APIs (e.g. using [TLS mutual auth](https://www.cloudflare.com/learning/access-management/what-is-mutual-tls/) to talk to fetch data from a protected third-party API).
 - Low effort to implement pretty [dynamic routes](https://nextjs.org/docs/routing/dynamic-routes&sa=D&source=editors&ust=1675374865788677&usg=AOvVaw070KKTAMkbV2YkqYVRpep-) (e.g `/claim/:claim_id`)
 - [API routes](https://nextjs.org/docs/api-routes/introduction) can be created to handle other types of HTTP requests (POST, PUT, etc).
-- Nice side benefit: Server rendering is the only option for [Remix](https://remix.run/), so it may be easier to migrate to Remix if the Next.js apps we're building were server rendered (at least from an infra standpoint?).
+- Nice side benefit: Server rendering is the only option for [Remix](https://remix.run/). It may be easier, from an infra standpoint and as a conceptual model, to migrate to Remix if the Next.js apps we're building were server rendered.
 
 Cons
 
@@ -50,7 +50,7 @@ Pros
 Cons
 
 - For sites with live/personalized data, pages would require client-side JS for data fetching. This has a few downsides:
-  - Client-side JS is required for rendering the loading, success, and error states (e.g. `fetch`, `isLoading`, `useEffect`, `catch`). Teams need to define their own code patterns to manage this (e.g hooks, higher-order components) or install third-party dependencies (e.g. [React Query](https://react-query-v3.tanstack.com/)). This increases the amount of code to be written and maintained, and can increase code complexity.
+  - Client-side JS is required for rendering the loading, success, and error states (e.g. `fetch`, `isLoading`, `useEffect`, `catch`). Teams need to define their own code patterns to manage this (e.g hooks, higher-order components) or install third-party dependencies (e.g. [React Query](https://react-query-v3.tanstack.com/)). This increases the amount of code to be written and maintained, and can increase code complexity. More code and complexity provides more opportunity for introducing bugs.
   - The prerendered HTML file is only a skeleton page in a pending state. Although the site might have a fast [First Paint](https://developer.chrome.com/docs/lighthouse/performance/first-contentful-paint), its [Time To Interactive](https://developer.chrome.com/en/docs/lighthouse/performance/interactive/) may still be slow.
 - [Lacks support for Middleware, Internationalized Routing, API Routes, etc](https://nextjs.org/docs/advanced-features/static-html-export%23unsupported-features).
 
