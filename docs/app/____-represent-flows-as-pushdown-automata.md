@@ -103,7 +103,7 @@ states = {
   }
 }
 
-transition_rules = [
+flow_rules = [
   ###############
   ## auth flow ##
   ###############
@@ -131,22 +131,25 @@ transition_rules = [
   #########################################
 
   FlowRule(state=("*", {"authstatus": "unauthenticated"}), event="navigated", target="/auth", action=PushRoute)),
+]
 
+state_rule_sets = [
   #################################
   ## authstatus transition rules ##
   #################################
 
-  StateRule(key="authstatus", state="unauthenticated", event="authenticated", target="authenticated"),
-  StateRule(key="authstatus", state="authenticated", event="unauthenticated", target="unauthenticated"),
+  StateRuleSet(key="authstatus", [
+    StateRule(event="authenticated", target="authenticated"),
+    StateRule(event="unauthenticated", target="unauthenticated"),
+  ]),
 
   ########################################
   ## citizenshipstatus transition rules ##
   ########################################
 
-  StateRule(key="citizenshipstatus", state="citizenshipstatusunknown", event="citizen", target="citizen"),
-  StateRule(key="citizenshipstatus", state="citizenshipstatusunknown", event="noncitizen", target="noncitizen"),
-  StateRule(key="citizenshipstatus", state="citizen", event="noncitizen", target="noncitizen"),
-  StateRule(key="citizenshipstatus", state="noncitizen", event="citizen", target="citizen"),
-  
+  StateRuleSet(key="citizenshipstatus", [
+    StateRule(event="citizen", target="citizen"),
+    StateRule(event="noncitizen", target="noncitizen"),
+  ])
 ]
 ```
