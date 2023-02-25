@@ -69,3 +69,84 @@ stateDiagram-v2
     citizen --> noncitizen: "noncitizen"
   }
 ```
+
+## Implementation
+
+```python
+states = {
+  "flow_state": [
+    Flow("auth", [
+      Route("login"),
+      Route("mfa")
+    ]),
+    Flow("application", [
+      Route("/"),
+      Route("review"),
+      Flow("verifyid", [
+        Route("name"),
+        Route("citizenshipstatus"),
+        Route("citizen"),
+        Route("noncitizen"),
+      ])
+    ])
+  ],
+  "additional_states": {
+    State(key="authstatus", [
+      StateVal("authenticated"),
+      StateVal("unauthenticated"),
+    ]),
+    State(key="citizenshipstatus", [
+      StateVal("citizenshipstatusunknown"),
+      StateVal("citizen"),
+      StateVal("noncitizen"),
+    ]),
+  }
+}
+
+transition_rules = [
+  ###############
+  ## auth flow ##
+  ###############
+
+  FlowRule(state=("/auth/login", {"authstatus": "unauthenticated"}), event="continue", target="/auth/mfa")),
+  FlowRule(state=("/auth/mfa", {"authstatus": "unauthenticated"}), event="authenticated", target=TopOfStack, action=PopRoute)),
+
+  ######################
+  ## application flow ##
+  ######################
+
+  FlowRule(state="/application", event="/review", target="/review"),
+
+  # this rule handles both the transition from /application to /verifyid and from /review to /verifyid
+  FlowRule(state=AnyState, event="/verifyid", target="/verifyid", action=PushRoute),
+
+  ####################
+  ## verify id flow ##
+  ####################
+
+  FlowRule(state="/verifyid/name", event="continue", target="/verifyid/citizenshipstatus")
+
+  #########################################
+  ## redirect to auth if unauthenticated ##
+  #########################################
+
+  FlowRule(state=("*", {"authstatus": "unauthenticated"}), event="navigated", target="/auth", action=PushRoute)),
+
+  #################################
+  ## authstatus transition rules ##
+  #################################
+
+  StateRule(key="authstatus", state="unauthenticated", event="authenticated", target="authenticated"),
+  StateRule(key="authstatus", state="authenticated", event="unauthenticated", target="unauthenticated"),
+
+  ########################################
+  ## citizenshipstatus transition rules ##
+  ########################################
+
+  StateRule(key="citizenshipstatus", state="citizenshipstatusunknown", event="citizen", target="citizen"),
+  StateRule(key="citizenshipstatus", state="citizenshipstatusunknown", event="noncitizen", target="noncitizen"),
+  StateRule(key="citizenshipstatus", state="citizen", event="noncitizen", target="noncitizen"),
+  StateRule(key="citizenshipstatus", state="noncitizen", event="citizen", target="citizen"),
+  
+]
+```
