@@ -51,8 +51,6 @@ Alternatively, you can run the application in a Docker container:
 
 1. From the root directory run `docker compose up -d --build`
 
-***NB.*** This template uses [Docker Compose V2](https://www.docker.com/blog/announcing-compose-v2-general-availability/) (viz. `docker compose` instead of `docker-compose`).
-
 Other scripts:
 
 - `npm run build` - Builds the production bundle
@@ -70,8 +68,6 @@ From the `app/` directory:
 Alternatively, you can run Storybook in a Docker container:
 
 1. From the root directory run `docker compose exec nextjs npm run storybook`
-
-***NB.*** This template uses [Docker Compose V2](https://www.docker.com/blog/announcing-compose-v2-general-availability/) (viz. `docker compose` instead of `docker-compose`).
 
 Other scripts:
 
