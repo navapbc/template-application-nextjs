@@ -28,11 +28,11 @@ Pros
 
 - Data fetching occurs on the server. The browser natively handles the page's loading state. This means less overall code to write, test, and maintain. An uncaught error on the server will be louder (in a good way) than an uncaught error on the client (which could result in a never ending spinner).
 - Makes it easier to implement a clearer separation of concerns:
-  - [Middleware](https://nextjs.org/docs/advanced-features/middleware&sa=D&source=editors&ust=1675374865787476&usg=AOvVaw3zDFoDM50pSoew_4SsZpjm) provide a place for enforcing auth, reading/setting secure cookies, setting HTTP headers, and redirects.
-  - [Loaders](https://nextjs.org/docs/basic-features/data-fetching/get-server-side-props&sa=D&source=editors&ust=1675374865787877&usg=AOvVaw0zAh7tsjHKl2P8pDGVhf-0) provide a place for fetching all data required for rendering the page.
-- Running page logic and rendering on the server makes it possible to send lighter payloads to the client. This approach can work well for a large spectrum of device and network conditions. [You can make your server fast, but you can't control the user's device or network](https://remix.run/docs/en/v1/pages/philosophy%23serverclient-model&sa=D&source=editors&ust=1675374865788271&usg=AOvVaw3bPMcx9gLfFygQu_qL2R-9).
+  - [Middleware](https://nextjs.org/docs/advanced-features/middleware) provide a place for enforcing auth, reading/setting secure cookies, setting HTTP headers, and redirects.
+  - [Loaders](https://nextjs.org/docs/basic-features/data-fetching/get-server-side-props) provide a place for fetching all data required for rendering the page.
+- Running page logic and rendering on the server makes it possible to send lighter payloads to the client. This approach can work well for a large spectrum of device and network conditions. [You can make your server fast, but you can't control the user's device or network](https://remix.run/docs/en/v1/pages/philosophy%23serverclient-model).
 - Data fetching on the server enables accessing authenticated APIs (e.g. using [TLS mutual auth](https://www.cloudflare.com/learning/access-management/what-is-mutual-tls/) to talk to fetch data from a protected third-party API).
-- Low effort to implement pretty [dynamic routes](https://nextjs.org/docs/routing/dynamic-routes&sa=D&source=editors&ust=1675374865788677&usg=AOvVaw070KKTAMkbV2YkqYVRpep-) (e.g `/claim/:claim_id`)
+- Low effort to implement pretty [dynamic routes](https://nextjs.org/docs/routing/dynamic-routes) (e.g `/claim/:claim_id`)
 - [API routes](https://nextjs.org/docs/api-routes/introduction) can be created to handle other types of HTTP requests (POST, PUT, etc).
 - Nice side benefit: Server rendering is the only option for [Remix](https://remix.run/). It may be easier, from an infra standpoint and as a conceptual model, to migrate to Remix if the Next.js apps we're building were server rendered.
 
