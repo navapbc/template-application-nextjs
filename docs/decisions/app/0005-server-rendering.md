@@ -38,7 +38,8 @@ Pros
 
 Cons
 
-- Requires infra resources to run the containerized application, and all the things that come along with a server (rate limiting, auto scaling), such as [AWS App Runner](https://aws.amazon.com/apprunner/). This can have higher costs than a prerendered site, and requires more effort to receive security approvals due to a larger attack surface.
+- Requires infra resources to run the containerized application, and all the things that come along with a server (rate limiting, auto scaling), such as [AWS App Runner](https://aws.amazon.com/apprunner/). This can have higher costs than a prerendered site.
+- Higher operational and compliance burden due to the above. Requires more effort to create documentation for security approvals due to a larger attack surface.
 
 ### Prerendering
 
