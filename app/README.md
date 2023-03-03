@@ -49,7 +49,7 @@ From the `app/` directory:
 
 Alternatively, you can run the application in a Docker container:
 
-1. From the root directory run `docker-compose up -d --build`
+1. From the root directory run `docker compose up -d --build`
 
 Other scripts:
 
@@ -67,7 +67,7 @@ From the `app/` directory:
 
 Alternatively, you can run Storybook in a Docker container:
 
-1. From the root directory run `docker-compose exec nextjs npm run storybook`
+1. From the root directory run `docker compose exec nextjs npm run storybook`
 
 Other scripts:
 
