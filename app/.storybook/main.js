@@ -1,4 +1,5 @@
 /**
+ * Test
  * @file Storybook's main configuration file that controls the generation of Storybook.
  * Handles things like config for location of story files and managing presets (which configure webpack and babel).
  * @see https://storybook.js.org/docs/configurations/default-config/
