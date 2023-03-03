@@ -41,6 +41,7 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: 16
+      - run: npm ci
       - run: npm run build
         # Next.js's build step runs lint and type checks too
         name: Lint, Type check, and Build
@@ -55,4 +56,5 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: 16
+      - run: npm ci
       - run: npm run storybook-build
