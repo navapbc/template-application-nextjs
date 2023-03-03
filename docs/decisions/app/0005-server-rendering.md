@@ -47,6 +47,7 @@ Pros
 
 - Great for mostly static sites, when the markup can be generated ahead of time.
 - Minimal infrastructure is required. The prerendered HTML files can be served from a CDN, such as AWS CloudFront connected to an S3 bucket. Assuming other best practices are followed, like optimizing images and not loading MB's of client-side JS, this can translate to fast page loads and low costs.
+- Lighter operational and compliance requirements. Security approval documentation is simpler due to a smaller attack surface, and on-call responsibilities are reduced.
 
 Cons
 
