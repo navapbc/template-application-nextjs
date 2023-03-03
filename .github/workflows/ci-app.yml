@@ -5,24 +5,54 @@ on:
     branches:
       - main
   pull_request:
+    paths:
+      - app/**
+      - .github/workflows/ci-app.yml
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+defaults:
+  run:
+    working-directory: ./app
 
 jobs:
   test:
-    name: pass/fail checks
+    name: Tests and Formatting
     runs-on: ubuntu-latest
 
-    defaults:
-      run:
-        working-directory: ./app
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 16
+      - run: npm ci
+      - run: npm run format-check
+      - run: npm run test
+
+  # Confirms the app still builds successfully
+  check-app-builds:
+    name: Lint, Type check, and Build
+    runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
-    - uses: actions/setup-node@v1
-      with:
-        node-version: 16
-    - run: npm ci
-    - run: npm run build
-    - run: npm run lint
-    - run: npm run format-check
-    - run: npm run test
-    
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 16
+      - run: npm run build
+        # Next.js's build step runs lint and type checks too
+        name: Lint, Type check, and Build
+
+  # Confirms Storybook still builds successfully
+  check-storybook-builds:
+    name: Storybook builds
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 16
+      - run: npm run storybook-build
