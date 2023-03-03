@@ -4,7 +4,7 @@ Next.js provides multiple ways of rendering a website, which have different comm
 
 ## Considered options
 
-1.  Server rendering (`next start`): Generates the full HTML markup for a page on the server in response to navigation. Minimal client-side JS is possible, even for personalized sites.
+1.  Server rendering (`next start`): Generates the full HTML markup for a page on the server in response to navigation. Initial page data can be fetched on the server.
 2.  Prerendering (`next export`): At compile time, a separate HTML file is generated for each URL. Only the initial state of the page is generated as static HTML. To display personalized data, client-side JS is required and the page's DOM is updated.
 
 ## Decision drivers
@@ -12,7 +12,7 @@ Next.js provides multiple ways of rendering a website, which have different comm
 1.  The selected option should represent what we consider the preferred approach for the types of websites we're typically building with Next.js: authenticated, personalized web applications (claimant portals, compare tools, case management systems, etc).
 2.  Reduce the need for third party dependencies or custom code, when a native option works just as well.
 3.  A (reasonable) increase in cloud costs is acceptable if it results in a system that is more maintainable for software teams and the government in the long term.
-4.  Developer experience should not come at the expense of end user experience.
+4.  Prioritize end user experience above developer experience.
 
 ## Decision Outcome
 
