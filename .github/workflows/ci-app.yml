@@ -1,4 +1,4 @@
-name: NextJS CI
+name: React CI
 
 on:
   push:
