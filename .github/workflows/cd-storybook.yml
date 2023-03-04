@@ -5,6 +5,8 @@ on:
   # !! Uncomment the lines below to enable this workflow
   # push:
   #   branches: ["main"]
+  #   paths:
+  #     - app/**
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
