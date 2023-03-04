@@ -32,8 +32,6 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 18
-          cache-dependency-path: ./app/package-lock.json # or yarn.lock
-          cache: npm # or yarn
       - name: Setup Pages
         uses: actions/configure-pages@v2
         id: pages_config

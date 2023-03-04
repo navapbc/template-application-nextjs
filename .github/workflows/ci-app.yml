@@ -27,8 +27,6 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 18
-          cache-dependency-path: ./app/package-lock.json # or yarn.lock
-          cache: npm # or yarn
       - run: npm ci
       - run: npm run format-check
       - run: npm run test
@@ -43,8 +41,6 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 18
-          cache-dependency-path: ./app/package-lock.json # or yarn.lock
-          cache: npm # or yarn
 
       # https://nextjs.org/docs/advanced-features/ci-build-caching
       - uses: actions/cache@v3
@@ -74,7 +70,5 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 18
-          cache-dependency-path: ./app/package-lock.json # or yarn.lock
-          cache: npm # or yarn
       - run: npm ci
       - run: npm run storybook-build
