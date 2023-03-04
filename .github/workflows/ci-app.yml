@@ -29,8 +29,12 @@ jobs:
           node-version: 18
           cache-dependency-path: ./app/package-lock.json # or yarn.lock
           cache: npm # or yarn
+      - uses: actions/cache@v3
+        with:
+          path: |
+            ${{ github.workspace }}/app/.prettier/cache
       - run: npm ci
-      - run: npm run format-check
+      - run: npm run format-check -- --cache --cache-location .prettier/cache
       - run: npm run test
 
   # Confirms the app still builds successfully
