@@ -19,7 +19,7 @@ defaults:
 
 jobs:
   test:
-    name: Tests and Formatting
+    name: Test, Lint, Type check
     runs-on: ubuntu-latest
 
     steps:
@@ -30,12 +30,14 @@ jobs:
           cache-dependency-path: ./app/package-lock.json # or yarn.lock
           cache: npm # or yarn
       - run: npm ci
-      - run: npm run format-check
       - run: npm run test
+      - run: npm run lint
+      - run: npm run ts:check
+      - run: npm run format-check
 
   # Confirms the app still builds successfully
   check-app-builds:
-    name: Lint, Type check, and Build
+    name: Build check - App
     runs-on: ubuntu-latest
 
     steps:
@@ -59,14 +61,11 @@ jobs:
             ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json') }}-
 
       - run: npm ci
-
-      # Next.js's build step runs lint and type checks too
-      - name: Lint, Type check, and Build
-        run: npm run build
+      - run: npm run build -- --no-lint
 
   # Confirms Storybook still builds successfully
   check-storybook-builds:
-    name: Storybook builds
+    name: Build check - Storybook
     runs-on: ubuntu-latest
 
     steps:
