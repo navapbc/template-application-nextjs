@@ -24,6 +24,7 @@ concurrency:
 
 jobs:
   tests:
+    name: Tests
     runs-on: ubuntu-latest
 
     steps:
@@ -37,6 +38,7 @@ jobs:
       - run: npm run test
 
   lint:
+    name: Lint
     runs-on: ubuntu-latest
 
     steps:
