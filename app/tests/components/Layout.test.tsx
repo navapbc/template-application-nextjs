@@ -8,7 +8,7 @@ describe("Layout", () => {
   it("should render placeholder header text", () => {
     render(
       <Layout>
-        <h1>"child"</h1>
+        <h1>child</h1>
       </Layout>
     );
 
@@ -21,7 +21,7 @@ describe("Layout", () => {
   it("should pass accessibility scan", async () => {
     const { container } = render(
       <Layout>
-        <h1>"child"</h1>
+        <h1>child</h1>
       </Layout>
     );
     const results = await axe(container);
