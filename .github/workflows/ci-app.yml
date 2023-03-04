@@ -59,9 +59,10 @@ jobs:
             ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json') }}-
 
       - run: npm ci
-      - run: npm run build
-        # Next.js's build step runs lint and type checks too
-        name: Lint, Type check, and Build
+
+      # Next.js's build step runs lint and type checks too
+      - name: Lint, Type check, and Build
+        run: npm run build
 
   # Confirms Storybook still builds successfully
   check-storybook-builds:
