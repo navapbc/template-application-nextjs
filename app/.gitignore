@@ -18,7 +18,6 @@
 # misc
 .DS_Store
 *.pem
-.prettier/cache
 
 # debug
 npm-debug.log*
