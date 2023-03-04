@@ -9,30 +9,72 @@ on:
       - app/**
       - .github/workflows/ci-app.yml
 
-concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: true
-
 defaults:
   run:
     working-directory: ./app
 
+env:
+  NODE_VERSION: 18
+  LOCKFILE_PATH: ./app/package-lock.json # or yarn.lock
+  PACKAGE_MANAGER: npm # or yarn
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
-  test:
-    name: Test, Lint, Type check
+  tests:
     runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
-          node-version: 18
-          cache-dependency-path: ./app/package-lock.json # or yarn.lock
-          cache: npm # or yarn
+          node-version: ${{ env.NODE_VERSION }}
+          cache-dependency-path: ${{ env.LOCKFILE_PATH }}
+          cache: ${{ env.PACKAGE_MANAGER }}
       - run: npm ci
       - run: npm run test
+
+  lint:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache-dependency-path: ${{ env.LOCKFILE_PATH }}
+          cache: ${{ env.PACKAGE_MANAGER }}
+      - run: npm ci
       - run: npm run lint
+
+  types:
+    name: Type check
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache-dependency-path: ${{ env.LOCKFILE_PATH }}
+          cache: ${{ env.PACKAGE_MANAGER }}
+      - run: npm ci
       - run: npm run ts:check
+
+  formatting:
+    name: Format check
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache-dependency-path: ${{ env.LOCKFILE_PATH }}
+          cache: ${{ env.PACKAGE_MANAGER }}
+      - run: npm ci
       - run: npm run format-check
 
   # Confirms the app still builds successfully
@@ -44,9 +86,9 @@ jobs:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
-          node-version: 18
-          cache-dependency-path: ./app/package-lock.json # or yarn.lock
-          cache: npm # or yarn
+          node-version: ${{ env.NODE_VERSION }}
+          cache-dependency-path: ${{ env.LOCKFILE_PATH }}
+          cache: ${{ env.PACKAGE_MANAGER }}
 
       # https://nextjs.org/docs/advanced-features/ci-build-caching
       - uses: actions/cache@v3
@@ -72,8 +114,8 @@ jobs:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
-          node-version: 18
-          cache-dependency-path: ./app/package-lock.json # or yarn.lock
-          cache: npm # or yarn
+          node-version: ${{ env.NODE_VERSION }}
+          cache-dependency-path: ${{ env.LOCKFILE_PATH }}
+          cache: ${{ env.PACKAGE_MANAGER }}
       - run: npm ci
       - run: npm run storybook-build
