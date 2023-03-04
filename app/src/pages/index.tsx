@@ -10,6 +10,7 @@ const Home: NextPage = () => {
       {t("Index.title")}
       <a href="https://github.com/navapbc/template-application-nextjs">
         {t("Index.titleLink")}
+        tes'ing
       </a>
     </h1>
   );
