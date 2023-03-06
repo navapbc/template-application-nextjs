@@ -11,10 +11,14 @@ TEMPLATE_DIR="$SCRIPT_DIR/.."
 echo "Copy files from template-application-nextjs"
 cd $TEMPLATE_DIR
 cp -r \
+  .dockleconfig \
   .github \
-  docs \
+  .grype.yml \
+  .hadolint.yaml \
+  .trivyignore \
   app \
   docker-compose.yml \
+  docs \
   renovate.json \
   $CUR_DIR
 cd -
