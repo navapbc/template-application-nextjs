@@ -8,7 +8,7 @@ const sassOptions = require("./scripts/sassOptions");
  * like in `<a>`, `<img>`, or `<Image>` tags. Next.js handles this for you automatically in `<Link>` tags.
  * @see https://nextjs.org/docs/api-reference/next.config.js/basepath
  */
-const basePath = "/test";
+const basePath = "";
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
