@@ -4,9 +4,11 @@
  * @see https://storybook.js.org/docs/configurations/default-config/
  */
 // @ts-check
-const nextConfig = require("../next.config");
+const sassOptions = require("../scripts/sassOptions");
 
+// Support deploying to a subdirectory, such as GitHub Pages.
 const BASE_PATH = process.env.BASE_PATH ?? "";
+const storybookSassOptions = sassOptions(BASE_PATH);
 
 /**
  * @type {import("@storybook/core-common").StorybookConfig}
@@ -45,18 +47,6 @@ const config = {
         "style-loader",
         { loader: "css-loader", options: { url: false } }, // this mirrors next.js behavior
         {
-          loader: "string-replace-loader",
-          options: {
-            // Support deploying Storybook to a subdirectory (like GitHub Pages).
-            // This adds the BASE_PATH to the beginning of all relative URLs in the CSS.
-            // It handles relative urls, whether they are quoted or not.
-            search: /url\(("?)\//g,
-            replace(match, p1, offset, string) {
-              return `url(${p1}${BASE_PATH}/`;
-            },
-          },
-        },
-        {
           /**
            * Next.js sets this automatically for us, but we need to manually set it here for Storybook.
            * The main thing this enables is autoprefixer, so any experimental CSS properties work.
@@ -71,7 +61,7 @@ const config = {
         {
           loader: "sass-loader",
           options: {
-            sassOptions: nextConfig.sassOptions,
+            sassOptions: storybookSassOptions,
           },
         },
       ],
