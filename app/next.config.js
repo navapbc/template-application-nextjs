@@ -9,13 +9,14 @@ const sassOptions = require("./scripts/sassOptions");
  * @see https://nextjs.org/docs/api-reference/next.config.js/basepath
  */
 const basePath = "";
+const appSassOptions = sassOptions(basePath);
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   basePath,
   i18n,
   reactStrictMode: true,
-  sassOptions: sassOptions(basePath),
+  sassOptions: appSassOptions,
 };
 
 module.exports = nextConfig;

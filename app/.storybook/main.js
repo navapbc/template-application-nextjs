@@ -6,7 +6,9 @@
 // @ts-check
 const sassOptions = require("../scripts/sassOptions");
 
+// Support deploying to a subdirectory, such as GitHub Pages.
 const BASE_PATH = process.env.BASE_PATH ?? "";
+const storybookSassOptions = sassOptions(BASE_PATH);
 
 /**
  * @type {import("@storybook/core-common").StorybookConfig}
@@ -59,7 +61,7 @@ const config = {
         {
           loader: "sass-loader",
           options: {
-            sassOptions: sassOptions(BASE_PATH),
+            sassOptions: storybookSassOptions,
           },
         },
       ],
