@@ -15,7 +15,17 @@
         "react-dom",
         "@types/react-dom"
       ],
-      "groupName": "react"
+      "groupName": "React"
+    },
+    {
+      "description": "Group Storybook packages together",
+      "matchPackagePatterns": ["storybook"],
+      "groupName": "Storybook"
+    },
+    {
+      "description": "Group I18next packages together",
+      "matchPackagePatterns": ["i18next"],
+      "groupName": "I18next"
     },
     {
       "description": "Leave peer dependencies alone",
