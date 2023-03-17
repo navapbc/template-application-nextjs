@@ -1,19 +1,20 @@
 {
-  "$schema":"https://docs.renovatebot.com/renovate-schema.json",
-  "extends":[
-     "config:base", "group:allNonMajor", "schedule:monthly"
-  ],
-  "timezone":"America/Los_Angeles",
-  "enabledManagers":[
-    "npm"
- ],
-  "rangeStrategy":"replace",
-  "ignoreUnstable":true,
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["config:base", "group:allNonMajor", "schedule:monthly"],
+  "timezone": "America/Los_Angeles",
+  "enabledManagers": ["npm"],
+  "rangeStrategy": "update-lockfile",
+  "ignoreUnstable": true,
   "labels": ["dependencies"],
-  "packageRules":[
-     {
+  "packageRules": [
+    {
       "description": "Group React packages together",
-      "packageNames": ["react", "@types/react", "react-dom", "@types/react-dom"],
+      "packageNames": [
+        "react",
+        "@types/react",
+        "react-dom",
+        "@types/react-dom"
+      ],
       "groupName": "react"
     },
     {
@@ -21,7 +22,7 @@
       "depTypeList": ["peerDependencies"],
       "enabled": false
     }
-  ], 
+  ],
   "ignoreDeps": [],
   "assignees": [],
   "reviewers": []
