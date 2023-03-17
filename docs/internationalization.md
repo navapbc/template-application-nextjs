@@ -32,7 +32,7 @@
 1. Then use the `useTranslation` hook's `t()` method, or the `Trans` component to render localized strings.
 
    ```tsx
-   import { Trans, useTranslation } from "react-i18next";
+   import { Trans, useTranslation } from "next-i18next";
 
    const Page = () => {
      // Optionally pass in the namespace of the translation file (e.g. common) to use
