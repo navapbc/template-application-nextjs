@@ -1,17 +1,42 @@
 import type { GetServerSideProps, NextPage } from "next";
-import { useTranslation } from "next-i18next";
+import { Trans, useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import Head from "next/head";
 
 const Home: NextPage = () => {
-  const { t } = useTranslation("common");
+  const { t } = useTranslation("common", { keyPrefix: "Index" });
 
   return (
-    <h1>
-      {t("Index.title")}
-      <a href="https://github.com/navapbc/template-application-nextjs">
-        {t("Index.titleLink")}
-      </a>
-    </h1>
+    <>
+      <Head>
+        <title>{t("title")}</title>
+      </Head>
+      {/* Demonstration of responsive utility classes: */}
+      <h1 className="font-sans-2xl tablet:font-sans-3xl margin-y-3 tablet:margin-top-6">
+        {t("title")}
+      </h1>
+
+      {/* Demonstration of more complex translated strings, with safe-listed links HTML elements */}
+      <p className="usa-intro">
+        <Trans
+          t={t}
+          i18nKey="intro"
+          components={{
+            LinkToNextJs: <a href="https://nextjs.org/docs" />,
+          }}
+        />
+      </p>
+      <div className="measure-6">
+        <Trans
+          t={t}
+          i18nKey="body"
+          components={{
+            ul: <ul className="usa-list" />,
+            li: <li />,
+          }}
+        />
+      </div>
+    </>
   );
 };
 

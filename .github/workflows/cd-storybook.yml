@@ -41,7 +41,7 @@ jobs:
         run: npm ci
         working-directory: ./app
       - name: Build
-        run: BASE_PATH=${{ steps.pages_config.outputs.base_path }} npm run storybook-build
+        run: NEXT_PUBLIC_BASE_PATH=${{ steps.pages_config.outputs.base_path }} npm run storybook-build
         working-directory: ./app
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1

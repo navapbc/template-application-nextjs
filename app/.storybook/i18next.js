@@ -14,7 +14,9 @@ i18next
   .init({
     ...i18nConfig,
     backend: {
-      loadPath: `${process.env.BASE_PATH ?? ""}/locales/{{lng}}/{{ns}}.json`,
+      loadPath: `${
+        process.env.NEXT_PUBLIC_BASE_PATH ?? ""
+      }/locales/{{lng}}/{{ns}}.json`,
     },
   });
 
