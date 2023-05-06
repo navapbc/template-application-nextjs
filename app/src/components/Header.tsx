@@ -6,7 +6,6 @@ import {
   Header as USWDSHeader,
 } from "@trussworks/react-uswds";
 import { useTranslation } from "next-i18next";
-import Link from "next/link";
 import { useState } from "react";
 
 const primaryLinks: {
@@ -34,9 +33,9 @@ const Header = () => {
   };
 
   const navItems = primaryLinks.map((link) => (
-    <Link href={link.href} key={link.href}>
+    <a href={link.href} key={link.href}>
       {t(link.i18nKey)}
-    </Link>
+    </a>
   ));
 
   return (
