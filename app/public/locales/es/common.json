@@ -1,10 +1,8 @@
 {
   "Index": {
-    "title": "¡Bienvenidos a su",
-    "titleLink": "Next.js Modelo!"
+    "title": "Página principal"
   },
-  "Layout": {
-    "header": "Plantilla de encabezado",
-    "footer": "Plantilla de pie de página"
+  "Header": {
+    "title": "Título del sitio"
   }
 }

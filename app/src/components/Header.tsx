@@ -23,7 +23,7 @@ const primaryLinks: {
 ];
 
 const Header = () => {
-  const { t } = useTranslation("common", {
+  const { t, i18n } = useTranslation("common", {
     keyPrefix: "Header",
   });
 
@@ -43,7 +43,7 @@ const Header = () => {
       <div
         className={`usa-overlay ${isMobileNavExpanded ? "is-visible" : ""}`}
       />
-      <GovBanner />
+      <GovBanner language={i18n.language.match(/^es-?/) ? "spanish" : "english"} />
       <USWDSHeader basic={true}>
         <div className="usa-nav-container">
           <div className="usa-navbar">
