@@ -28,6 +28,11 @@
       "groupName": "I18next"
     },
     {
+      "description": "USWDS must match what react-uswds depends on",
+      "matchPackagePatterns": ["@uswds/uswds"],
+      "groupName": "USWDS core"
+    },
+    {
       "description": "Leave peer dependencies alone",
       "depTypeList": ["peerDependencies"],
       "enabled": false
