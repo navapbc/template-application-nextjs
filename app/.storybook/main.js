@@ -7,8 +7,8 @@
 const sassOptions = require("../scripts/sassOptions");
 
 // Support deploying to a subdirectory, such as GitHub Pages.
-const BASE_PATH = process.env.BASE_PATH ?? "";
-const storybookSassOptions = sassOptions(BASE_PATH);
+const NEXT_PUBLIC_BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+const storybookSassOptions = sassOptions(NEXT_PUBLIC_BASE_PATH);
 
 /**
  * @type {import("@storybook/core-common").StorybookConfig}
@@ -33,11 +33,11 @@ const config = {
   // Tell storybook where to find USWDS static assets
   staticDirs: ["../public"],
   // Support deploying Storybook to a subdirectory (like GitHub Pages).
-  // This makes `process.env.BASE_PATH` available to our source code.
+  // This makes `process.env.NEXT_PUBLIC_BASE_PATH` available to our source code.
   // @ts-expect-error - https://github.com/storybookjs/storybook/issues/19294
   env: (config) => ({
     ...config,
-    BASE_PATH,
+    NEXT_PUBLIC_BASE_PATH,
   }),
   // Configure Storybook's final Webpack configuration in order to re-use the Next.js config/dependencies.
   webpackFinal: (config) => {
@@ -78,9 +78,9 @@ const config = {
 
     // Support deploying Storybook to a subdirectory (like GitHub Pages).
     // This makes the Storybook JS bundles load correctly.
-    if (BASE_PATH) {
+    if (NEXT_PUBLIC_BASE_PATH) {
       config.output = config.output ?? {};
-      config.output.publicPath = `${BASE_PATH}/`;
+      config.output.publicPath = `${NEXT_PUBLIC_BASE_PATH}/`;
     }
 
     return config;
