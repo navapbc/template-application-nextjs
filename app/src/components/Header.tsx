@@ -44,7 +44,7 @@ const Header = () => {
         className={`usa-overlay ${isMobileNavExpanded ? "is-visible" : ""}`}
       />
       <GovBanner
-        language={i18n.language.match(/^es-?/) ? "spanish" : "english"}
+        language={i18n.language?.match(/^es-?/) ? "spanish" : "english"}
       />
       <USWDSHeader basic={true}>
         <div className="usa-nav-container">
