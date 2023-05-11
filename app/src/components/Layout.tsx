@@ -14,6 +14,7 @@ const Layout = ({ children }: Props) => {
   });
 
   return (
+    // Stick the footer to the bottom of the page
     <div className="display-flex flex-column minh-viewport">
       <a className="usa-skipnav" href="#main-content">
         {t("skip_to_main")}
