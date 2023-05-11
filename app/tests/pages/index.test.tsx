@@ -1,20 +1,20 @@
-// test/pages/index.test.js
 import { render, screen } from "@testing-library/react";
 import { axe } from "jest-axe";
-
-import Index from "../../src/pages/index";
+import Index from "src/pages/index";
 
 describe("Index", () => {
-  it("should render the heading", () => {
+  // Demonstration of rendering translated text, and asserting the presence of a dynamic value.
+  // You can delete this test for your own project.
+  it("renders link to Next.js docs", () => {
     render(<Index />);
 
-    const heading = screen.getByText(/Welcome/i);
+    const link = screen.getByRole("link", { name: /next\.js/i });
 
-    expect(heading).toBeInTheDocument();
-    expect(heading).toMatchSnapshot();
+    expect(link).toBeInTheDocument();
+    expect(link).toHaveAttribute("href", "https://nextjs.org/docs");
   });
 
-  it("should pass accessibility scan", async () => {
+  it("passes accessibility scan", async () => {
     const { container } = render(<Index />);
     const results = await axe(container);
 

@@ -1,26 +1,33 @@
+import { Grid, GridContainer } from "@trussworks/react-uswds";
 import { useTranslation } from "next-i18next";
-import { ReactElement } from "react";
+
+import Footer from "./Footer";
+import Header from "./Header";
 
 type Props = {
-  children: ReactElement;
+  children: React.ReactNode;
 };
 
-const Layout = ({ children }: Props): ReactElement => {
-  const { t } = useTranslation("common");
+const Layout = ({ children }: Props) => {
+  const { t } = useTranslation("common", {
+    keyPrefix: "Layout",
+  });
 
   return (
-    <div>
-      <header /* add your agency's or USWDS's header here */>
-        <em>{t("Layout.header")}</em>
-      </header>
-      <main className="grid-container">
-        <div className="grid-row">
-          <div className="grid-col">{children}</div>
-        </div>
+    // Stick the footer to the bottom of the page
+    <div className="display-flex flex-column minh-viewport">
+      <a className="usa-skipnav" href="#main-content">
+        {t("skip_to_main")}
+      </a>
+      <Header />
+      <main id="main-content" className="grid-col-fill">
+        <GridContainer>
+          <Grid row>
+            <Grid col>{children}</Grid>
+          </Grid>
+        </GridContainer>
       </main>
-      <footer /* add your agency's or USWDS's footer here */>
-        <em>{t("Layout.footer")}</em>
-      </footer>
+      <Footer />
     </div>
   );
 };

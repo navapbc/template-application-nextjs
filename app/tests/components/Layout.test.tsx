@@ -1,24 +1,21 @@
-// test/pages/index.test.js
 import { render, screen } from "@testing-library/react";
 import { axe } from "jest-axe";
-
-import Layout from "../../src/components/Layout";
+import Layout from "src/components/Layout";
 
 describe("Layout", () => {
-  it("should render placeholder header text", () => {
+  it("renders children in main section", () => {
     render(
       <Layout>
         <h1>child</h1>
       </Layout>
     );
 
-    const header = screen.getByText(/Template Header/i);
+    const header = screen.getByRole("heading", { name: /child/i, level: 1 });
 
     expect(header).toBeInTheDocument();
-    expect(header).toMatchSnapshot();
   });
 
-  it("should pass accessibility scan", async () => {
+  it("passes accessibility scan", async () => {
     const { container } = render(
       <Layout>
         <h1>child</h1>
