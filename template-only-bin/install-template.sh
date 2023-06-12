@@ -22,3 +22,4 @@ cd -
 
 echo "Remove files relevant only to template development"
 rm .github/workflows/template-only-*
+rm -rf docs/decisions/template
