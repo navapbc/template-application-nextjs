@@ -12,11 +12,11 @@ echo "Copy files from template-application-nextjs"
 cd $TEMPLATE_DIR
 cp -r \
   .github \
+  .gitignore \
   .grype.yml \
   app \
   docker-compose.yml \
   docs \
-  renovate.json \
   $CUR_DIR
 cd -
 
