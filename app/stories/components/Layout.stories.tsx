@@ -1,16 +1,29 @@
-import { ComponentMeta, ComponentStory } from "@storybook/react";
+import { Meta } from "@storybook/react";
+import Layout from "src/components/Layout";
 
-import LayoutComponent from "../../src/components/Layout";
+const meta: Meta<typeof Layout> = {
+  component: Layout,
+};
+export default meta;
 
-export default {
-  title: "Components",
-  component: LayoutComponent,
-} as ComponentMeta<typeof LayoutComponent>;
+/**
+ * Below is an example of using Storybook's `args` feature to render
+ * different versions of the same component.
+ * @see https://storybook.js.org/docs/react/writing-stories/args
+ */
+export const Preview1 = {
+  args: {
+    children: <h1>Page contents go here</h1>,
+  },
+};
 
-const Template: ComponentStory<typeof LayoutComponent> = () => (
-  <LayoutComponent>
-    <h1>Page contents go here</h1>
-  </LayoutComponent>
-);
-
-export const Layout = Template.bind({});
+export const Preview2 = {
+  args: {
+    children: (
+      <>
+        <h1>Another demo</h1>
+        <p>This is an example of another story with a different arg.</p>
+      </>
+    ),
+  },
+};

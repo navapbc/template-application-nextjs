@@ -1,12 +1,10 @@
-import { ComponentMeta, ComponentStory } from "@storybook/react";
+import { Meta } from "@storybook/react";
+import Index from "src/pages/index";
 
-import Index from "../../src/pages/index";
-
-export default {
-  title: "Pages",
+const meta: Meta<typeof Index> = {
+  title: "Pages/Home",
   component: Index,
-} as ComponentMeta<typeof Index>;
+};
+export default meta;
 
-const Template: ComponentStory<typeof Index> = () => <Index />;
-
-export const Home = Template.bind({});
+export const Preview = {};
