@@ -21,12 +21,6 @@ const parameters = {
   },
   // Configure i18next and locale/dropdown options.
   i18n,
-  locale: "en",
-  locales: {
-    ...initialLocales,
-    en: "English",
-    es: "Español",
-  },
 };
 
 /**
@@ -34,6 +28,14 @@ const parameters = {
  */
 const preview = {
   parameters,
+  globals: {
+    locale: "en",
+    locales: {
+      ...initialLocales,
+      en: "English",
+      es: "Español",
+    },
+  },
 };
 
 export default preview;
