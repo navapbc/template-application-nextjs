@@ -35,16 +35,6 @@ const config = {
     ...config,
     NEXT_PUBLIC_BASE_PATH,
   }),
-  // Configure Storybook's final Webpack configuration in order to re-use the Next.js config/dependencies.
-  webpackFinal: (config) => {
-    // Support deploying Storybook to a subdirectory (like GitHub Pages).
-    // This makes the Storybook JS bundles load correctly.
-    if (NEXT_PUBLIC_BASE_PATH) {
-      config.output = config.output ?? {};
-      config.output.publicPath = `${NEXT_PUBLIC_BASE_PATH}/`;
-    }
-    return config;
-  },
 };
 
 export default config;
