@@ -9,7 +9,7 @@ const sassOptions = require("./scripts/sassOptions");
  * @see https://nextjs.org/docs/api-reference/next.config.js/basepath
  * @example "/test" results in "localhost:3000/test" as the index page for the app
  */
-const basePath = undefined;
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH;
 const appSassOptions = sassOptions(basePath);
 
 /** @type {import('next').NextConfig} */
