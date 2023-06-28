@@ -12,7 +12,7 @@ Storybook can be deployed as a static HTML export. This template includes a GitH
 1. Select "GitHub Actions" from the **Source** dropdown field on the "Pages" tab in your repo settings (`Settings > Pages`).
 1. Trigger the workflow from the repo's Actions tab or by pushing a commit to your main branch
 
-If your GitHub repo is public and you're using the default domain, Storybook will be hosted at a subdirectory: `https://<repo-owner-username>.github.io/<repo-name>/`. A `NEXT_PUBLIC_BASE_PATH` environment variable is available to your code so that any relative paths can be properly prefixed with the subdirectory where your Storybook is hosted. The Storybook configuration is already setup to use this environment variable.
+If your GitHub repo is public and you're using the default domain, Storybook will be hosted at a subdirectory: `https://<repo-owner-username>.github.io/<repo-name>/`. A `NEXT_PUBLIC_BASE_PATH` environment variable is available to your code so that any relative paths can be properly prefixed with the subdirectory where your Storybook is hosted. The Storybook configuration is already setup to use this environment variable, as long as the `basePath` in your `next.config.js` uses `process.env.NEXT_PUBLIC_BASE_PATH` as the value.
 
 ### Alternatives
 

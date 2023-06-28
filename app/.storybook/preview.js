@@ -1,3 +1,4 @@
+// @ts-check
 import i18nConfig from "../next-i18next.config";
 // Apply global styling to our stories
 import "../styles/styles.scss";
@@ -10,7 +11,7 @@ import i18n from "./i18next.js";
 const initialLocales = {};
 i18nConfig.i18n.locales.forEach((locale) => (initialLocales[locale] = locale));
 
-export const parameters = {
+const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
   controls: {
     matchers: {
@@ -20,10 +21,21 @@ export const parameters = {
   },
   // Configure i18next and locale/dropdown options.
   i18n,
-  locale: "en",
-  locales: {
-    ...initialLocales,
-    en: "English",
-    es: "Español",
+};
+
+/**
+ * @type {import("@storybook/react").Preview}
+ */
+const preview = {
+  parameters,
+  globals: {
+    locale: "en",
+    locales: {
+      ...initialLocales,
+      en: "English",
+      es: "Español",
+    },
   },
 };
+
+export default preview;
