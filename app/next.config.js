@@ -18,6 +18,11 @@ const nextConfig = {
   i18n,
   reactStrictMode: true,
   sassOptions: appSassOptions,
+  transpilePackages: [
+    // Continue to support older browsers (ES5)
+    // https://github.com/i18next/i18next/issues/1948
+    "i18next",
+  ],
 };
 
 module.exports = nextConfig;
