@@ -1,3 +1,4 @@
+import { useTranslation } from "next-i18next";
 import {
   Address,
   FooterNav,
@@ -5,7 +6,6 @@ import {
   GridContainer,
   Footer as USWDSFooter,
 } from "@trussworks/react-uswds";
-import { useTranslation } from "next-i18next";
 
 const Footer = () => {
   const { t } = useTranslation("common", {

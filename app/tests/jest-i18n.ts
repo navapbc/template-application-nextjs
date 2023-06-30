@@ -2,12 +2,12 @@
  * @file Setup internationalization for tests so snapshots and queries reference the correct translations
  */
 import fs from "fs";
-import i18n, { InitOptions } from "i18next";
 import path from "path";
-import { initReactI18next } from "react-i18next";
 
 // @ts-expect-error - Config file has to be .js
 import i18nConfig from "../next-i18next.config";
+import i18n, { InitOptions } from "i18next";
+import { initReactI18next } from "react-i18next";
 
 const locales = i18nConfig.i18n.locales;
 

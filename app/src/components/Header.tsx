@@ -1,3 +1,5 @@
+import { useTranslation } from "next-i18next";
+import { useState } from "react";
 import {
   GovBanner,
   NavMenuButton,
@@ -5,8 +7,6 @@ import {
   Title,
   Header as USWDSHeader,
 } from "@trussworks/react-uswds";
-import { useTranslation } from "next-i18next";
-import { useState } from "react";
 
 const primaryLinks: {
   i18nKey: string;

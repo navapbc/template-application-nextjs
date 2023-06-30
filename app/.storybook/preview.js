@@ -1,7 +1,9 @@
 // @ts-check
 import i18nConfig from "../next-i18next.config";
+
 // Apply global styling to our stories
 import "../styles/styles.scss";
+
 // Import i18next config.
 import i18n from "./i18next.js";
 
