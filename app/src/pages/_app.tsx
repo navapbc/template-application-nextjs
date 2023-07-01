@@ -1,8 +1,9 @@
 import { appWithTranslation } from "next-i18next";
 import type { AppProps } from "next/app";
 import Head from "next/head";
-import "../styles/styles.scss";
+
 import Layout from "../components/Layout";
+import "../styles/styles.scss";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
