@@ -58,6 +58,8 @@ COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
 # ARG NEXT_PUBLIC_ENV_VARIABLE
 # ENV NEXT_PUBLIC_ENV_VARIABLE=${NEXT_PUBLIC_ENV_VARIABLE}
 ENV NEXT_TELEMETRY_DISABLED 1
+ENV PORT 3000
 
-# Don't expose ports here, `compose` will handle that for us
+EXPOSE 3000
+
 CMD ["node", "server.js"]
