@@ -19,9 +19,9 @@ const config = {
       builder: {
         // Cache build output between runs, to speed up subsequent startup times
         fsCache: true,
-        // Applies in development mode. Storybook will start up faster, at the cost
-        // of slightly slower browsing time when you navigate to another story.
-        lazyCompilation: true,
+        // lazyCompilation breaks Storybook when running from within Docker
+        // Google Translate this page for context: https://zenn.dev/yutaosawa/scraps/7764e5f17173d1
+        lazyCompilation: false,
       },
     },
   },

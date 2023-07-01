@@ -22,6 +22,9 @@ endif
 export RUN_USER
 export RUN_UID
 
+##################################################
+# Build
+##################################################
 release-build:
 	docker buildx build \
 		--platform=linux/amd64 \
@@ -31,9 +34,8 @@ release-build:
 		.
 
 ##################################################
-# Build & Run
+# Local development
 ##################################################
-
 dev: # Run the Next.js local dev server in Docker
 	docker compose --file ../docker-compose.dev.yml up --detach nextjs
 	docker compose --file ../docker-compose.dev.yml logs --follow nextjs
@@ -43,4 +45,4 @@ storybook: # Run the Storybook local dev server in Docker
 	docker compose --file ../docker-compose.dev.yml logs --follow storybook
 
 stop:
-	docker-compose down
+	docker-compose --file ../docker-compose.dev.yml down

@@ -70,7 +70,7 @@ From the `app/` directory:
 
 ##### Other scripts
 
-- `make release-build` - Creates the Docker image for deployment
+- `make release-build` - Creates the Docker image for deployment to the cloud
 
 ## 🖼️ Storybook
 
