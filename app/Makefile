@@ -34,9 +34,13 @@ release-build:
 # Build & Run
 ##################################################
 
-dev:
-	docker compose --file ../docker-compose.dev.yml up --detach
-	docker compose --file ../docker-compose.dev.yml logs --follow
+dev: # Run the Next.js local dev server in Docker
+	docker compose --file ../docker-compose.dev.yml up --detach nextjs
+	docker compose --file ../docker-compose.dev.yml logs --follow nextjs
+
+storybook: # Run the Storybook local dev server in Docker
+	docker compose --file ../docker-compose.dev.yml up --detach storybook
+	docker compose --file ../docker-compose.dev.yml logs --follow storybook
 
 stop:
 	docker-compose down
