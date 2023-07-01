@@ -1,0 +1,23 @@
+# Dockerfile for running the Next.js development server for local development.
+# This file is largely based on the Next.js Docker example:
+# https://github.com/vercel/next.js/blob/canary/examples/with-docker-compose
+# =============================================================================
+FROM node:18-alpine AS base
+
+WORKDIR /app
+
+# 1.1: Install dependencies
+COPY package.json package-lock.json ./
+COPY public ./public
+COPY scripts ./scripts
+RUN npm ci --no-audit
+
+# 1.2: Run the dev server
+COPY tsconfig.json .
+COPY *.config.js .
+COPY *.d.ts .
+COPY src ./src
+
+ENV NEXT_TELEMETRY_DISABLED 1
+
+CMD ["npm", "run", "dev"]

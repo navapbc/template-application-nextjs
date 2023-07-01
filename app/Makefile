@@ -29,3 +29,14 @@ release-build:
 		--build-arg RUN_UID=$(RUN_UID) \
 		$(OPTS) \
 		.
+
+##################################################
+# Build & Run
+##################################################
+
+dev:
+	docker compose --file ../docker-compose.dev.yml up --detach
+	docker compose --file ../docker-compose.dev.yml logs --follow
+
+stop:
+	docker-compose down
