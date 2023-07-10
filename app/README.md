@@ -11,13 +11,13 @@
 ├── .storybook        # Storybook configuration
 ├── public            # Static assets
 │   └── locales       # Internationalized content
-├── src               # JS source code
+├── src               # Source code
 │   ├── components    # Reusable UI components
-│   └── pages         # Page routes and data fetching
-│       ├── api       # API routes (optional)
-│       └── _app.tsx  # Global entry point
+│   ├── pages         # Page routes and data fetching
+│   │   ├── api       # API routes (optional)
+│   │   └── _app.tsx  # Global entry point
+│   └── styles        # Sass & design system settings
 ├── stories           # Storybook pages
-├── styles            # Sass & design system settings
 └── tests
 ```
 
@@ -30,6 +30,10 @@ Files in the `pages/api` are treated as [API routes](https://nextjs.org/docs/api
 [**Learn more about developing Next.js applications** ↗️](https://nextjs.org/docs)
 
 ### Getting started
+
+The application can be ran natively or in a Docker container.
+
+#### Native
 
 From the `app/` directory:
 
@@ -47,14 +51,26 @@ From the `app/` directory:
    ```
 1. Navigate to [localhost:3000](http://localhost:3000) to view the application
 
-Alternatively, you can run the application in a Docker container:
+##### Other scripts
 
-1. From the root directory run `docker compose up -d --build`
+- `npm run build` - Builds the production Next.js bundle
+- `npm start` - Runs the Next.js server, after building the production bundle
 
-Other scripts:
+#### Docker
 
-- `npm run build` - Builds the production bundle
-- `npm start` - Runs the app in production mode
+Alternatively, you can run the application in a Docker container.
+
+From the `app/` directory:
+
+1. Run the local development server
+   ```bash
+   make dev
+   ```
+1. Navigate to [localhost:3000](http://localhost:3000) to view the application
+
+##### Other scripts
+
+- `make release-build` - Creates the Docker image for deployment to the cloud
 
 ## 🖼️ Storybook
 
@@ -62,18 +78,27 @@ Storybook is a [frontend workshop](https://bradfrost.com/blog/post/a-frontend-wo
 
 See the [Storybook Next.js documentation](https://github.com/storybookjs/storybook/tree/next/code/frameworks/nextjs) for more information about using Storybook with Next.js
 
+Similar to the Next.js application, Storybook can be ran natively or in a Docker container.
+
+#### Native
+
 From the `app/` directory:
 
 1. `npm run storybook`
 2. Navigate to [localhost:6006](http://localhost:6006) to view
 
-Alternatively, you can run Storybook in a Docker container:
-
-1. From the root directory run `docker compose exec nextjs npm run storybook`
-
-Other scripts:
+##### Other scripts
 
 - `npm run storybook-build` - Exports a static site to `storybook-static/`
+
+#### Docker
+
+Alternatively, you can run Storybook in a Docker container.
+
+From the `app/` directory:
+
+1. `make storybook`
+2. Navigate to [localhost:6006](http://localhost:6006) to view
 
 ## 🐛 Testing
 

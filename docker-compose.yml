@@ -1,29 +1,33 @@
-# Specify current major version of docker compose.
-# See https://docs.docker.com/compose/compose-file/compose-versioning/
-version: '3'
-
+# Local development compose file
 services:
-  # Define a service for the Next.js application.
   nextjs:
-    build: ./app
-    # To support local development, runs the container in development mode.
-    # This allows Next.js to do things like hot reload.
-    command: ["npm", "run", "dev"]
-    ports:
-      # Expose a port to access the application.
-      - 3000:3000
-      # Expose a port for storybook.
-      - 6006:6006
+    container_name: next-dev
+    build:
+      context: ./app
+      target: dev
+    env_file:
+      # Add your non-secret environment variables to this file:
+      - ./app/.env.development
+      # If you have secrets, add them to this file and uncomment this line:
+      # - ./app/.env.local
     volumes:
-      # Mount the app directory for faster local development.
-      - ./app:/srv
-      # Use a named volume for the node_modules so that the container uses
-      # the guest machine's node_modules dir instead of the host machine's node_modules directory, which might be divergent.
-      # This also means that if you run `npm install <package>` on the host machine in development
-      # (which will update `package-lock.lock`), you'll also need to run `docker compose exec nextjs npm ci` to update
-      # `node_modules` in the guest machine.
-      - nextjs_nodemodules:/srv/node_modules
+      - ./app/src:/app/src
+      - ./app/public:/app/public
+    restart: always
+    ports:
+      - 3000:3000
 
-volumes:
-  nextjs_nodemodules:
-
+  storybook:
+    container_name: storybook
+    build:
+      context: ./app
+      target: dev
+    command: npm run storybook
+    volumes:
+      - ./app/src:/app/src
+      - ./app/public:/app/public
+      - ./app/.storybook:/app/.storybook
+      - ./app/stories:/app/stories
+    restart: always
+    ports:
+      - 6006:6006
