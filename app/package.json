@@ -29,6 +29,7 @@
     "react-i18next": "^13.0.0"
   },
   "devDependencies": {
+    "@ianvs/prettier-plugin-sort-imports": "^4.0.2",
     "@storybook/addon-essentials": "^7.0.23",
     "@storybook/nextjs": "^7.0.23",
     "@storybook/react": "^7.0.23",
@@ -36,7 +37,6 @@
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^14.0.0",
     "@testing-library/user-event": "^14.4.3",
-    "@trivago/prettier-plugin-sort-imports": "^4.1.1",
     "@types/jest-axe": "^3.5.5",
     "@types/node": "^18.15.3",
     "@types/react": "^18.0.28",
