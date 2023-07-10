@@ -23,7 +23,7 @@ export RUN_USER
 export RUN_UID
 
 ##################################################
-# Build
+# Release
 ##################################################
 release-build:
 	docker buildx build \
@@ -37,12 +37,12 @@ release-build:
 # Local development
 ##################################################
 dev: # Run the Next.js local dev server in Docker
-	docker compose --file ../docker-compose.yml up --detach nextjs
-	docker compose --file ../docker-compose.yml logs --follow nextjs
+	docker compose up --detach nextjs
+	docker compose logs --follow nextjs
 
 storybook: # Run the Storybook local dev server in Docker
-	docker compose --file ../docker-compose.yml up --detach storybook
-	docker compose --file ../docker-compose.yml logs --follow storybook
+	docker compose up --detach storybook
+	docker compose logs --follow storybook
 
 stop:
-	docker-compose --file ../docker-compose.yml down
+	docker-compose down
