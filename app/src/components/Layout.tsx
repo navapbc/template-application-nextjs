@@ -1,5 +1,5 @@
-import { Grid, GridContainer } from "@trussworks/react-uswds";
 import { useTranslation } from "next-i18next";
+import { Grid, GridContainer } from "@trussworks/react-uswds";
 
 import Footer from "./Footer";
 import Header from "./Header";

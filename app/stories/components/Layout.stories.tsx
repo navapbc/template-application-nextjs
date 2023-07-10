@@ -1,4 +1,5 @@
 import { Meta } from "@storybook/react";
+
 import Layout from "src/components/Layout";
 
 const meta: Meta<typeof Layout> = {
