@@ -1,22 +1,41 @@
-# Dockerfile for building a production image for deployment.
-# This file is largely based on the Next.js Docker example:
-# https://github.com/vercel/next.js/blob/canary/examples/with-docker-compose
+# This file is largely based on the template-application-flask Dockerfile and
+# Next.js Docker example: https://github.com/vercel/next.js/blob/canary/examples/with-docker-compose
 # =============================================================================
 FROM node:18-alpine AS base
-
-# =============================================================================
-# Stage 1: Build the Next.js app
-# =============================================================================
-FROM base AS builder
 WORKDIR /app
 
-# 1.1: Install dependencies
+# Install dependencies
 COPY package.json package-lock.json ./
 COPY public ./public
 COPY scripts ./scripts
 RUN npm ci --no-audit
 
-# 1.2: Build the app
+# =============================================================================
+# Development stage
+# =============================================================================
+FROM base AS dev
+WORKDIR /app
+
+COPY tsconfig.json .
+COPY *.config.js .
+COPY *.d.ts .
+COPY src ./src
+COPY stories ./stories
+COPY .storybook ./.storybook
+
+ENV NEXT_TELEMETRY_DISABLED 1
+
+CMD ["npm", "run", "dev"]
+
+# =============================================================================
+# Release stage
+# =============================================================================
+
+# Build the Next.js app
+# =====================================
+FROM base AS builder
+WORKDIR /app
+
 COPY tsconfig.json .
 COPY *.config.js .
 COPY *.d.ts .
@@ -34,9 +53,8 @@ ENV NEXT_TELEMETRY_DISABLED 1
 # Skip lint because it should have happened in the CI already
 RUN npm run build -- --no-lint
 
-# =============================================================================
-# Stage 2: Run the Next.js server
-# =============================================================================
+# Run the Next.js server
+# =====================================
 FROM base AS release
 WORKDIR /app
 
