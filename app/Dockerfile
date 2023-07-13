@@ -4,6 +4,7 @@
 FROM node:18-alpine AS base
 WORKDIR /app
 
+# Install dependencies
 COPY package.json package-lock.json ./
 COPY public ./public
 COPY scripts ./scripts
@@ -54,6 +55,7 @@ RUN npm run build -- --no-lint
 
 # Run the Next.js server
 # =====================================
+# Use clean image for release, excluding any unnecessary files or dependencies
 FROM node:18-alpine AS release
 WORKDIR /app
 
