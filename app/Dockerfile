@@ -2,10 +2,6 @@
 # Next.js Docker example: https://github.com/vercel/next.js/blob/canary/examples/with-docker-compose
 # =============================================================================
 FROM node:18-alpine AS base
-
-# Install dependencies in a separate stage so that they
-# are excluded from the final production release stage
-FROM base as dev-dependencies
 WORKDIR /app
 
 COPY package.json package-lock.json ./
@@ -16,7 +12,7 @@ RUN npm ci --no-audit
 # =============================================================================
 # Development stage
 # =============================================================================
-FROM dev-dependencies AS dev
+FROM base AS dev
 WORKDIR /app
 
 COPY tsconfig.json .
@@ -36,7 +32,7 @@ CMD ["npm", "run", "dev"]
 
 # Build the Next.js app
 # =====================================
-FROM dev-dependencies AS builder
+FROM base AS builder
 WORKDIR /app
 
 COPY tsconfig.json .
@@ -58,7 +54,7 @@ RUN npm run build -- --no-lint
 
 # Run the Next.js server
 # =====================================
-FROM base AS release
+FROM node:18-alpine AS release
 WORKDIR /app
 
 # Don't run production as root
