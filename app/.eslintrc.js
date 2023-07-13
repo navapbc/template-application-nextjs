@@ -14,7 +14,11 @@ module.exports = {
     {
       files: ["tests/**"],
       plugins: ["jest"],
-      extends: ["plugin:jest/recommended"],
+      extends: [
+        "plugin:jest/recommended",
+        "plugin:jest-dom/recommended",
+        "plugin:testing-library/react",
+      ],
     },
     // Lint config specific to TypeScript files
     {
