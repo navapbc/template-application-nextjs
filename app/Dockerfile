@@ -1,7 +1,7 @@
 # This file is largely based on the template-application-flask Dockerfile and
 # Next.js Docker example: https://github.com/vercel/next.js/blob/canary/examples/with-docker-compose
 # =============================================================================
-FROM node:18-alpine AS base
+FROM node:18-bullseye-slim AS base
 WORKDIR /app
 
 # Install dependencies
@@ -56,8 +56,12 @@ RUN npm run build -- --no-lint
 # Run the Next.js server
 # =====================================
 # Use clean image for release, excluding any unnecessary files or dependencies
-FROM node:18-alpine AS release
+FROM node:18-bullseye-slim AS release
 WORKDIR /app
+
+# Release stage doesn't have a need for `npm`, so remove it to avoid 
+# any vulnerabilities specific to NPM
+RUN npm uninstall -g npm
 
 # Don't run production as root
 RUN addgroup --system --gid 1001 nodejs
