@@ -59,9 +59,11 @@ RUN npm run build -- --no-lint
 FROM node:18-bullseye-slim AS release
 WORKDIR /app
 
-# Release stage doesn't have a need for `npm`, so remove it to avoid 
+# Release stage doesn't have a need for `npm`, so remove it to avoid
 # any vulnerabilities specific to NPM
 RUN npm uninstall -g npm
+# Remove yarn as well (https://github.com/nodejs/docker-node/issues/777)
+RUN rm -rf /opt/yarn-v*
 
 # Don't run production as root
 RUN addgroup --system --gid 1001 nodejs
