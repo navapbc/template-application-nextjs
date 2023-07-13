@@ -59,10 +59,9 @@ RUN npm run build -- --no-lint
 FROM node:18-bullseye-slim AS release
 WORKDIR /app
 
-# As of July 13, 2023, 18-bullseye-slim has a vulnerability in the version of
-# semver that it uses (GHSA-c2qf-rxjj-qqgw). Update npm to avoid the vulnerability
-# being caught in vulnerability scans.
-RUN npm install -g npm@latest
+# Release stage doesn't have a need for `npm`, so remove it to avoid 
+# any vulnerabilities specific to NPM
+RUN npm uninstall -g npm
 
 # Don't run production as root
 RUN addgroup --system --gid 1001 nodejs
