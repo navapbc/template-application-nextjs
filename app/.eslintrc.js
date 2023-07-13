@@ -2,6 +2,7 @@ module.exports = {
   root: true,
   extends: [
     "nava",
+    "plugin:storybook/recommended",
     // Disable ESLint code formatting rules which conflict with Prettier
     "prettier",
     // `next` should be extended last according to their docs
