@@ -2,6 +2,7 @@ module.exports = {
   root: true,
   extends: [
     "nava",
+    "plugin:storybook/recommended",
     // Disable ESLint code formatting rules which conflict with Prettier
     "prettier",
     // `next` should be extended last according to their docs
@@ -14,7 +15,11 @@ module.exports = {
     {
       files: ["tests/**"],
       plugins: ["jest"],
-      extends: ["plugin:jest/recommended"],
+      extends: [
+        "plugin:jest/recommended",
+        "plugin:jest-dom/recommended",
+        "plugin:testing-library/react",
+      ],
     },
     // Lint config specific to TypeScript files
     {
