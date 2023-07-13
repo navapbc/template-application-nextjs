@@ -8,6 +8,19 @@
 const NEXT_PUBLIC_BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
 /**
+ * Most projects use Storybook for internal purposes, and partners may be
+ * sensitive to the Storybook showing up in Google results.
+ * @param {string} head
+ * @returns string
+ */
+function blockSearchEnginesInHead(head) {
+  return `
+    ${head}
+    <meta name="robots" content="none" />
+  `;
+}
+
+/**
  * @type {import("@storybook/nextjs").StorybookConfig}
  */
 const config = {
@@ -35,6 +48,7 @@ const config = {
     ...config,
     NEXT_PUBLIC_BASE_PATH,
   }),
+  managerHead: blockSearchEnginesInHead,
 };
 
 export default config;
