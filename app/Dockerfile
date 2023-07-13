@@ -55,7 +55,8 @@ RUN npm run build -- --no-lint
 
 # Run the Next.js server
 # =====================================
-FROM base AS release
+# Use clean image for release, excluding any unnecessary files or dependencies
+FROM node:18-alpine AS release
 WORKDIR /app
 
 # Don't run production as root
