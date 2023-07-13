@@ -1,7 +1,7 @@
 # This file is largely based on the template-application-flask Dockerfile and
 # Next.js Docker example: https://github.com/vercel/next.js/blob/canary/examples/with-docker-compose
 # =============================================================================
-FROM node:18-alpine AS base
+FROM node:18-bullseye-slim AS base
 WORKDIR /app
 
 # Install dependencies
@@ -56,8 +56,13 @@ RUN npm run build -- --no-lint
 # Run the Next.js server
 # =====================================
 # Use clean image for release, excluding any unnecessary files or dependencies
-FROM node:18-alpine AS release
+FROM node:18-bullseye-slim AS release
 WORKDIR /app
+
+# As of July 13, 2023, 18-bullseye-slim has a vulnerability in the version of
+# semver that it uses (GHSA-c2qf-rxjj-qqgw). Update npm to avoid the vulnerability
+# being caught in vulnerability scans.
+RUN npm install -g npm@latest
 
 # Don't run production as root
 RUN addgroup --system --gid 1001 nodejs
