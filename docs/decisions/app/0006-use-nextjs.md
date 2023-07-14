@@ -1,4 +1,4 @@
-# Use Next.js for Template
+# Use Next.js for application framework
 
 * Status: draft <!-- optional -->
 * Deciders: [list everyone involved in the decision] <!-- optional -->
