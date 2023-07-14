@@ -1,10 +1,10 @@
-# [short title of solved problem and solution]
+# Use Next.js for Template
 
 * Status: draft <!-- optional -->
 * Deciders: [list everyone involved in the decision] <!-- optional -->
 * Date: 2023-07-14 <!-- optional -->
 
-Technical Story: [description | ticket/issue URL] <!-- optional -->
+Technical Story: Add an ADR about why Next.js was selected: [ticket #166](https://github.com/navapbc/template-application-nextjs/issues/166) <!-- optional -->
 
 ## Context and Problem Statement
 
