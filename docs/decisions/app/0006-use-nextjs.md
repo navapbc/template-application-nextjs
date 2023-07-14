@@ -55,8 +55,8 @@ Create React App is a lightweight, client side, single page application framewor
   - One of the earliest react frameworks
   - Widely used and understood
 - **Cons**
-  - Either has or will stop receiving support
-  - [No longer recommended by react](https://github.com/reactjs/react.dev/pull/5487)
+  - [Received only 3 commits in the past year](https://github.com/facebook/create-react-app/commits/main), raising concerns over continued support
+  - [No longer recommended by React](https://github.com/reactjs/react.dev/pull/5487)
 
 ### Next.js
 
