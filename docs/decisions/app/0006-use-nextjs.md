@@ -1,16 +1,16 @@
 # Use Next.js for application framework
 
-* Status: draft <!-- optional -->
-* Deciders: [list everyone involved in the decision] <!-- optional -->
-* Date: 2023-07-14 <!-- optional -->
+* Status: draft
+* Deciders: Loren Yu, Sawyer Hollenshead, Sammy Steiner, Ali Glenesk
+* Date: 2023-07-14
 
-Technical Story: Add an ADR about why Next.js was selected: [ticket #166](https://github.com/navapbc/template-application-nextjs/issues/166) <!-- optional -->
+Technical Story: Add an ADR about why Next.js was selected: [ticket #166](https://github.com/navapbc/template-application-nextjs/issues/166)
 
 ## Context and Problem Statement
 
 There are many React frameworks for full-stack and front-end TypeScript/JavaScript applications. This ADR reviews several options and the pros and cons of each for the template repo.
 
-## Decision Drivers <!-- RECOMMENDED -->
+## Decision Drivers
 
 ### Must Haves
 - Active Maintenance: The web framework is actively maintained with patches and minor releases delivered on a regular basis
@@ -32,20 +32,20 @@ There are many React frameworks for full-stack and front-end TypeScript/JavaScri
 - Vue.js or Nuxt.js
 - Svelte or Sveltekit
 
-## Decision Outcome <!-- REQUIRED -->
+## Decision Outcome
 
 Chosen option: Next.js, because this option meets all our technical requirements, has a large community of support, is easy to learn with good documentation, and is well understood by Nava engineers.
 
-### Positive Consequences <!-- OPTIONAL -->
+### Positive Consequences
 
 - Aligning on Next.js for our template repo will help teams collaborate and share work
 
-### Negative Consequences <!-- OPTIONAL -->
+### Negative Consequences
 
 - We'll need to modularize our code so that if Next.js ever loses support, we can swap it out
 - While each project will determine if Next.js is a good choice, we may end up using it for projects that aren't a good fit
 
-## Pros and Cons of the Options <!-- OPTIONAL -->
+## Pros and Cons of the Options
 
 ### Create React App
 
@@ -96,6 +96,6 @@ Svelte is a JavaScript, front-end compiler that turns declarative and easy to un
   - Small community
   - Limited documentation
 
-## Links <!-- OPTIONAL -->
+## Links 
 
 - [React removing create react app from its recommendations](https://github.com/reactjs/react.dev/pull/5487)
