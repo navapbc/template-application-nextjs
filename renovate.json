@@ -28,7 +28,8 @@
       "groupName": "I18next"
     },
     {
-      "description": "USWDS must match what react-uswds depends on",
+      "description": "@uswds/uswds must match the version that react-uswds depends on, so it should be manually updated.",
+      "enabled": false,
       "matchPackagePatterns": ["@uswds/uswds"],
       "groupName": "USWDS core"
     },
