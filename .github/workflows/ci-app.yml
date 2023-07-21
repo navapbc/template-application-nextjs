@@ -37,6 +37,7 @@ jobs:
       - run: npm ci
       - run: npm run test
       - name: Report test coverage
+        if: github.event_name == 'pull_request'
         uses: ArtiomTr/jest-coverage-report-action@v2
         with:
           coverage-report-path: ./coverage/coverage-final.json
