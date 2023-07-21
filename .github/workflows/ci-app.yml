@@ -38,7 +38,7 @@ jobs:
       - run: npm run test
       - name: Report test coverage
         if: github.event_name == 'pull_request'
-        uses: romeovs/lcov-reporter-action@4cf015a
+        uses: romeovs/lcov-reporter-action@4cf015aa4afa87b78238301f1e3dc140ea0e1ec6
         with:
           lcov-file: ./coverage/lcov.info
           working-directory: ./app
