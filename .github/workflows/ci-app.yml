@@ -40,7 +40,7 @@ jobs:
         if: github.event_name == 'pull_request'
         uses: ArtiomTr/jest-coverage-report-action@v2
         with:
-          coverage-report-path: ./coverage/coverage-final.json
+          coverage-file: ./coverage/coverage-final.json
           # Don't run tests as part of this action, since they already ran above
           skip-step: all
 
