@@ -36,6 +36,12 @@ jobs:
           cache: ${{ env.PACKAGE_MANAGER }}
       - run: npm ci
       - run: npm run test
+      - name: Report test coverage
+        uses: ArtiomTr/jest-coverage-report-action@v2
+        with:
+          coverage-report-path: ./coverage/coverage-final.json
+          # Don't run tests as part of this action, since they already ran above
+          skip-step: all
 
   lint:
     name: Lint
