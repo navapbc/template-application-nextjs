@@ -38,12 +38,11 @@ jobs:
       - run: npm run test
       - name: Report test coverage
         if: github.event_name == 'pull_request'
-        uses: zgosalvez/github-actions-report-lcov@v3
+        uses: romeovs/lcov-reporter-action@v0.3.1
         with:
-          coverage-files: ./coverage/lcov.info
+          lcov-file: ./coverage/lcov.info
           working-directory: ./app
-          update-comment: true
-          title-prefix: "# Test coverage."
+          github-token: ${{ secrets.GITHUB_TOKEN }}
 
   lint:
     name: Lint
