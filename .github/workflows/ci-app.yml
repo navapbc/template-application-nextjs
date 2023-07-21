@@ -38,11 +38,9 @@ jobs:
       - run: npm run test
       - name: Report test coverage
         if: github.event_name == 'pull_request'
-        uses: ArtiomTr/jest-coverage-report-action@v2
+        uses: romeovs/lcov-reporter-action@v0.2.16
         with:
-          coverage-file: ./app/coverage/coverage-final.json
-          # Don't run tests as part of this action, since they already ran above
-          skip-step: all
+          lcov-file: ./app/coverage/lcov.info
 
   lint:
     name: Lint
