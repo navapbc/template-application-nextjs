@@ -18,13 +18,4 @@ export const Preview1 = {
   },
 };
 
-export const Preview2 = {
-  args: {
-    children: (
-      <>
-        <h1>Another demo</h1>
-        <p>This is an example of another story with a different arg.</p>
-      </>
-    ),
-  },
-};
+
