@@ -2,7 +2,9 @@
 
 ## Next.js app
 
-The Next.js app can be deployed as a static HTML export or as a Node.js server, depending on your needs. The [Next.js deployment documentation](https://nextjs.org/docs/deployment) provides more information on how to deploy your application.
+The Next.js app can be deployed as a static HTML export or as a Node.js server, depending on your needs. By default, the Next.js and Infra templates are configured to deploy the app as a Node.js server in a Docker container. [Reference the server rendering ADR for additional context](../docs/decisions/app/0005-server-rendering.md).
+
+The [Next.js deployment documentation](https://nextjs.org/docs/deployment) provides more information on the various ways to deploy a Next.js application.
 
 ## Storybook
 
