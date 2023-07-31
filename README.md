@@ -36,8 +36,7 @@ To get started using the template application on your project:
     curl https://raw.githubusercontent.com/navapbc/template-application-nextjs/main/template-only-bin/download-and-install-template.sh | bash -s
     ```
 1. [Follow the steps in `app/README.md`](./app/README.md) to set up the application locally.
-1. [Follow the steps in the `template-infra` README](https://github.com/navapbc/template-infra#installation) to set up the various pieces of your infrastructure.
-1. If your app is part of a larger monorepo of systems, you may want to eventually rename the `app` directory and references to it. It's up to your team to determine the most appropriate name. Try getting the app running locally first, and deployed to your cloud provider, before renaming the directory. Otherwise it may be difficult to troubleshoot whether a deployment issue is due to the rename or something else.
+1. Optional, if using the Platform infra template: [Follow the steps in the `template-infra` README](https://github.com/navapbc/template-infra#installation) to set up the various pieces of your infrastructure.
 
 ## Getting started
 
