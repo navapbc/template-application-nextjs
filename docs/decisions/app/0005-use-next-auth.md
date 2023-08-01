@@ -42,7 +42,6 @@ Cons:
 2.	Learning curve for customization: While NextAuth offers a high level of customization, extending it beyond the built-in functionalities may require a deeper understanding of the library and its underlying concepts.
 3.	Possible migration challenges: If you decide to switch away from NextAuth in the future, migrating to a different authentication solution may introduce complexities, especially if your application relies heavily on NextAuth-specific features.
 
-
 ### Provider specific Integration
 
 Pros:
@@ -58,8 +57,6 @@ Cons:
 4. Compatibility with your tech stack.
 5. Learning curve for multiple providers.
   
-
-
 ### Leave the responsibility to each project team
 
 I believe this is the least desireable outcome as authentication is a common requirement in most applications. In the event a project does not need authentication, the project team could opt out of using whichever decision gets made from this document.
