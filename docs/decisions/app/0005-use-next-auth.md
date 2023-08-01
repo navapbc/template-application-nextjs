@@ -31,49 +31,49 @@ In-progress
 
 ### NextAuth
 
-**Pros**
+Pros:
 
-1. [Well supported](https://github.com/nextauthjs/next-auth)
-2. Extensible. NextAuth supports a variety of built-in [Providers](https://next-auth.js.org/providers/), support for [custom Providers](https://next-auth.js.org/configuration/providers/oauth#using-a-custom-provider), and [Adapters](https://next-auth.js.org/adapters). Using a custom provider, it is easy to extend 
+1. **Well supported and maintained**: NextAuth is actively developed and has a strong community behind it, providing ongoing support and updates.
+2. **Extensible**: NextAuth supports a variety of built-in [Providers](https://next-auth.js.org/providers/), support for [custom Providers](https://next-auth.js.org/configuration/providers/oauth#using-a-custom-provider), and [Adapters](https://next-auth.js.org/adapters). Using a custom provider, it is easy to extend 
+3. Seamless integration with Next.js: NextAuth is designed to work seamlessly with Next.js applications. It provides a simple way to handle authentication in server-rendered and client-side rendered pages, ensuring a smooth user experience.
 
-**Cons**
-
-1. In the event of wanting to remove this package, It may be challenging to do so.
+Cons:
+1.	Dependency on Next.js: NextAuth is tightly coupled with Next.js framework. If you are not using Next.js, integrating NextAuth into your existing stack may require additional effort.
+2.	Learning curve for customization: While NextAuth offers a high level of customization, extending it beyond the built-in functionalities may require a deeper understanding of the library and its underlying concepts.
+3.	Possible migration challenges: If you decide to switch away from NextAuth in the future, migrating to a different authentication solution may introduce complexities, especially if your application relies heavily on NextAuth-specific features.
 
 
 ### Provider specific Integration
 
-**Pros**
+Pros:
+1.	Dedicated documentation and support.
+2.	Tailored features and optimizations.
+3.	Seamless integration with provider services.
+4.	Vendor-specific features and benefits.
+
+Cons:
+1.	Vendor lock-in.
+2.	Limited provider options.
+3.	Inflexibility with future migration.
+4.	Compatibility with your tech stack.
+5.	Learning curve for multiple providers.
   
-1. Documentation is generally talored towards using the given service with the package.
-
-
-**Cons**
-
-1. Not all identity providers offer a package, thus requiring a custom solution. 
-2. Generally, you are "locked-in" to that provider. In order to migrate away from the given provider, you will most likely need extensible code changes to support this lift.
-3. It may not always be optimized for how we develop applications using Next.js.
-  
-
-### Custom Authentication Wrapper
-
-
-**Pros**
-
-1. We have full control of the underlying mechanism for interacting with authentication providers.
-
-
-**Cons**
-
-1. We will need to maintain this.
-2. May be more complicated to support more use-cases as we scale.
 
 
 ### Leave the responsibility to each project team
 
 I believe this is the least desireable outcome as authentication is a common requirement in most applications. In the event a project does not need authentication, the project team could opt out of using whichever decision gets made from this document.
 
+Pros:
+1.	Flexibility for individual project needs.
+2.	Customization and autonomy.
+3.	Reduced dependencies and overhead.
 
+Cons:
+1.	Inconsistent security practices.
+2.	Lack of knowledge sharing and collaboration.
+3.	Increased development effort and duplication.
+4.	Complexity in managing multiple authentication solutions.
 
 ## Example Implementation
 
