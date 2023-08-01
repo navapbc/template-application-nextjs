@@ -46,17 +46,17 @@ Cons:
 ### Provider specific Integration
 
 Pros:
-1.	Dedicated documentation and support.
-2.	Tailored features and optimizations.
-3.	Seamless integration with provider services.
-4.	Vendor-specific features and benefits.
+1. Dedicated documentation and support.
+2. Tailored features and optimizations.
+3. Seamless integration with provider services.
+4. Vendor-specific features and benefits.
 
 Cons:
-1.	Vendor lock-in.
-2.	Limited provider options.
-3.	Inflexibility with future migration.
-4.	Compatibility with your tech stack.
-5.	Learning curve for multiple providers.
+1. Vendor lock-in.
+2. Limited provider options.
+3. Inflexibility with future migration.
+4. Compatibility with your tech stack.
+5. Learning curve for multiple providers.
   
 
 
@@ -65,15 +65,15 @@ Cons:
 I believe this is the least desireable outcome as authentication is a common requirement in most applications. In the event a project does not need authentication, the project team could opt out of using whichever decision gets made from this document.
 
 Pros:
-1.	Flexibility for individual project needs.
-2.	Customization and autonomy.
-3.	Reduced dependencies and overhead.
+1. Flexibility for individual project needs.
+2. Customization and autonomy.
+3. Reduced dependencies and overhead.
 
 Cons:
-1.	Inconsistent security practices.
-2.	Lack of knowledge sharing and collaboration.
-3.	Increased development effort and duplication.
-4.	Complexity in managing multiple authentication solutions.
+1. Inconsistent security practices.
+2. Lack of knowledge sharing and collaboration.
+3. Increased development effort and duplication.
+4. Complexity in managing multiple authentication solutions.
 
 ## Example Implementation
 
