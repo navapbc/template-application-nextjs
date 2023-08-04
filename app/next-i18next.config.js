@@ -15,6 +15,11 @@ const i18n = {
  * https://react.i18next.com/latest/i18next-instance
  */
 const i18next = {
+  // Default namespace to load, typically overridden within components,
+  // but set here to prevent the system from attempting to load
+  // translation.json, which is the default, and doesn't exist
+  // in this codebase
+  ns: "common",
   defaultNS: "common",
   fallbackLng: i18n.defaultLocale,
   interpolation: {
