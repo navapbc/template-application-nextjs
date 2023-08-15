@@ -12,8 +12,6 @@ See [`navapbc/platform`](https://github.com/navapbc/platform) for other template
 - Type checking, linting, and code formatting tools
 - Storybook for a frontend workshop environment
 
-[**See `app/README.md` for additional details** ↗️](./app#readme)
-
 ## Repo structure
 
 ```text
@@ -24,19 +22,27 @@ See [`navapbc/platform`](https://github.com/navapbc/platform) for other template
 
 ## Installation
 
-To get started using the template application on your project, run the following command to execute the [install script](https://github.com/navapbc/template-application-nextjs/tree/main/template-only-bin/install-template.sh), which clones the template repository, copies the template files to your repository, and then cleans up the template repository:
+To get started using the template application on your project:
 
-```bash
-curl https://raw.githubusercontent.com/navapbc/template-application-nextjs/main/template-only-bin/download-and-install-template.sh | bash -s
-```
+1. Run the [download and install script](./template-only-bin/download-and-install-template.sh) in your project's root directory.
 
-Now you're ready to set up the various pieces of your infrastructure.
+    ```bash
+    curl https://raw.githubusercontent.com/navapbc/template-application-nextjs/main/template-only-bin/download-and-install-template.sh | bash -s
+    ```
 
-## Setup
+    This script will:
 
-1. [Dependency management](./template-only-docs/set-up-dependency-management.md)
-1. [Deployment](./template-only-docs/set-up-cd.md)
+    1. Clone the template repository
+    2. Copy the template files into your project directory
+    3. Remove any files specific to the template repository, like this README.
+2. [Follow the steps in `app/README.md`](./app/README.md) to set up the application locally.
+3. Optional, if using the Platform infra template: [Follow the steps in the `template-infra` README](https://github.com/navapbc/template-infra#installation) to set up the various pieces of your infrastructure.
 
 ## Getting started
 
 Now that you're all set up, you're now ready to [get started](./app/README.md).
+
+## Learn more
+
+- [Dependency management](./template-only-docs/set-up-dependency-management.md)
+- [Deployment](./template-only-docs/set-up-cd.md)
