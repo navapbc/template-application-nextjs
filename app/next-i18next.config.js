@@ -28,6 +28,7 @@ const i18next = {
   interpolation: {
     escapeValue: false, // React already does escaping
   },
+  debug: true,
 };
 
 /**
@@ -36,6 +37,12 @@ const i18next = {
  * @type {Partial<import("next-i18next").UserConfig>}
  */
 const nextI18next = {
+  // By default, next-i18next expects JSON files in the public/locales
+  // folder, but it's common for projects to use JS interpolation or
+  // more advanced TypeScript features.
+  localeExtension: "ts",
+  localePath: "src/locales",
+  localeStructure: "{{lng}}/{{ns}}",
   // Locale resources are loaded once when the server is started, which
   // is good for production but not ideal for local development. Show
   // updates to locale files without having to restart the server:
