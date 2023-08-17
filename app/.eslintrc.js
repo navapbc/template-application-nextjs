@@ -1,7 +1,7 @@
 module.exports = {
   root: true,
   extends: [
-    "nava",
+    "eslint:recommended",
     "plugin:storybook/recommended",
     // Disable ESLint code formatting rules which conflict with Prettier
     "prettier",
