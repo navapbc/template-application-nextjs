@@ -129,13 +129,13 @@ npm run test-watch -- pages
   - `npm run format`: Formats all files
   - `npm run format-check`: Check files for formatting violations without fixing them.
 
-It's recommended that developers configure their code editor to auto run these tools on file save. Most code editors have plugins for these tools or provide native support.
+Optionally, configure your code editor to auto run these tools on file save. Most code editors have plugins for these tools or provide native support.
 
 <details>
   <summary>VSCode instructions</summary>
 
 1. Install the [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) and [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) extensions.
-2. Add the following to a `.vscode/settings.json` file:
+2. Add the following to a `.vscode/settings.json` file, in whichever directory you open in VSCode (root or this directory):
 
    ```json
    {
@@ -148,6 +148,8 @@ It's recommended that developers configure their code editor to auto run these t
      "typescript.validate.enable": true
    }
    ```
+
+[Learn more about these settings](https://code.visualstudio.com/docs/getstarted/settings)
 
 </details>
 

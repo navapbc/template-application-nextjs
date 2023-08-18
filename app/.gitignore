@@ -40,3 +40,6 @@ npm-debug.log*
 
 # uswds assets
 /public/uswds
+
+# Developer-specific IDE settings
+.vscode
