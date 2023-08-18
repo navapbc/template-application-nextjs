@@ -1,4 +1,4 @@
 # MacOS files
 .DS_Store
 # Developer-specific IDE settings
-.vscode/settings.json
+.vscode
