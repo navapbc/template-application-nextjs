@@ -7,9 +7,22 @@
 
 ## Managing translations
 
-- Translations are managed in the `public/locales` directory, where each language has its own directory (e.g. `en` and `es`).
-- [Namespaces](https://www.i18next.com/principles/namespaces) can be used to organize translations into smaller files. For large sites, it's common to create a namespace for each controller, page, or feature (whatever level makes most sense).
+- Translations are managed as JSON files in the `public/locales` directory, where each language has its own directory (e.g. `en` and `es`).
+- [Namespaces](https://www.i18next.com/principles/namespaces) can be used to organize translations into smaller files. For large sites, it's common to create a namespace for each controller, page, or feature (whatever level makes most sense). See "Type-safe translations" below for additional considerations when adding new namespaces.
 - There are a number of built-in formatters based on [JS's `Intl` API](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl) that can be used in locale strings, and custom formatters can be added as well. [See the i18next formatting docs for details](https://www.i18next.com/translation-function/formatting#built-in-formats).
+
+### Type-safe translations
+
+I18next can be configured to report errors if you attempt to reference an i18n key path that doesn't exist in a locale file. This is driven by TypeScript and can be configured in [`types/i18next.d.ts`](../app/src/types/i18next.d.ts).
+
+Type-safe internationalization requires a bit of extra work to maintain, but it can be an extremely helpful tool for catching translation errors early.
+
+**To enable type-safe translations:**
+
+1. Ensure the contents in `types/i18next.d.ts` aren't commented out
+1. Include each English locale JSON file in the `CustomTypeOptions` `resources` property. This tells i18next what keys exist.
+
+[Learn more about using TypeScript with i18next](https://www.i18next.com/overview/typescript).
 
 ## Load translations
 

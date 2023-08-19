@@ -16,7 +16,8 @@
 │   ├── pages         # Page routes and data fetching
 │   │   ├── api       # API routes (optional)
 │   │   └── _app.tsx  # Global entry point
-│   └── styles        # Sass & design system settings
+│   ├── styles        # Sass & design system settings
+│   └── types         # TypeScript type declarations
 ├── stories           # Storybook pages
 └── tests
 ```
