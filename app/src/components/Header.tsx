@@ -8,10 +8,7 @@ import {
   Header as USWDSHeader,
 } from "@trussworks/react-uswds";
 
-const primaryLinks: {
-  i18nKey: string;
-  href: string;
-}[] = [
+const primaryLinks = [
   {
     i18nKey: "nav_link_home",
     href: "/",
@@ -20,7 +17,7 @@ const primaryLinks: {
     i18nKey: "nav_link_health",
     href: "/health",
   },
-];
+] as const;
 
 const Header = () => {
   const { t, i18n } = useTranslation("common", {
