@@ -28,9 +28,7 @@ function toHaveI18nNamespaces(received: string[], expected: string[]) {
   } else {
     return {
       message: () =>
-        `expected ${JSON.stringify(received)} to not include ${JSON.stringify(
-          expected
-        )}`,
+        `expected the generated i18n bundle to include all English namespaces`,
       pass: true,
     };
   }
