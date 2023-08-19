@@ -12,26 +12,18 @@ function toHaveI18nNamespaces(received: string[], expected: string[]) {
     (namespace) => !received.includes(namespace)
   );
 
-  if (missingNamespaces.length > 0) {
-    return {
-      message: () => {
-        const missingNamespacesString = missingNamespaces.join(", ");
-        let message = `The src/types/generated-i18n-bundle.ts file is missing imports for these English namespaces: ${missingNamespacesString}`;
-        message += `\n\nYou can fix this by re-running "npm run i18n-types" to regenerate the file.`;
-        message += `\n\nYou likely added a new namespace to the English locale files but the i18n-types script hasn't ran yet.`;
-        message += `\n\nIt's important for the generated-i18n-bundle.ts file to be up to date so that you don't get inaccurate TypeScript errors.`;
+  return {
+    pass: missingNamespaces.length === 0,
+    message: () => {
+      const missingNamespacesString = missingNamespaces.join(", ");
+      let message = `The src/types/generated-i18n-bundle.ts file is missing imports for these English namespaces: ${missingNamespacesString}`;
+      message += `\n\nYou can fix this by re-running "npm run i18n-types" to regenerate the file.`;
+      message += `\n\nYou likely added a new namespace to the English locale files but the i18n-types script hasn't ran yet.`;
+      message += `\n\nIt's important for the generated-i18n-bundle.ts file to be up to date so that you don't get inaccurate TypeScript errors.`;
 
-        return message;
-      },
-      pass: false,
-    };
-  } else {
-    return {
-      message: () =>
-        `expected the generated i18n bundle to include all English namespaces`,
-      pass: true,
-    };
-  }
+      return message;
+    },
+  };
 }
 
 expect.extend({ toHaveI18nNamespaces });
