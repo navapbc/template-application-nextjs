@@ -13,14 +13,12 @@
 
 ### Type-safe translations
 
-I18next can be configured to report errors if you attempt to reference an i18n key path that doesn't exist in a locale file. This is driven by TypeScript and can be configured in [`types/i18next.d.ts`](../app/src/types/i18next.d.ts).
+I18next is configured to report errors if you attempt to reference an i18n key path that doesn't exist in a locale file. Type-safe internationalization requires a bit of extra work to maintain, but it can be an extremely helpful tool for catching translation errors early.
 
-Type-safe internationalization requires a bit of extra work to maintain, but it can be an extremely helpful tool for catching translation errors early.
+#### How it works
 
-**To enable type-safe translations:**
-
-1. Ensure the contents in `types/i18next.d.ts` aren't commented out
-1. Include each English locale JSON file in the `CustomTypeOptions` `resources` property. This tells i18next what keys exist.
+1. An NPM script (`i18n-types`) transforms the JSON locale files into a TypeScript file.
+1. [`types/i18next.d.ts`](../app/src/types/i18next.d.ts) configures i18next to use the generated TypeScript file as the source of truth for the available keys. If a key isn't in the generated file, TypeScript will report an error for the key.
 
 [Learn more about using TypeScript with i18next](https://www.i18next.com/overview/typescript).
 
