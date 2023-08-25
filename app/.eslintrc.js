@@ -10,9 +10,9 @@ module.exports = {
     "next/core-web-vitals",
   ],
   rules: {
-    // Next.js <Image> component is useful for optimizing images, but also requires the addition
-    // of additional dependencies to work in standalone mode. It may be overkill for most projects
-    // at Nava which aren't image heavy.
+    // Next.js <Image> component is useful for optimizing images, but also requires additional
+    // dependencies to work in standalone mode. It may be overkill for most projects at
+    // Nava which aren't image heavy.
     "@next/next/no-img-element": "off",
   },
   // Additional lint rules. These get layered onto the top-level rules.
