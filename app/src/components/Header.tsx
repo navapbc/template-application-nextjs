@@ -52,7 +52,6 @@ const Header = () => {
             <Title className="desktop:margin-top-2">
               <div className="display-flex flex-align-center">
                 <span className="margin-right-1">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     className="width-3 desktop:width-5 text-bottom margin-right-05"
                     src={`${
