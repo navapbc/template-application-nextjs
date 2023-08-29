@@ -29,8 +29,4 @@ Chosen option: Enable type checking of I18next.
   - Tests can be added to catch missing namespaces in the file.
 - TypeScript errors, particularly those related to i18n, can be difficult to understand. This could slow down developers.
 - Compilation time may be impacted depending on a project's size
-- Type checking only works when the locale files are collocated with the code. If the locale files are stored in a separate repo or hosted by a translation service, the type checking feature will need disabled by removing the `i18next.d.ts` file.
-
-## Links
-
-- [Supercharge Your TypeScript App: Mastering i18next for Type-Safe Translations](https://dev.to/adrai/supercharge-your-typescript-app-mastering-i18next-for-type-safe-translations-2idp)
+- Type checking only works when the locale files are collocated with the code. If you have your files stored outside of the repo (e.g. in a translation service), then you can either (a) disable type checking by removing the type checking feature, or (b) [follow the instructions in this post](https://dev.to/adrai/supercharge-your-typescript-app-mastering-i18next-for-type-safe-translations-2idp) about generating the TypeScript file.
