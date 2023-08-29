@@ -1,7 +1,7 @@
 # Enable i18next type checks
 
-- Status: proposed
-- Deciders: [list everyone involved in the decision] <!-- optional -->
+- Status: accepted
+- Deciders: Sawyer Hollenshead, Loren Yu
 - Date: 2023-08-28
 
 ## Context and Problem Statement
