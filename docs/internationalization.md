@@ -17,7 +17,7 @@ I18next is configured to report errors if you attempt to reference an i18n key p
 
 #### How it works
 
-1. An NPM script (`i18n-types`) transforms the JSON locale files into a TypeScript file.
+1. An NPM script (`i18n-types`) transforms the JSON locale files into a generated TypeScript file: [`generated-i18n-bundle.ts`](../app/src/types/generated-i18n-bundle.ts)
 1. [`types/i18next.d.ts`](../app/src/types/i18next.d.ts) configures i18next to use the generated TypeScript file as the source of truth for the available keys. If a key isn't in the generated file, TypeScript will report an error for the key.
 
 [Learn more about using TypeScript with i18next](https://www.i18next.com/overview/typescript).

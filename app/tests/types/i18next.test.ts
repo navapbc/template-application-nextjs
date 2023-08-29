@@ -1,8 +1,13 @@
 /**
+ * Test to help ensure the generated i18n TypeScript file remains up to date
+ * with the English locale files that are present. Since the generation script
+ * is potentially a confusing aspect of the i18n approach, this test is intended
+ * to help bring visibility to its existence and help clarify why an engineering
+ * might be receiving type errors in their i18n code.
  * @jest-environment node
  */
 import fs from "fs";
-import tsEnglishResources from "src/types/generated-i18n-bundle";
+import generatedEnglishResources from "src/types/generated-i18n-bundle";
 
 /**
  * Add a custom matcher so we can provide a more helpful test failure message
@@ -30,14 +35,14 @@ expect.extend({ toHaveI18nNamespaces });
 
 describe("types/generated-i18n-bundle.ts", () => {
   it("includes all English namespaces", () => {
-    const jsonEnglishFilenames = fs
+    const i18nNamespaces = fs
       .readdirSync("public/locales/en")
       .map((filename) => filename.replace(".json", ""));
 
     // Not adding a type declaration for this matcher since it is only used in this test
     // eslint-disable-next-line @typescript-eslint/no-unsafe-call
-    expect(Object.keys(tsEnglishResources)).toHaveI18nNamespaces(
-      jsonEnglishFilenames
+    expect(Object.keys(generatedEnglishResources)).toHaveI18nNamespaces(
+      i18nNamespaces
     );
   });
 });
