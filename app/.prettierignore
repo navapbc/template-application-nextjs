@@ -2,6 +2,7 @@
 .next/
 node_modules/
 storybook-static/
+src/types/generated*
 
 # Ignore USWDS static assets
 public/uswds
