@@ -46,8 +46,8 @@ I18next is configured to report errors if you attempt to reference an i18n key p
    import { Trans, useTranslation } from "next-i18next";
 
    const Page = () => {
-     // Optionally pass in the namespace of the translation file (e.g. common) to use
-     const { t } = useTranslation("common");
+     const { t } = useTranslation();
+
      return (
        <>
          <h1>{t("About.title")}</h1>
@@ -55,6 +55,16 @@ I18next is configured to report errors if you attempt to reference an i18n key p
        </>
      );
    };
+   ```
+
+   By default, `useTranslation` and `Trans` load translations from the `common` namespace. To load translations from a different namespace, you can pass the `ns` prop to `Trans`, or the `ns` option to `useTranslation`.
+
+   ```tsx
+   const { t } = useTranslation("someOtherNamespace");
+   ```
+
+   ```tsx
+   <Trans ns="someOtherNamespace" i18nKey="someKey" />
    ```
 
 Refer to the [i18next](https://www.i18next.com/) and [react-i18next](https://react.i18next.com/) documentation for more usage docs.
