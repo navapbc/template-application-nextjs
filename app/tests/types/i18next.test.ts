@@ -8,7 +8,7 @@
  */
 import generatedEnglishResources from "src/types/generated-i18n-bundle";
 
-import i18nConfig from "../../src/types/next-i18next.config";
+import i18nConfig from "../../next-i18next.config";
 
 /**
  * Add a custom matcher so we can provide a more helpful test failure message
