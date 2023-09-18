@@ -16,9 +16,9 @@
     "start": "next start -p ${PORT:-3000}",
     "storybook": "storybook dev -p 6006",
     "storybook-build": "storybook build",
-    "test": "TZ=America/New_York jest --ci --coverage",
-    "test-update": "TZ=America/New_York jest --update-snapshot",
-    "test-watch": "TZ=America/New_York jest --watch",
+    "test": "jest --ci --coverage",
+    "test-update": "jest --update-snapshot",
+    "test-watch": "jest --watch",
     "ts:check": "tsc --noEmit"
   },
   "dependencies": {
