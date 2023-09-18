@@ -1,4 +1,7 @@
 // @ts-check
+const fs = require("fs");
+const path = require("path");
+
 /**
  * Next.js i18n routing options
  * https://nextjs.org/docs/advanced-features/i18n-routing
@@ -11,6 +14,10 @@ const i18n = {
   locales: ["en", "es"],
 };
 
+const namespaces = fs
+  .readdirSync(path.resolve(__dirname, `public/locales/${i18n.defaultLocale}`))
+  .map((file) => file.replace(/\.json$/, ""));
+
 /**
  * i18next and react-i18next options
  * https://www.i18next.com/overview/configuration-options
@@ -18,11 +25,7 @@ const i18n = {
  * @type {import("i18next").InitOptions}
  */
 const i18next = {
-  // Default namespace to load, typically overridden within components,
-  // but set here to prevent the system from attempting to load
-  // translation.json, which is the default, and doesn't exist
-  // in this codebase
-  ns: "common",
+  ns: namespaces, // Namespaces to preload on the server
   defaultNS: "common",
   fallbackLng: i18n.defaultLocale,
   interpolation: {

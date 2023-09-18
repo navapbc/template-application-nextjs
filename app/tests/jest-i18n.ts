@@ -1,11 +1,7 @@
 /**
  * @file Setup internationalization for tests so snapshots and queries reference the correct translations
  */
-import fs from "fs";
-import path from "path";
-
-// @ts-expect-error - Config file has to be .js
-import i18nConfig from "../next-i18next.config";
+import i18nConfig from "../src/types/next-i18next.config";
 import i18n, { InitOptions } from "i18next";
 import { initReactI18next } from "react-i18next";
 
@@ -22,11 +18,14 @@ export const getResources = () => {
   locales.forEach((locale: string) => {
     resources[locale] = {};
 
-    const namespaces = fs
-      .readdirSync(path.resolve(__dirname, `../public/locales/${locale}`))
-      .map((file) => file.replace(/\.json$/, ""));
+    const namespaces = i18nConfig.ns;
 
-    namespaces.forEach((namespace) => {
+    if (!Array.isArray(namespaces))
+      throw new Error(
+        "Expected ns property in next-i18n.config.js to be an array."
+      );
+
+    namespaces.forEach((namespace: string) => {
       const namespacePath = `../public/locales/${locale}/${namespace}`;
       // eslint-disable-next-line
       resources[locale][namespace] = require(namespacePath);
