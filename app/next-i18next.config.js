@@ -5,10 +5,10 @@
  * @type {import('next').NextConfig['i18n']}
  */
 const i18n = {
-  defaultLocale: "en",
+  defaultLocale: "en-US",
   // Source of truth for the list of languages supported by the application. Other tools (i18next, Storybook, tests) reference this.
   // These must be BCP47 language tags: https://en.wikipedia.org/wiki/IETF_language_tag#List_of_common_primary_language_subtags
-  locales: ["en", "es"],
+  locales: ["en-US", "es-US"],
 };
 
 /**

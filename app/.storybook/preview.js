@@ -31,11 +31,11 @@ const parameters = {
 const preview = {
   parameters,
   globals: {
-    locale: "en",
+    locale: "en-US",
     locales: {
       ...initialLocales,
-      en: "English",
-      es: "Español",
+      "en-US": "English",
+      "es-US": "Español",
     },
   },
 };

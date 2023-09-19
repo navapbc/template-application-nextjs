@@ -36,7 +36,7 @@ expect.extend({ toHaveI18nNamespaces });
 describe("types/generated-i18n-bundle.ts", () => {
   it("includes all English namespaces", () => {
     const i18nNamespaces = fs
-      .readdirSync("public/locales/en")
+      .readdirSync("public/locales/en-US")
       .map((filename) => filename.replace(".json", ""));
 
     // Not adding a type declaration for this matcher since it is only used in this test

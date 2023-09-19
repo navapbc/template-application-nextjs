@@ -1,7 +1,7 @@
 # Internationalization (i18n)
 
 - [I18next](https://www.i18next.com/) is used for internationalization.
-- Next.js's [internationalized routing](https://nextjs.org/docs/advanced-features/i18n-routing) feature is enabled. Toggling between languages is done by changing the URL's path prefix (e.g. `/about` ➡️ `/es/about`).
+- Next.js's [internationalized routing](https://nextjs.org/docs/advanced-features/i18n-routing) feature is enabled. Toggling between languages is done by changing the URL's path prefix (e.g. `/about` ➡️ `/es-US/about`).
 - Configuration for the i18n routing and i18next libraries are located in [`next-i18next.config.js`](../app/next-i18next.config.js).
 - [storybook-react-i18next](https://storybook.js.org/addons/storybook-react-i18next) adds a globe icon to Storybook's toolbar for toggling languages.
 
@@ -33,7 +33,7 @@ I18next is configured to report errors if you attempt to reference an i18n key p
    export const getServerSideProps: GetServerSideProps = async ({ locale }) => {
      // serverSideTranslations takes an optional second argument to limit
      // which namespaces are sent to the client
-     const translations = await serverSideTranslations(locale ?? "en");
+     const translations = await serverSideTranslations(locale ?? "en-US");
      return { props: { ...translations } };
    };
    ```
