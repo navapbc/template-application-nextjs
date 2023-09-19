@@ -1,9 +1,9 @@
 /*
 ----------------------------------------
-USWDS with settings overrides
+USWDS settings overrides
 ----------------------------------------
-Uncomment the following lines and add a list of changed settings
-in the form $setting: value,
+See https://designsystem.digital.gov/documentation/settings/
+for a full list of available settings.
 ----------------------------------------
 */
 
@@ -18,7 +18,10 @@ in the form $setting: value,
   // Ensure utility classes always override other styles
   $utilities-use-important: true,
 
-  // Prettier defaults for typography
+  // Use USWDS defaults for typography
+  $theme-style-body-element: true,
   $theme-font-type-sans: "public-sans",
-  $theme-global-link-styles: true
+  $theme-global-content-styles: true,
+  $theme-global-link-styles: true,
+  $theme-global-paragraph-styles: true
 );
