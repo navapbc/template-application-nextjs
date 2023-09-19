@@ -12,10 +12,8 @@ const Home: NextPage = () => {
       <Head>
         <title>{t("title")}</title>
       </Head>
-      {/* Demonstration of responsive utility classes: */}
-      <h1 className="font-sans-2xl tablet:font-sans-3xl margin-y-3 tablet:margin-top-6">
-        {t("title")}
-      </h1>
+
+      <h1>{t("title")}</h1>
 
       {/* Demonstration of more complex translated strings, with safe-listed links HTML elements */}
       <p className="usa-intro">

@@ -23,6 +23,22 @@ const parameters = {
   },
   // Configure i18next and locale/dropdown options.
   i18n,
+  options: {
+    storySort: {
+      method: "alphabetical",
+      order: [
+        "Welcome",
+        "Core",
+        // Storybook infers the title when not explicitly set, but is case-sensitive
+        // so we need to explicitly set both casings here for this to properly sort.
+        "Components",
+        "components",
+        "Templates",
+        "Pages",
+        "pages",
+      ],
+    },
+  },
 };
 
 /**
