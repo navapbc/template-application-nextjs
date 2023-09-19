@@ -18,9 +18,7 @@ export const GlobalStyles: StoryObj = {
       <p className="usa-intro">Intro text</p>
       <p>Paragraph text</p>
       <p>
-        <a href="#">Link</a>
-      </p>
-      <p>
+        <a href="#">Link</a> and{" "}
         <a href="#" className="usa-link--external">
           External link
         </a>
@@ -33,6 +31,25 @@ export const GlobalStyles: StoryObj = {
         <li>Ordered list item</li>
         <li>Ordered list item</li>
       </ol>
+    </>
+  ),
+};
+
+export const SizeUtilities: StoryObj = {
+  render: () => (
+    <>
+      <h1 className="font-heading-lg">H1 with smaller text size</h1>
+      <h2 className="font-heading-2xl">H2 with larger text size</h2>
+      <p className="font-body-2xs">Extra extra small paragraph</p>
+    </>
+  ),
+};
+
+export const FamilyUtilities: StoryObj = {
+  render: () => (
+    <>
+      <h1 className="font-family-sans">Sans heading</h1>
+      <p className="font-family-serif">Serif body</p>
     </>
   ),
 };
