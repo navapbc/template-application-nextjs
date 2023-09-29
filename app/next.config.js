@@ -25,6 +25,7 @@ const nextConfig = {
   transpilePackages: [
     // https://github.com/i18next/i18next/issues/1948
     "i18next",
+    "react-i18next",
     // https://github.com/trussworks/react-uswds/issues/2605
     "@trussworks/react-uswds",
   ],
