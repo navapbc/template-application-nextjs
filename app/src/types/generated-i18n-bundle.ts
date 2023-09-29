@@ -1,8 +1,8 @@
 /**
  * Run 'npm run i18n-types' to generate this file
  */
-import common from '../../public/locales/en/common.json';
-import home from '../../public/locales/en/home.json';
+import common from '../../public/locales/en-US/common.json';
+import home from '../../public/locales/en-US/home.json';
 
 const resources = {
   common,

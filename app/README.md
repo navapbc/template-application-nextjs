@@ -123,7 +123,7 @@ npm run test-watch -- pages
 
 - [TypeScript](https://www.typescriptlang.org/) is used for type checking.
   - `npm run ts:check` - Type checks all files
-  - `npm run i18n-types` - Updates the i18n TypeScript declaration. You only need to run this if you've added a new English locale file (JSON files in `public/locales/en`). This runs automatically when you start the development server or build the application.
+  - `npm run i18n-types` - Updates the i18n TypeScript declaration. You only need to run this if you've added a new English locale file (JSON files in `public/locales/en-US`). This runs automatically when you start the development server or build the application.
 - [ESLint](https://eslint.org/) is used for linting. This helps catch common mistakes and encourage best practices.
   - `npm run lint` - Lints all files and reports any errors
   - `npm run lint-fix` - Lints all files and fixes any auto-fixable errors

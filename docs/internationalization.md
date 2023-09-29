@@ -1,13 +1,13 @@
 # Internationalization (i18n)
 
 - [I18next](https://www.i18next.com/) is used for internationalization.
-- Next.js's [internationalized routing](https://nextjs.org/docs/advanced-features/i18n-routing) feature is enabled. Toggling between languages is done by changing the URL's path prefix (e.g. `/about` ➡️ `/es/about`).
+- Next.js's [internationalized routing](https://nextjs.org/docs/advanced-features/i18n-routing) feature is enabled. Toggling between languages is done by changing the URL's path prefix (e.g. `/about` ➡️ `/es-US/about`).
 - Configuration for the i18n routing and i18next libraries are located in [`next-i18next.config.js`](../app/next-i18next.config.js). For the most part, you shouldn't need to edit this file unless adding a new language.
 - [storybook-react-i18next](https://storybook.js.org/addons/storybook-react-i18next) adds a globe icon to Storybook's toolbar for toggling languages.
 
 ## Managing translations
 
-- Translations are managed as JSON files in the `public/locales` directory, where each language has its own directory (e.g. `en` and `es`). Each file is also referred to as a "namespace".
+- Translations are managed as JSON files in the `public/locales` directory, where each language has its own directory (e.g. `en-US` and `es-US`). Each file is also referred to as a "namespace".
 - [**Namespaces**](https://www.i18next.com/principles/namespaces) can be used to organize translations into smaller files. For large sites, it's common to create a namespace for each controller, page, or feature (whatever level makes most sense). See "Type-safe translations" below for additional considerations when adding new namespaces.
 - There are a number of built-in formatters based on [JS's `Intl` API](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl) that can be used in locale strings, and custom formatters can be added as well. [See the i18next formatting docs for details](https://www.i18next.com/translation-function/formatting#built-in-formats).
 - If a string's translation is missing in another language, the default language (usually English) will be used as a fallback.
@@ -34,7 +34,7 @@ I18next is configured to report errors if you attempt to reference an i18n key p
    export const getServerSideProps: GetServerSideProps = async ({ locale }) => {
      // serverSideTranslations takes an optional second argument to limit
      // which namespaces are sent to the client
-     const translations = await serverSideTranslations(locale ?? "en");
+     const translations = await serverSideTranslations(locale ?? "en-US");
      return { props: { ...translations } };
    };
    ```

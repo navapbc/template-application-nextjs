@@ -34,6 +34,19 @@ const Home: NextPage = () => {
             li: <li />,
           }}
         />
+
+        <p>
+          {/* Demonstration of formatters */}
+          <Trans
+            t={t}
+            ns="home"
+            i18nKey="formatting"
+            values={{
+              date: "2021-01-01",
+              amount: 1234,
+            }}
+          />
+        </p>
       </div>
     </>
   );
@@ -41,7 +54,7 @@ const Home: NextPage = () => {
 
 // Change this to getStaticProps if you're not using server-side rendering
 export const getServerSideProps: GetServerSideProps = async ({ locale }) => {
-  const translations = await serverSideTranslations(locale ?? "en");
+  const translations = await serverSideTranslations(locale ?? "en-US");
   return { props: { ...translations } };
 };
 

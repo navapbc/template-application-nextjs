@@ -2,7 +2,13 @@
 const fs = require("fs");
 const path = require("path");
 
-const defaultLocale = "en";
+// Source of truth for the list of languages supported by the application. Other tools (i18next, Storybook, tests) reference this.
+// These must be BCP47 language tags: https://en.wikipedia.org/wiki/IETF_language_tag#List_of_common_primary_language_subtags
+const locales = [
+  "en-US", // English
+  "es-US", // Spanish
+];
+const defaultLocale = locales[0];
 
 /**
  * Next.js i18n routing options
@@ -11,9 +17,7 @@ const defaultLocale = "en";
  */
 const i18n = {
   defaultLocale,
-  // Source of truth for the list of languages supported by the application. Other tools (i18next, Storybook, tests) reference this.
-  // These must be BCP47 language tags: https://en.wikipedia.org/wiki/IETF_language_tag#List_of_common_primary_language_subtags
-  locales: ["en", "es"],
+  locales,
 };
 
 function getNamespaces() {

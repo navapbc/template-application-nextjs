@@ -8,7 +8,7 @@ const Health: NextPage = () => {
 };
 
 export const getServerSideProps: GetServerSideProps = async ({ locale }) => {
-  const translations = await serverSideTranslations(locale ?? "en");
+  const translations = await serverSideTranslations(locale ?? "en-US");
   return { props: { ...translations } };
 };
 
