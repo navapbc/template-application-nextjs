@@ -39,6 +39,7 @@ const Home: NextPage = () => {
           {/* Demonstration of formatters */}
           <Trans
             t={t}
+            ns="home"
             i18nKey="formatting"
             values={{
               date: "2021-01-01",
