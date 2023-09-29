@@ -28,6 +28,18 @@
       "groupName": "I18next"
     },
     {
+      "description": "Group test packages together",
+      "enabled": false,
+      "matchPackagePatterns": ["jest", "testing-library"],
+      "groupName": "Jest"
+    },
+    {
+      "description": "Group CSS-related packages together",
+      "enabled": false,
+      "matchPackagePatterns": ["postcss", "sass"],
+      "groupName": "Styling"
+    },
+    {
       "description": "@uswds/uswds must match the version that react-uswds depends on, so it should be manually updated.",
       "enabled": false,
       "matchPackagePatterns": ["@uswds/uswds"],
