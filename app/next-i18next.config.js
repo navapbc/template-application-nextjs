@@ -2,21 +2,33 @@
 const fs = require("fs");
 const path = require("path");
 
+const defaultLocale = "en";
+
 /**
  * Next.js i18n routing options
  * https://nextjs.org/docs/advanced-features/i18n-routing
  * @type {import('next').NextConfig['i18n']}
  */
 const i18n = {
-  defaultLocale: "en",
+  defaultLocale,
   // Source of truth for the list of languages supported by the application. Other tools (i18next, Storybook, tests) reference this.
   // These must be BCP47 language tags: https://en.wikipedia.org/wiki/IETF_language_tag#List_of_common_primary_language_subtags
   locales: ["en", "es"],
 };
 
-const namespaces = fs
-  .readdirSync(path.resolve(__dirname, `public/locales/${i18n.defaultLocale}`))
-  .map((file) => file.replace(/\.json$/, ""));
+function getNamespaces() {
+  if (typeof fs === "undefined" || typeof fs.readdirSync === "undefined") {
+    console.log(
+      "No fs module available, which means next-i18next.config is being referenced from a client-side bundle. Returning an empty list of namespaces, which should be fine since this list is only necessary for preloading locales on the server."
+    );
+    return [];
+  }
+
+  const namespaces = fs
+    .readdirSync(path.resolve(__dirname, `public/locales/${defaultLocale}`))
+    .map((file) => file.replace(/\.json$/, ""));
+  return namespaces;
+}
 
 /**
  * i18next and react-i18next options
@@ -25,7 +37,7 @@ const namespaces = fs
  * @type {import("i18next").InitOptions}
  */
 const i18next = {
-  ns: namespaces, // Namespaces to preload on the server
+  ns: getNamespaces(), // Namespaces to preload on the server
   defaultNS: "common",
   fallbackLng: i18n.defaultLocale,
   interpolation: {
