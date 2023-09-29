@@ -28,6 +28,11 @@
       "groupName": "I18next"
     },
     {
+      "description": "Group Next.js packages together",
+      "matchPackagePatterns": ["next"],
+      "groupName": "Next.js"
+    },
+    {
       "description": "Group test packages together",
       "enabled": false,
       "matchPackagePatterns": ["jest", "testing-library"],
