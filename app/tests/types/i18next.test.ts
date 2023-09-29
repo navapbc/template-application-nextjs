@@ -6,8 +6,9 @@
  * might be receiving type errors in their i18n code.
  * @jest-environment node
  */
-import fs from "fs";
 import generatedEnglishResources from "src/types/generated-i18n-bundle";
+
+import i18nConfig from "../../next-i18next.config";
 
 /**
  * Add a custom matcher so we can provide a more helpful test failure message
@@ -35,14 +36,10 @@ expect.extend({ toHaveI18nNamespaces });
 
 describe("types/generated-i18n-bundle.ts", () => {
   it("includes all English namespaces", () => {
-    const i18nNamespaces = fs
-      .readdirSync("public/locales/en")
-      .map((filename) => filename.replace(".json", ""));
-
     // Not adding a type declaration for this matcher since it is only used in this test
     // eslint-disable-next-line @typescript-eslint/no-unsafe-call
     expect(Object.keys(generatedEnglishResources)).toHaveI18nNamespaces(
-      i18nNamespaces
+      i18nConfig.ns
     );
   });
 });
