@@ -21,10 +21,13 @@ const nextConfig = {
   // https://nextjs.org/docs/app/api-reference/next-config-js/output
   output: "standalone",
   sassOptions: appSassOptions,
+  // Continue to support older browsers (ES5)
   transpilePackages: [
-    // Continue to support older browsers (ES5)
     // https://github.com/i18next/i18next/issues/1948
     "i18next",
+    "react-i18next",
+    // https://github.com/trussworks/react-uswds/issues/2605
+    "@trussworks/react-uswds",
   ],
 };
 
