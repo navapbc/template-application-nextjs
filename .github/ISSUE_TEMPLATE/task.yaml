@@ -1,0 +1,9 @@
+name: Task
+description: Create a task for the team
+projects: ["navapbc/4"]
+body:
+  - type: textarea
+    attributes:
+      label: What's the task?
+    validations:
+      required: true
