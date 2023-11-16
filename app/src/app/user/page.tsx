@@ -11,6 +11,7 @@ export default async function Page() {
         <p>
           <Link href="/api/auth/signout">Sign out</Link>
         </p>
+        <strong>User ID: {session.sub}</strong>
         <code>{JSON.stringify(session, null, 2)}</code>
       </>
     );
