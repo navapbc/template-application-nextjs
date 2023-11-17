@@ -9,7 +9,7 @@ export default async function Page() {
     return (
       <>
         <p>
-          <Link href="/api/auth/signout">Sign out</Link>
+          <Link href="/auth/signout">Sign out</Link>
         </p>
         <strong>User ID: {session.sub}</strong>
         <code>{JSON.stringify(session, null, 2)}</code>
