@@ -18,8 +18,19 @@
     "allowJs": false,
     "checkJs": false,
     // Help speed up type checking in larger applications
-    "incremental": true
+    "incremental": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ]
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "__mocks__/styleMock.js"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "__mocks__/styleMock.js",
+    ".next/types/**/*.ts"
+  ],
   "exclude": ["node_modules"]
 }
