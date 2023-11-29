@@ -23,11 +23,6 @@
       "groupName": "Storybook"
     },
     {
-      "description": "Group Next.js packages together",
-      "matchPackagePatterns": ["next"],
-      "groupName": "Next.js"
-    },
-    {
       "description": "Group I18next packages together",
       "matchPackagePatterns": ["i18next"],
       "groupName": "I18next"
