@@ -22,7 +22,7 @@ The App Router is a paradigm shift for React and comes with a number of notable 
 
 ## Decision Outcome
 
-Use the App Router moving forward. A [relevant spec detailing the steps to migration from the Pages Router to the App Router is available here](https://docs.google.com/document/d/1elHojRhDdUUotsEAVCpX0y3igr22rRdZCwNBeUtO9c0/edit).
+Use the App Router moving forward.
 
 ### Positive Consequences
 
@@ -36,5 +36,6 @@ Use the App Router moving forward. A [relevant spec detailing the steps to migra
 
 ## Links
 
+- [🔒 Nava tech spec detailing a migration from Pages Router to App Router](https://docs.google.com/document/d/1elHojRhDdUUotsEAVCpX0y3igr22rRdZCwNBeUtO9c0/edit)
 - [Making Sense of React Server Components](https://www.joshwcomeau.com/react/server-components/)
 - [How to Think About Security in Next.js](https://nextjs.org/blog/security-nextjs-server-components-actions)
