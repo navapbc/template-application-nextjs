@@ -6,7 +6,7 @@
 
 ## Context and Problem Statement
 
-Beginning in[ Next.js version 13](https://nextjs.org/blog/next-13), Next.js now has two different routers:
+Beginning in [Next.js version 13](https://nextjs.org/blog/next-13), Next.js now has two different routers:
 
 1. App Router: a newer router that allows you to use React's latest features, such as [Server Components](https://nextjs.org/docs/app/building-your-application/rendering/server-components), [Server-only Forms](https://nextjs.org/docs/app/building-your-application/data-fetching/forms-and-mutations), and [Streaming](https://nextjs.org/docs/app/building-your-application/routing/loading-ui-and-streaming).
 2. Pages Router: the original Next.js router, which continues to be supported for older Next.js applications.
