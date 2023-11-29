@@ -29,21 +29,24 @@
     },
     {
       "description": "Group test packages together",
-      "enabled": false,
       "matchPackagePatterns": ["jest", "testing-library"],
       "groupName": "Jest"
     },
     {
       "description": "Group CSS-related packages together",
-      "enabled": false,
       "matchPackagePatterns": ["postcss", "sass"],
       "groupName": "Styling"
     },
     {
-      "description": "@uswds/uswds must match the version that react-uswds depends on, so it should be manually updated.",
+      "description": "Group USWDS packages together",
+      "matchPackagePatterns": ["uswds"],
+      "groupName": "USWDS"
+    },
+    {
+      "description": "Prettier v3 breaks the VS Code Prettier extension, last time it was tested",
       "enabled": false,
-      "matchPackagePatterns": ["@uswds/uswds"],
-      "groupName": "USWDS core"
+      "matchPackagePatterns": ["^prettier"],
+      "groupName": "Prettier"
     },
     {
       "description": "Leave peer dependencies alone",
