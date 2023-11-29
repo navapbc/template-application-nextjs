@@ -36,7 +36,7 @@ expect.extend({ toHaveI18nNamespaces });
 
 describe("types/generated-i18n-bundle.ts", () => {
   it("includes all English namespaces", () => {
-    // Not adding a type declaration for this matcher since it is only used in this test
+    // @ts-expect-error - Not adding a type declaration for this matcher since it is only used in this test
     // eslint-disable-next-line @typescript-eslint/no-unsafe-call
     expect(Object.keys(generatedEnglishResources)).toHaveI18nNamespaces(
       i18nConfig.ns
