@@ -22,7 +22,7 @@ The App Router is a paradigm shift for React and comes with a number of notable 
 
 ## Decision Outcome
 
-Use the App Router moving forward.
+Use the App Router moving forward. As a result, the codebase will also switch from `i18next` to `next-intl` to support locale detection and internationalized routing.
 
 ### Positive Consequences
 
