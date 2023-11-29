@@ -20,7 +20,7 @@ const Layout = ({ children }: Props) => {
         {t("skip_to_main")}
       </a>
       <Header />
-      <main id="main-content" className="grid-col-fill">
+      <main id="main-content" className="usa-section">
         <GridContainer>
           <Grid row>
             <Grid col>{children}</Grid>
