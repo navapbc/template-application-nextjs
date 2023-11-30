@@ -3,6 +3,7 @@ module.exports = {
   extends: [
     "eslint:recommended",
     "plugin:storybook/recommended",
+    "plugin:you-dont-need-lodash-underscore/compatible",
     // Disable ESLint code formatting rules which conflict with Prettier
     "prettier",
     // `next` should be extended last according to their docs
