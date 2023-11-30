@@ -25,7 +25,7 @@ function blockSearchEnginesInHead(head) {
  */
 const config = {
   stories: ["../stories/**/*.stories.@(mdx|js|jsx|ts|tsx)"],
-  addons: ["@storybook/addon-essentials", "storybook-react-i18next"],
+  addons: ["@storybook/addon-essentials"],
   framework: {
     name: "@storybook/nextjs",
     options: {

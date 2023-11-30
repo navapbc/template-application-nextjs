@@ -2,9 +2,6 @@
 // Apply global styling to our stories
 import "../src/styles/styles.scss";
 
-// Import i18next config.
-import i18n from "./i18next.js";
-
 const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
   controls: {
@@ -13,8 +10,6 @@ const parameters = {
       date: /Date$/,
     },
   },
-  // Configure i18next and locale/dropdown options.
-  i18n,
   options: {
     storySort: {
       method: "alphabetical",
