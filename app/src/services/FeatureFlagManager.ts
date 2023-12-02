@@ -42,14 +42,14 @@ export class AWSFeatureFlagManager {
     try {
       const evaluation = await this.client.evaluateFeature(evalRequest);
       if (evaluation && evaluation.value?.boolValue !== undefined) {
-        console.log(evaluation);
         featureFlagValue = evaluation.value.boolValue;
         console.log({
           message: "Made feature flag evaluation with AWS Evidently",
           data: {
             reason: evaluation.reason,
-            cognitoId: this._entityId,
+            entityId: this._entityId,
             featureName: featureName,
+            featureFlagValue: featureFlagValue
           },
         });
       }
@@ -58,7 +58,7 @@ export class AWSFeatureFlagManager {
         message: "Error retrieving feature flag variation from AWS Evidently",
         data: {
           err: e,
-          cognitoId: this._entityId,
+          entityId: this._entityId,
           featureName: featureName,
         },
       });
