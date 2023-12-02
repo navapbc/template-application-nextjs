@@ -1,16 +1,20 @@
-import type { GetServerSideProps, InferGetServerSidePropsType, NextPage } from "next";
+import type {
+  GetServerSideProps,
+  InferGetServerSidePropsType,
+  NextPage,
+} from "next";
+import { AWSFeatureFlagManager } from "src/services/FeatureFlagManager";
 
 import { useTranslations } from "next-intl";
 import Head from "next/head";
-import { AWSFeatureFlagManager } from "src/services/FeatureFlagManager";
 
 interface PageProps {
-  featureNameEnabled: boolean
+  featureNameEnabled: boolean;
 }
 
-const Home: NextPage<
-  InferGetServerSidePropsType<typeof getServerSideProps>
-> = (props: PageProps) => {
+const Home: NextPage<InferGetServerSidePropsType<typeof getServerSideProps>> = (
+  props: PageProps
+) => {
   const { t } = useTranslation("home");
 
   return (
@@ -45,21 +49,23 @@ const Home: NextPage<
             isoDate: new Date("2023-11-29T23:30:00.000Z"),
           })}
         </p>
-          {/* Demonstration of feature flagging */}
-          <p>{t("featureflagging")}</p>
-          {props.featureNameEnabled && (<p>^..^</p>)}
+        {/* Demonstration of feature flagging */}
+        <p>{t("featureflagging")}</p>
+        {props.featureNameEnabled && <p>^..^</p>}
       </div>
     </>
   );
 };
 
 // Change this to getStaticProps if you're not using server-side rendering
-export const getServerSideProps: GetServerSideProps<PageProps> = async ({ locale }) => {
+export const getServerSideProps: GetServerSideProps<PageProps> = async ({
+  locale,
+}) => {
   const translations = await serverSideTranslations(locale ?? "en-US");
-  
-  const featureFlags = new AWSFeatureFlagManager("anonymous")
-  const flagResult = await featureFlags.getFeatureFlag("exampleFeatureName")
-  
+
+  const featureFlags = new AWSFeatureFlagManager("anonymous");
+  const flagResult = await featureFlags.getFeatureFlag("exampleFeatureName");
+
   return { props: { ...translations, featureNameEnabled: flagResult } };
 };
 

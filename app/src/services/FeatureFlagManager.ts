@@ -3,10 +3,10 @@ import { Evidently } from "@aws-sdk/client-evidently";
 /**
  * Class for managing feature flagging via AWS Evidently.
  * Class method are available for use in next.js server side code.
- * 
+ *
  * https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/evidently/
  *
-*/
+ */
 export class AWSFeatureFlagManager {
   private _entityId?: string;
   client: Evidently;
@@ -31,7 +31,7 @@ export class AWSFeatureFlagManager {
   }
 
   async getFeatureFlag(featureName: string, defaultValue = false) {
-    const project = process.env.FEATURE_FLAGS_PROJECT
+    const project = process.env.FEATURE_FLAGS_PROJECT;
     const evalRequest = {
       entityId: this._entityId,
       feature: featureName,
@@ -49,7 +49,7 @@ export class AWSFeatureFlagManager {
             reason: evaluation.reason,
             entityId: this._entityId,
             featureName: featureName,
-            featureFlagValue: featureFlagValue
+            featureFlagValue: featureFlagValue,
           },
         });
       }
