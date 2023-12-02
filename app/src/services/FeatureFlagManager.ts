@@ -8,21 +8,21 @@ import { Evidently } from "@aws-sdk/client-evidently";
  *
  */
 export class AWSFeatureFlagManager {
-  private _entityId?: string;
   client: Evidently;
+  private _entityId?: string;
   private _config = { region: process.env.AWS_ENV ?? "us-east-1" };
+  private _project = process.env.FEATURE_FLAGS_PROJECT;
 
   constructor(entityId?: string) {
-    this._entityId = entityId ?? "anonymous";
+    this._entityId = entityId;
     this.client = new Evidently(this._config);
   }
 
   async getFeatureFlag(featureName: string, defaultValue = false) {
-    const project = process.env.FEATURE_FLAGS_PROJECT ?? "exampleProjectName";
     const evalRequest = {
       entityId: this._entityId,
       feature: featureName,
-      project,
+      project: this._project,
     };
 
     let featureFlagValue = defaultValue;
