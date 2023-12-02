@@ -30,7 +30,8 @@
     "**/*.ts",
     "**/*.tsx",
     "__mocks__/styleMock.js",
-    ".next/types/**/*.ts"
+    ".next/types/**/*.ts",
+    "src/types/**/*.d.ts"
   ],
   "exclude": ["node_modules"]
 }
