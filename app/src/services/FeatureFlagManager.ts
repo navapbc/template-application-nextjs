@@ -10,20 +10,7 @@ import { Evidently } from "@aws-sdk/client-evidently";
 export class AWSFeatureFlagManager {
   private _entityId?: string;
   client: Evidently;
-  private _config =
-    process.env.AWS_EVIDENTLY_URL &&
-    process.env.AWS_ACCESS_KEY_ID &&
-    process.env.AWS_SECRET_ACCESS_KEY
-      ? {
-          region: process.env.AWS_REGION,
-          endpoint: process.env.AWS_EVIDENTLY_URL,
-          disableHostPrefix: true,
-          credentials: {
-            accessKeyId: process.env.AWS_ACCESS_KEY_ID,
-            secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
-          },
-        }
-      : { region: "us-east-1" };
+  private _config = { region: process.env.AWS_ENV ?? "us-east-1" };
 
   constructor(entityId?: string) {
     this._entityId = entityId ?? "anonymous";
@@ -31,7 +18,7 @@ export class AWSFeatureFlagManager {
   }
 
   async getFeatureFlag(featureName: string, defaultValue = false) {
-    const project = process.env.FEATURE_FLAGS_PROJECT;
+    const project = process.env.FEATURE_FLAGS_PROJECT ?? "exampleProjectName";
     const evalRequest = {
       entityId: this._entityId,
       feature: featureName,
