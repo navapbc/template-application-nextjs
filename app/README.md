@@ -103,9 +103,7 @@ From the `app/` directory:
 
 ## 🐛 Testing
 
-[Jest](https://jestjs.io/docs/getting-started) is used as the test runner and [React Testing Library](https://testing-library.com/docs/react-testing-library/intro) provides React testing utilities.
-
-Tests are manged as `.test.ts` (or `.tsx`) files in the the `tests/` directory.
+[Jest](https://jestjs.io/docs/getting-started) is used as the test runner. Tests are manged as `.test.ts` (or `.tsx`) files in the the `tests/` directory.
 
 To run tests:
 
@@ -117,6 +115,19 @@ A subset of tests can be ran by passing a pattern to the script. For example, to
 
 ```sh
 npm run test-watch -- pages
+```
+
+### Testing React components
+
+[React Testing Library (RTL)](https://testing-library.com/docs/react-testing-library/intro) provides the utilities for rendering and querying, and [`jest-axe`](https://www.npmjs.com/package/jest-axe) is used for accessibility testing. Refer to their docs to learn more about their APIs, or view an existing test for examples.
+
+It's important that you **don't import from `@testing-library/react`**, instead import from `tests/test-utils`. Using the custom `render` method from `tests/test-utils` sets up internationalization in the component.
+
+Import React Testing Library utilities from `tests/test-utils`:
+
+```diff
+- import { render, screen } from '@testing-library/react';
++ import { render, screen } from 'tests/test-utils';
 ```
 
 ## 🤖 Type checking, linting, and formatting

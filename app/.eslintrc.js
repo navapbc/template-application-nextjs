@@ -20,13 +20,27 @@ module.exports = {
   overrides: [
     // Lint config specific to Test files
     {
-      files: ["tests/**"],
+      files: ["tests/**/?(*.)+(spec|test).[jt]s?(x)"],
       plugins: ["jest"],
       extends: [
         "plugin:jest/recommended",
         "plugin:jest-dom/recommended",
         "plugin:testing-library/react",
       ],
+      rules: {
+        "no-restricted-imports": [
+          "error",
+          {
+            paths: [
+              {
+                message:
+                  'Import from "tests/test-utils" instead so that translations work.',
+                name: "@testing-library/react",
+              },
+            ],
+          },
+        ],
+      },
     },
     // Lint config specific to TypeScript files
     {

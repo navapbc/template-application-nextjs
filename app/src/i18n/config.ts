@@ -2,6 +2,8 @@ import { merge } from "lodash";
 
 import { getRequestConfig } from "next-intl/server";
 
+import { formats } from "./formats";
+
 type RequestConfig = Awaited<
   ReturnType<Parameters<typeof getRequestConfig>[0]>
 >;
@@ -13,18 +15,6 @@ type RequestConfig = Awaited<
 export const locales = ["en-US", "es-US"] as const;
 export type SupportedLocale = (typeof locales)[number];
 export const defaultLocale: SupportedLocale = "en-US";
-
-/**
- * Define the default formatting for date, time, and numbers.
- * @see https://next-intl-docs.vercel.app/docs/usage/configuration#formats
- */
-const formats: RequestConfig["formats"] = {
-  number: {
-    currency: {
-      currency: "USD",
-    },
-  },
-};
 
 /**
  * Get the entire locale messages object for the given locale. If any

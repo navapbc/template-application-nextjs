@@ -46,6 +46,7 @@ export default function Layout({ children, params }: LayoutProps) {
             language={params.locale.match(/^es-?/) ? "spanish" : "english"}
           />
           <NextIntlClientProvider
+            locale={params.locale}
             messages={pick(messages, "components.Header")}
           >
             <Header />

@@ -1,5 +1,5 @@
-import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
+import { render, screen } from "tests/test-utils";
 
 import Header from "src/components/Header";
 
@@ -7,7 +7,7 @@ describe("Header", () => {
   it("toggles the mobile nav menu", async () => {
     render(<Header />);
 
-    const menuButton = screen.getByRole("button", { name: /menu/i });
+    const menuButton = screen.getByRole("button", { name: "Menu" });
 
     expect(menuButton).toBeInTheDocument();
 
