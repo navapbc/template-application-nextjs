@@ -2,3 +2,4 @@
 .DS_Store
 # Developer-specific IDE settings
 .vscode
+.env.local
