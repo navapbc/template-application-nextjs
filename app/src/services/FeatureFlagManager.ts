@@ -2,21 +2,10 @@ import { Evidently } from "@aws-sdk/client-evidently";
 
 /**
  * Class for managing feature flagging via AWS Evidently.
- * Class methods are available for use in next.js server side code.
+ * Class method are available for use in next.js server side code.
  * 
  * https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/evidently/
  *
- * Example flag value retrieval:
- 
-export async function getServerSideProps(context) {
-    const featureFlags = new AWSFeatureFlagManager(cognitoId)
-    const flagResult = await featureFlags.getFeatureFlag('featureName')
-    return {
-    props: {
-        featureNameEnabled: flagResult
-    },
-    }
-}
 */
 export class AWSFeatureFlagManager {
   private _entityId?: string;
@@ -42,7 +31,7 @@ export class AWSFeatureFlagManager {
   }
 
   async getFeatureFlag(featureName: string, defaultValue = false) {
-    const project = process.env.FEATURE_FLAGS_PROJECT;
+    const project = process.env.FEATURE_FLAGS_PROJECT
     const evalRequest = {
       entityId: this._entityId,
       feature: featureName,
