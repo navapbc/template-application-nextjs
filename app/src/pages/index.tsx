@@ -64,7 +64,7 @@ export const getServerSideProps: GetServerSideProps<PageProps> = async ({
   const translations = await serverSideTranslations(locale ?? "en-US");
 
   const featureFlags = new AWSFeatureFlagManager("anonymous");
-  const flagResult = await featureFlags.getFeatureFlag("exampleFeatureName");
+  const flagResult = await featureFlags.getFeatureFlag("exampleFlagName");
 
   return { props: { ...translations, featureNameEnabled: flagResult } };
 };

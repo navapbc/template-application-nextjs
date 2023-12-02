@@ -11,7 +11,9 @@ export class AWSFeatureFlagManager {
   client: Evidently;
   private _entityId?: string;
   private _config = { region: process.env.AWS_ENV ?? "us-east-1" };
-  private _project = process.env.FEATURE_FLAGS_PROJECT;
+  private _project = process.env.FEATURE_FLAGS_PROJECT
+    ? process.env.FEATURE_FLAGS_PROJECT
+    : "exampleProjectName";
 
   constructor(entityId?: string) {
     this._entityId = entityId;
