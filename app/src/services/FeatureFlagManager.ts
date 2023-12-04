@@ -10,7 +10,7 @@ import { Evidently } from "@aws-sdk/client-evidently";
 export class AWSFeatureFlagManager {
   client: Evidently;
   private _userId?: string;
-  private _project = process.env.FEATURE_FLAGS_PROJECT
+  private _project = process.env.FEATURE_FLAGS_PROJECT;
 
   constructor(userId?: string) {
     this._userId = userId;
