@@ -1,3 +1,5 @@
+// TODO: Update for next-intl
+
 # Internationalization (i18n)
 
 - [I18next](https://www.i18next.com/) is used for internationalization.
