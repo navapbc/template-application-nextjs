@@ -10,12 +10,11 @@ import { Evidently } from "@aws-sdk/client-evidently";
 export class AWSFeatureFlagManager {
   client: Evidently;
   private _userId?: string;
-  private _config = { region: process.env.AWS_ENV ?? "us-east-1" };
   private _project = process.env.FEATURE_FLAGS_PROJECT
 
   constructor(userId?: string) {
     this._userId = userId;
-    this.client = new Evidently(this._config);
+    this.client = new Evidently();
   }
 
   async isFeatureEnabled(featureName: string) {
