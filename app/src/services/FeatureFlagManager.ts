@@ -9,25 +9,23 @@ import { Evidently } from "@aws-sdk/client-evidently";
  */
 export class AWSFeatureFlagManager {
   client: Evidently;
-  private _entityId?: string;
+  private _userId?: string;
   private _config = { region: process.env.AWS_ENV ?? "us-east-1" };
   private _project = process.env.FEATURE_FLAGS_PROJECT
-    ? process.env.FEATURE_FLAGS_PROJECT
-    : "exampleProjectName";
 
-  constructor(entityId?: string) {
-    this._entityId = entityId;
+  constructor(userId?: string) {
+    this._userId = userId;
     this.client = new Evidently(this._config);
   }
 
-  async getFeatureFlag(featureName: string, defaultValue = false) {
+  async isFeatureEnabled(featureName: string) {
     const evalRequest = {
-      entityId: this._entityId,
+      entityId: this._userId,
       feature: featureName,
       project: this._project,
     };
 
-    let featureFlagValue = defaultValue;
+    let featureFlagValue = false;
     try {
       const evaluation = await this.client.evaluateFeature(evalRequest);
       if (evaluation && evaluation.value?.boolValue !== undefined) {
@@ -36,18 +34,18 @@ export class AWSFeatureFlagManager {
           message: "Made feature flag evaluation with AWS Evidently",
           data: {
             reason: evaluation.reason,
-            entityId: this._entityId,
+            userId: this._userId,
             featureName: featureName,
             featureFlagValue: featureFlagValue,
           },
         });
       }
     } catch (e) {
-      console.log({
+      console.error({
         message: "Error retrieving feature flag variation from AWS Evidently",
         data: {
           err: e,
-          entityId: this._entityId,
+          userId: this._userId,
           featureName: featureName,
         },
       });
