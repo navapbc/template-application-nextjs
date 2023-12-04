@@ -6,7 +6,7 @@ describe("Index", () => {
   // Demonstration of rendering translated text, and asserting the presence of a dynamic value.
   // You can delete this test for your own project.
   it("renders link to Next.js docs", () => {
-    render(<Index featureNameEnabled={true}/>);
+    render(<Index featureNameEnabled={true} />);
 
     const link = screen.getByRole("link", { name: /next\.js/i });
 
