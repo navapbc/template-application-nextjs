@@ -6,7 +6,7 @@ describe("Index", () => {
   // Demonstration of rendering translated text, and asserting the presence of a dynamic value.
   // You can delete this test for your own project.
   it("renders link to Next.js docs", () => {
-    render(<Index featureNameEnabled={true} />);
+    render(<Index isFooEnabled={true} />);
 
     const link = screen.getByRole("link", { name: /next\.js/i });
 
@@ -15,7 +15,7 @@ describe("Index", () => {
   });
 
   it("passes accessibility scan", async () => {
-    const { container } = render(<Index featureNameEnabled={true} />);
+    const { container } = render(<Index isFooEnabled={true} />);
     const results = await axe(container);
 
     expect(results).toHaveNoViolations();

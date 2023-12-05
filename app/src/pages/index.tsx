@@ -9,7 +9,7 @@ import { useTranslations } from "next-intl";
 import Head from "next/head";
 
 interface PageProps {
-  featureNameEnabled: boolean;
+  isFooEnabled: boolean;
 }
 
 const Home: NextPage<InferGetServerSidePropsType<typeof getServerSideProps>> = (
@@ -51,7 +51,7 @@ const Home: NextPage<InferGetServerSidePropsType<typeof getServerSideProps>> = (
         </p>
         {/* Demonstration of feature flagging */}
         <p>{t("featureflagging")}</p>
-        {props.featureNameEnabled && <p>^..^</p>}
+        {props.isFooEnabled && <p>^..^</p>}
       </div>
     </>
   );
@@ -64,9 +64,9 @@ export const getServerSideProps: GetServerSideProps<PageProps> = async ({
   const translations = await serverSideTranslations(locale ?? "en-US");
 
   const featureFlags = new FeatureFlagManager("anonymous");
-  const flagResult = await featureFlags.isFeatureEnabled("foo");
+  const isFooEnabled = await featureFlags.isFeatureEnabled("foo");
 
-  return { props: { ...translations, featureNameEnabled: flagResult } };
+  return { props: { ...translations, isFooEnabled } };
 };
 
 export default Home;
