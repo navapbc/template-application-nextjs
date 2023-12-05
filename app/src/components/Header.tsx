@@ -1,7 +1,7 @@
-import { useTranslation } from "next-i18next";
+import { useTranslations } from "next-intl";
+import Link from "next/link";
 import { useState } from "react";
 import {
-  GovBanner,
   NavMenuButton,
   PrimaryNav,
   Title,
@@ -20,9 +20,7 @@ const primaryLinks = [
 ] as const;
 
 const Header = () => {
-  const { t, i18n } = useTranslation("common", {
-    keyPrefix: "Header",
-  });
+  const t = useTranslations("components.Header");
 
   const [isMobileNavExpanded, setIsMobileNavExpanded] = useState(false);
   const handleMobileNavToggle = () => {
@@ -30,18 +28,15 @@ const Header = () => {
   };
 
   const navItems = primaryLinks.map((link) => (
-    <a href={link.href} key={link.href}>
+    <Link href={link.href} key={link.href}>
       {t(link.i18nKey)}
-    </a>
+    </Link>
   ));
 
   return (
     <>
       <div
         className={`usa-overlay ${isMobileNavExpanded ? "is-visible" : ""}`}
-      />
-      <GovBanner
-        language={i18n.language?.match(/^es-?/) ? "spanish" : "english"}
       />
       <USWDSHeader basic={true}>
         <div className="usa-nav-container">

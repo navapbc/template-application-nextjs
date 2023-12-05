@@ -1,4 +1,4 @@
-import { useTranslation } from "next-i18next";
+import { useTranslations } from "next-intl";
 import {
   Address,
   FooterNav,
@@ -8,9 +8,7 @@ import {
 } from "@trussworks/react-uswds";
 
 const Footer = () => {
-  const { t } = useTranslation("common", {
-    keyPrefix: "Footer",
-  });
+  const t = useTranslations("components.Footer");
 
   return (
     <USWDSFooter

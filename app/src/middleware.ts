@@ -1,7 +1,7 @@
 import createIntlMiddleware from "next-intl/middleware";
 import { NextRequest } from "next/server";
 
-import { defaultLocale, locales } from "./i18n/config";
+import { defaultLocale, locales } from "./i18n";
 
 // Don't run middleware on API routes or Next.js build output
 export const config = {

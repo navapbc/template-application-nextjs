@@ -5,12 +5,13 @@ import { getRequestConfig } from "next-intl/server";
 type RequestConfig = Awaited<
   ReturnType<Parameters<typeof getRequestConfig>[0]>
 >;
+export type Messages = RequestConfig["messages"];
 
 /**
  * List of languages supported by the application. Other tools (Storybook, tests) reference this.
  * These must be BCP47 language tags: https://en.wikipedia.org/wiki/IETF_language_tag#List_of_common_primary_language_subtags
  */
-export const locales = ["en-US", "es-US"] as const;
+export const locales = ["en-US", "es-US"];
 export type SupportedLocale = (typeof locales)[number];
 export const defaultLocale: SupportedLocale = "en-US";
 
@@ -18,7 +19,7 @@ export const defaultLocale: SupportedLocale = "en-US";
  * Define the default formatting for date, time, and numbers.
  * @see https://next-intl-docs.vercel.app/docs/usage/configuration#formats
  */
-const formats: RequestConfig["formats"] = {
+export const formats: RequestConfig["formats"] = {
   number: {
     currency: {
       currency: "USD",
@@ -31,7 +32,7 @@ const formats: RequestConfig["formats"] = {
  * translations are missing from the current locale, the missing key will
  * fallback to the default locale
  */
-async function getLocaleMessages(locale: string) {
+export async function getLocaleMessages(locale: string = defaultLocale) {
   // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
   let { messages } = await import(`./messages/${locale}`);
 
@@ -44,7 +45,7 @@ async function getLocaleMessages(locale: string) {
     messages = merge({}, fallbackMessages, messages);
   }
 
-  return messages as RequestConfig["messages"];
+  return messages as Messages;
 }
 
 /**
