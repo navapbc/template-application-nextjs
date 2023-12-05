@@ -45,6 +45,7 @@ module.exports = {
     // Lint config specific to TypeScript files
     {
       files: "**/*.+(ts|tsx)",
+      excludedFiles: [".storybook/*.ts?(x)"],
       parserOptions: {
         // These paths need defined to support rules that require type information
         tsconfigRootDir: __dirname,
