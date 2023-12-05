@@ -3,7 +3,7 @@ import type {
   InferGetServerSidePropsType,
   NextPage,
 } from "next";
-import { AWSFeatureFlagManager } from "src/services/FeatureFlagManager";
+import { FeatureFlagManager } from "src/services/FeatureFlagManager";
 
 import { useTranslations } from "next-intl";
 import Head from "next/head";
@@ -63,7 +63,7 @@ export const getServerSideProps: GetServerSideProps<PageProps> = async ({
 }) => {
   const translations = await serverSideTranslations(locale ?? "en-US");
 
-  const featureFlags = new AWSFeatureFlagManager("anonymous");
+  const featureFlags = new FeatureFlagManager("anonymous");
   const flagResult = await featureFlags.isFeatureEnabled("foo");
 
   return { props: { ...translations, featureNameEnabled: flagResult } };

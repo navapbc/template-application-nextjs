@@ -7,7 +7,7 @@ import { Evidently } from "@aws-sdk/client-evidently";
  * https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/evidently/
  *
  */
-export class AWSFeatureFlagManager {
+export class FeatureFlagManager {
   client: Evidently;
   private _userId?: string;
   private _project = process.env.FEATURE_FLAGS_PROJECT;
