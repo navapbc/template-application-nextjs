@@ -1,6 +1,13 @@
-// @ts-check
-// Apply global styling to our stories
+/**
+ * @file Setup the toolbar, styling, and global context for each Storybook story.
+ * @see https://storybook.js.org/docs/configure#configure-story-rendering
+ */
+import { Preview } from "@storybook/react";
+
 import "../src/styles/styles.scss";
+
+import { defaultLocale, locales } from "../src/i18n";
+import I18nStoryWrapper from "./I18nStoryWrapper";
 
 const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
@@ -28,16 +35,17 @@ const parameters = {
   },
 };
 
-/**
- * @type {import("@storybook/react").Preview}
- */
-const preview = {
+const preview: Preview = {
+  decorators: [I18nStoryWrapper],
   parameters,
-  globals: {
-    locale: "en-US",
-    locales: {
-      "en-US": "English",
-      "es-US": "Español",
+  globalTypes: {
+    locale: {
+      description: "Active language",
+      defaultValue: defaultLocale,
+      toolbar: {
+        icon: "globe",
+        items: locales,
+      },
     },
   },
 };

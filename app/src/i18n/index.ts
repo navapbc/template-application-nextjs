@@ -2,10 +2,24 @@ import { merge } from "lodash";
 
 import { getRequestConfig } from "next-intl/server";
 
+import { messages as enUs } from "./messages/en-US";
+import { messages as esUs } from "./messages/es-US";
+
 type RequestConfig = Awaited<
   ReturnType<Parameters<typeof getRequestConfig>[0]>
 >;
 export type Messages = RequestConfig["messages"];
+
+/**
+ * All messages for the application for each locale.
+ * Don't export this object!! Use `getLocaleMessages` instead,
+ * which handles fallbacks to the default locale when a locale
+ * is missing a translation.
+ */
+const _messages: { [locale: string]: Messages } = {
+  "en-US": enUs,
+  "es-US": esUs,
+};
 
 /**
  * List of languages supported by the application. Other tools (Storybook, tests) reference this.
@@ -32,29 +46,24 @@ export const formats: RequestConfig["formats"] = {
  * translations are missing from the current locale, the missing key will
  * fallback to the default locale
  */
-export async function getLocaleMessages(locale: string = defaultLocale) {
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-  let { messages } = await import(`./messages/${locale}`);
+export function getLocaleMessages(locale: string = defaultLocale): Messages {
+  let messages = _messages[locale];
 
   if (locale !== defaultLocale) {
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-    const { messages: fallbackMessages } = await import(
-      `./messages/${defaultLocale}`
-    );
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+    const fallbackMessages = _messages[defaultLocale];
     messages = merge({}, fallbackMessages, messages);
   }
 
-  return messages as Messages;
+  return messages;
 }
 
 /**
  * The next-intl config. This method is used behind the scenes by `next-intl/plugin`
  * when its called in next.config.js.
  */
-export default getRequestConfig(async ({ locale }) => {
+export default getRequestConfig(({ locale }) => {
   return {
     formats,
-    messages: await getLocaleMessages(locale),
+    messages: getLocaleMessages(locale),
   };
 });

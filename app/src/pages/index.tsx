@@ -42,12 +42,12 @@ const Home: NextPage = () => {
 };
 
 // Change this to getStaticProps if you're not using server-side rendering
-export const getServerSideProps: GetServerSideProps = async ({ locale }) => {
-  return {
+export const getServerSideProps: GetServerSideProps = ({ locale }) => {
+  return Promise.resolve({
     props: {
-      messages: await getLocaleMessages(locale),
+      messages: getLocaleMessages(locale),
     },
-  };
+  });
 };
 
 export default Home;
