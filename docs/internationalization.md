@@ -1,5 +1,3 @@
-// TODO: Update for next-intl
-
 # Internationalization (i18n)
 
 - [next-intl](https://next-intl-docs.vercel.app) is used for internationalization. Toggling between languages is done by changing the URL's path prefix (e.g. `/about` ➡️ `/es-US/about`).
