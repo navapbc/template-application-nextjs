@@ -4,22 +4,11 @@
  */
 import { Metadata } from "next";
 
-import {
-  NextIntlClientProvider,
-  useMessages,
-  useTranslations,
-} from "next-intl";
-import { GovBanner, Grid, GridContainer } from "@trussworks/react-uswds";
-
-import Footer from "src/components/Footer";
-import Header from "src/components/Header";
+import Layout from "src/components/Layout";
 
 import "src/styles/styles.scss";
 
-import { pick } from "lodash";
-
 export const metadata: Metadata = {
-  title: "Home",
   icons: [`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/img/logo.svg`],
 };
 
@@ -30,37 +19,13 @@ interface LayoutProps {
   };
 }
 
-export default function Layout({ children, params }: LayoutProps) {
-  const t = useTranslations("components.Layout");
-  const messages = useMessages();
-
+export default function RootLayout({ children, params }: LayoutProps) {
   return (
     <html lang={params.locale}>
       <body>
-        {/* Flex and min height sticks the footer to the bottom of the page */}
-        <div className="display-flex flex-column minh-viewport">
-          <a className="usa-skipnav" href="#main-content">
-            {t("skip_to_main")}
-          </a>
-          <GovBanner
-            language={params.locale.match(/^es-?/) ? "spanish" : "english"}
-          />
-          <NextIntlClientProvider
-            locale={params.locale}
-            messages={pick(messages, "components.Header")}
-          >
-            <Header />
-          </NextIntlClientProvider>
-          {/* Flex pushes the footer to the bottom of the page */}
-          <main id="main-content" className="usa-section flex-fill">
-            <GridContainer>
-              <Grid row>
-                <Grid col>{children}</Grid>
-              </Grid>
-            </GridContainer>
-          </main>
-          <Footer />
-        </div>
+        {/* Separate layout component for the inner-body UI elements since Storybook
+            and tests trip over the fact that this file renders an <html> tag */}
+        <Layout locale={params.locale}>{children}</Layout>
       </body>
     </html>
   );
