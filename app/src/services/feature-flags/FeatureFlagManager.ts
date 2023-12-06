@@ -9,17 +9,15 @@ import { Evidently } from "@aws-sdk/client-evidently";
  */
 export class FeatureFlagManager {
   client: Evidently;
-  private _userId?: string;
   private _project = process.env.FEATURE_FLAGS_PROJECT;
 
   constructor(userId?: string) {
-    this._userId = userId;
     this.client = new Evidently();
   }
 
-  async isFeatureEnabled(featureName: string) {
+  async isFeatureEnabled(featureName: string, userId: string) {
     const evalRequest = {
-      entityId: this._userId,
+      entityId: userId,
       feature: featureName,
       project: this._project,
     };
@@ -33,7 +31,7 @@ export class FeatureFlagManager {
           message: "Made feature flag evaluation with AWS Evidently",
           data: {
             reason: evaluation.reason,
-            userId: this._userId,
+            userId: userId,
             featureName: featureName,
             featureFlagValue: featureFlagValue,
           },
@@ -44,7 +42,7 @@ export class FeatureFlagManager {
         message: "Error retrieving feature flag variation from AWS Evidently",
         data: {
           err: e,
-          userId: this._userId,
+          userId: userId,
           featureName: featureName,
         },
       });

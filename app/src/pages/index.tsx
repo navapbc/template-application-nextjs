@@ -4,7 +4,7 @@ import type {
   NextPage,
 } from "next";
 import { getLocaleMessages } from "src/i18n";
-import { FeatureFlagManager } from "src/services/FeatureFlagManager";
+import { isFeatureEnabled } from "src/services/feature-flags";
 
 import { useTranslations } from "next-intl";
 import Head from "next/head";
@@ -60,8 +60,7 @@ const Home: NextPage<InferGetServerSidePropsType<typeof getServerSideProps>> = (
 export const getServerSideProps: GetServerSideProps<PageProps> = async ({
   locale,
 }) => {
-  const featureFlags = new FeatureFlagManager("anonymous");
-  const isFooEnabled = await featureFlags.isFeatureEnabled("foo");
+  const isFooEnabled = await isFeatureEnabled("foo", "anonymous");
 
   return Promise.resolve({
     props: {
