@@ -16,7 +16,7 @@ const appSassOptions = sassOptions(basePath);
 const nextConfig = {
   basePath,
   i18n: {
-    locales: ["en-US", "es-ES"],
+    locales: ["en-US", "es-US"],
     defaultLocale: "en-US",
   },
   reactStrictMode: true,
