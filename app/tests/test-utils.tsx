@@ -5,8 +5,7 @@
  * @see https://testing-library.com/docs/react-testing-library/setup#custom-render
  */
 import { render as _render, RenderOptions } from "@testing-library/react";
-import { formats } from "src/i18n";
-import { messages } from "src/i18n/messages/en-US";
+import { defaultLocale, formats, getLocaleMessages } from "src/i18n";
 
 import { NextIntlClientProvider } from "next-intl";
 
@@ -17,8 +16,8 @@ import { NextIntlClientProvider } from "next-intl";
 const GlobalProviders = ({ children }: { children: React.ReactNode }) => {
   return (
     <NextIntlClientProvider
-      locale="en-US"
-      messages={messages}
+      locale={defaultLocale}
+      messages={getLocaleMessages(defaultLocale)}
       formats={formats}
     >
       {children}
