@@ -3,6 +3,7 @@ module.exports = {
   extends: [
     "eslint:recommended",
     "plugin:storybook/recommended",
+    "plugin:you-dont-need-lodash-underscore/compatible",
     // Disable ESLint code formatting rules which conflict with Prettier
     "prettier",
     // `next` should be extended last according to their docs
@@ -14,35 +15,37 @@ module.exports = {
     // dependencies to work in standalone mode. It may be overkill for most projects at
     // Nava which aren't image heavy.
     "@next/next/no-img-element": "off",
-    "no-restricted-imports": [
-      "error",
-      {
-        paths: [
-          {
-            message:
-              'Import from "next-i18next" instead of "react-i18next" so server-side translations work.',
-            name: "react-i18next",
-            importNames: ["useTranslation", "Trans"],
-          },
-        ],
-      },
-    ],
   },
   // Additional lint rules. These get layered onto the top-level rules.
   overrides: [
     // Lint config specific to Test files
     {
-      files: ["tests/**"],
+      files: ["tests/**/?(*.)+(spec|test).[jt]s?(x)"],
       plugins: ["jest"],
       extends: [
         "plugin:jest/recommended",
         "plugin:jest-dom/recommended",
         "plugin:testing-library/react",
       ],
+      rules: {
+        "no-restricted-imports": [
+          "error",
+          {
+            paths: [
+              {
+                message:
+                  'Import from "tests/react-utils" instead so that translations work.',
+                name: "@testing-library/react",
+              },
+            ],
+          },
+        ],
+      },
     },
     // Lint config specific to TypeScript files
     {
       files: "**/*.+(ts|tsx)",
+      excludedFiles: [".storybook/*.ts?(x)"],
       parserOptions: {
         // These paths need defined to support rules that require type information
         tsconfigRootDir: __dirname,

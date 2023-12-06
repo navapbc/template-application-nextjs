@@ -15,7 +15,6 @@ module.exports = {
     "<BUILTIN_MODULES>",
     "<THIRD_PARTY_MODULES>",
     "", // blank line
-    "i18next",
     "^next[/-](.*)$",
     "^react$",
     "uswds",

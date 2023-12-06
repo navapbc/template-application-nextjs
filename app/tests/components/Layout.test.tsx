@@ -1,5 +1,5 @@
-import { render, screen } from "@testing-library/react";
 import { axe } from "jest-axe";
+import { render, screen } from "tests/react-utils";
 
 import Layout from "src/components/Layout";
 

@@ -23,11 +23,6 @@
       "groupName": "Storybook"
     },
     {
-      "description": "Group I18next packages together",
-      "matchPackagePatterns": ["i18next"],
-      "groupName": "I18next"
-    },
-    {
       "description": "Group test packages together",
       "matchPackagePatterns": ["jest", "testing-library"],
       "groupName": "Jest"

@@ -1,11 +1,11 @@
 import type { GetServerSideProps, NextPage } from "next";
+import { getLocaleMessages } from "src/i18n";
 
-import { Trans, useTranslation } from "next-i18next";
-import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import { useTranslations } from "next-intl";
 import Head from "next/head";
 
 const Home: NextPage = () => {
-  const { t } = useTranslation("home");
+  const t = useTranslations("home");
 
   return (
     <>
@@ -17,35 +17,24 @@ const Home: NextPage = () => {
 
       {/* Demonstration of more complex translated strings, with safe-listed links HTML elements */}
       <p className="usa-intro">
-        <Trans
-          t={t}
-          i18nKey="intro"
-          components={{
-            LinkToNextJs: <a href="https://nextjs.org/docs" />,
-          }}
-        />
+        {t.rich("intro", {
+          LinkToNextJs: (content) => (
+            <a href="https://nextjs.org/docs">{content}</a>
+          ),
+        })}
       </p>
       <div className="measure-6">
-        <Trans
-          t={t}
-          i18nKey="body"
-          components={{
-            ul: <ul className="usa-list" />,
-            li: <li />,
-          }}
-        />
+        {t.rich("body", {
+          ul: (content) => <ul className="usa-list">{content}</ul>,
+          li: (content) => <li>{content}</li>,
+        })}
 
         <p>
           {/* Demonstration of formatters */}
-          <Trans
-            t={t}
-            ns="home"
-            i18nKey="formatting"
-            values={{
-              date: "2021-01-01",
-              amount: 1234,
-            }}
-          />
+          {t("formatting", {
+            amount: 1234,
+            isoDate: new Date("2023-11-29T23:30:00.000Z"),
+          })}
         </p>
       </div>
     </>
@@ -53,9 +42,12 @@ const Home: NextPage = () => {
 };
 
 // Change this to getStaticProps if you're not using server-side rendering
-export const getServerSideProps: GetServerSideProps = async ({ locale }) => {
-  const translations = await serverSideTranslations(locale ?? "en-US");
-  return { props: { ...translations } };
+export const getServerSideProps: GetServerSideProps = ({ locale }) => {
+  return Promise.resolve({
+    props: {
+      messages: getLocaleMessages(locale),
+    },
+  });
 };
 
 export default Home;
