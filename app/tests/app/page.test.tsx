@@ -1,12 +1,12 @@
 import { axe } from "jest-axe";
-import Page from "src/app/[locale]/page";
+import Index from "src/app/[locale]/page";
 import { render, screen } from "tests/react-utils";
 
-describe("Homepage", () => {
+describe("Index", () => {
   // Demonstration of rendering translated text, and asserting the presence of a dynamic value.
   // You can delete this test for your own project.
   it("renders link to Next.js docs", () => {
-    render(<Page />);
+    render(<Index />);
 
     const link = screen.getByRole("link", { name: /next\.js/i });
 
@@ -16,7 +16,7 @@ describe("Homepage", () => {
   });
 
   it("passes accessibility scan", async () => {
-    const { container } = render(<Page />);
+    const { container } = render(<Index />);
     const results = await axe(container);
 
     expect(results).toHaveNoViolations();
