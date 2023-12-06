@@ -11,7 +11,7 @@ export class FeatureFlagManager {
   client: Evidently;
   private _project = process.env.FEATURE_FLAGS_PROJECT;
 
-  constructor(userId?: string) {
+  constructor() {
     this.client = new Evidently();
   }
 

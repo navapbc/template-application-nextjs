@@ -3,6 +3,6 @@ export class MockFeatureFlagManager {
     console.log(
       `Using mock feature flag manager for feature ${featureName}, user ${userId}`
     );
-    return false;
+    return Promise.resolve(false);
   }
 }
