@@ -1,6 +1,6 @@
 import { axe } from "jest-axe";
 import Page from "src/app/[locale]/page";
-import { render, screen } from "tests/test-utils";
+import { render, screen } from "tests/react-utils";
 
 describe("Homepage", () => {
   // Demonstration of rendering translated text, and asserting the presence of a dynamic value.

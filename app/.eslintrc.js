@@ -34,7 +34,7 @@ module.exports = {
             paths: [
               {
                 message:
-                  'Import from "tests/test-utils" instead so that translations work.',
+                  'Import from "tests/react-utils" instead so that translations work.',
                 name: "@testing-library/react",
               },
             ],
@@ -45,6 +45,7 @@ module.exports = {
     // Lint config specific to TypeScript files
     {
       files: "**/*.+(ts|tsx)",
+      excludedFiles: [".storybook/*.ts?(x)"],
       parserOptions: {
         // These paths need defined to support rules that require type information
         tsconfigRootDir: __dirname,

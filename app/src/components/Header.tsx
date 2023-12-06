@@ -1,7 +1,6 @@
 "use client";
 
 import { useTranslations } from "next-intl";
-import Link from "next/link";
 import { useState } from "react";
 import {
   NavMenuButton,
@@ -30,9 +29,9 @@ const Header = () => {
   };
 
   const navItems = primaryLinks.map((link) => (
-    <Link href={link.href} key={link.href}>
+    <a href={link.href} key={link.href}>
       {t(link.i18nKey)}
-    </Link>
+    </a>
   ));
 
   return (
