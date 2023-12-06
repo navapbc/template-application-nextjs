@@ -1,5 +1,7 @@
 // @ts-check
-const withNextIntl = require("next-intl/plugin")("./src/i18n/index.ts");
+const withNextIntl = require("next-intl/plugin")(
+  "./src/i18n/next-intl-config.ts"
+);
 const sassOptions = require("./scripts/sassOptions");
 
 /**

@@ -1,6 +1,6 @@
 import { merge } from "lodash";
 
-import { getRequestConfig } from "next-intl/server";
+import type { getRequestConfig } from "next-intl/server";
 
 import { messages as enUs } from "./messages/en-US";
 import { messages as esUs } from "./messages/es-US";
