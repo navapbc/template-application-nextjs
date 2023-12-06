@@ -13,7 +13,9 @@ const localeToMessages = {
  * Get all messages for the given locale. If any translations are missing
  * from the current locale, the missing key will fallback to the default locale
  */
-export function getMessages(requestedLocale: string = defaultLocale) {
+export function getMessagesWithFallbacks(
+  requestedLocale: string = defaultLocale
+) {
   if (requestedLocale in localeToMessages === false) {
     console.error(
       "Unsupported locale was requested. Falling back to the default locale.",

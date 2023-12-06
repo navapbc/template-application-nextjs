@@ -6,7 +6,7 @@
  */
 import { render as _render, RenderOptions } from "@testing-library/react";
 import { defaultLocale, formats } from "src/i18n/config";
-import { getMessages } from "src/i18n/getMessages";
+import { getMessagesWithFallbacks } from "src/i18n/getMessagesWithFallbacks";
 
 import { NextIntlClientProvider } from "next-intl";
 
@@ -18,7 +18,7 @@ const GlobalProviders = ({ children }: { children: React.ReactNode }) => {
   return (
     <NextIntlClientProvider
       locale={defaultLocale}
-      messages={getMessages(defaultLocale)}
+      messages={getMessagesWithFallbacks(defaultLocale)}
       formats={formats}
     >
       {children}

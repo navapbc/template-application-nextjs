@@ -1,7 +1,7 @@
 import { getRequestConfig } from "next-intl/server";
 
 import { formats } from "./config";
-import { getMessages } from "./getMessages";
+import { getMessagesWithFallbacks } from "./getMessagesWithFallbacks";
 
 /**
  * I18n config for server components.
@@ -11,6 +11,6 @@ import { getMessages } from "./getMessages";
 export default getRequestConfig(({ locale }) => {
   return {
     formats,
-    messages: getMessages(locale),
+    messages: getMessagesWithFallbacks(locale),
   };
 });
