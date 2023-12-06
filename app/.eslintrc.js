@@ -34,7 +34,7 @@ module.exports = {
             paths: [
               {
                 message:
-                  'Import from "tests/test-utils" instead so that translations work.',
+                  'Import from "tests/react-utils" instead so that translations work.',
                 name: "@testing-library/react",
               },
             ],

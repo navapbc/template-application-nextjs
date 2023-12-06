@@ -1,6 +1,6 @@
 import { axe } from "jest-axe";
 import Index from "src/pages/index";
-import { render, screen } from "tests/test-utils";
+import { render, screen } from "tests/react-utils";
 
 describe("Index", () => {
   // Demonstration of rendering translated text, and asserting the presence of a dynamic value.
