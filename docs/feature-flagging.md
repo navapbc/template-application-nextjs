@@ -6,12 +6,12 @@
 
 ## How it works
 
-1. `services/FeatureFlagManager` provides a service layer to interact with AWS Evidently endpoints. For example, class method `isFeatureEnabled` calls out to Evidently to retrieve a feature flag value we can then return to the client
+1. `services/feature-flags/FeatureFlagManager` provides a service layer to interact with AWS Evidently endpoints. For example, class method `isFeatureEnabled` calls out to Evidently to retrieve a feature flag value we can then return to the client
 1. Pages can call `isFeatureEnabled` from next.js server side code and return the feature flag value to components as props.
 
 ## Local development
 
-Out-of-the-box, local calls to Evidently will fail with feature flag values defaulting to false. If you want to test Evidently locally, use your AWS IAM credentials. Once you set AWS environment variables locally for the environment you wish to connect to, calls to Evidently will succeed
+Out-of-the-box, local calls where `FEATURE_FLAG_PROJECT` environment variable is unset will fall back to use `MockFeatureFlagManager` which defaults flag values to false. If you want to test Evidently locally, use your AWS IAM credentials. Once you set AWS environment variables locally for the environment you wish to connect to, calls to Evidently will succeed
 
 ## Creating a new feature flag
 
