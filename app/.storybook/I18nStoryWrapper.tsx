@@ -7,7 +7,8 @@ import { StoryContext } from "@storybook/react";
 import { NextIntlClientProvider } from "next-intl";
 import React from "react";
 
-import { defaultLocale, formats, getLocaleMessages } from "../src/i18n";
+import { defaultLocale, formats } from "../src/i18n/config";
+import { getMessages } from "../src/i18n/getMessages";
 
 const I18nStoryWrapper = (
   Story: React.ComponentType,
@@ -19,7 +20,7 @@ const I18nStoryWrapper = (
     <NextIntlClientProvider
       formats={formats}
       locale={locale}
-      messages={getLocaleMessages(locale)}
+      messages={getMessages(locale)}
     >
       <Story />
     </NextIntlClientProvider>

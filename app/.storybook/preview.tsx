@@ -6,7 +6,7 @@ import { Preview } from "@storybook/react";
 
 import "../src/styles/styles.scss";
 
-import { defaultLocale, locales } from "../src/i18n";
+import { defaultLocale, locales } from "../src/i18n/config";
 import I18nStoryWrapper from "./I18nStoryWrapper";
 
 const parameters = {
