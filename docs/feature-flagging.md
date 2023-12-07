@@ -7,7 +7,7 @@
 ## How it works
 
 1. `services/feature-flags/FeatureFlagManager` provides a service layer to interact with AWS Evidently endpoints. For example, class method `isFeatureEnabled` calls out to Evidently to retrieve a feature flag value we can then return to the client
-1. Pages can call `isFeatureEnabled` from next.js server side code and return the feature flag value to components as props.
+1. Pages can call `isFeatureEnabled` from Next.js server side code and return the feature flag value to components as props.
 
 ## Local development
 
