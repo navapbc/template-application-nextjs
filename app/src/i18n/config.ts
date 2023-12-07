@@ -16,6 +16,13 @@ export type Locale = (typeof locales)[number];
 export const defaultLocale: Locale = "en-US";
 
 /**
+ * Specifying a time zone affects the rendering of dates and times.
+ * When not defined, the time zone of the server runtime is used.
+ * @see https://next-intl-docs.vercel.app/docs/usage/configuration#time-zone
+ */
+export const timeZone: RequestConfig["timeZone"] = "America/New_York";
+
+/**
  * Define the default formatting for date, time, and numbers.
  * @see https://next-intl-docs.vercel.app/docs/usage/configuration#formats
  */

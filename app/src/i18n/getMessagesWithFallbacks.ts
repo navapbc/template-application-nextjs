@@ -1,5 +1,5 @@
 import { merge } from "lodash";
-import { defaultLocale, Locale, locales } from "src/i18n";
+import { defaultLocale, Locale, locales } from "src/i18n/config";
 
 interface LocaleFile {
   messages: Messages;

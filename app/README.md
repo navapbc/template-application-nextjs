@@ -13,6 +13,9 @@
 │   └── locales       # Internationalized content
 ├── src               # Source code
 │   ├── components    # Reusable UI components
+│   ├── i18n          # Internationalization
+│   │   ├── config.ts # Supported locales, timezone, and formatters
+│   │   └── messages  # Translated strings
 │   ├── pages         # Page routes and data fetching
 │   │   ├── api       # API routes (optional)
 │   │   └── _app.tsx  # Global entry point

@@ -6,7 +6,7 @@ import { Loader, Preview } from "@storybook/react";
 
 import "../src/styles/styles.scss";
 
-import { defaultLocale, locales } from "../src/i18n";
+import { defaultLocale, locales } from "../src/i18n/config";
 import { getMessagesWithFallbacks } from "../src/i18n/getMessagesWithFallbacks";
 import I18nStoryWrapper from "./I18nStoryWrapper";
 
