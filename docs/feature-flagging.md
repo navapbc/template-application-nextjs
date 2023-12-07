@@ -1,7 +1,7 @@
 # Feature flagging
 
 - [AWS Evidently](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently.html) is used for feature flagging
-- For more information about the decision-making behind using Evidently, [this infra ADR is available](https://github.com/navapbc/template-infra/blob/main/docs/decisions/infra/0010-feature-flags-system-design.md)
+- For more information about the decision-making behind using Evidently, [this infra ADR is available](https://github.com/navapbc/template-infra/blob/68b2db42d06198cb070b0603e63a930db346309f/docs/decisions/infra/0010-feature-flags-system-design.md)
 - Additional documentation of the feature flagging solution is available in [infra docs](https://github.com/navapbc/template-infra/blob/main/docs/feature-flags.md)
 
 ## How it works
