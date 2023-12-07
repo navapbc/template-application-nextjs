@@ -8,9 +8,9 @@ import { getMessagesWithFallbacks } from "./getMessagesWithFallbacks";
  * This method is used behind the scenes by `next-intl/plugin`, which is setup in next.config.js.
  * @see https://next-intl-docs.vercel.app/docs/usage/configuration#nextconfigjs
  */
-export default getRequestConfig(({ locale }) => {
+export default getRequestConfig(async ({ locale }) => {
   return {
     formats,
-    messages: getMessagesWithFallbacks(locale),
+    messages: await getMessagesWithFallbacks(locale),
   };
 });

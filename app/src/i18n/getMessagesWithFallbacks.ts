@@ -1,22 +1,24 @@
 import { merge } from "lodash";
-import { defaultLocale, Locale } from "src/i18n/config";
+import { defaultLocale, Locale, locales } from "src/i18n/config";
 
-import { messages as enUs } from "./messages/en-US";
-import { messages as esUs } from "./messages/es-US";
+interface LocaleFile {
+  messages: Messages;
+}
 
-const localeToMessages = {
-  "en-US": enUs,
-  "es-US": esUs,
-};
+async function importMessages(locale: Locale) {
+  const { messages } = (await import(`./messages/${locale}`)) as LocaleFile;
+  return messages;
+}
 
 /**
  * Get all messages for the given locale. If any translations are missing
  * from the current locale, the missing key will fallback to the default locale
  */
-export function getMessagesWithFallbacks(
+export async function getMessagesWithFallbacks(
   requestedLocale: string = defaultLocale
 ) {
-  if (requestedLocale in localeToMessages === false) {
+  const isValidLocale = locales.includes(requestedLocale as Locale); // https://github.com/microsoft/TypeScript/issues/26255
+  if (!isValidLocale) {
     console.error(
       "Unsupported locale was requested. Falling back to the default locale.",
       { locale: requestedLocale, defaultLocale }
@@ -25,12 +27,12 @@ export function getMessagesWithFallbacks(
   }
 
   const targetLocale = requestedLocale as Locale;
-  let messages = localeToMessages[targetLocale];
+  let messages = await importMessages(targetLocale);
 
   if (targetLocale !== defaultLocale) {
-    const fallbackMessages = localeToMessages[defaultLocale];
+    const fallbackMessages = await importMessages(defaultLocale);
     messages = merge({}, fallbackMessages, messages);
   }
 
-  return messages as Messages;
+  return Promise.resolve(messages);
 }
