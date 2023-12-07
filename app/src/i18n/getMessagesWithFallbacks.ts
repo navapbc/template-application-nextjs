@@ -34,5 +34,5 @@ export async function getMessagesWithFallbacks(
     messages = merge({}, fallbackMessages, messages);
   }
 
-  return Promise.resolve(messages);
+  return messages;
 }
