@@ -15,7 +15,7 @@ export class FeatureFlagManager {
     this.client = new Evidently();
   }
 
-  async isFeatureEnabled(featureName: string, userId: string) {
+  async isFeatureEnabled(featureName: string, userId?: string) {
     const evalRequest = {
       entityId: userId,
       feature: featureName,
