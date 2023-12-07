@@ -49,8 +49,8 @@ const Home: NextPage<InferGetServerSidePropsType<typeof getServerSideProps>> = (
         </p>
 
         {/* Demonstration of feature flagging */}
-        <p>{t("featureflagging")}</p>
-        <p>{props.isFooEnabled ? t("flagon") : t("flagoff")}</p>
+        <p>{t("feature_flagging")}</p>
+        <p>{props.isFooEnabled ? t("flag_on") : t("flag_off")}</p>
       </div>
     </>
   );

@@ -22,4 +22,9 @@ describe("Index", () => {
 
     expect(results).toHaveNoViolations();
   });
+
+  it("conditionally displays content based on feature flag values", () => {
+    const { container } = render(<Index isFooEnabled={true} />);
+    expect(container).toHaveTextContent("Flag is enabled");
+  });
 });
