@@ -14,7 +14,7 @@ interface PageProps {
 }
 
 const Home: NextPage<InferGetServerSidePropsType<typeof getServerSideProps>> = (
-  props: PageProps
+  props
 ) => {
   const t = useTranslations("home");
 
