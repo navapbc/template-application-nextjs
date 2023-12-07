@@ -3,7 +3,7 @@ import type {
   InferGetServerSidePropsType,
   NextPage,
 } from "next";
-import { getLocaleMessages } from "src/i18n";
+import { getMessagesWithFallbacks } from "src/i18n/getMessagesWithFallbacks";
 import { isFeatureEnabled } from "src/services/feature-flags";
 
 import { useTranslations } from "next-intl";
@@ -62,12 +62,12 @@ export const getServerSideProps: GetServerSideProps<PageProps> = async ({
 }) => {
   const isFooEnabled = await isFeatureEnabled("foo", "anonymous");
 
-  return Promise.resolve({
+  return {
     props: {
-      messages: getLocaleMessages(locale),
+      messages: await getMessagesWithFallbacks(locale),
       isFooEnabled,
     },
-  });
+  };
 };
 
 export default Home;
