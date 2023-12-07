@@ -2,11 +2,12 @@
  * @file Setup the toolbar, styling, and global context for each Storybook story.
  * @see https://storybook.js.org/docs/configure#configure-story-rendering
  */
-import { Preview } from "@storybook/react";
+import { Loader, Preview } from "@storybook/react";
 
 import "../src/styles/styles.scss";
 
-import { defaultLocale, locales } from "../src/i18n";
+import { defaultLocale, locales } from "../src/i18n/config";
+import { getMessagesWithFallbacks } from "../src/i18n/getMessagesWithFallbacks";
 import I18nStoryWrapper from "./I18nStoryWrapper";
 
 const parameters = {
@@ -35,7 +36,13 @@ const parameters = {
   },
 };
 
+const i18nMessagesLoader: Loader = async (context) => {
+  const messages = await getMessagesWithFallbacks(context.globals.locale);
+  return { messages };
+};
+
 const preview: Preview = {
+  loaders: [i18nMessagesLoader],
   decorators: [I18nStoryWrapper],
   parameters,
   globalTypes: {

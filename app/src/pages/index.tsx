@@ -1,5 +1,5 @@
 import type { GetServerSideProps, NextPage } from "next";
-import { getLocaleMessages } from "src/i18n";
+import { getMessagesWithFallbacks } from "src/i18n/getMessagesWithFallbacks";
 
 import { useTranslations } from "next-intl";
 import Head from "next/head";
@@ -42,12 +42,12 @@ const Home: NextPage = () => {
 };
 
 // Change this to getStaticProps if you're not using server-side rendering
-export const getServerSideProps: GetServerSideProps = ({ locale }) => {
-  return Promise.resolve({
+export const getServerSideProps: GetServerSideProps = async ({ locale }) => {
+  return {
     props: {
-      messages: getLocaleMessages(locale),
+      messages: await getMessagesWithFallbacks(locale),
     },
-  });
+  };
 };
 
 export default Home;

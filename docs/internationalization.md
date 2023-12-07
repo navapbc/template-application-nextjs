@@ -1,7 +1,7 @@
 # Internationalization (i18n)
 
 - [next-intl](https://next-intl-docs.vercel.app) is used for internationalization. Toggling between languages is done by changing the URL's path prefix (e.g. `/about` ➡️ `/es-US/about`).
-- Configuration and helpers are located in [`i18n/index.ts`](../app/src/i18n/index.ts). For the most part, you shouldn't need to edit this file unless adding a new formatter or new language.
+- Configuration and helpers are located in [`i18n/config.ts`](../app/src/i18n/config.ts). For the most part, you shouldn't need to edit this file unless adding a new formatter or new language.
 
 ## Managing translations
 
@@ -28,4 +28,4 @@ Locale messages should only ever be loaded on the server-side, to avoid bloating
 
 1. Add a language folder, using the same BCP47 language tag: `mkdir -p src/i18n/messages/<lang>`
 1. Add a language file: `touch src/i18n/messages/<lang>/index.ts` and add the translated content. The JSON structure should be the same across languages. However, non-default languages can omit keys, in which case the default language will be used as a fallback.
-1. Update [`i18n/index.ts`](../app/src/i18n/index.ts) to include the new language in the `_messages` object and `locales` array.
+1. Update [`i18n/config.ts`](../app/src/i18n/config.ts) to include the new language in the `locales` array.

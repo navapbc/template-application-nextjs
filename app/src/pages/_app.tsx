@@ -5,7 +5,7 @@ import Layout from "../components/Layout";
 
 import "../styles/styles.scss";
 
-import { defaultLocale, formats, Messages } from "src/i18n";
+import { defaultLocale, formats, timeZone } from "src/i18n/config";
 
 import { NextIntlClientProvider } from "next-intl";
 import { useRouter } from "next/router";
@@ -23,6 +23,7 @@ function MyApp({ Component, pageProps }: AppProps<{ messages: Messages }>) {
       </Head>
       <NextIntlClientProvider
         formats={formats}
+        timeZone={timeZone}
         locale={router.locale ?? defaultLocale}
         messages={pageProps.messages}
       >
