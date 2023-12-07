@@ -13,7 +13,12 @@
 ├── src               # Source code
 │   ├── app           # Routes, layouts, and loading screens
 │   ├── components    # Reusable UI components
-│   ├── i18n          # Internationalization config & content
+│   ├── i18n          # Internationalization
+│   │   ├── config.ts # Supported locales, timezone, and formatters
+│   │   └── messages  # Translated strings
+│   ├── pages         # Page routes and data fetching
+│   │   ├── api       # API routes (optional)
+│   │   └── _app.tsx  # Global entry point
 │   ├── styles        # Sass & design system settings
 │   └── types         # Global type declarations
 ├── stories           # Storybook pages

@@ -7,7 +7,7 @@ import { StoryContext } from "@storybook/react";
 import { NextIntlClientProvider } from "next-intl";
 import React from "react";
 
-import { defaultLocale, formats } from "../src/i18n/config";
+import { defaultLocale, formats, timeZone } from "../src/i18n/config";
 
 const I18nStoryWrapper = (
   Story: React.ComponentType,
@@ -18,6 +18,7 @@ const I18nStoryWrapper = (
   return (
     <NextIntlClientProvider
       formats={formats}
+      timeZone={timeZone}
       locale={locale}
       messages={context.loaded.messages}
     >
