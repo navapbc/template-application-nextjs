@@ -1,7 +1,7 @@
 import { FeatureFlagManager } from "./FeatureFlagManager";
 import { MockFeatureFlagManager } from "./MockFeatureFlagManager";
 
-interface FlagManager {
+export interface FlagManager {
   isFeatureEnabled(feature: string, userId: string): Promise<boolean>;
 }
 
