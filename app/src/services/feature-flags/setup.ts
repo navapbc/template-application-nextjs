@@ -1,5 +1,5 @@
 import { FeatureFlagManager } from "./FeatureFlagManager";
-import { MockFeatureFlagManager } from "./MockFeatureFlagManager";
+import { LocalFeatureFlagManager } from "./LocalFeatureFlagManager";
 
 export interface FlagManager {
   isFeatureEnabled(feature: string, userId: string): Promise<boolean>;
@@ -7,4 +7,4 @@ export interface FlagManager {
 
 export const manager: FlagManager = process.env.FEATURE_FLAG_PROJECT
   ? new FeatureFlagManager()
-  : new MockFeatureFlagManager();
+  : new LocalFeatureFlagManager();
