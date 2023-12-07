@@ -5,7 +5,7 @@ import Layout from "../components/Layout";
 
 import "../styles/styles.scss";
 
-import { defaultLocale, formats, Messages } from "src/i18n";
+import { defaultLocale, formats } from "src/i18n";
 
 import { NextIntlClientProvider } from "next-intl";
 import { useRouter } from "next/router";

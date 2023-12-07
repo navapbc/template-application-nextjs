@@ -28,4 +28,4 @@ Locale messages should only ever be loaded on the server-side, to avoid bloating
 
 1. Add a language folder, using the same BCP47 language tag: `mkdir -p src/i18n/messages/<lang>`
 1. Add a language file: `touch src/i18n/messages/<lang>/index.ts` and add the translated content. The JSON structure should be the same across languages. However, non-default languages can omit keys, in which case the default language will be used as a fallback.
-1. Update [`i18n/index.ts`](../app/src/i18n/index.ts) to include the new language in the `_messages` object and `locales` array.
+1. Update [`i18n/index.ts`](../app/src/i18n/index.ts) to include the new language in the `locales` array.
