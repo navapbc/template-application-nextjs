@@ -1,5 +1,7 @@
 import { axe } from "jest-axe";
-import Index from "src/pages/index";
+import { GetServerSidePropsContext } from "next";
+import Index, { getServerSideProps } from "src/pages/index";
+import { LocalFeatureFlagManager } from "src/services/feature-flags/LocalFeatureFlagManager";
 import { render, screen } from "tests/react-utils";
 
 describe("Index", () => {
@@ -24,5 +26,18 @@ describe("Index", () => {
   it("conditionally displays content based on feature flag values", () => {
     const { container } = render(<Index isFooEnabled={true} />);
     expect(container).toHaveTextContent("Flag is enabled");
+  });
+
+  it("retrieves feature flags", async () => {
+    const featureName = "foo";
+    const userId = "anonymous";
+    const featureFlagSpy = jest
+      .spyOn(LocalFeatureFlagManager.prototype, "isFeatureEnabled")
+      .mockResolvedValue(true);
+    await getServerSideProps({
+      req: { cookies: {} },
+      res: {},
+    } as unknown as GetServerSidePropsContext);
+    expect(featureFlagSpy).toHaveBeenCalledWith(featureName, userId);
   });
 });
