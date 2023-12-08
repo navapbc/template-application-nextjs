@@ -22,7 +22,7 @@ const customJestConfig = {
     // This can be removed when @aws-sdk uses uuid v9+ ↴
     // https://github.com/aws/aws-sdk-js-v3/issues/3964
     uuid: require.resolve("uuid"),
-},
+  },
 };
 
 module.exports = createJestConfig(customJestConfig);
