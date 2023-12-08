@@ -122,13 +122,11 @@ npm run test-watch -- pages
 
 [React Testing Library (RTL)](https://testing-library.com/docs/react-testing-library/intro) provides the utilities for rendering and querying, and [`jest-axe`](https://www.npmjs.com/package/jest-axe) is used for accessibility testing. Refer to their docs to learn more about their APIs, or view an existing test for examples.
 
-It's important that you **don't import from `@testing-library/react`**, instead import from `tests/test-utils`. Using the custom `render` method from `tests/test-utils` sets up internationalization in the component.
-
-Import React Testing Library utilities from `tests/test-utils`:
+`@testing-library/react` methods should be imported from `tests/react-utils` in order for internationalization to work within your tests:
 
 ```diff
 - import { render, screen } from '@testing-library/react';
-+ import { render, screen } from 'tests/test-utils';
++ import { render, screen } from 'tests/react-utils';
 ```
 
 ## 🤖 Type checking, linting, and formatting
