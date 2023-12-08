@@ -127,6 +127,14 @@ npm run test-watch -- pages
 ```diff
 - import { render, screen } from '@testing-library/react';
 + import { render, screen } from 'tests/react-utils';
+
+it("renders submit button", () => {
+  render(<Page />)
+
+  expect(
+    screen.getByRole("button", { name: "Submit" })
+  ).toBeInTheDocument()
+})
 ```
 
 ## 🤖 Type checking, linting, and formatting
