@@ -161,4 +161,5 @@ Optionally, configure your code editor to auto run these tools on file save. Mos
 ## Other topics
 
 - [Internationalization](../docs/internationalization.md)
+- [Feature flags](../docs/feature-flags.md)
 - Refer to the [architecture decision records](../docs/decisions) for more context on technical decisions.

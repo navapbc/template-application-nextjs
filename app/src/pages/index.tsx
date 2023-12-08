@@ -1,10 +1,21 @@
-import type { GetServerSideProps, NextPage } from "next";
+import type {
+  GetServerSideProps,
+  InferGetServerSidePropsType,
+  NextPage,
+} from "next";
 import { getMessagesWithFallbacks } from "src/i18n/getMessagesWithFallbacks";
+import { isFeatureEnabled } from "src/services/feature-flags";
 
 import { useTranslations } from "next-intl";
 import Head from "next/head";
 
-const Home: NextPage = () => {
+interface PageProps {
+  isFooEnabled: boolean;
+}
+
+const Home: NextPage<InferGetServerSidePropsType<typeof getServerSideProps>> = (
+  props
+) => {
   const t = useTranslations("home");
 
   return (
@@ -36,16 +47,25 @@ const Home: NextPage = () => {
             isoDate: new Date("2023-11-29T23:30:00.000Z"),
           })}
         </p>
+
+        {/* Demonstration of feature flagging */}
+        <p>{t("feature_flagging")}</p>
+        <p>{props.isFooEnabled ? t("flag_on") : t("flag_off")}</p>
       </div>
     </>
   );
 };
 
 // Change this to getStaticProps if you're not using server-side rendering
-export const getServerSideProps: GetServerSideProps = async ({ locale }) => {
+export const getServerSideProps: GetServerSideProps<PageProps> = async ({
+  locale,
+}) => {
+  const isFooEnabled = await isFeatureEnabled("foo", "anonymous");
+
   return {
     props: {
       messages: await getMessagesWithFallbacks(locale),
+      isFooEnabled,
     },
   };
 };
