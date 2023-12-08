@@ -20,7 +20,7 @@
 │   │   ├── config.ts # Supported locales, timezone, and formatters
 │   │   └── messages  # Translated strings
 │   ├── styles        # Sass & design system settings
-│   └── types         # Global type declarations
+│   └── types         # TypeScript type declarations
 ├── stories           # Storybook pages
 └── tests
 ```
