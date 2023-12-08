@@ -11,7 +11,9 @@
 
 ## Local development
 
-Out-of-the-box, local calls where `FEATURE_FLAGS_PROJECT` environment variable is unset will fall back to use `LocalFeatureFlagManager` which defaults flag values to false. If you want to test Evidently locally, use your AWS IAM credentials. Once you set AWS environment variables locally for the environment you wish to connect to, calls to Evidently will succeed
+Out-of-the-box, local calls where `FEATURE_FLAGS_PROJECT` environment variable is unset will fall back to use `LocalFeatureFlagManager` which defaults flag values to `false`. 
+
+If you want to test Evidently locally, use your AWS IAM credentials. Once you set `FEATURE_FLAGS_PROJECT` and the AWS environment variables (`AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`, and `AWS_REGION`) in `app/.env.local`, calls to Evidently will succeed. 
 
 ## Creating a new feature flag
 
