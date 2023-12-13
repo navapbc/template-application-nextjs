@@ -10,7 +10,6 @@
 ```
 ├── .storybook        # Storybook configuration
 ├── public            # Static assets
-│   └── locales       # Internationalized content
 ├── src               # Source code
 │   ├── components    # Reusable UI components
 │   ├── i18n          # Internationalization
@@ -106,9 +105,9 @@ From the `app/` directory:
 
 ## 🐛 Testing
 
-[Jest](https://jestjs.io/docs/getting-started) is used as the test runner and [React Testing Library](https://testing-library.com/docs/react-testing-library/intro) provides React testing utilities.
+[Jest](https://jestjs.io/docs/getting-started) is used as the test runner. Tests are managed as `.test.ts` (or `.tsx`) files in the the `tests/` directory.
 
-Tests are manged as `.test.ts` (or `.tsx`) files in the the `tests/` directory.
+Tests are managed as `.test.ts` (or `.tsx`) files in the the `tests/` directory.
 
 To run tests:
 
@@ -120,6 +119,25 @@ A subset of tests can be ran by passing a pattern to the script. For example, to
 
 ```sh
 npm run test-watch -- pages
+```
+
+### Testing React components
+
+[React Testing Library (RTL)](https://testing-library.com/docs/react-testing-library/intro) provides the utilities for rendering and querying, and [`jest-axe`](https://www.npmjs.com/package/jest-axe) is used for accessibility testing. Refer to their docs to learn more about their APIs, or view an existing test for examples.
+
+`@testing-library/react` methods should be imported from `tests/react-utils` in order for internationalization to work within your tests:
+
+```diff
+- import { render, screen } from '@testing-library/react';
++ import { render, screen } from 'tests/react-utils';
+
+it("renders submit button", () => {
+  render(<Page />)
+
+  expect(
+    screen.getByRole("button", { name: "Submit" })
+  ).toBeInTheDocument()
+})
 ```
 
 ## 🤖 Type checking, linting, and formatting

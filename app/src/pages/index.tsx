@@ -13,6 +13,20 @@ interface PageProps {
   isFooEnabled: boolean;
 }
 
+// Change this to getStaticProps if you're not using server-side rendering
+export const getServerSideProps: GetServerSideProps<PageProps> = async ({
+  locale,
+}) => {
+  const isFooEnabled = await isFeatureEnabled("foo", "anonymous");
+
+  return {
+    props: {
+      messages: await getMessagesWithFallbacks(locale),
+      isFooEnabled,
+    },
+  };
+};
+
 const Home: NextPage<InferGetServerSidePropsType<typeof getServerSideProps>> = (
   props
 ) => {
@@ -54,20 +68,6 @@ const Home: NextPage<InferGetServerSidePropsType<typeof getServerSideProps>> = (
       </div>
     </>
   );
-};
-
-// Change this to getStaticProps if you're not using server-side rendering
-export const getServerSideProps: GetServerSideProps<PageProps> = async ({
-  locale,
-}) => {
-  const isFooEnabled = await isFeatureEnabled("foo", "anonymous");
-
-  return {
-    props: {
-      messages: await getMessagesWithFallbacks(locale),
-      isFooEnabled,
-    },
-  };
 };
 
 export default Home;

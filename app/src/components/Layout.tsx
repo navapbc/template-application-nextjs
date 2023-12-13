@@ -20,7 +20,8 @@ const Layout = ({ children, locale }: Props) => {
       </a>
       <GovBanner language={locale?.match(/^es-?/) ? "spanish" : "english"} />
       <Header />
-      <main id="main-content" className="usa-section">
+      {/* grid-col-fill so that the footer sticks to the bottom of tall screens */}
+      <main id="main-content" className="usa-section grid-col-fill">
         <GridContainer>
           <Grid row>
             <Grid col>{children}</Grid>
