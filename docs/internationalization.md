@@ -1,7 +1,7 @@
 # Internationalization (i18n)
 
 - [next-intl](https://next-intl-docs.vercel.app) is used for internationalization. Toggling between languages is done by changing the URL's path prefix (e.g. `/about` ➡️ `/es-US/about`).
-- Configuration and helpers are located in [`i18n/config.ts`](../app/src/i18n/config.ts). For the most part, you shouldn't need to edit this file unless adding a new formatter or new language.
+- Configuration is located in [`i18n/config.ts`](../app/src/i18n/config.ts). For the most part, you shouldn't need to edit this file unless adding a new formatter or new language.
 
 ## Managing translations
 
