@@ -105,9 +105,9 @@ From the `app/` directory:
 
 ## 🐛 Testing
 
-[Jest](https://jestjs.io/docs/getting-started) is used as the test runner. Tests are manged as `.test.ts` (or `.tsx`) files in the the `tests/` directory.
+[Jest](https://jestjs.io/docs/getting-started) is used as the test runner. Tests are managed as `.test.ts` (or `.tsx`) files in the the `tests/` directory.
 
-Tests are manged as `.test.ts` (or `.tsx`) files in the the `tests/` directory.
+Tests are managed as `.test.ts` (or `.tsx`) files in the the `tests/` directory.
 
 To run tests:
 
