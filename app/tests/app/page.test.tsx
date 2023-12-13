@@ -1,5 +1,5 @@
 import { axe } from "jest-axe";
-import Index from "src/app/[locale]/page";
+import { View } from "src/app/[locale]/page";
 import { LocalFeatureFlagManager } from "src/services/feature-flags/LocalFeatureFlagManager";
 import { render, screen } from "tests/react-utils";
 
@@ -7,7 +7,7 @@ describe("Index", () => {
   // Demonstration of rendering translated text, and asserting the presence of a dynamic value.
   // You can delete this test for your own project.
   it("renders link to Next.js docs", () => {
-    render(<Index />);
+    render(<View isFooEnabled={false} />);
 
     const link = screen.getByRole("link", { name: /next\.js/i });
 
@@ -17,7 +17,7 @@ describe("Index", () => {
   });
 
   it("passes accessibility scan", async () => {
-    const { container } = render(<Index />);
+    const { container } = render(<View isFooEnabled={false} />);
     const results = await axe(container);
 
     expect(results).toHaveNoViolations();
@@ -28,7 +28,7 @@ describe("Index", () => {
       .spyOn(LocalFeatureFlagManager.prototype, "isFeatureEnabled")
       .mockResolvedValue(true);
 
-    const { container } = render(<Index />);
+    const { container } = render(<View isFooEnabled />);
     expect(container).toHaveTextContent("Flag is enabled");
   });
 });
