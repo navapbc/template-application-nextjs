@@ -1,5 +1,6 @@
 import { axe } from "jest-axe";
 import Index from "src/app/[locale]/page";
+import { LocalFeatureFlagManager } from "src/services/feature-flags/LocalFeatureFlagManager";
 import { render, screen } from "tests/react-utils";
 
 describe("Index", () => {
@@ -20,5 +21,14 @@ describe("Index", () => {
     const results = await axe(container);
 
     expect(results).toHaveNoViolations();
+  });
+
+  it("conditionally displays content based on feature flag values", () => {
+    jest
+      .spyOn(LocalFeatureFlagManager.prototype, "isFeatureEnabled")
+      .mockResolvedValue(true);
+
+    const { container } = render(<Index />);
+    expect(container).toHaveTextContent("Flag is enabled");
   });
 });

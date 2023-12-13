@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import { isFeatureEnabled } from "src/services/feature-flags";
 
 import { useTranslations } from "next-intl";
 import { getTranslations } from "next-intl/server";
@@ -16,8 +17,9 @@ export async function generateMetadata({ params }: { params: RouteParams }) {
   return meta;
 }
 
-export default function Page() {
+export default async function Page() {
   const t = useTranslations("home");
+  const isFooEnabled = await isFeatureEnabled("foo", "anonymous");
 
   return (
     <>
@@ -44,6 +46,10 @@ export default function Page() {
             isoDate: new Date("2023-11-29T23:30:00.000Z"),
           })}
         </p>
+
+        {/* Demonstration of feature flagging */}
+        <p>{t("feature_flagging")}</p>
+        <p>{isFooEnabled ? t("flag_on") : t("flag_off")}</p>
       </div>
     </>
   );
