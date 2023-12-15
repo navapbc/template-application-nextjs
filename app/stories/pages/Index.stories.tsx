@@ -1,5 +1,5 @@
 import { Meta } from "@storybook/react";
-import { View } from "src/app/[locale]/page";
+import { View } from "src/app/[locale]/view";
 
 const meta: Meta<typeof View> = {
   title: "Pages/Home",

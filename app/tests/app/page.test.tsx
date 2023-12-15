@@ -1,5 +1,6 @@
 import { axe } from "jest-axe";
-import Controller, { View } from "src/app/[locale]/page";
+import Controller from "src/app/[locale]/page";
+import { View } from "src/app/[locale]/view";
 import { LocalFeatureFlagManager } from "src/services/feature-flags/LocalFeatureFlagManager";
 import { cleanup, render, screen } from "tests/react-utils";
 
