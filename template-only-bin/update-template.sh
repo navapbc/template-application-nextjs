@@ -11,28 +11,37 @@ set -euo pipefail
 
 TARGET_VERSION=${1:-"main"}
 
-echo "Clone template-application-nextjs"
-git clone git@github.com:navapbc/template-application-nextjs.git
+CURRENT_VERSION=$(cat .template-nextjs-version)
 
-# Switch to target version
+echo "Clone template-application-nextjs"
+git clone https://github.com/navapbc/template-application-nextjs.git
+
+echo "Creating patch"
 cd template-application-nextjs
 git checkout $TARGET_VERSION
+
+# Get version hash to update .template-nextjs-version after patch is successful
+TARGET_VERSION_HASH=$(git rev-parse HEAD)
+
+# Note: Keep this list in sync with the files copied in install-template.sh
+INCLUDE_PATHS=" \
+  .github \
+  .grype.yml \
+  app \
+  docker-compose.yml \
+  docs"
+git diff $CURRENT_VERSION $TARGET_VERSION -- $INCLUDE_PATHS >patch
 cd -
 
-echo "Install template"
-./template-application-nextjs/template-only-bin/install-template.sh
+echo "Applying patch"
+# Note: Keep this list in sync with the removed files in install-template.sh
+EXCLUDE_OPT="--exclude=.github/workflows/template-only-* \
+  --exclude=.github/ISSUE_TEMPLATE \
+  --exclude=docs/decisions/template"
+git apply $EXCLUDE_OPT --allow-empty template-application-nextjs/patch
 
-# Restore project files with project-specific configuration that was defined as part of project setup.
-# Also restore project files that had lines that were commented out in the template.
-# Updates in any of these files need to be manually applied to the projects
-echo "Restore modified project files"
-git checkout HEAD -- \
-  .github/workflows/cd-storybook.yml
-
-# Store template version in a file
-cd template-application-nextjs
-git rev-parse HEAD >../.template-nextjs-version
-cd -
+echo "Saving new template version to .template-application-nextjs"
+echo $TARGET_VERSION_HASH >.template-nextjs-version
 
 echo "Clean up template-application-nextjs folder"
 rm -fr template-application-nextjs
