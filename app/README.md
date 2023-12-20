@@ -11,13 +11,14 @@
 ├── .storybook        # Storybook configuration
 ├── public            # Static assets
 ├── src               # Source code
+│   ├── app           # Routes, layouts, and loading screens
+│   │   ├── api       # Custom request handlers
+│   │   ├── layout.tsx # Root layout, wraps every page
+│   │   └── page.tsx  # Homepage
 │   ├── components    # Reusable UI components
 │   ├── i18n          # Internationalization
 │   │   ├── config.ts # Supported locales, timezone, and formatters
 │   │   └── messages  # Translated strings
-│   ├── pages         # Page routes and data fetching
-│   │   ├── api       # API routes (optional)
-│   │   └── _app.tsx  # Global entry point
 │   ├── styles        # Sass & design system settings
 │   └── types         # TypeScript type declarations
 ├── stories           # Storybook pages
@@ -26,9 +27,7 @@
 
 ## 💻 Development
 
-[Next.js](https://nextjs.org/docs) provides the React framework for building the web application. Pages are defined in the `pages/` directory. Pages are automatically routed based on the file name. For example, `pages/index.tsx` is the home page.
-
-Files in the `pages/api` are treated as [API routes](https://nextjs.org/docs/api-routes/introduction). An example can be accessed at [localhost:3000/api/hello](http://localhost:3000/api/hello) when running locally.
+[Next.js](https://nextjs.org/docs) provides the React framework for building the web application. Routes are defined in the `app/` directory. Pages are automatically routed based on the directory name. For example, `app/[locale]/about/page.tsx` would render at `/about` (for English) or `/es-US/about` (for Spanish).
 
 [**Learn more about developing Next.js applications** ↗️](https://nextjs.org/docs)
 

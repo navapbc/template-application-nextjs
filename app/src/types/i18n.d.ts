@@ -1,3 +1,6 @@
-// Use type safe message keys with `next-intl`
+/**
+ * @file Setup type safe message keys with `next-intl`
+ * @see https://next-intl-docs.vercel.app/docs/workflows/typescript
+ */
 type Messages = typeof import("src/i18n/messages/en-US").messages;
 type IntlMessages = Messages;

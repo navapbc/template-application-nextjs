@@ -1,4 +1,5 @@
 import { Meta } from "@storybook/react";
+import { defaultLocale } from "src/i18n/config";
 
 import Layout from "src/components/Layout";
 
@@ -14,12 +15,14 @@ export default meta;
  */
 export const Preview1 = {
   args: {
+    locale: defaultLocale,
     children: <h1>Page contents go here</h1>,
   },
 };
 
 export const Preview2 = {
   args: {
+    ...Preview1.args,
     children: (
       <>
         <h1>Another demo</h1>
