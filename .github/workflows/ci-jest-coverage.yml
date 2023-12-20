@@ -9,7 +9,10 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v3
+            - uses: jwalton/gh-find-current-pr@v1
+              id: findPr
             - uses: ArtiomTr/jest-coverage-report-action@v2
               with:
                 test-script: npm test
                 working-directory: app
+                prnumber: ${{ steps.findPr.outputs.number }}
