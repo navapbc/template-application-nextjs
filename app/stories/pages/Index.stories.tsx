@@ -1,9 +1,12 @@
 import { Meta } from "@storybook/react";
-import Index from "src/pages/index";
+import { View } from "src/app/[locale]/view";
 
-const meta: Meta<typeof Index> = {
+const meta: Meta<typeof View> = {
   title: "Pages/Home",
-  component: Index,
+  component: View,
+  args: {
+    isFooEnabled: false,
+  },
 };
 export default meta;
 
