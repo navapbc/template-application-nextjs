@@ -1,4 +1,10 @@
-import { useTranslations } from "next-intl";
+import { pick } from "lodash";
+
+import {
+  NextIntlClientProvider,
+  useMessages,
+  useTranslations,
+} from "next-intl";
 import { GovBanner, Grid, GridContainer } from "@trussworks/react-uswds";
 
 import Footer from "./Footer";
@@ -11,6 +17,7 @@ type Props = {
 
 const Layout = ({ children, locale }: Props) => {
   const t = useTranslations("components.Layout");
+  const messages = useMessages();
 
   return (
     // Stick the footer to the bottom of the page
@@ -19,7 +26,12 @@ const Layout = ({ children, locale }: Props) => {
         {t("skip_to_main")}
       </a>
       <GovBanner language={locale?.match(/^es-?/) ? "spanish" : "english"} />
-      <Header />
+      <NextIntlClientProvider
+        locale={locale}
+        messages={pick(messages, "components.Header")}
+      >
+        <Header />
+      </NextIntlClientProvider>
       {/* grid-col-fill so that the footer sticks to the bottom of tall screens */}
       <main id="main-content" className="usa-section grid-col-fill">
         <GridContainer>

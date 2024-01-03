@@ -1,5 +1,5 @@
 // @ts-check
-const withNextIntl = require("next-intl/plugin")("./src/i18n/config.ts");
+const withNextIntl = require("next-intl/plugin")("./src/i18n/server.ts");
 const sassOptions = require("./scripts/sassOptions");
 
 /**
@@ -15,10 +15,6 @@ const appSassOptions = sassOptions(basePath);
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   basePath,
-  i18n: {
-    locales: ["en-US", "es-US"],
-    defaultLocale: "en-US",
-  },
   reactStrictMode: true,
   // Output only the necessary files for a deployment, excluding irrelevant node_modules
   // https://nextjs.org/docs/app/api-reference/next-config-js/output

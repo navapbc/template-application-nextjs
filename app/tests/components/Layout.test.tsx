@@ -6,7 +6,7 @@ import Layout from "src/components/Layout";
 describe("Layout", () => {
   it("renders children in main section", () => {
     render(
-      <Layout>
+      <Layout locale="en-US">
         <h1>child</h1>
       </Layout>
     );
@@ -18,7 +18,7 @@ describe("Layout", () => {
 
   it("passes accessibility scan", async () => {
     const { container } = render(
-      <Layout>
+      <Layout locale="en-US">
         <h1>child</h1>
       </Layout>
     );

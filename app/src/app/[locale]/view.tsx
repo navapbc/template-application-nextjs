@@ -1,43 +1,11 @@
-import type {
-  GetServerSideProps,
-  InferGetServerSidePropsType,
-  NextPage,
-} from "next";
-import { getMessagesWithFallbacks } from "src/i18n/getMessagesWithFallbacks";
-import { isFeatureEnabled } from "src/services/feature-flags";
-
 import { useTranslations } from "next-intl";
-import Head from "next/head";
 
-interface PageProps {
-  isFooEnabled: boolean;
-}
-
-// Change this to getStaticProps if you're not using server-side rendering
-export const getServerSideProps: GetServerSideProps<PageProps> = async ({
-  locale,
-}) => {
-  const isFooEnabled = await isFeatureEnabled("foo", "anonymous");
-
-  return {
-    props: {
-      messages: await getMessagesWithFallbacks(locale),
-      isFooEnabled,
-    },
-  };
-};
-
-const Home: NextPage<InferGetServerSidePropsType<typeof getServerSideProps>> = (
-  props
-) => {
+export function View(props: { isFooEnabled: boolean }) {
+  const { isFooEnabled } = props;
   const t = useTranslations("home");
 
   return (
     <>
-      <Head>
-        <title>{t("title")}</title>
-      </Head>
-
       <h1>{t("title")}</h1>
 
       {/* Demonstration of more complex translated strings, with safe-listed links HTML elements */}
@@ -64,10 +32,8 @@ const Home: NextPage<InferGetServerSidePropsType<typeof getServerSideProps>> = (
 
         {/* Demonstration of feature flagging */}
         <p>{t("feature_flagging")}</p>
-        <p>{props.isFooEnabled ? t("flag_on") : t("flag_off")}</p>
+        <p>{isFooEnabled ? t("flag_on") : t("flag_off")}</p>
       </div>
     </>
   );
-};
-
-export default Home;
+}
