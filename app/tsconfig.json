@@ -27,11 +27,13 @@
   },
   "include": [
     "next-env.d.ts",
-    "**/*.ts",
-    "**/*.tsx",
-    "__mocks__/styleMock.js",
-    ".next/types/**/*.ts",
-    "src/types/**/*.d.ts"
+    "scripts/**/*",
+    "src/**/*",
+    "stories/**/*",
+    "tests/**/*",
+    "__mocks__/**/*",
+    ".storybook/**/*",
+    ".next/types/**/*.ts"
   ],
   "exclude": ["node_modules"]
 }
