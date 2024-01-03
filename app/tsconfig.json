@@ -32,8 +32,8 @@
     "stories/**/*",
     "tests/**/*",
     "__mocks__/**/*",
-    ".next/types/**/*",
-    ".storybook/**/*"
+    ".storybook/**/*",
+    ".next/types/**/*.ts"
   ],
   "exclude": ["node_modules"]
 }
