@@ -38,6 +38,5 @@ export default function LocaleSwitcher() {
     },
   ];
 
-
   return <LanguageSelector displayLang={locale} langs={langs} />;
 }
