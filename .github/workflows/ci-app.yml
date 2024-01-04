@@ -35,7 +35,13 @@ jobs:
           cache-dependency-path: ${{ env.LOCKFILE_PATH }}
           cache: ${{ env.PACKAGE_MANAGER }}
       - run: npm ci
-      - run: npm run test
+      - run: npm run test -- --testLocationInResults --json --outputFile=coverage/report.json
+      - uses: ArtiomTr/jest-coverage-report-action@v2
+        with:
+            coverage-file: coverage/report.json
+            test-script: npm test
+            working-directory: app
+            # base-coverage-file: report.json
 
   lint:
     name: Lint
