@@ -1,7 +1,7 @@
 import userEvent from "@testing-library/user-event";
 import { render, screen } from "tests/react-utils";
 
-import Header from "src/components/Header";
+import Header from "./Header";
 
 describe("Header", () => {
   it("toggles the mobile nav menu", async () => {
