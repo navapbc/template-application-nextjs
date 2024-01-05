@@ -1,4 +1,5 @@
 import userEvent from "@testing-library/user-event";
+import { axe } from "jest-axe";
 import { mockRouter } from "tests/next-router-utils";
 import { render, screen } from "tests/react-utils";
 
@@ -25,5 +26,14 @@ describe("LocaleSwitcher", () => {
     // expect(
     //   await screen.findByRole("button", { name: "English" })
     // ).toBeInTheDocument();
+  });
+
+  // This fails when in 2-language mode because the react-uswds component sets aria-controls
+  // w/o corresponding element in the DOM
+  it("passes accessibility scan", async () => {
+    const { container } = render(<LocaleSwitcher />);
+    const results = await axe(container);
+
+    expect(results).toHaveNoViolations();
   });
 });
