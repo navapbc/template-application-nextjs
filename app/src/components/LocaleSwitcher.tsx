@@ -3,8 +3,17 @@
 import { usePathname, useRouter } from "src/i18n/navigation";
 
 import { useLocale } from "next-intl";
-import { useTransition } from "react";
+import { CSSProperties, useTransition } from "react";
 import { LanguageDefinition, LanguageSelector } from "@trussworks/react-uswds";
+
+// Currently, the `react-uswds` component erroneously sets 'usa-language-container' class
+// on both the container and the button, which causes incorrect positioning relative to nav items
+const styleFixes: CSSProperties = {
+  display: "block",
+  top: "auto",
+  marginLeft: "auto",
+  marginTop: "auto",
+};
 
 export default function LocaleSwitcher() {
   const locale = useLocale();
@@ -38,5 +47,7 @@ export default function LocaleSwitcher() {
     },
   ];
 
-  return <LanguageSelector displayLang={locale} langs={langs} />;
+  return (
+    <LanguageSelector displayLang={locale} langs={langs} style={styleFixes} />
+  );
 }
