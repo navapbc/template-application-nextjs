@@ -1,7 +1,7 @@
 import { Meta } from "@storybook/react";
 import { defaultLocale } from "src/i18n/config";
 
-import Layout from "src/components/Layout";
+import Layout from "./Layout";
 
 const meta: Meta<typeof Layout> = {
   component: Layout,
