@@ -34,7 +34,7 @@ Locale messages should only ever be loaded on the server-side, to avoid bloating
 
 In terms of best practices, [it is recommended](https://next-intl-docs.vercel.app/docs/usage/messages#structuring-messages) to structure your messages such that they correspond to the component that will be using them. You can nest these definitions arbitrarily deep if you have a particularly complex need.
 
-It is always preferable to structure messages per their usage rather than due to some side effect of a technological implementation.
+It is always preferable to structure messages per their usage rather than due to some side effect of a technological implementation. The idea is to group them semantically but also preserve maximum flexibility for a translator. For instance, splitting up a paragraph in order to separate out a link might lead to awkward translation, so it is best to keep it as a single message. The info below shows techniques for common needs that prevent unnecessary splits of content.
 
 ### Variables
 
