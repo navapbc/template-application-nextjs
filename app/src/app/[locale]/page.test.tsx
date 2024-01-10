@@ -1,8 +1,9 @@
 import { axe } from "jest-axe";
-import Controller from "src/app/[locale]/page";
-import { View } from "src/app/[locale]/view";
 import { LocalFeatureFlagManager } from "src/services/feature-flags/LocalFeatureFlagManager";
 import { cleanup, render, screen } from "tests/react-utils";
+
+import Controller from "./page";
+import { View } from "./view";
 
 describe("Index - Controller", () => {
   it("retrieves feature flags", async () => {

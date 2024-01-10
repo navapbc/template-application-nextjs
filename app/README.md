@@ -104,9 +104,7 @@ From the `app/` directory:
 
 ## 🐛 Testing
 
-[Jest](https://jestjs.io/docs/getting-started) is used as the test runner. Tests are managed as `.test.ts` (or `.tsx`) files in the the `tests/` directory.
-
-Tests are managed as `.test.ts` (or `.tsx`) files in the the `tests/` directory.
+[Jest](https://jestjs.io/docs/getting-started) is used as the test runner. Tests are managed as `.test.ts` (or `.test.tsx`) files and are colocated with the files they reference (for unit tests).
 
 To run tests:
 
@@ -114,10 +112,10 @@ To run tests:
 - `npm run test-update` - Updates test snapshots
 - `npm run test-watch` - Runs tests in [watch](https://jestjs.io/docs/cli#--watch) mode. Tests will re-run when files are changed, and an interactive prompt will allow you to run specific tests or update snapshots.
 
-A subset of tests can be ran by passing a pattern to the script. For example, to only run tests in `tests/pages/`:
+A subset of tests can be ran by passing a pattern to the script. For example, to only run tests in `app/components`:
 
 ```sh
-npm run test-watch -- pages
+npm run test-watch -- app/components
 ```
 
 ### Testing React components

@@ -24,7 +24,10 @@ function blockSearchEnginesInHead(head) {
  * @type {import("@storybook/nextjs").StorybookConfig}
  */
 const config = {
-  stories: ["../stories/**/*.stories.@(mdx|js|jsx|ts|tsx)"],
+  stories: [
+    "../stories/**/*.stories.@(mdx|js|jsx|ts|tsx)",
+    "../src/**/*.stories.@(mdx|js|jsx|ts|tsx)",
+  ],
   addons: ["@storybook/addon-essentials"],
   framework: {
     name: "@storybook/nextjs",
