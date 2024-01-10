@@ -38,10 +38,11 @@ jobs:
       - run: npm run test -- --testLocationInResults --json --outputFile=coverage/report.json
       - uses: ArtiomTr/jest-coverage-report-action@v2
         with:
-            coverage-file: coverage/report.json
-            test-script: npm test
-            working-directory: app
-            # base-coverage-file: report.json
+          coverage-file: coverage/report.json
+          test-script: npm test
+          working-directory: app
+          annotations: failed-tests
+          # base-coverage-file: report.json
 
   lint:
     name: Lint
