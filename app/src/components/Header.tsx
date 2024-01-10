@@ -9,6 +9,8 @@ import {
   Header as USWDSHeader,
 } from "@trussworks/react-uswds";
 
+import LocaleSwitcher from "./LocaleSwitcher";
+
 const primaryLinks = [
   {
     i18nKey: "nav_link_home",
@@ -28,11 +30,14 @@ const Header = () => {
     setIsMobileNavExpanded(!isMobileNavExpanded);
   };
 
-  const navItems = primaryLinks.map((link) => (
-    <a href={link.href} key={link.href}>
-      {t(link.i18nKey)}
-    </a>
-  ));
+  const navItems = [
+    ...primaryLinks.map((link) => (
+      <a href={link.href} key={link.href}>
+        {t(link.i18nKey)}
+      </a>
+    )),
+    <LocaleSwitcher key={"locale-switch"} />,
+  ];
 
   return (
     <>
