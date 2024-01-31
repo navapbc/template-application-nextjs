@@ -7,7 +7,7 @@
     "docker:enableMajor"
   ],
   "timezone": "America/Los_Angeles",
-  "enabledManagers": ["npm"],
+  "enabledManagers": ["dockerfile", "npm"],
   "rangeStrategy": "update-lockfile",
   "ignoreUnstable": true,
   "labels": ["dependencies"],
