@@ -14,7 +14,7 @@ defaults:
     working-directory: ./app
 
 env:
-  NODE_VERSION: 18
+  NODE_VERSION: 20
   LOCKFILE_PATH: ./app/package-lock.json # or yarn.lock
   PACKAGE_MANAGER: npm # or yarn
 
