@@ -8,8 +8,8 @@ services:
     env_file:
       # Add your non-secret environment variables to this file:
       - ./app/.env.development
-      # If you have secrets, add them to this file:
-      - ./app/.env.local
+      # If you have secrets, add them to this file and uncomment this line:
+      # - ./app/.env.local
     volumes:
       - ./app/src:/app/src
       - ./app/public:/app/public
