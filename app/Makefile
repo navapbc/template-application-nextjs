@@ -36,11 +36,11 @@ release-build:
 ##################################################
 # Local development
 ##################################################
-dev: pre-dev
+dev: pre-dev # Run the Next.js local dev server in Docker
 	docker compose up --detach nextjs
 	docker compose logs --follow nextjs
 
-storybook: pre-dev
+storybook: pre-dev # Run the Storybook local dev server in Docker
 	docker compose up --detach storybook
 	docker compose logs --follow storybook
 
