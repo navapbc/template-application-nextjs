@@ -19,6 +19,11 @@
     "checkJs": false,
     // Help speed up type checking in larger applications
     "incremental": true,
+    "paths": {
+      "@/*": [ "./*" ],
+      "@services": ["./src/services"],
+      "@services/*": ["./src/services/*"],
+    },
     "plugins": [
       {
         "name": "next"

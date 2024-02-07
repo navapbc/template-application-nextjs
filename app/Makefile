@@ -1,5 +1,4 @@
-.PHONY : \
-	release-build
+.PHONY: release-build dev storybook stop pre-dev
 
 # Docker user configuration
 # This logic is to avoid issues with permissions and mounting local volumes,
@@ -37,13 +36,32 @@ release-build:
 ##################################################
 # Local development
 ##################################################
-dev: # Run the Next.js local dev server in Docker
+dev: pre-dev
 	docker compose up --detach nextjs
 	docker compose logs --follow nextjs
 
-storybook: # Run the Storybook local dev server in Docker
+storybook: pre-dev
 	docker compose up --detach storybook
 	docker compose logs --follow storybook
 
 stop:
 	docker compose down
+
+pre-dev:
+	@# Check for existing "next-dev" container and remove it if it exists
+	@if docker ps -a --format '{{.Names}}' | grep -Eq '^next-dev$$'; then \
+		echo "Removing existing 'next-dev' container..."; \
+		docker rm -f next-dev; \
+	fi
+	@# Check for existing "storybook" container and remove it if it exists
+	@if docker ps -a --format '{{.Names}}' | grep -Eq '^storybook$$'; then \
+		echo "Removing existing 'storybook' container..."; \
+		docker rm -f storybook; \
+	fi
+	@# Install npm packages using Docker if node_modules doesn't exist
+	@if [ ! -d "node_modules" ]; then \
+		echo "Installing npm packages using Docker..."; \
+		docker run --rm -v "$(PWD)":/usr/src/app -w /usr/src/app node:latest npm install; \
+	else \
+		echo "node_modules directory already exists, skipping npm install"; \
+	fi
