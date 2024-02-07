@@ -3,6 +3,3 @@ node_modules
 
 # The docker container should ignore next builds.
 .next
-
-# The docker container should ignore the .env.local file.
-.env.local
