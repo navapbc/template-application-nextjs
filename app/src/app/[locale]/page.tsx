@@ -1,5 +1,5 @@
+import { isFeatureEnabled } from "@services/feature-flags";
 import { Metadata } from "next";
-import { isFeatureEnabled } from "@services/feature-flags"
 
 import { getTranslations } from "next-intl/server";
 
