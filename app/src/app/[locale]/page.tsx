@@ -23,3 +23,4 @@ export default async function Controller() {
 
   return <View isFooEnabled={isFooEnabled} />;
 }
+     
