@@ -3,7 +3,6 @@ const path = require("path");
 const withNextIntl = require("next-intl/plugin")("./src/i18n/server.ts");
 const sassOptions = require("./scripts/sassOptions");
 
-
 /**
  * Configure the base path for the app. Useful if you're deploying to a subdirectory (like GitHub Pages).
  * If this is defined, you'll need to set the base path anywhere you use relative paths, like in
@@ -19,7 +18,7 @@ const nextConfig = {
   basePath,
   reactStrictMode: true,
   webpack: (config) => {
-    config.resolve.alias['@'] = path.join(__dirname, 'src');
+    config.resolve.alias["@"] = path.join(__dirname, "src");
     return config;
   },
   // Output only the necessary files for a deployment, excluding irrelevant node_modules
