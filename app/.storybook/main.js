@@ -4,34 +4,29 @@
  * @see https://storybook.js.org/docs/configurations/default-config/
  */
 // @ts-check
+
+import path from "path";
+
 // Support deploying to a subdirectory, such as GitHub Pages.
 const NEXT_PUBLIC_BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
-
-/**
- * Most projects use Storybook for internal purposes, and partners may be
- * sensitive to the Storybook showing up in Google results.
- * @param {string} head
- * @returns string
- */
-function blockSearchEnginesInHead(head) {
-  return `
-    ${head}
-    <meta name="robots" content="none" />
-  `;
-}
 
 /**
  * @type {import("@storybook/nextjs").StorybookConfig}
  */
 const config = {
   stories: [
-    "../stories/**/*.stories.@(mdx|js|jsx|ts|tsx)",
-    "../src/**/*.stories.@(mdx|js|jsx|ts|tsx)",
+    "../stories/**/*.@(mdx|stories.@(js|jsx|ts|tsx))",
+    "../src/**/*.@(mdx|stories.@(js|jsx|ts|tsx))",
   ],
+  docs: {
+    autodocs: true,
+  },
   addons: ["@storybook/addon-essentials"],
   framework: {
+    // https://storybook.js.org/docs/get-started/nextjs
     name: "@storybook/nextjs",
     options: {
+      nextConfigPath: path.resolve(__dirname, "../next.config.js"),
       builder: {
         // Cache build output between runs, to speed up subsequent startup times
         fsCache: true,
@@ -51,7 +46,6 @@ const config = {
     ...config,
     NEXT_PUBLIC_BASE_PATH,
   }),
-  managerHead: blockSearchEnginesInHead,
 };
 
 export default config;

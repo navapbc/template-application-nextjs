@@ -30,9 +30,9 @@
   },
   "devDependencies": {
     "@ianvs/prettier-plugin-sort-imports": "^4.0.2",
-    "@storybook/addon-essentials": "^7.6.0",
-    "@storybook/nextjs": "^7.6.0",
-    "@storybook/react": "^7.6.0",
+    "@storybook/addon-essentials": "^8.0.0",
+    "@storybook/nextjs": "^8.0.0",
+    "@storybook/react": "^8.0.0",
     "@testing-library/dom": "^9.0.1",
     "@testing-library/jest-dom": "^6.0.0",
     "@testing-library/react": "^14.0.0",
@@ -63,7 +63,7 @@
     "prettier": "^2.8.4",
     "sass": "^1.59.3",
     "sass-loader": "^14.0.0",
-    "storybook": "^7.6.0",
+    "storybook": "^8.0.0",
     "style-loader": "^3.3.2",
     "typescript": "^5.0.0"
   }
