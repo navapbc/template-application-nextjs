@@ -64,7 +64,7 @@
     "sass": "^1.59.3",
     "sass-loader": "^14.0.0",
     "storybook": "^8.0.0",
-    "style-loader": "^3.3.2",
+    "style-loader": "^4.0.0",
     "typescript": "^5.0.0"
   }
 }
