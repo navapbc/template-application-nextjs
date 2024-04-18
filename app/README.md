@@ -64,9 +64,9 @@ Alternatively, you can run the application in a Docker container.
 
 From the `app/` directory:
 
-1. (Optional) Install Node packages to your local `node_modules` directory so tools like VSCode can provide intellisense and type checking
+1. (Optional) If your machine doesn't include Node, and you'd like tools like VS Code to provide intellisense & type checking, run the following command to install the packages locally:
    ```bash
-   make init
+   make container-npm-install
    ```
 1. Run the local development server
    ```bash
