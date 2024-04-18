@@ -36,18 +36,7 @@ release-build:
 ##################################################
 # Local development
 ##################################################
-dev: pre-dev # Run the Next.js local dev server in Docker
-	docker compose up --detach nextjs
-	docker compose logs --follow nextjs
-
-storybook: pre-dev # Run the Storybook local dev server in Docker
-	docker compose up --detach storybook
-	docker compose logs --follow storybook
-
-stop:
-	docker compose down
-
-pre-dev:
+init: # Initialize the project for local development
 	@# Install npm packages using Docker if node_modules doesn't exist
 	@if [ ! -d "node_modules" ]; then \
 		echo "Installing npm packages using Docker. This can take several minutes without output..."; \
@@ -55,3 +44,15 @@ pre-dev:
 	else \
 		echo "node_modules directory already exists, skipping npm install"; \
 	fi
+
+
+dev: # Run the Next.js local dev server in Docker
+	docker compose up --detach nextjs
+	docker compose logs --follow nextjs
+
+storybook: # Run the Storybook local dev server in Docker
+	docker compose up --detach storybook
+	docker compose logs --follow storybook
+
+stop:
+	docker compose down
