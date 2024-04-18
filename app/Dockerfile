@@ -77,6 +77,11 @@ RUN rm -rf /opt/yarn-v*
 # Don't run production as root
 RUN addgroup --system --gid 1001 nodejs
 RUN adduser --system --uid 1001 nextjs
+
+# Support <Image> cache
+RUN mkdir -p .next/cache/images/
+RUN chown nextjs:nodejs .next/cache/images/
+
 USER nextjs
 
 COPY --from=builder /app/public ./public
