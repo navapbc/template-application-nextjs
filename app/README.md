@@ -64,6 +64,10 @@ Alternatively, you can run the application in a Docker container.
 
 From the `app/` directory:
 
+1. (Optional) Install Node packages to your local `node_modules` directory so tools like VSCode can provide intellisense and type checking
+   ```bash
+   make init
+   ```
 1. Run the local development server
    ```bash
    make dev

@@ -11,7 +11,9 @@ import { getMessagesWithFallbacks } from "../src/i18n/getMessagesWithFallbacks";
 import I18nStoryWrapper from "./I18nStoryWrapper";
 
 const parameters = {
-  actions: { argTypesRegex: "^on[A-Z].*" },
+  nextjs: {
+    appDirectory: true,
+  },
   controls: {
     matchers: {
       color: /(background|color)$/i,
