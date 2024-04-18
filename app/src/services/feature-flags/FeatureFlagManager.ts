@@ -1,13 +1,14 @@
 import { Evidently } from "@aws-sdk/client-evidently";
 
+import { FeatureFlagAdapter } from "./types";
+
 /**
  * Class for managing feature flagging via AWS Evidently.
  * Class method are available for use in next.js server side code.
  *
  * https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/evidently/
- *
  */
-export class FeatureFlagManager {
+export class FeatureFlagManager implements FeatureFlagAdapter {
   client: Evidently;
   private _project = process.env.FEATURE_FLAGS_PROJECT;
 
@@ -15,9 +16,9 @@ export class FeatureFlagManager {
     this.client = new Evidently();
   }
 
-  async isFeatureEnabled(featureName: string, userId?: string) {
+  async isFeatureEnabled(featureName: string, entityId?: string) {
     const evalRequest = {
-      entityId: userId,
+      entityId,
       feature: featureName,
       project: this._project,
     };
@@ -31,7 +32,7 @@ export class FeatureFlagManager {
           message: "Made feature flag evaluation with AWS Evidently",
           data: {
             reason: evaluation.reason,
-            userId: userId,
+            entityId,
             featureName: featureName,
             featureFlagValue: featureFlagValue,
           },
@@ -42,8 +43,8 @@ export class FeatureFlagManager {
         message: "Error retrieving feature flag variation from AWS Evidently",
         data: {
           err: e,
-          userId: userId,
-          featureName: featureName,
+          entityId,
+          featureName,
         },
       });
     }

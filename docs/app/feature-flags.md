@@ -11,9 +11,19 @@
 
 ## Local development
 
-Out-of-the-box, local calls where `FEATURE_FLAGS_PROJECT` environment variable is unset will fall back to use `LocalFeatureFlagManager` which defaults flag values to `false`. 
+### Mocking Evidently
 
-If you want to test Evidently locally, use your AWS IAM credentials. Once you set `FEATURE_FLAGS_PROJECT` and the AWS environment variables (`AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`, and `AWS_REGION`) in `app/.env.local`, calls to Evidently will succeed. 
+When the `FEATURE_FLAGS_PROJECT` environment variable is unset, the app will fall back to use `LocalFeatureFlagManager` which defaults flag values to `false`.
+
+To enable a mocked feature flag, add an environment variable to `app/.env.local`, replacing `<FLAG_NAME>` with the name of the feature flag you want to mock:
+
+```bash
+NEXT_PUBLIC_FEATURE_<FLAG_NAME>=true
+```
+
+### Using AWS credentials
+
+If you want to test Evidently locally, use your AWS IAM credentials. Once you set `FEATURE_FLAGS_PROJECT` and the AWS environment variables (`AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`, and `AWS_REGION`) in `app/.env.local`, calls to Evidently will succeed.
 
 ## Creating a new feature flag
 

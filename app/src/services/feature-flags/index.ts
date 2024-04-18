@@ -1,5 +1,10 @@
 import { manager } from "./setup";
 
-export function isFeatureEnabled(feature: string, userId?: string) {
-  return manager.isFeatureEnabled(feature, userId);
+/**
+ * Check if a feature flag is enabled
+ * @param featureName - Name of the flag
+ * @param entityId - Optional id (e.g. user id) to use for phased rollouts
+ */
+export function isFeatureEnabled(featureName: string, entityId?: string) {
+  return manager.isFeatureEnabled(featureName, entityId);
 }
