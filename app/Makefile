@@ -50,8 +50,8 @@ stop:
 pre-dev:
 	@# Install npm packages using Docker if node_modules doesn't exist
 	@if [ ! -d "node_modules" ]; then \
-		echo "Installing npm packages using Docker..."; \
-		docker run --rm -v "$(PWD)":/usr/src/app -w /usr/src/app node:latest npm install; \
+		echo "Installing npm packages using Docker. This can take several minutes without output..."; \
+		docker run --rm -v "$(PWD)":/usr/src/app -w /usr/src/app node:20-bullseye-slim npm install; \
 	else \
 		echo "node_modules directory already exists, skipping npm install"; \
 	fi
