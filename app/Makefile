@@ -1,5 +1,4 @@
-.PHONY : \
-	release-build
+.PHONY: release-build dev storybook stop pre-dev
 
 # Docker user configuration
 # This logic is to avoid issues with permissions and mounting local volumes,
@@ -37,6 +36,16 @@ release-build:
 ##################################################
 # Local development
 ##################################################
+init: # Initialize the project for local development
+	@# Install npm packages using Docker if node_modules doesn't exist
+	@if [ ! -d "node_modules" ]; then \
+		echo "Installing npm packages using Docker. This can take several minutes without output..."; \
+		docker run --rm -v "$(PWD)":/usr/src/app -w /usr/src/app node:20-bullseye-slim npm install; \
+	else \
+		echo "node_modules directory already exists, skipping npm install"; \
+	fi
+
+
 dev: # Run the Next.js local dev server in Docker
 	docker compose up --detach nextjs
 	docker compose logs --follow nextjs
