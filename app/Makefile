@@ -36,7 +36,7 @@ release-build:
 ##################################################
 # Local development
 ##################################################
-init: # Initialize the project for local development
+container-npm-install: # Install NPM packages from within Docker
 	@# Install npm packages using Docker if node_modules doesn't exist
 	@if [ ! -d "node_modules" ]; then \
 		echo "Installing npm packages using Docker. This can take several minutes without output..."; \
@@ -44,7 +44,6 @@ init: # Initialize the project for local development
 	else \
 		echo "node_modules directory already exists, skipping npm install"; \
 	fi
-
 
 dev: # Run the Next.js local dev server in Docker
 	docker compose up --detach nextjs
