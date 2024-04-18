@@ -29,3 +29,45 @@ Locale messages should only ever be loaded on the server-side, to avoid bloating
 1. Add a language folder, using the same BCP47 language tag: `mkdir -p src/i18n/messages/<lang>`
 1. Add a language file: `touch src/i18n/messages/<lang>/index.ts` and add the translated content. The JSON structure should be the same across languages. However, non-default languages can omit keys, in which case the default language will be used as a fallback.
 1. Update [`i18n/config.ts`](../app/src/i18n/config.ts) to include the new language in the `locales` array.
+
+## Structuring your messages
+
+In terms of best practices, [it is recommended](https://next-intl-docs.vercel.app/docs/usage/messages#structuring-messages) to structure your messages such that they correspond to the component that will be using them. You can nest these definitions arbitrarily deep if you have a particularly complex need.
+
+It is always preferable to structure messages per their usage rather than due to some side effect of a technological implementation. The idea is to group them semantically but also preserve maximum flexibility for a translator. For instance, splitting up a paragraph in order to separate out a link might lead to awkward translation, so it is best to keep it as a single message. The info below shows techniques for common needs that prevent unnecessary splits of content.
+
+### Variables
+
+Messages do not need to be split in order to incorporate dynamic data. Instead, these can be inserted via the [interpolation functionality](https://next-intl-docs.vercel.app/docs/usage/messages#interpolation-of-dynamic-values):
+
+```json
+"message": "Hello {name}!"
+```
+
+```tsx
+t('message', {name: 'Jane'}); // "Hello Jane!"
+```
+
+### Rich text messages
+
+If your app needs a particular chunk of content to contain something other than plain text (such as links, formatting, or a custom component), you can utilize the "rich text" functionality ([see docs](https://next-intl-docs.vercel.app/docs/usage/messages#rich-text)). This allows one to embed arbitrary custom tags into the translation content strings and specify how each of those should be handled.
+
+Example from their docs:
+```json
+{
+  "message": "Please refer to <guidelines>the guidelines</guidelines>."
+}
+```
+
+```tsx
+// Returns `<>Please refer to <a href="/guidelines">the guidelines</a>.</>`
+t.rich('message', {
+  guidelines: (chunks) => <a href="/guidelines">{chunks}</a>
+});
+```
+
+If you have something that you are going to use repeatedly throughout your app, you can specify it in the [`defaultTranslationValues` config](https://next-intl-docs.vercel.app/docs/usage/configuration#default-translation-values).
+
+### Other needs
+
+For examples of other functionality such as pluralization, arrays of content, etc, please [see the docs](https://next-intl-docs.vercel.app/docs/usage/messages).
