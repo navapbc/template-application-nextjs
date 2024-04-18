@@ -1,4 +1,4 @@
-import { manager } from "./setup";
+import { adapter } from "./setup";
 
 /**
  * Check if a feature flag is enabled
@@ -6,5 +6,5 @@ import { manager } from "./setup";
  * @param entityId - Optional id (e.g. user id) to use for phased rollouts
  */
 export function isFeatureEnabled(featureName: string, entityId?: string) {
-  return manager.isFeatureEnabled(featureName, entityId);
+  return adapter.isFeatureEnabled(featureName, entityId);
 }

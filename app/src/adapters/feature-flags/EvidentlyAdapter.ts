@@ -8,15 +8,15 @@ import { FeatureFlagAdapter } from "./types";
  *
  * https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/evidently/
  */
-export class FeatureFlagManager implements FeatureFlagAdapter {
+export class EvidentlyAdapter implements FeatureFlagAdapter {
   client: Evidently;
   private _project = process.env.FEATURE_FLAGS_PROJECT;
 
-  constructor() {
-    this.client = new Evidently();
+  constructor(client = new Evidently()) {
+    this.client = client;
   }
 
-  async isFeatureEnabled(featureName: string, entityId?: string) {
+  async isFeatureEnabled(featureName: string, entityId = "unknown") {
     const evalRequest = {
       entityId,
       feature: featureName,
