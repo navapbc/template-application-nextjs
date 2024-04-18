@@ -3,11 +3,6 @@ import { MockAdapter } from "./MockAdapter";
 const mockAdapter = new MockAdapter();
 
 describe("MockAdapter", () => {
-  beforeAll(() => {
-    // Disable logging in test output
-    jest.spyOn(console, "warn").mockImplementation(() => {});
-  });
-
   describe("isFeatureEnabled", () => {
     it("returns true when env var is set to true", async () => {
       process.env.NEXT_PUBLIC_FEATURE_baz = "true";

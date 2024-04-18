@@ -1,5 +1,6 @@
 import { axe } from "jest-axe";
 import { cleanup, render, screen } from "tests/react-utils";
+import { mockFeatureFlag } from "tests/server-utils";
 
 import Controller from "./page";
 import { View } from "./view";
@@ -14,7 +15,7 @@ describe("Index - Controller", () => {
     });
 
     it("renders correctly based on local feature flag is true", async () => {
-      process.env.NEXT_PUBLIC_FEATURE_foo = "true";
+      mockFeatureFlag("foo", true);
 
       const result = await Controller();
       render(result);
@@ -23,7 +24,7 @@ describe("Index - Controller", () => {
     });
 
     it("renders correctly based on local feature flag is false", async () => {
-      process.env.NEXT_PUBLIC_FEATURE_foo = "false";
+      mockFeatureFlag("foo", false);
 
       const result = await Controller();
       render(result);
