@@ -1,3 +1,7 @@
+// Evidently access is granted to the ECS container, but credentials
+// aren't available for client-side usage of this SDK
+import "server-only";
+
 import { Evidently } from "@aws-sdk/client-evidently";
 
 import { FeatureFlagAdapter } from "./types";
