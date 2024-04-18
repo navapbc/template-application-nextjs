@@ -48,16 +48,6 @@ stop:
 	docker compose down
 
 pre-dev:
-	@# Check for existing "next-dev" container and remove it if it exists
-	@if docker ps -a --format '{{.Names}}' | grep -Eq '^next-dev$$'; then \
-		echo "Removing existing 'next-dev' container..."; \
-		docker rm -f next-dev; \
-	fi
-	@# Check for existing "storybook" container and remove it if it exists
-	@if docker ps -a --format '{{.Names}}' | grep -Eq '^storybook$$'; then \
-		echo "Removing existing 'storybook' container..."; \
-		docker rm -f storybook; \
-	fi
 	@# Install npm packages using Docker if node_modules doesn't exist
 	@if [ ! -d "node_modules" ]; then \
 		echo "Installing npm packages using Docker..."; \
