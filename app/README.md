@@ -15,14 +15,15 @@
 │   │   ├── api       # Custom request handlers
 │   │   ├── layout.tsx # Root layout, wraps every page
 │   │   └── page.tsx  # Homepage
+|   ├── adapters      # External service adapters
 │   ├── components    # Reusable UI components
 │   ├── i18n          # Internationalization
-│   │   ├── config.ts # Supported locales, timezone, and formatters
+│   │   ├── config.ts  # Supported locales, timezone, and formatters
 │   │   └── messages  # Translated strings
 │   ├── styles        # Sass & design system settings
 │   └── types         # TypeScript type declarations
 ├── stories           # Storybook pages
-└── tests
+└── tests             # Test setup and helpers
 ```
 
 ## 💻 Development
