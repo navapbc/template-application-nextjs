@@ -42,6 +42,18 @@ To get started using the template application on your project:
 
 Now that you're all set up, you're now ready to [get started](./app/README.md).
 
+## Updates
+
+There are multiple ways to receive template updates on your project. For most updates, you can simply run the [update-template.sh](./template-only-bin/update-template.sh) script
+
+```sh
+curl https://raw.githubusercontent.com/navapbc/template-application-nextjs/main/template-only-bin/update-template.sh | bash -s
+```
+
+If the update fails the simplest option may be to re-run the installation script above and manually review the changes.
+
+**Remember**: Make sure to read the release notes in case there are breaking changes you need to address.
+
 ## Learn more
 
 - [Dependency management](./template-only-docs/set-up-dependency-management.md)
