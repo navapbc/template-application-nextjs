@@ -66,21 +66,18 @@ RUN apt-get update \
     # Install wget, required for health checks
     wget \
     # Reduce the image size by clearing apt cached lists
-    && rm -fr /var/lib/apt/lists/*
-
-# Release stage doesn't have a need for `npm`, so remove it to avoid
-# any vulnerabilities specific to NPM
-RUN npm uninstall -g npm
-# Remove yarn as well (https://github.com/nodejs/docker-node/issues/777)
-RUN rm -rf /opt/yarn-v*
-
-# Don't run production as root
-RUN addgroup --system --gid 1001 nodejs
-RUN adduser --system --uid 1001 nextjs
-
-# Support <Image> cache
-RUN mkdir -p .next/cache/images/
-RUN chown nextjs:nodejs .next/cache/images/
+    && rm -fr /var/lib/apt/lists/* \
+    # Release stage doesn't have a need for `npm`, so remove it to avoid
+    # any vulnerabilities specific to NPM
+    && npm uninstall -g npm \
+    # Remove yarn as well (https://github.com/nodejs/docker-node/issues/777)
+    && rm -rf /opt/yarn-v*\
+    # Don't run production as root
+    && addgroup --system --gid 1001 nodejs \
+    && adduser --system --uid 1001 nextjs \
+    # Support <Image> cache
+    && mkdir -p .next/cache/images/ \
+    && chown nextjs:nodejs .next/cache/images/
 
 USER nextjs
 
