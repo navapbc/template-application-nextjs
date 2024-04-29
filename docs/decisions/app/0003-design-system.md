@@ -23,7 +23,7 @@ We want to use a design system that is:
 
 The template will provide U.S. Web Design System styling out of the box.
 
-We will not follow their [install directions](https://designsystem.digital.gov/documentation/getting-started/developers), which suggests using Gulp as a task runner. Instead, to reduce the number of dependencies and configuration, we'll leverage Next.js's and Storybook's built-in Sass support. Copying the USWDS static assets into the project will be handled by a [`postinstall`](https://docs.npmjs.com/cli/v8/using-npm/scripts) script in `package.json`.
+We will not follow their [install directions](https://designsystem.digital.gov/documentation/getting-started-for-developers/), which suggests using Gulp as a task runner. Instead, to reduce the number of dependencies and configuration, we'll leverage Next.js's and Storybook's built-in Sass support. Copying the USWDS static assets into the project will be handled by a [`postinstall`](https://docs.npmjs.com/cli/v8/using-npm/scripts) script in `package.json`.
 
 ### Positive Consequences
 

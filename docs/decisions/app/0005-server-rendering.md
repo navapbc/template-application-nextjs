@@ -70,6 +70,5 @@ Backends for Frontends:
 Web rendering:
 
 - https://deno.com/blog/the-future-and-past-is-server-side-rendering
-- https://www.patterns.dev/posts/rendering-patterns/
 - https://developers.google.com/web/updates/2019/02/rendering-on-the-web
 - https://www.smashingmagazine.com/2022/04/jamstack-rendering-patterns-evolution

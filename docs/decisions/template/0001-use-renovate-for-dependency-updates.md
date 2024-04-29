@@ -29,7 +29,6 @@ Since it is low risk to try out (straight-forward to implement, easy to reverse)
 * [Renovate Tutorial](https://github.com/renovatebot/tutorial)
 
 ## Links - Some Renovate Config File Examples
-* [Storybook](https://github.com/storybookjs/storybook/blob/next/.github/renovate.json5)
 * [freeCodeCamp](https://github.com/freeCodeCamp/freeCodeCamp/blob/22bb60196ab63160a5e4242da6eca31536d380e1/renovate.json)
 * [Prisma](https://github.com/prisma/prisma/blob/6ec631c27446baed0a65d8ddc01cb26fab776572/.github/renovate.json)
 

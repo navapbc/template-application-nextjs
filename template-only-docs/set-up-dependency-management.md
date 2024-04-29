@@ -1,6 +1,6 @@
 # Dependency Management with Renovate
 
-Out of the box this repo uses [Renovate](https://docs.renovatebot.com/) for dependency management. More information on the decision to try renovate can be found [here](https://github.com/navapbc/template-application-nextjs/blob/main/docs/decisions/0002-use-renovate-for-dependency-updates.md). Renovate is free and open-source and allows us to bundle dependency updates together and customize their scheduling.
+Out of the box this repo uses [Renovate](https://docs.renovatebot.com/) for dependency management. More information on the decision to try renovate can be found [here](../docs/decisions/template/0001-use-renovate-for-dependency-updates.md). Renovate is free and open-source and allows us to bundle dependency updates together and customize their scheduling.
 
 **Opting out of renovate**:
 
