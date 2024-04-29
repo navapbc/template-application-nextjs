@@ -98,4 +98,5 @@ ENV PORT 3000
 
 EXPOSE 3000
 
+# hadolint ignore=DL3025
 CMD HOSTNAME="0.0.0.0" node server.js
