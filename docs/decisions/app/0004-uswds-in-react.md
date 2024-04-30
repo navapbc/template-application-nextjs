@@ -14,7 +14,7 @@ Technical Story: #19
 
 ## Considered Options
 
-- Use the existing open source [`react-uswds` library](https://github.com/trussworks/react-uswds)
+- Use the existing open-source [`react-uswds` library](https://github.com/trussworks/react-uswds)
 - Create our own React USWDS component library
 - Leave the responsibility to each project team
 
@@ -24,7 +24,7 @@ Add [`react-uswds`](https://github.com/trussworks/react-uswds) as a template dep
 
 ## Pros and Cons of the Options
 
-### Use the existing open source [`react-uswds` library](https://github.com/trussworks/react-uswds)
+### Use the existing open-source [`react-uswds` library](https://github.com/trussworks/react-uswds)
 
 `react-uswds` is maintained by Truss, another vendor in this space. [A Storybook for it can be found here](https://trussworks.github.io/react-uswds/). Truss also maintains a [USWDS Figma library](https://www.figma.com/community/file/836611771720754351) for designers.
 
@@ -56,15 +56,15 @@ Nava could create our own React USWDS component library, similar to `react-uswds
 
 ### Leave the responsibility to each project team
 
-This is the current approach. Each project team is responsible for creating their own React components for the USWDS components they need.
+This is the current approach. Each project team is responsible for creating its own React components for the USWDS components they need.
 
 #### Pros
 
-- No additional work required from the Platform team.
+- No additional work is required from the Platform team.
 
 #### Cons
 
-- Each project team has to spend time and effort building the components or making technical decisions related to how they'll integrate USWDS. Teams then have to write their own tests and fix their own bugs for these components. Overall a potential poor use of time and effort.
+- Each project team has to spend time and effort building the components or making technical decisions related to how they'll integrate USWDS. Teams then have to write their own tests and fix their own bugs for these components. Overall a potentially poor use of time and effort.
 
 ## Links
 

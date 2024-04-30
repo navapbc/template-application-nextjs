@@ -5,7 +5,7 @@
 
 ## Context and Problem Statement
 
-Projects should avoid reinventing the wheel where possible. A common place to do this is in the UI, by using a design system for frontend components and utility classes. This can help avoid inconsistencies in the UI, and can reduce barriers for new developers.
+Projects should avoid reinventing the wheel where possible. A common place to do this is in the UI, by using a design system for front-end components and utility classes. This can help avoid inconsistencies in the UI, and can reduce barriers for new developers.
 
 We want to use a design system that is:
 
@@ -23,7 +23,7 @@ We want to use a design system that is:
 
 The template will provide U.S. Web Design System styling out of the box.
 
-We will not follow their [install directions](https://designsystem.digital.gov/documentation/getting-started-for-developers/), which suggests using Gulp as a task runner. Instead, to reduce the number of dependencies and configuration, we'll leverage Next.js's and Storybook's built-in Sass support. Copying the USWDS static assets into the project will be handled by a [`postinstall`](https://docs.npmjs.com/cli/v8/using-npm/scripts) script in `package.json`.
+We will not follow their [install documentation](https://designsystem.digital.gov/documentation/getting-started-for-developers/), which suggests using Gulp as a task runner. Instead, to reduce the number of dependencies and configurations, we'll leverage Next.js's and Storybook's built-in Sass support. Copying the USWDS static assets into the project will be handled by a [`postinstall`](https://docs.npmjs.com/cli/v8/using-npm/scripts) script in `package.json`.
 
 ### Positive Consequences
 
