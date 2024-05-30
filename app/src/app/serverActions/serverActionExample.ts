@@ -17,7 +17,7 @@ export async function updateServerData(
 
   // In a real application, you would typically perform
   // some server mutation.
-  await Promise.resolve();
+  await new Promise((resolve) => setTimeout(resolve, 2000));
 
   const updatedData: FormDataState = {
     name: name || prevState.name,
