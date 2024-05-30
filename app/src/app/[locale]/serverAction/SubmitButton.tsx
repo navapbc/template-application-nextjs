@@ -1,9 +1,10 @@
 "use client";
 
-import { Button } from "@trussworks/react-uswds";
 import { useFormStatus } from "react-dom";
 
-function PendingStatusSubmitButton() {
+import { Button } from "@trussworks/react-uswds";
+
+function SubmitButton() {
   const { pending } = useFormStatus();
 
   return (
@@ -13,4 +14,4 @@ function PendingStatusSubmitButton() {
   );
 }
 
-export default PendingStatusSubmitButton;
+export default SubmitButton;

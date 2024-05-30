@@ -1,11 +1,10 @@
 "use client";
 
-import { useFormState } from "react-dom";
-
 import { Label, TextInput } from "@trussworks/react-uswds";
 
+import PendingStatusSubmitButton from "./SubmitButton";
 import { updateServerData } from "../../serverActions/serverActionExample";
-import PendingStatusSubmitButton from "./PendingStatusSubmitButton";
+import { useFormState } from "react-dom";
 
 const initialFormState = {
   name: "",
