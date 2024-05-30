@@ -2,15 +2,10 @@
 
 import { useFormState } from "react-dom";
 
-import {
-  Button,
-  Grid,
-  GridContainer,
-  Label,
-  TextInput,
-} from "@trussworks/react-uswds";
+import { Label, TextInput } from "@trussworks/react-uswds";
 
 import { updateServerData } from "../../serverActions/serverActionExample";
+import PendingStatusSubmitButton from "./PendingStatusSubmitButton";
 
 const initialFormState = {
   name: "",
@@ -24,7 +19,6 @@ export default function SimpleForm() {
   );
 
   const hasReturnedFormData = formData.name || formData.email;
-
   return (
     <>
       <h1>Server Action Example</h1>
@@ -46,7 +40,7 @@ export default function SimpleForm() {
           defaultValue={formData.email}
         />
 
-        <Button type="submit">Submit</Button>
+        <PendingStatusSubmitButton />
       </form>
 
       {hasReturnedFormData && (
