@@ -1,9 +1,11 @@
+// Server Action example
+// For more context: https://nextjs.org/docs/app/building-your-application/data-fetching/server-actions-and-mutations
+
 "use client";
 
-import { Label, TextInput } from "@trussworks/react-uswds";
-
-import PendingStatusSubmitButton from "./SubmitButton";
-import { updateServerData } from "../../serverActions/serverActionExample";
+import FormInput from "../../../components/FormInput";
+import SubmitButton from "../../../components/SubmitButton";
+import { updateServerData } from "./actions";
 import { useFormState } from "react-dom";
 
 const initialFormState = {
@@ -18,28 +20,27 @@ export default function SimpleForm() {
   );
 
   const hasReturnedFormData = formData.name || formData.email;
+
   return (
     <>
       <h1>Server Action Example</h1>
 
       <form action={updateFormData} className="usa-form">
-        <Label htmlFor="name">Name</Label>
-        <TextInput
+        <FormInput
           id="name"
           name="name"
           type="text"
+          label="Name"
           defaultValue={formData.name}
         />
-
-        <Label htmlFor="email">Email</Label>
-        <TextInput
+        <FormInput
           id="email"
           name="email"
           type="email"
+          label="Email"
           defaultValue={formData.email}
         />
-
-        <PendingStatusSubmitButton />
+        <SubmitButton />
       </form>
 
       {hasReturnedFormData && (
