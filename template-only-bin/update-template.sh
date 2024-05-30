@@ -38,8 +38,8 @@ echo "Applying patch"
 EXCLUDE_OPT="--exclude=.github/workflows/template-only-* \
   --exclude=.github/ISSUE_TEMPLATE \
   --exclude=docs/decisions/template.md \
-  --exclude=docs/decisions/template" \
-  --exclude=CODEOWNERS
+  --exclude=docs/decisions/template \
+  --exclude=CODEOWNERS"
 git apply $EXCLUDE_OPT --allow-empty template-application-nextjs/patch
 
 echo "Saving new template version to .template-application-nextjs"
