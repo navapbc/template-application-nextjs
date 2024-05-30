@@ -9,8 +9,6 @@ export async function updateServerData(
   prevState: FormDataState,
   formData: FormData
 ): Promise<FormDataState> {
-
-    
   console.log("prevState => ", prevState);
   console.log("formData => ", formData);
 
