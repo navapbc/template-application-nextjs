@@ -26,23 +26,22 @@ export async function generateMetadata({ params }: { params: RouteParams }) {
   return meta;
 }
 
-type Props = {
-  locale?: string;
-};
+interface Props {
+  params: RouteParams;
+}
 
-export function SimpleForm({ locale }: Props) {
+export default function SimpleForm({ params }: Props) {
+  const { locale } = params;
   const messages = useMessages();
   const t = useTranslations("serverAction");
 
   return (
-    <>
-      <NextIntlClientProvider
-        locale={locale}
-        messages={pick(messages, "serverAction")}
-      >
-        <h1>{t("title")}</h1>
-        <ClientForm />
-      </NextIntlClientProvider>
-    </>
+    <NextIntlClientProvider
+      locale={locale}
+      messages={pick(messages, "serverAction")}
+    >
+      <h1>{t("title")}</h1>
+      <ClientForm />
+    </NextIntlClientProvider>
   );
 }
