@@ -1,63 +1,48 @@
 // Server Action example
 // For more context: https://nextjs.org/docs/app/building-your-application/data-fetching/server-actions-and-mutations
 
-"use client";
+import { pick } from "lodash";
+import { Metadata } from "next";
 
-import FormInput from "../../../components/FormInput";
-import SubmitButton from "../../../components/SubmitButton";
-import { updateServerData } from "./actions";
-import { useFormState } from "react-dom";
+import {
+  NextIntlClientProvider,
+  useMessages,
+  useTranslations,
+} from "next-intl";
+import { getTranslations } from "next-intl/server";
 
-const initialFormState = {
-  name: "",
-  email: "",
+import ClientForm from "./clientForm";
+
+interface RouteParams {
+  locale: string;
+}
+
+export async function generateMetadata({ params }: { params: RouteParams }) {
+  const t = await getTranslations({ locale: params.locale });
+  const meta: Metadata = {
+    title: t("serverAction.title"),
+  };
+
+  return meta;
+}
+
+type Props = {
+  locale?: string;
 };
 
-export default function SimpleForm() {
-  const [formData, updateFormData] = useFormState(
-    updateServerData,
-    initialFormState
-  );
-
-  const hasReturnedFormData = formData.name || formData.email;
+export function SimpleForm({ locale }: Props) {
+  const messages = useMessages();
+  const t = useTranslations("serverAction");
 
   return (
     <>
-      <h1>Server Action Example</h1>
-
-      <form action={updateFormData} className="usa-form">
-        <FormInput
-          id="name"
-          name="name"
-          type="text"
-          label="Name"
-          defaultValue={formData.name}
-        />
-        <FormInput
-          id="email"
-          name="email"
-          type="email"
-          label="Email"
-          defaultValue={formData.email}
-        />
-        <SubmitButton />
-      </form>
-
-      {hasReturnedFormData && (
-        <div className="margin-top-4">
-          <h2>Server Action returned data</h2>
-          {formData.name && (
-            <div>
-              <strong>Name:</strong> {formData.name}
-            </div>
-          )}
-          {formData.email && (
-            <div>
-              <strong>Email:</strong> {formData.email}
-            </div>
-          )}
-        </div>
-      )}
+      <NextIntlClientProvider
+        locale={locale}
+        messages={pick(messages, "serverAction")}
+      >
+        <h1>{t("title")}</h1>
+        <ClientForm />
+      </NextIntlClientProvider>
     </>
   );
 }
