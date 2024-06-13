@@ -26,7 +26,7 @@ Add [`react-uswds`](https://github.com/trussworks/react-uswds) as a template dep
 
 ### Use the existing open source [`react-uswds` library](https://github.com/trussworks/react-uswds)
 
-`react-uswds` is maintained by Truss, another vendor in this space. [A Storybook for it can be found here](https://trussworks.github.io/react-uswds/). Truss also maintains a [USWDS Figma library](https://www.figma.com/community/file/836611771720754351) for designers.
+`react-uswds` is maintained by Truss, another vendor in this space. [A Storybook for it can be found here](https://trussworks.github.io/react-uswds/). Truss also maintains a [USWDS Figma library](https://www.figma.com/community/file/836611771720754351/u-s-web-design-system-uswds) for designers.
 
 #### Pros
 
