@@ -1,21 +1,36 @@
 import { axe } from "jest-axe";
-import { LocalFeatureFlagManager } from "src/services/feature-flags/LocalFeatureFlagManager";
 import { cleanup, render, screen } from "tests/react-utils";
+import { mockFeatureFlag } from "tests/server-utils";
 
 import Controller from "./page";
 import { View } from "./view";
 
 describe("Index - Controller", () => {
-  it("retrieves feature flags", async () => {
-    const featureFlagSpy = jest
-      .spyOn(LocalFeatureFlagManager.prototype, "isFeatureEnabled")
-      .mockResolvedValue(true);
+  describe("local feature flags", () => {
+    it("renders correctly based on local feature flag is unset", async () => {
+      const result = await Controller();
+      render(result);
 
-    const result = await Controller();
-    render(result);
+      expect(await screen.findByText(/flag is disabled/i)).toBeInTheDocument();
+    });
 
-    expect(featureFlagSpy).toHaveBeenCalledWith("foo", "anonymous");
-    expect(screen.getByText(/Flag is enabled/)).toBeInTheDocument();
+    it("renders correctly based on local feature flag is true", async () => {
+      mockFeatureFlag("foo", true);
+
+      const result = await Controller();
+      render(result);
+
+      expect(await screen.findByText(/flag is enabled/i)).toBeInTheDocument();
+    });
+
+    it("renders correctly based on local feature flag is false", async () => {
+      mockFeatureFlag("foo", false);
+
+      const result = await Controller();
+      render(result);
+
+      expect(await screen.findByText(/flag is disabled/i)).toBeInTheDocument();
+    });
   });
 });
 

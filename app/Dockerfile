@@ -1,7 +1,7 @@
 # This file is largely based on the template-application-flask Dockerfile and
 # Next.js Docker example: https://github.com/vercel/next.js/blob/canary/examples/with-docker-compose
 # =============================================================================
-FROM node:20.11.0-bullseye-slim AS base
+FROM node:20.13.1-bullseye-slim AS base
 WORKDIR /app
 
 # Install dependencies
@@ -56,7 +56,7 @@ RUN npm run build -- --no-lint
 # Run the Next.js server
 # =====================================
 # Use clean image for release, excluding any unnecessary files or dependencies
-FROM node:20.11.0-bullseye-slim AS release
+FROM node:20.13.1-bullseye-slim AS release
 WORKDIR /app
 
 RUN apt-get update \
@@ -66,17 +66,19 @@ RUN apt-get update \
     # Install wget, required for health checks
     wget \
     # Reduce the image size by clearing apt cached lists
-    && rm -fr /var/lib/apt/lists/*
+    && rm -fr /var/lib/apt/lists/* \
+    # Release stage doesn't have a need for `npm`, so remove it to avoid
+    # any vulnerabilities specific to NPM
+    && npm uninstall -g npm \
+    # Remove yarn as well (https://github.com/nodejs/docker-node/issues/777)
+    && rm -rf /opt/yarn-v*\
+    # Don't run production as root
+    && addgroup --system --gid 1001 nodejs \
+    && adduser --system --uid 1001 nextjs \
+    # Support <Image> cache
+    && mkdir -p .next/cache/images/ \
+    && chown nextjs:nodejs .next/cache/images/
 
-# Release stage doesn't have a need for `npm`, so remove it to avoid
-# any vulnerabilities specific to NPM
-RUN npm uninstall -g npm
-# Remove yarn as well (https://github.com/nodejs/docker-node/issues/777)
-RUN rm -rf /opt/yarn-v*
-
-# Don't run production as root
-RUN addgroup --system --gid 1001 nodejs
-RUN adduser --system --uid 1001 nextjs
 USER nextjs
 
 COPY --from=builder /app/public ./public
@@ -96,4 +98,5 @@ ENV PORT 3000
 
 EXPOSE 3000
 
-CMD ["node", "server.js"]
+# hadolint ignore=DL3025
+CMD HOSTNAME="0.0.0.0" node server.js

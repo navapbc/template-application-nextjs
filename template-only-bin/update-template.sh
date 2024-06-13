@@ -37,7 +37,9 @@ echo "Applying patch"
 # Note: Keep this list in sync with the removed files in install-template.sh
 EXCLUDE_OPT="--exclude=.github/workflows/template-only-* \
   --exclude=.github/ISSUE_TEMPLATE \
-  --exclude=docs/decisions/template"
+  --exclude=docs/decisions/template.md \
+  --exclude=docs/decisions/template \
+  --exclude=CODEOWNERS"
 git apply $EXCLUDE_OPT --allow-empty template-application-nextjs/patch
 
 echo "Saving new template version to .template-application-nextjs"

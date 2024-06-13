@@ -15,14 +15,15 @@
 │   │   ├── api       # Custom request handlers
 │   │   ├── layout.tsx # Root layout, wraps every page
 │   │   └── page.tsx  # Homepage
+|   ├── adapters      # External service adapters
 │   ├── components    # Reusable UI components
 │   ├── i18n          # Internationalization
-│   │   ├── config.ts # Supported locales, timezone, and formatters
+│   │   ├── config.ts  # Supported locales, timezone, and formatters
 │   │   └── messages  # Translated strings
 │   ├── styles        # Sass & design system settings
 │   └── types         # TypeScript type declarations
 ├── stories           # Storybook pages
-└── tests
+└── tests             # Test setup and helpers
 ```
 
 ## 💻 Development
@@ -64,6 +65,10 @@ Alternatively, you can run the application in a Docker container.
 
 From the `app/` directory:
 
+1. (Optional) If your machine doesn't include Node, and you'd like tools like VS Code to provide intellisense & type checking, run the following command to install the packages locally:
+   ```bash
+   make container-npm-install
+   ```
 1. Run the local development server
    ```bash
    make dev
@@ -177,4 +182,6 @@ Optionally, configure your code editor to auto run these tools on file save. Mos
 
 - [Internationalization](../docs/app/internationalization.md)
 - [Feature flags](../docs/app/feature-flags.md)
+- [Security](../docs/app/security.md)
+- [Image optimization](../docs/app/image-optimization.md)
 - Refer to the [architecture decision records](../docs/decisions) for more context on technical decisions.

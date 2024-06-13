@@ -24,7 +24,7 @@ Chosen option: Enable type checking of I18next.
 
 ### Negative Consequences
 
-- A TypeScript file representing the i18n namespaces must be maintained alongside the JSON locale files. This file will need to be updated whenever a new locale file is added or removed. If the file isn't updated, a developer will receive type errors when they reference a valid i18n key path. This could be a source of confusion for developers who aren't familiar with the i18next type checking feature.
+- A TypeScript file representing the i18n namespaces must be maintained alongside the JSON locale files. This file will need to be updated whenever a new locale file is added or removed. If the file isn't updated, a developer will receive type errors when they reference a valid i18n key path. This could be a source of confusion for developers who aren't familiar with the i18next type-checking feature.
   - This file [can be generated](https://github.com/i18next/i18next-resources-for-ts).
   - Tests can be added to catch missing namespaces in the file.
 - TypeScript errors, particularly those related to i18n, can be difficult to understand. This could slow down developers.

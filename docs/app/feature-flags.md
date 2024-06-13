@@ -6,19 +6,62 @@
 
 ## How it works
 
-1. `services/feature-flags/FeatureFlagManager` provides a service layer to interact with AWS Evidently endpoints. For example, class method `isFeatureEnabled` calls out to Evidently to retrieve a feature flag value we can then return to the client
-1. Pages can call `isFeatureEnabled` from Next.js server side code and return the feature flag value to components as props.
+Call `isFeatureEnabled` from server-side code to retrieve the feature flag value:
+
+```ts
+import { isFeatureEnabled } from "src/adapters/feature-flags";
+
+function ServerComponent() {
+  const hasNewFeature = isFeatureEnabled("use-new-feature");
+  return <div>{hasNewFeature ? "Feature enabled" : "Feature disabled"}</div>;
+}
+```
+
+If a client-side component needs to know the feature flag value, pass it as a prop:
+
+```ts
+function ServerComponent() {
+  const hasNewFeature = isFeatureEnabled("use-new-feature");
+
+  return <ClientComponent hasNewFeature={hasNewFeature} />;
+}
+```
 
 ## Local development
 
-Out-of-the-box, local calls where `FEATURE_FLAGS_PROJECT` environment variable is unset will fall back to use `LocalFeatureFlagManager` which defaults flag values to `false`. 
+### Mocking Evidently
 
-If you want to test Evidently locally, use your AWS IAM credentials. Once you set `FEATURE_FLAGS_PROJECT` and the AWS environment variables (`AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`, and `AWS_REGION`) in `app/.env.local`, calls to Evidently will succeed. 
+When the `FEATURE_FLAGS_PROJECT` environment variable is unset, the app will fall back to use a mock adapter, which defaults flag values to `false`.
+
+To enable a mocked feature flag, add an environment variable to `app/.env.local`, replacing `foo` with the name of the feature flag you want to mock:
+
+```bash
+NEXT_PUBLIC_FEATURE_foo=true
+```
+
+### Using AWS credentials
+
+If you want to test Evidently locally, use your AWS IAM credentials. Once you set `FEATURE_FLAGS_PROJECT` and the AWS environment variables (`AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`, and `AWS_REGION`) in `app/.env.local`, calls to Evidently will succeed.
+
+## Testing
+
+To test server-side code that uses feature flags, you can use the `mockFeatureFlag` utility:
+
+```ts
+import { mockFeatureFlag } from "tests/server-utils";
+
+it("shows the new feature when enabled", () => {
+  mockFeatureFlag("use-new-feature", true);
+
+  const component = render(<ServerComponent />);
+
+  // ...
+```
 
 ## Creating a new feature flag
 
-To create a new feature flag, update `/infra/[app_name]/app-config/main.tf`. More information available in infra repository [docs](https://github.com/navapbc/template-infra/blob/main/docs/feature-flags.md).
+Feature flags are defined as part of the infra-as-code. [See the infra docs to learn more](https://github.com/navapbc/template-infra/blob/main/docs/feature-flags.md).
 
 ## Toggling feature flags
 
-Toggle feature flags via the AWS Console GUI. More information [here](https://github.com/navapbc/template-infra/blob/main/docs/feature-flags.md#managing-feature-releases-and-partial-rollouts-via-aws-console).
+Toggle feature flags on/off via the AWS Console GUI. More information [here](https://github.com/navapbc/template-infra/blob/main/docs/feature-flags.md#managing-feature-releases-and-partial-rollouts-via-aws-console).
