@@ -11,7 +11,7 @@ import { defaultLocale, locales } from "./i18n/config";
 
 // Don't run middleware on API routes or Next.js build output
 export const config = {
-  matcher: ["/((?!api|_next|.*\\..*).*)"],
+  matcher: ["/((?!api|_next|sitemap|.*\\..*).*)"],
 };
 
 /**
