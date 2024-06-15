@@ -22,7 +22,7 @@ export function getNextRoutes(src: string): string[] {
   const appPaths = listPaths(src).filter((file) => file.endsWith("page.tsx"));
 
   // Extract the route name for each `page.tsx` file
-  // Basically anything between [locale] and /page.tsx is removed,
+  // Basically anything between [locale] and /page.tsx is extracted,
   // which lets us get nested routes such as /newsletter/unsubscribe
   const appRoutes = appPaths.map((filePath) => {
     const relativePath = path.relative(src, filePath);
