@@ -1,4 +1,4 @@
-name: pa11y tests
+name: Accessibility tests
 
 on:
   pull_request:
