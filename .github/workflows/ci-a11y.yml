@@ -3,8 +3,8 @@ name: pa11y tests
 on:
   pull_request:
     paths:
-      - frontend/**
-      - .github/workflows/ci-frontend-a11y.yml
+      - app/**
+      - .github/workflows/ci-a11y.yml
 
 jobs:
   build:
