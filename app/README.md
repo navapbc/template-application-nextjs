@@ -178,6 +178,10 @@ Optionally, configure your code editor to auto run these tools on file save. Mos
 
 </details>
 
+## Sitemap
+
+A dynamically generated sitemap is available for the application at http://localhost:3001/sitemap.xml. The sitemap helps search engines index the content of your site more efficiently and can also be used for tools such as accessibility scans. This sitemap is automatically updated to reflect the current application routes.
+
 ## Other topics
 
 - [Internationalization](../docs/app/internationalization.md)
