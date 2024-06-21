@@ -29,11 +29,11 @@ export function getNextRoutes(src: string): string[] {
     const route = relativePath
       ? "/" +
         relativePath
+          // for any additional overrides add more replace here...
           .replace("/page.tsx", "")
           .replace(/\[locale\]/g, "")
           .replace(/\\/g, "/")
-      : // for any additional overrides add more replace here...
-        "/";
+      : "/";
     return route.replace(/\/\//g, "/");
   });
 
