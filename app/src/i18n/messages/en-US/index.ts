@@ -26,4 +26,8 @@ export const messages = {
     formatting:
       "The template includes an internationalization library with basic formatters built-in. Such as numbers: { amount, number, currency }, and dates: { isoDate, date, long}.",
   },
+  health: {
+    title: "Health Check",
+    healthy: "healthy"
+  }
 };

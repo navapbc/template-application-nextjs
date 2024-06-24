@@ -1,10 +1,13 @@
+import { useTranslations } from "next-intl";
+
 export default function Page() {
+  const t = useTranslations("health");
   return (
     <>
       <head>
-        <title>Health Check</title>
+        <title>{t("title")}</title>
       </head>
-      <div>healthy</div>
+      <div>{t("healthy")}</div>
     </>
   );
 }
