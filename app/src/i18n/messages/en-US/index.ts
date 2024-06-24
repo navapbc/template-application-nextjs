@@ -28,6 +28,6 @@ export const messages = {
   },
   health: {
     title: "Health Check",
-    healthy: "healthy"
-  }
+    healthy: "healthy",
+  },
 };
