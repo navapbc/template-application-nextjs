@@ -23,7 +23,6 @@
     "ts:check": "tsc --noEmit"
   },
   "dependencies": {
-    "@aws-sdk/client-evidently": "^3.465.0",
     "@trussworks/react-uswds": "^7.0.0",
     "@uswds/uswds": "3.8.1",
     "lodash": "^4.17.21",

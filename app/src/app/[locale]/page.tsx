@@ -1,5 +1,4 @@
 import { Metadata } from "next";
-import { isFeatureEnabled } from "src/adapters/feature-flags";
 
 import { getTranslations } from "next-intl/server";
 
@@ -18,8 +17,6 @@ export async function generateMetadata({ params }: { params: RouteParams }) {
   return meta;
 }
 
-export default async function Controller() {
-  const isFooEnabled = await isFeatureEnabled("foo", "anonymous");
-
-  return <View isFooEnabled={isFooEnabled} />;
+export default function Controller() {
+  return <View />;
 }
