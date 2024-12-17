@@ -20,7 +20,6 @@ interface LayoutProps {
 }
 
 export default async function RootLayout({ children, params }: LayoutProps) {
-
   const {locale} = await params
   return (
     <html lang={locale}>

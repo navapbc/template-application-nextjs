@@ -33,7 +33,7 @@ export * from "@testing-library/react";
 // 2. Then override the "@testing-library/react" render method
 export function render(
   ui: React.ReactElement,
-  options: Omit<RenderOptions, "wrapper"> = {}
+  options: Omit<RenderOptions, "wrapper"> = {},
 ) {
   return _render(ui, { wrapper: GlobalProviders, ...options });
 }

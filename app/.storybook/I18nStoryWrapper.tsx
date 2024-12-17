@@ -11,7 +11,7 @@ import { defaultLocale, formats, timeZone } from "../src/i18n/config";
 
 const I18nStoryWrapper = (
   Story: React.ComponentType,
-  context: StoryContext
+  context: StoryContext,
 ) => {
   const locale = context.globals.locale ?? defaultLocale;
 
