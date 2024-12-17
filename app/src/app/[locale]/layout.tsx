@@ -19,13 +19,15 @@ interface LayoutProps {
   };
 }
 
-export default function RootLayout({ children, params }: LayoutProps) {
+export default async function RootLayout({ children, params }: LayoutProps) {
+
+  const {locale} = await params
   return (
-    <html lang={params.locale}>
+    <html lang={locale}>
       <body>
         {/* Separate layout component for the inner-body UI elements since Storybook
             and tests trip over the fact that this file renders an <html> tag */}
-        <Layout locale={params.locale}>{children}</Layout>
+        <Layout locale={locale}>{children}</Layout>
       </body>
     </html>
   );
