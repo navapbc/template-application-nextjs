@@ -9,8 +9,7 @@ interface RouteParams {
 }
 
 export async function generateMetadata({ params }: { params: RouteParams }) {
-  const { locale } = await params;
-  const t = await getTranslations({ locale });
+  const t = await getTranslations({ locale: params.locale });
   const meta: Metadata = {
     title: t("home.title"),
   };
