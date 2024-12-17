@@ -22,5 +22,4 @@ describe("Index - View", () => {
 
     expect(results).toHaveNoViolations();
   });
-
 });
