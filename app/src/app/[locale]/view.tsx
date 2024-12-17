@@ -1,7 +1,6 @@
 import { useTranslations } from "next-intl";
 
-export function View(props: { isFooEnabled: boolean }) {
-  const { isFooEnabled } = props;
+export function View() {
   const t = useTranslations("home");
 
   return (
@@ -29,10 +28,6 @@ export function View(props: { isFooEnabled: boolean }) {
             isoDate: new Date("2023-11-29T23:30:00.000Z"),
           })}
         </p>
-
-        {/* Demonstration of feature flagging */}
-        <p>{t("feature_flagging")}</p>
-        <p>{isFooEnabled ? t("flag_on") : t("flag_off")}</p>
       </div>
     </>
   );
