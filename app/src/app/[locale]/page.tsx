@@ -17,6 +17,6 @@ export async function generateMetadata({ params }: { params: RouteParams }) {
   return meta;
 }
 
-export default async function Controller() {
+export default function Controller() {
   return <View />;
 }
