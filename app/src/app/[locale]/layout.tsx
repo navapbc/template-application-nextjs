@@ -19,7 +19,7 @@ interface LayoutProps {
   };
 }
 
-export default async function RootLayout({ children, params }: LayoutProps) {
+export default function RootLayout({ children, params }: LayoutProps) {
   return (
     <html lang={params.locale}>
       <body>
