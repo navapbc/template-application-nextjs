@@ -22,4 +22,13 @@ export const messages = {
     formatting:
       "The template includes an internationalization library with basic formatters built-in. Such as numbers: { amount, number, currency }, and dates: { isoDate, date, long}.",
   },
+  serverAction: {
+    title: "Server Actions Example",
+    submitting: "Submitting...",
+    submit: "Submit",
+    nameLabel: "Name",
+    emailLabel: "Email",
+    submitLabel: "Submit",
+    returnedDataHeader: "Server Action returned data",
+  },
 };
