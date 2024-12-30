@@ -38,7 +38,7 @@ The application can be ran natively or in a Docker container.
 
 #### Native
 
-From the `app/` directory:
+From the `{{ app_name }}/` directory:
 
 1. Install dependencies
    ```bash
@@ -63,7 +63,7 @@ From the `app/` directory:
 
 Alternatively, you can run the application in a Docker container.
 
-From the `app/` directory:
+From the `{{ app_name }}/` directory:
 
 1. (Optional) If your machine doesn't include Node, and you'd like tools like VS Code to provide intellisense & type checking, run the following command to install the packages locally:
    ```bash
@@ -89,7 +89,7 @@ Similar to the Next.js application, Storybook can be ran natively or in a Docker
 
 #### Native
 
-From the `app/` directory:
+From the `{{ app_name }}/` directory:
 
 1. `npm run storybook`
 2. Navigate to [localhost:6006](http://localhost:6006) to view
@@ -102,7 +102,7 @@ From the `app/` directory:
 
 Alternatively, you can run Storybook in a Docker container.
 
-From the `app/` directory:
+From the `{{ app_name }}/` directory:
 
 1. `make storybook`
 2. Navigate to [localhost:6006](http://localhost:6006) to view
@@ -117,10 +117,10 @@ To run tests:
 - `npm run test-update` - Updates test snapshots
 - `npm run test-watch` - Runs tests in [watch](https://jestjs.io/docs/cli#--watch) mode. Tests will re-run when files are changed, and an interactive prompt will allow you to run specific tests or update snapshots.
 
-A subset of tests can be ran by passing a pattern to the script. For example, to only run tests in `app/components`:
+A subset of tests can be ran by passing a pattern to the script. For example, to only run tests in `src/components`:
 
 ```sh
-npm run test-watch -- app/components
+npm run test-watch -- src/components
 ```
 
 ### Testing React components
@@ -169,7 +169,7 @@ Optionally, configure your code editor to auto run these tools on file save. Mos
      },
      "editor.formatOnSave": true,
      "editor.defaultFormatter": "esbenp.prettier-vscode",
-     "eslint.workingDirectories": ["./app"],
+     "eslint.workingDirectories": ["./{{ app_name }}"],
      "typescript.validate.enable": true
    }
    ```
@@ -180,7 +180,7 @@ Optionally, configure your code editor to auto run these tools on file save. Mos
 
 ## Other topics
 
-- [Internationalization](../docs/app/internationalization.md)
-- [Security](../docs/app/security.md)
-- [Image optimization](../docs/app/image-optimization.md)
+- [Internationalization](../docs/{{ app_name }}/internationalization.md)
+- [Security](../docs/{{ app_name }}/security.md)
+- [Image optimization](../docs/{{ app_name }}/image-optimization.md)
 - Refer to the [architecture decision records](../docs/decisions) for more context on technical decisions.
