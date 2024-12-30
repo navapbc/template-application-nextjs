@@ -15,44 +15,26 @@ See [`navapbc/platform`](https://github.com/navapbc/platform) for other template
 ## Repo structure
 
 ```text
-├── .github             # GitHub workflows and repo templates
-├── app                 # Web application
-├── docs                # Project docs and decision records
+.
+├── template           # The template (the things that get installed/updated)
+│   ├── .github        # GitHub workflows
+│   ├── docs           # Project docs and decision records
+│   └── {{app_name}}   # Application code
+├── template-only-bin  # Template repo scripts
+└── template-only-docs # Template repo docs
 ```
 
 ## Installation
 
 To get started using the template application on your project:
 
-1. Run the [download and install script](./template-only-bin/download-and-install-template.sh) in your project's root directory.
-
-    ```bash
-    curl https://raw.githubusercontent.com/navapbc/template-application-nextjs/main/template-only-bin/download-and-install-template.sh | bash -s
+1. [Install the nava-platform tool](https://github.com/navapbc/platform-cli).
+2. Install template by running in your project's root:
+    ```sh
+    nava-platform app install --template-uri https://github.com/navapbc/template-application-nextjs . <APP_NAME>
     ```
-
-    This script will:
-
-    1. Clone the template repository
-    2. Copy the template files into your project directory
-    3. Remove any files specific to the template repository, like this README.
-2. [Follow the steps in `app/README.md`](./app/README.md) to set up the application locally.
-3. Optional, if using the Platform infra template: [Follow the steps in the `template-infra` README](https://github.com/navapbc/template-infra#installation) to set up the various pieces of your infrastructure.
-
-## Getting started
-
-Now that you're all set up, you're now ready to [get started](./app/README.md).
-
-## Updates
-
-There are multiple ways to receive template updates on your project. For most updates, you can simply run the [update-template.sh](./template-only-bin/update-template.sh) script
-
-```sh
-curl https://raw.githubusercontent.com/navapbc/template-application-nextjs/main/template-only-bin/update-template.sh | bash -s
-```
-
-If the update fails the simplest option may be to re-run the installation script above and manually review the changes.
-
-**Remember**: Make sure to read the release notes in case there are breaking changes you need to address.
+3. Follow the steps in `/<APP_NAME>/README.md` to set up the application locally.
+4. Optional, if using the Platform infra template: [Follow the steps in the `template-infra` README](https://github.com/navapbc/template-infra#installation) to set up the various pieces of your infrastructure.
 
 ## Learn more
 
