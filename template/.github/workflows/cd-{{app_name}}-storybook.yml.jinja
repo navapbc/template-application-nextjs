@@ -1,12 +1,23 @@
 name: Deploy Storybook
 
 on:
-  # Runs on pushes targeting the default branch
-  # !! Uncomment the lines below to enable this workflow
+  {% if app_enable_storybook_cd %}
+  push:
+    branches: ["main"]
+    paths:
+      - {{ app_name }}/**
+  {% else %}
+  # !! When you are ready to enable Storybook CD, run:
+  #
+  #   nava-platform app update --data app_enable_storybook_cd=true . <APP_NAME>
+  #
+  # to enable these lines. They are here as comments for context.
+  #
   # push:
   #   branches: ["main"]
   #   paths:
-  #     - app/**
+  #     - {{ app_name }}/**
+  {% endif %}
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -32,26 +43,26 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 20
-          cache-dependency-path: ./app/package-lock.json # or yarn.lock
+          cache-dependency-path: ./{{ app_name }}/package-lock.json # or yarn.lock
           cache: npm # or yarn
       - name: Setup Pages
         uses: actions/configure-pages@v2
         id: pages_config
       - name: Install dependencies
         run: npm ci
-        working-directory: ./app
+        working-directory: ./{{ app_name }}
       - name: Build
-        run: NEXT_PUBLIC_BASE_PATH=${{ steps.pages_config.outputs.base_path }} npm run storybook-build
-        working-directory: ./app
+        run: NEXT_PUBLIC_BASE_PATH=${{'{{'}} steps.pages_config.outputs.base_path {{'}}'}} npm run storybook-build
+        working-directory: ./{{ app_name }}
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
-          path: ./app/storybook-static
+          path: ./{{ app_name }}/storybook-static
 
   deploy:
     environment:
       name: github-pages
-      url: ${{ steps.hosting.outputs.page_url }}
+      url: ${{'{{'}} steps.hosting.outputs.page_url {{'}}'}}
     runs-on: ubuntu-latest
     needs: build
     steps:

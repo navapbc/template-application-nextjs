@@ -3,16 +3,16 @@ services:
   nextjs:
     container_name: next-dev
     build:
-      context: ./app
+      context: ./{{ app_name }}
       target: dev
     env_file:
       # Add your non-secret environment variables to this file:
-      - ./app/.env.development
+      - ./{{ app_name }}/.env.development
       # If you have secrets, add them to this file and uncomment this line:
-      # - ./app/.env.local
+      # - ./{{ app_name }}/.env.local
     volumes:
-      - ./app/src:/app/src
-      - ./app/public:/app/public
+      - ./{{ app_name }}/src:/app/src
+      - ./{{ app_name }}/public:/app/public
     restart: always
     ports:
       - 3000:3000
@@ -20,14 +20,14 @@ services:
   storybook:
     container_name: storybook
     build:
-      context: ./app
+      context: ./{{ app_name }}
       target: dev
     command: npm run storybook
     volumes:
-      - ./app/src:/app/src
-      - ./app/public:/app/public
-      - ./app/.storybook:/app/.storybook
-      - ./app/stories:/app/stories
+      - ./{{ app_name }}/src:/app/src
+      - ./{{ app_name }}/public:/app/public
+      - ./{{ app_name }}/.storybook:/app/.storybook
+      - ./{{ app_name }}/stories:/app/stories
     restart: always
     ports:
       - 6006:6006

@@ -1,0 +1,33 @@
+#
+# App vars
+#
+app_name:
+  type: str
+  help: The name of the app
+  validator: >-
+    {% if not (app_name | regex_search('^[a-z0-9\-_]+$')) %}
+    The app name can not be empty and should only contain lower case letters, digits, dashes, and underscores.
+    {% endif %}
+
+app_local_port:
+  type: int
+  help: "The port to be used in local development of '{{ app_name }}'"
+  default: 3000
+
+app_enable_storybook_cd:
+  type: bool
+  default: false
+
+_envops:
+  trim_blocks: true
+  lstrip_blocks: true
+
+# ideally we could just:
+#
+# _answers_file: .template-application-nextjs/{{app_name}}.yml
+#
+# but alas, no:
+#
+# https://github.com/copier-org/copier/issues/1868
+
+_subdirectory: template
