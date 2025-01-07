@@ -1,11 +1,11 @@
 # Local development compose file
 services:
-  nextjs:
-    container_name: next-dev
+  {{ app_name }}:
     build:
       context: .
       target: dev
     env_file:
+      - ./.env
       # Add your non-secret environment variables to this file:
       - ./.env.development
       # If you have secrets, add them to this file and uncomment this line:
@@ -15,10 +15,9 @@ services:
       - ./public:/app/public
     restart: always
     ports:
-      - 3000:3000
+      - {{ app_local_port }}:{{ app_local_port }}
 
-  storybook:
-    container_name: storybook
+  {{ app_name}}-storybook:
     build:
       context: ./
       target: dev

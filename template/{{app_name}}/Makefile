@@ -1,5 +1,7 @@
 .PHONY: release-build dev storybook stop pre-dev
 
+include Makefile.config
+
 # Docker user configuration
 # This logic is to avoid issues with permissions and mounting local volumes,
 # which should be owned by the same UID for Linux distros. Mac OS can use root,
@@ -46,12 +48,12 @@ container-npm-install: # Install NPM packages from within Docker
 	fi
 
 dev: # Run the Next.js local dev server in Docker
-	docker compose up --detach nextjs
-	docker compose logs --follow nextjs
+	docker compose up --detach $(APP_NAME)
+	docker compose logs --follow $(APP_NAME)
 
 storybook: # Run the Storybook local dev server in Docker
-	docker compose up --detach storybook
-	docker compose logs --follow storybook
+	docker compose up --detach $(APP_NAME)-storybook
+	docker compose logs --follow $(APP_NAME)-storybook
 
 stop:
 	docker compose down
