@@ -28,8 +28,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: ${{'{{'}} env.NODE_VERSION {{'}}'}}
           cache-dependency-path: ${{'{{'}} env.LOCKFILE_PATH {{'}}'}}
@@ -49,8 +49,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: ${{'{{'}} env.NODE_VERSION {{'}}'}}
           cache-dependency-path: ${{'{{'}} env.LOCKFILE_PATH {{'}}'}}
@@ -63,8 +63,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: ${{'{{'}} env.NODE_VERSION {{'}}'}}
           cache-dependency-path: ${{'{{'}} env.LOCKFILE_PATH {{'}}'}}
@@ -77,8 +77,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: ${{'{{'}} env.NODE_VERSION {{'}}'}}
           cache-dependency-path: ${{'{{'}} env.LOCKFILE_PATH {{'}}'}}
@@ -92,15 +92,15 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: ${{'{{'}} env.NODE_VERSION {{'}}'}}
           cache-dependency-path: ${{'{{'}} env.LOCKFILE_PATH {{'}}'}}
           cache: ${{'{{'}} env.PACKAGE_MANAGER {{'}}'}}
 
       # https://nextjs.org/docs/advanced-features/ci-build-caching
-      - uses: actions/cache@v3
+      - uses: actions/cache@v4
         with:
           path: |
             ~/.npm
@@ -120,8 +120,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: ${{'{{'}} env.NODE_VERSION {{'}}'}}
           cache-dependency-path: ${{'{{'}} env.LOCKFILE_PATH {{'}}'}}

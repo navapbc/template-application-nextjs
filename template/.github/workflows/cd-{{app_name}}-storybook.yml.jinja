@@ -38,15 +38,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Setup Node
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: 20
           cache-dependency-path: ./{{ app_name }}/package-lock.json # or yarn.lock
           cache: npm # or yarn
       - name: Setup Pages
-        uses: actions/configure-pages@v2
+        uses: actions/configure-pages@v5
         id: pages_config
       - name: Install dependencies
         run: npm ci
@@ -55,7 +55,7 @@ jobs:
         run: NEXT_PUBLIC_BASE_PATH=${{'{{'}} steps.pages_config.outputs.base_path {{'}}'}} npm run storybook-build
         working-directory: ./{{ app_name }}
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v1
+        uses: actions/upload-pages-artifact@v3
         with:
           path: ./{{ app_name }}/storybook-static
 
@@ -68,4 +68,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: hosting
-        uses: actions/deploy-pages@v1
+        uses: actions/deploy-pages@v4

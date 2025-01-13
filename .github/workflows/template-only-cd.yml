@@ -15,12 +15,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout template repo
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           path: template-application-nextjs
 
       - name: Checkout project repo
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           path: project-repo
           repository: navapbc/platform-test-nextjs
