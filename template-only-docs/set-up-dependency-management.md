@@ -1,8 +1,10 @@
 # Dependency Management with Renovate
 
-Out of the box this repo uses [Renovate](https://docs.renovatebot.com/) for dependency management. More information on the decision to try renovate can be found [here](../docs/decisions/template/0001-use-renovate-for-dependency-updates.md). Renovate is free and open-source and allows us to bundle dependency updates together and customize their scheduling.
+Out of the box this repo uses [Renovate](https://docs.renovatebot.com/) for dependency management. More information on the decision to try renovate can be found [here](../template-only-docs/decisions/0001-use-renovate-for-dependency-updates.md). Renovate is free and open-source and allows us to bundle dependency updates together and customize their scheduling.
 
 **Opting out of renovate**:
+
+TODO: renovate file is not installed by old scripts??
 
 If you decide you don't want to use renovate, you can delete the `renovate.json` file from the template code. If you plan to rely on [Dependabot](https://docs.github.com/en/code-security/dependabot), you'll likely want to add a `.github/dependabot.yml` file ([example here](https://github.com/navapbc/template-application-nextjs/blob/7ddb06b23524536db2e24bd43ec3ff7ec19d52bf/.github/dependabot.yml))
 
