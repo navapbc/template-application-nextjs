@@ -58,7 +58,6 @@ Cons
 
 ## Links
 
-- https://18f.gsa.gov/2021/04/05/why_simplicity_choosing_a_web_architecture
 - https://www.gov.uk/service-manual/technology/using-progressive-enhancement
 - 🔒 [PFML comparison of current static approach vs a possible server rendering approach](https://drive.google.com/file/d/1Wgpl4q3ceJGKE5uLFH3iXUhefPxJdHcw/view)
 
