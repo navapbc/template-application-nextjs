@@ -26,7 +26,7 @@ const config = {
     // https://storybook.js.org/docs/get-started/nextjs
     name: "@storybook/nextjs",
     options: {
-      nextConfigPath: path.resolve(__dirname, "../next.config.js"),
+      nextConfigPath: path.resolve(import.meta.dirname, "../next.config.js"),
       builder: {
         // lazyCompilation breaks Storybook when running from within Docker
         // Google Translate this page for context: https://zenn.dev/yutaosawa/scraps/7764e5f17173d1
