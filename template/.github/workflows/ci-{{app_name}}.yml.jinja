@@ -14,7 +14,7 @@ defaults:
     working-directory: ./{{ app_name }}
 
 env:
-  NODE_VERSION: 20
+  NODE_VERSION_FILE: ./{{ app_name }}/package.json
   LOCKFILE_PATH: ./{{ app_name }}/package-lock.json # or yarn.lock
   PACKAGE_MANAGER: npm # or yarn
 
@@ -31,7 +31,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: ${{'{{'}} env.NODE_VERSION {{'}}'}}
+          node-version-file: ${{'{{'}} env.NODE_VERSION_FILE {{'}}'}}
           cache-dependency-path: ${{'{{'}} env.LOCKFILE_PATH {{'}}'}}
           cache: ${{'{{'}} env.PACKAGE_MANAGER {{'}}'}}
       - run: npm ci
@@ -52,7 +52,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: ${{'{{'}} env.NODE_VERSION {{'}}'}}
+          node-version-file: ${{'{{'}} env.NODE_VERSION_FILE {{'}}'}}
           cache-dependency-path: ${{'{{'}} env.LOCKFILE_PATH {{'}}'}}
           cache: ${{'{{'}} env.PACKAGE_MANAGER {{'}}'}}
       - run: npm ci
@@ -66,7 +66,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: ${{'{{'}} env.NODE_VERSION {{'}}'}}
+          node-version-file: ${{'{{'}} env.NODE_VERSION_FILE {{'}}'}}
           cache-dependency-path: ${{'{{'}} env.LOCKFILE_PATH {{'}}'}}
           cache: ${{'{{'}} env.PACKAGE_MANAGER {{'}}'}}
       - run: npm ci
@@ -80,7 +80,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: ${{'{{'}} env.NODE_VERSION {{'}}'}}
+          node-version-file: ${{'{{'}} env.NODE_VERSION_FILE {{'}}'}}
           cache-dependency-path: ${{'{{'}} env.LOCKFILE_PATH {{'}}'}}
           cache: ${{'{{'}} env.PACKAGE_MANAGER {{'}}'}}
       - run: npm ci
@@ -95,7 +95,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: ${{'{{'}} env.NODE_VERSION {{'}}'}}
+          node-version-file: ${{'{{'}} env.NODE_VERSION_FILE {{'}}'}}
           cache-dependency-path: ${{'{{'}} env.LOCKFILE_PATH {{'}}'}}
           cache: ${{'{{'}} env.PACKAGE_MANAGER {{'}}'}}
 
@@ -123,7 +123,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: ${{'{{'}} env.NODE_VERSION {{'}}'}}
+          node-version-file: ${{'{{'}} env.NODE_VERSION_FILE {{'}}'}}
           cache-dependency-path: ${{'{{'}} env.LOCKFILE_PATH {{'}}'}}
           cache: ${{'{{'}} env.PACKAGE_MANAGER {{'}}'}}
       - run: npm ci
