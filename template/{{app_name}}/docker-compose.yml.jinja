@@ -21,7 +21,7 @@ services:
     build:
       context: ./
       target: dev
-    command: npm run storybook
+    command: npm run storybook -- --no-open
     volumes:
       - ./src:/app/src
       - ./public:/app/public
