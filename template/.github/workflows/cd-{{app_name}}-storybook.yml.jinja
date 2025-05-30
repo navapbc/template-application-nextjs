@@ -42,7 +42,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version-file: ./{{ app_name }}/package.json
           cache-dependency-path: ./{{ app_name }}/package-lock.json # or yarn.lock
           cache: npm # or yarn
       - name: Setup Pages

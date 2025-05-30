@@ -1,7 +1,7 @@
 # This file is largely based on the template-application-flask Dockerfile and
 # Next.js Docker example: https://github.com/vercel/next.js/blob/canary/examples/with-docker-compose
 # =============================================================================
-FROM node:20.18.1-bullseye-slim AS base
+FROM node:20.19.2-bullseye-slim AS base
 WORKDIR /app
 
 # Install dependencies
