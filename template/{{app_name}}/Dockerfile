@@ -56,7 +56,7 @@ RUN npm run build -- --no-lint
 # Run the Next.js server
 # =====================================
 # Use clean image for release, excluding any unnecessary files or dependencies
-FROM node:20.18.1-bullseye-slim AS release
+FROM node:20.19.2-bullseye-slim AS release
 WORKDIR /app
 
 RUN apt-get update \
