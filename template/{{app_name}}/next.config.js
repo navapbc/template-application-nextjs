@@ -15,7 +15,9 @@ const appSassOptions = sassOptions(basePath);
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   basePath,
-  reactStrictMode: true,
+  // Disabled due to a bug in the Truss FileInput component: 
+  // https://github.com/trussworks/react-uswds/issues/2433
+  reactStrictMode: false,
   // Output only the necessary files for a deployment, excluding irrelevant node_modules
   // https://nextjs.org/docs/app/api-reference/next-config-js/output
   output: "standalone",
