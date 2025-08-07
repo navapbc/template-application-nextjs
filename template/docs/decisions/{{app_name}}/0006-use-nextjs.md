@@ -70,7 +70,7 @@ Next.js is maintained by Vercel, a PaaS for front-end hosting company.
   - Easy to learn and use with good documentation
   - [Strong Storybook support](https://storybook.js.org/recipes/next)
   - Often one of the first to adopt new React features (e.g. Server Components, Suspense) due to their close collaboration with the React team.
-  - Supports [internationalized routing](https://nextjs.org/docs/pages/building-your-application/routing/internationalization), [middleware](https://nextjs.org/docs/pages/building-your-application/routing/middleware), and there are [community-maintained auth libraries](https://next-auth.js.org/).
+  - Supports [internationalized routing](https://nextjs.org/docs/pages/building-your-application/routing/internationalization), [middleware](https://nextjs.org/docs/app/api-reference/file-conventions/middleware), and there are [community-maintained auth libraries](https://next-auth.js.org/).
 - **Cons**
   - Very opinionated with routing which can significantly increase code complexity for non-standard routes
 
