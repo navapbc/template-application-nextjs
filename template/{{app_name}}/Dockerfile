@@ -94,9 +94,6 @@ COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
 # ARG NEXT_PUBLIC_ENV_VARIABLE
 # ENV NEXT_PUBLIC_ENV_VARIABLE=${NEXT_PUBLIC_ENV_VARIABLE}
 ENV NEXT_TELEMETRY_DISABLED 1
-ENV PORT 3000
-
-EXPOSE 3000
 
 # hadolint ignore=DL3025
 CMD HOSTNAME="0.0.0.0" node server.js

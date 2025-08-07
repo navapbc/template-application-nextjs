@@ -7,7 +7,7 @@ const sassOptions = require("./scripts/sassOptions");
  * If this is defined, you'll need to set the base path anywhere you use relative paths, like in
  * `<a>`, `<img>`, or `<Image>` tags. Next.js handles this for you automatically in `<Link>` tags.
  * @see https://nextjs.org/docs/api-reference/next.config.js/basepath
- * @example "/test" results in "localhost:3000/test" as the index page for the app
+ * @example "/test" results in "localhost:<your_port_setting>/test" as the index page for the app
  */
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH;
 const appSassOptions = sassOptions(basePath);
