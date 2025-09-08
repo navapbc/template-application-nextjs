@@ -30,7 +30,7 @@ Pros
 - Makes it easier to implement a clearer separation of concerns:
   - [Middleware](https://nextjs.org/docs/advanced-features/middleware) provide a place for enforcing auth, reading/setting secure cookies, setting HTTP headers, and redirects.
   - [Loaders](https://nextjs.org/docs/basic-features/data-fetching/get-server-side-props) provide a place for fetching all data required for rendering the page.
-- Running page logic and rendering on the server makes it possible to send lighter payloads to the client. This approach can work well for a large spectrum of device and network conditions. [You can make your server fast, but you can't control the user's device or network](https://remix.run/docs/en/v1/pages/philosophy%23serverclient-model).
+- Running page logic and rendering on the server makes it possible to send lighter payloads to the client. This approach can work well for a large spectrum of device and network conditions. [You can make your server fast, but you can't control the user's device or network](https://web.archive.org/web/20250609124726/https://remix.run/docs/en/1.19.3/pages/philosophy#serverclient-model).
 - Data fetching on the server enables accessing authenticated APIs (e.g. using TLS mutual auth to talk to fetch data from a protected third-party API).
 - Low effort to implement [dynamic routes](https://nextjs.org/docs/routing/dynamic-routes) (e.g `/claim/:claim_id`)
 - [API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) can be created to handle other types of HTTP requests (POST, PUT, etc).
