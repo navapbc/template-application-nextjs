@@ -9,17 +9,10 @@ const createJestConfig = nextJest({
 
 // Add any custom config to be passed to Jest
 const customJestConfig: Config = {
-  setupFilesAfterEnv: ["<rootDir>/tests/jest.setup.ts"],
   testEnvironment: "jsdom",
+  setupFilesAfterEnv: ["<rootDir>/tests/jest.setup.ts"],
   // if using TypeScript with a baseUrl set to the root directory then you need the below for alias' to work
   moduleDirectories: ["node_modules", "<rootDir>/"],
-  moduleNameMapper: {
-    // Force uuid to resolve with the CJS entry point ↴
-    // See https://github.com/uuidjs/uuid/issues/451
-    // This can be removed when @aws-sdk uses uuid v9+ ↴
-    // https://github.com/aws/aws-sdk-js-v3/issues/3964
-    uuid: require.resolve("uuid"),
-  },
 };
 
 export default createJestConfig(customJestConfig);
