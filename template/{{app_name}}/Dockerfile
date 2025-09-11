@@ -23,7 +23,7 @@ COPY src ./src
 COPY stories ./stories
 COPY .storybook ./.storybook
 
-ENV NEXT_TELEMETRY_DISABLED 1
+ENV NEXT_TELEMETRY_DISABLED=1
 
 CMD ["npm", "run", "dev"]
 
@@ -48,7 +48,7 @@ COPY src ./src
 # ARG NEXT_PUBLIC_ENV_VARIABLE
 # ENV NEXT_PUBLIC_ENV_VARIABLE=${NEXT_PUBLIC_ENV_VARIABLE}
 
-ENV NEXT_TELEMETRY_DISABLED 1
+ENV NEXT_TELEMETRY_DISABLED=1
 
 # Skip lint because it should have happened in the CI already
 RUN npm run build -- --no-lint
@@ -93,7 +93,10 @@ COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
 # ENV ENV_VARIABLE=${ENV_VARIABLE}
 # ARG NEXT_PUBLIC_ENV_VARIABLE
 # ENV NEXT_PUBLIC_ENV_VARIABLE=${NEXT_PUBLIC_ENV_VARIABLE}
-ENV NEXT_TELEMETRY_DISABLED 1
+ENV NEXT_TELEMETRY_DISABLED=1
 
-# hadolint ignore=DL3025
-CMD HOSTNAME="0.0.0.0" node server.js
+# Set the host to 0.0.0.0 to make the server available external to the Docker
+# container that it's running in.
+ENV HOSTNAME=0.0.0.0
+
+CMD ["node", "server.js"]
