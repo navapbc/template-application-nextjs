@@ -1,5 +1,5 @@
 // @ts-check
-import sass from "sass";
+import * as sass from "sass";
 
 /**
  * Configure Sass to load USWDS assets, and expose a Sass function for setting the

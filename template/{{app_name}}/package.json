@@ -24,13 +24,13 @@
     "ts:check": "tsc --noEmit"
   },
   "dependencies": {
-    "@trussworks/react-uswds": "^9.0.0",
-    "@uswds/uswds": "3.8.1",
+    "@trussworks/react-uswds": "^10.0.2",
+    "@uswds/uswds": "^3.13.0",
     "lodash": "^4.17.21",
     "next": "^15.1.4",
     "next-intl": "^3.2.1",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1",
     "server-only": "^0.0.1"
   },
   "devDependencies": {
@@ -46,8 +46,8 @@
     "@types/jest-axe": "^3.5.9",
     "@types/lodash": "^4.14.202",
     "@types/node": "^22.10.2",
-    "@types/react": "^18.2.42",
-    "@types/react-dom": "^18.2.17",
+    "@types/react": "^19.1.12",
+    "@types/react-dom": "^19.1.9",
     "@typescript-eslint/eslint-plugin": "^8.18.1",
     "@typescript-eslint/parser": "^8.18.1",
     "eslint": "^9.0.0",
