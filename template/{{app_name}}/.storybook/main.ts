@@ -3,8 +3,8 @@
  * Handles things like config for location of story files and managing presets (which configure webpack and babel).
  * @see https://storybook.js.org/docs/configurations/default-config/
  */
-import type { StorybookConfig } from "@storybook/nextjs";
 import * as path from "path";
+import type { StorybookConfig } from "@storybook/nextjs";
 
 // Support deploying to a subdirectory, such as GitHub Pages.
 const NEXT_PUBLIC_BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH ?? "";

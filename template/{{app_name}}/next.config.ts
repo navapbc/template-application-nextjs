@@ -1,6 +1,8 @@
-import createNextIntlPlugin from 'next-intl/plugin';
+import type { NextConfig } from "next";
+
+import createNextIntlPlugin from "next-intl/plugin";
+
 import sassOptions from "./scripts/sassOptions";
-import type { NextConfig } from 'next'
 
 /**
  * Configure the base path for the app. Useful if you're deploying to a subdirectory (like GitHub Pages).

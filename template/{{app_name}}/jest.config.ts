@@ -1,5 +1,6 @@
 // https://nextjs.org/docs/template/{{app_name}}/guides/testing
 import type { Config } from "jest";
+
 import nextJest from "next/jest.js";
 
 const createJestConfig = nextJest({
