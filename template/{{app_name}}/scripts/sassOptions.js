@@ -1,11 +1,11 @@
 // @ts-check
-const sass = require("sass");
+import sass from "sass";
 
 /**
  * Configure Sass to load USWDS assets, and expose a Sass function for setting the
  * correct relative path to image or font assets, when the site is hosted from a subdirectory.
  */
-function sassOptions(basePath = "") {
+export default function sassOptions(basePath = "") {
   return {
     includePaths: [
       "./node_modules/@uswds",
@@ -18,5 +18,3 @@ function sassOptions(basePath = "") {
     },
   };
 }
-
-module.exports = sassOptions;

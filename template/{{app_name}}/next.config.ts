@@ -1,6 +1,6 @@
-// @ts-check
-const withNextIntl = require("next-intl/plugin")("./src/i18n/server.ts");
-const sassOptions = require("./scripts/sassOptions");
+import createNextIntlPlugin from 'next-intl/plugin';
+import sassOptions from "./scripts/sassOptions";
+import type { NextConfig } from 'next'
 
 /**
  * Configure the base path for the app. Useful if you're deploying to a subdirectory (like GitHub Pages).
@@ -12,8 +12,7 @@ const sassOptions = require("./scripts/sassOptions");
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH;
 const appSassOptions = sassOptions(basePath);
 
-/** @type {import('next').NextConfig} */
-const nextConfig = {
+const nextConfig: NextConfig = {
   basePath,
   reactStrictMode: true,
   // Output only the necessary files for a deployment, excluding irrelevant node_modules
@@ -27,4 +26,5 @@ const nextConfig = {
   ],
 };
 
-module.exports = withNextIntl(nextConfig);
+const withNextIntl = createNextIntlPlugin("./src/i18n/server.ts");
+export default withNextIntl(nextConfig);

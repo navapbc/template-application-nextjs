@@ -4,11 +4,14 @@
  * This runs after `npm install`
  */
 // @ts-check
-const fs = require("fs");
-const path = require("path");
+import fs from "fs";
+import * as path from "path";
 
-const uswdsPath = path.resolve(__dirname, "../node_modules/@uswds/uswds/dist");
-const publicPath = path.resolve(__dirname, "../public/uswds");
+const uswdsPath = path.resolve(
+  import.meta.dirname,
+  "../node_modules/@uswds/uswds/dist",
+);
+const publicPath = path.resolve(import.meta.dirname, "../public/uswds");
 
 function copyDir(src, dest) {
   if (!fs.existsSync(dest)) {

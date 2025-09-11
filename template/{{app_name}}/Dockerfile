@@ -17,7 +17,7 @@ FROM base AS dev
 WORKDIR /app
 
 COPY tsconfig.json .
-COPY *.config.js .
+COPY *.config.[j,t]s .
 COPY *.d.ts .
 COPY src ./src
 COPY stories ./stories
@@ -37,7 +37,7 @@ FROM base AS builder
 WORKDIR /app
 
 COPY tsconfig.json .
-COPY *.config.js .
+COPY *.config.[j,t]s .
 COPY *.d.ts .
 COPY src ./src
 

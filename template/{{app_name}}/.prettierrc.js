@@ -1,7 +1,7 @@
 // @ts-check
 
 /** @type {import("@ianvs/prettier-plugin-sort-imports").PrettierConfig} */
-module.exports = {
+export default {
   /**
    * Sort imports so that the order is roughly:
    * - Built-in Node modules (`import ... from "fs"`)
