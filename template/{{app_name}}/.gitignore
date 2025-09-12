@@ -1,5 +1,3 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
-
 # dependencies
 /node_modules
 /.pnp
@@ -44,3 +42,7 @@ npm-debug.log*
 
 # Developer-specific IDE settings
 .vscode
+
+# Generated per-project by Next.js commands to facilitate type-checking of
+# certain things
+next-env.d.ts
