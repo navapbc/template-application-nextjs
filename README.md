@@ -61,3 +61,13 @@ To get started using the template application on your project:
 
 - [Dependency management](./template-only-docs/set-up-dependency-management.md)
 - [Deployment](./template-only-docs/set-up-cd.md)
+
+## License
+
+This project is licensed under the Apache 2.0 License. See the [LICENSE](LICENSE) file for details.
+
+## Community
+
+- [Code of Conduct](CODE_OF_CONDUCT.md)
+- [Contributing Guidelines](CONTRIBUTING.MD)
+- [Security Policy](SECURITY.md)
