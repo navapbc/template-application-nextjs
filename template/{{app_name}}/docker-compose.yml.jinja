@@ -5,7 +5,7 @@ services:
       context: .
       target: dev
     depends_on:
-      - {{ app_name }}-db
+      - {{ app_name }}-database
     env_file:
       - ./.env
       # Add your non-secret environment variables to this file:
@@ -39,7 +39,6 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.db
-    command: postgres -c "log_lock_waits=on" -N 1000 -c "fsync=off"
     environment:
       POSTGRES_PASSWORD: secret123
       POSTGRES_USER: app
