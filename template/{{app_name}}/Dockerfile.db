@@ -1,0 +1,6 @@
+FROM postgres:latest
+
+RUN rm -rf /var/lib/postgresql/data
+COPY ./schema.sql /docker-entrypoint-initdb.d/
+
+EXPOSE 5432

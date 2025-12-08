@@ -12,6 +12,13 @@ Bug reports are welcome, as they make Strata better for everyone who uses it. Cr
 
 If the issue is related to security, please email us directly at strata@navapbc.com
 
+## Testing Changes
+
+To test your changes, run the `nava-platform` tool with the `--version` argument where the version is the branch containing your changes. For example
+```
+nava-platform app install --template-uri https://github.com/navapbc/template-application-nextjs --version <MY BRANCH NAME> . <MY TEST APP NAME>
+```
+
 ## Getting Started
 
 To contribute, create a pull request on GitHub with:

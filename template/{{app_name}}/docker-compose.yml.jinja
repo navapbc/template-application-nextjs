@@ -4,6 +4,8 @@ services:
     build:
       context: .
       target: dev
+    depends_on:
+      - {{ app_name }}-database
     env_file:
       - ./.env
       # Add your non-secret environment variables to this file:
@@ -16,6 +18,8 @@ services:
     restart: always
     ports:
       - {{ app_local_port }}:{{ app_local_port }}
+    networks:
+      - {{ app_name }}-network
 
   {{ app_name}}-storybook:
     build:
@@ -30,3 +34,28 @@ services:
     restart: always
     ports:
       - 6006:6006
+
+  {{ app_name }}-database:
+    build:
+      context: .
+      dockerfile: Dockerfile.db
+    environment:
+      POSTGRES_PASSWORD: secret123
+      POSTGRES_USER: app
+    healthcheck:
+      test: "pg_isready --username=app"
+      timeout: 10s
+      retries: 20
+    ports:
+      - "5432:5432"
+    volumes:
+      - {{ app_name }}-database_data:/var/lib/postgresql/data
+    networks:
+      - {{ app_name }}-network
+
+volumes:
+  {{ app_name }}-database_data:
+
+networks:
+  {{ app_name }}-network:
+    driver: bridge
