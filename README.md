@@ -1,5 +1,5 @@
 <p>
-  <img src="template/docs/assets/Nava-Strata-Logo-V02.svg" alt="Nava Strata" width="400">
+  <img src="template-only-docs/assets/Nava-Strata-Logo-V02.svg" alt="Nava Strata" width="400">
 </p>
 <p><i>Open source tools for every layer of government service delivery.</i></p>
 <p><b>Strata is a gold-standard target architecture and suite of open-source tools that gives government agencies everything they need to run a modern service.</b></p>
@@ -69,5 +69,5 @@ This project is licensed under the Apache 2.0 License. See the [LICENSE](LICENSE
 ## Community
 
 - [Code of Conduct](CODE_OF_CONDUCT.md)
-- [Contributing Guidelines](CONTRIBUTING.MD)
+- [Contributing Guidelines](CONTRIBUTING.md)
 - [Security Policy](SECURITY.md)
