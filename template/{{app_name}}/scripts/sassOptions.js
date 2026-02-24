@@ -1,5 +1,5 @@
 // @ts-check
-import * as sass from "sass";
+import * as sass from "sass-embedded";
 
 /**
  * Configure Sass to load USWDS assets, and expose a Sass function for setting the
@@ -7,6 +7,7 @@ import * as sass from "sass";
  */
 export default function sassOptions(basePath = "") {
   return {
+    implementation: "sass-embedded",
     includePaths: [
       "./node_modules/@uswds",
       "./node_modules/@uswds/uswds/packages",

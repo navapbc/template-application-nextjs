@@ -34,7 +34,7 @@
     },
     {
       "description": ["Group CSS-related packages together"],
-      "matchPackagePatterns": ["postcss", "sass"],
+      "matchPackagePatterns": ["postcss", "sass-embedded"],
       "groupName": "Styling"
     },
     {
