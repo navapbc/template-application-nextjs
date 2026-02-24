@@ -35,9 +35,9 @@
   },
   "devDependencies": {
     "@ianvs/prettier-plugin-sort-imports": "^4.0.2",
-    "@storybook/addon-essentials": "^8.0.0",
-    "@storybook/nextjs": "^8.0.0",
-    "@storybook/react": "^8.0.0",
+    "@storybook/addon-docs": "^10.2.12",
+    "@storybook/nextjs-vite": "^10.2.12",
+    "@storybook/react": "^10.2.12",
     "@testing-library/dom": "^10.0.0",
     "@testing-library/jest-dom": "^6.8.0",
     "@testing-library/react": "^16.0.0",
@@ -55,7 +55,7 @@
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-jest": "^29.0.1",
     "eslint-plugin-jest-dom": "^5.5.0",
-    "eslint-plugin-storybook": "^0.12.0",
+    "eslint-plugin-storybook": "^10.2.12",
     "eslint-plugin-testing-library": "^7.0.0",
     "eslint-plugin-you-dont-need-lodash-underscore": "^6.13.0",
     "jest": "^30.1.3",
@@ -68,9 +68,10 @@
     "prettier": "^3.4.2",
     "sass": "^1.77.0",
     "sass-loader": "^16.0.0",
-    "storybook": "^8.6.14",
+    "storybook": "^10.2.12",
     "style-loader": "^4.0.0",
     "ts-node": "^10.9.2",
-    "typescript": "^5.0.0"
+    "typescript": "^5.0.0",
+    "vite": "^7.3.1"
   }
 }

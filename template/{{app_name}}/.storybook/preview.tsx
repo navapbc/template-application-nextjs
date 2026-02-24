@@ -53,7 +53,7 @@ const preview: Preview = {
       defaultValue: defaultLocale,
       toolbar: {
         icon: "globe",
-        items: locales,
+        items: [...locales],
       },
     },
   },
